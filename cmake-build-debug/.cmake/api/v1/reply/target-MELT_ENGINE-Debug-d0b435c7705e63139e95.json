@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "MM"
+			"path" : "MELT_ENGINE"
 		}
 	],
 	"backtrace" : 1,
@@ -53,7 +53,7 @@
 			]
 		}
 	],
-	"id" : "MM::@6890427a1f51a3e7e1df",
+	"id" : "MELT_ENGINE::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -69,8 +69,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "MM",
-	"nameOnDisk" : "MM",
+	"name" : "MELT_ENGINE",
+	"nameOnDisk" : "MELT_ENGINE",
 	"paths" : 
 	{
 		"build" : ".",
