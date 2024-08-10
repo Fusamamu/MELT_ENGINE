@@ -417,4 +417,5 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/backends/im
   /usr/local/include/SDL2/SDL_version.h \
   /usr/local/include/SDL2/SDL_locale.h \
   /usr/local/include/SDL2/SDL_misc.h \
-  /Library/Frameworks/SDL2.framework/Headers/SDL_syswm.h
+  /Library/Frameworks/SDL2.framework/Headers/SDL_syswm.h \
+  /Library/Frameworks/SDL2.framework/Headers/SDL_vulkan.h

@@ -13,6 +13,8 @@ namespace MELT_EDITOR
         ImGuiIO& io = ImGui::GetIO(); (void)io;
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
         io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;
+        io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+        //io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 
         ImGui::StyleColorsDark();
 
@@ -23,7 +25,7 @@ namespace MELT_EDITOR
 
         Engine->UpdateEditorInput = std::bind(&Editor::UpdateInput, this, std::placeholders::_1);
         Engine->UpdateEditor      = std::bind(&Editor::Update     , this);
-    }   
+    }
 
     Editor::~Editor()
     {
@@ -44,6 +46,62 @@ namespace MELT_EDITOR
         ImGui_ImplSDL2_NewFrame();
         ImGui::NewFrame();
 
+        // Create a global menu bar
+        if (ImGui::BeginMainMenuBar())
+        {
+            if (ImGui::BeginMenu("File"))
+            {
+                if (ImGui::MenuItem("Open", "Ctrl+O"))
+                {
+                    // Handle "Open" action
+                }
+                if (ImGui::MenuItem("Save", "Ctrl+S"))
+                {
+                    // Handle "Save" action
+                }
+                ImGui::EndMenu();
+            }
+
+            if (ImGui::BeginMenu("Edit"))
+            {
+                if (ImGui::MenuItem("Undo", "Ctrl+Z"))
+                {
+                    // Handle "Undo" action
+                }
+                if (ImGui::MenuItem("Redo", "Ctrl+Y"))
+                {
+                    // Handle "Redo" action
+                }
+                ImGui::EndMenu();
+            }
+
+            if (ImGui::BeginMenu("Help"))
+            {
+                if (ImGui::MenuItem("About"))
+                {
+                    // Handle "About" action
+                }
+                ImGui::EndMenu();
+            }
+
+            ImGui::EndMainMenuBar();
+        }
+
+        ImGui::DockSpaceOverViewport(0, ImGui::GetMainViewport());
+
+        if (ImGui::Begin("Window 1"))
+        {
+            ImGui::Text("This is window 1");
+        }
+        ImGui::End();
+
+        if (ImGui::Begin("Window 2"))
+        {
+            ImGui::Text("This is window 2");
+        }
+        ImGui::End();
+
+
         ImGui::ShowDemoWindow(); // Show demo window! :)
 
         ImGui::Render();
@@ -53,5 +111,12 @@ namespace MELT_EDITOR
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+        ImGuiIO& io = ImGui::GetIO(); (void)io;
+        if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+        {
+            ImGui::UpdatePlatformWindows();
+            ImGui::RenderPlatformWindowsDefault();
+        }
     }
 }

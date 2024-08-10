@@ -1,22 +1,20 @@
 #include <iostream>
+#include <functional>
 #include <GL/glew.h>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
-#include <functional>
-//#include "imgui.h"
-//#include "imgui_impl_sdl2.h"
-//#include "imgui_impl_opengl3.h"
 
+#include "Shader.h"
 
 namespace MELT
 {
     class Engine
     {
     public:
-        std::function<void(void)> UpdateEngine;
-
+        std::function<void(void)>      UpdateEngine;
         std::function<void(SDL_Event)> UpdateEditorInput;
-        std::function<void(void)> UpdateEditor;
+        std::function<void(void)>      UpdateEditor;
+
         Engine();
         ~Engine();
 

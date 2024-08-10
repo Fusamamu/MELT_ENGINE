@@ -77,6 +77,15 @@
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/MeltEngine.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Quad.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Shader.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Vertex.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
