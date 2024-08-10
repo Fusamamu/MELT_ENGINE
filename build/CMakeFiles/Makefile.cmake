@@ -10,6 +10,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config-version.cmake"
   "/Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config.cmake"
   "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/CMakeLists.txt"
+  "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/CMakeLists.txt"
   "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/CMakeLists.txt"
   "CMakeFiles/3.28.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.28.3/CMakeCXXCompiler.cmake"
@@ -59,10 +60,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "MeltEngineLib/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "MeltEngineEditorLib/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/MELT_ENGINE.dir/DependInfo.cmake"
   "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/DependInfo.cmake"
+  "MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/DependInfo.cmake"
   )

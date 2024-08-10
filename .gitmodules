@@ -1,3 +1,6 @@
 [submodule "MeltEngineLib/vendors/imgui"]
 	path = MeltEngineLib/vendors/imgui
 	url = https://github.com/ocornut/imgui.git
+[submodule "MeltEngineEditorLib/vendors/imgui"]
+	path = MeltEngineEditorLib/vendors/imgui
+	url = https://github.com/ocornut/imgui.git

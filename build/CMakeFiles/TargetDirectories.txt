@@ -4,3 +4,6 @@
 /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir
 /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/edit_cache.dir
 /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/rebuild_cache.dir
+/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir
+/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineEditorLib/CMakeFiles/edit_cache.dir
+/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineEditorLib/CMakeFiles/rebuild_cache.dir

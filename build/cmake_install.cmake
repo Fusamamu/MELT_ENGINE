@@ -40,6 +40,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/cmake_install.cmake")
+  include("/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineEditorLib/cmake_install.cmake")
 
 endif()
 

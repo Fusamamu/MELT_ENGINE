@@ -241,6 +241,15 @@ MELT_ENGINE_IS_TOP_LEVEL:STATIC=ON
 MELT_ENGINE_SOURCE_DIR:STATIC=/Users/pengaki/Desktop/Game Engine/MELT_ENGINE
 
 //Value Computed by CMake
+MeltEngineEditorLib_BINARY_DIR:STATIC=/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineEditorLib
+
+//Value Computed by CMake
+MeltEngineEditorLib_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+MeltEngineEditorLib_SOURCE_DIR:STATIC=/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib
+
+//Value Computed by CMake
 MeltEngineLib_BINARY_DIR:STATIC=/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib
 
 //Value Computed by CMake
@@ -363,7 +372,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

@@ -1,0 +1,138 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "MeltEngineLib",
+					"jsonFile" : "directory-MeltEngineLib-Debug-99bbe2475dc4ac907d04.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "MeltEngineLib",
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"build" : "MeltEngineEditorLib",
+					"jsonFile" : "directory-MeltEngineEditorLib-Debug-9ab0a0c4e27c501f5f9a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.27"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "MeltEngineEditorLib",
+					"targetIndexes" : 
+					[
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "MELT_ENGINE",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "MeltEngineLib",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "MeltEngineEditorLib",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "MELT_ENGINE::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MELT_ENGINE-Debug-e690884620b9125e0b11.json",
+					"name" : "MELT_ENGINE",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "MeltEngineEditorLib::@9246d5d2345499881ca5",
+					"jsonFile" : "target-MeltEngineEditorLib-Debug-c4b18efe2ea58144acd0.json",
+					"name" : "MeltEngineEditorLib",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "MeltEngineLib::@078894b7bdc11508b9bc",
+					"jsonFile" : "target-MeltEngineLib-Debug-a600baf0b34d67c26ab6.json",
+					"name" : "MeltEngineLib",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug",
+		"source" : "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

@@ -65,16 +65,34 @@ CMAKE_BINARY_DIR = "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build"
 # The main recursive "all" target.
 all: CMakeFiles/MELT_ENGINE.dir/all
 all: MeltEngineLib/all
+all: MeltEngineEditorLib/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: MeltEngineLib/preinstall
+preinstall: MeltEngineEditorLib/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/MELT_ENGINE.dir/clean
 clean: MeltEngineLib/clean
+clean: MeltEngineEditorLib/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory MeltEngineEditorLib
+
+# Recursive "all" directory target.
+MeltEngineEditorLib/all: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/all
+.PHONY : MeltEngineEditorLib/all
+
+# Recursive "preinstall" directory target.
+MeltEngineEditorLib/preinstall:
+.PHONY : MeltEngineEditorLib/preinstall
+
+# Recursive "clean" directory target.
+MeltEngineEditorLib/clean: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/clean
+.PHONY : MeltEngineEditorLib/clean
 
 #=============================================================================
 # Directory level rules for directory MeltEngineLib
@@ -96,6 +114,7 @@ MeltEngineLib/clean: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/clean
 
 # All Build rule for target.
 CMakeFiles/MELT_ENGINE.dir/all: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all
+CMakeFiles/MELT_ENGINE.dir/all: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MELT_ENGINE.dir/build.make CMakeFiles/MELT_ENGINE.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MELT_ENGINE.dir/build.make CMakeFiles/MELT_ENGINE.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=1,2 "Built target MELT_ENGINE"
@@ -103,7 +122,7 @@ CMakeFiles/MELT_ENGINE.dir/all: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/MELT_ENGINE.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 4
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 13
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MELT_ENGINE.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 0
 .PHONY : CMakeFiles/MELT_ENGINE.dir/rule
@@ -124,7 +143,7 @@ CMakeFiles/MELT_ENGINE.dir/clean:
 MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all:
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/depend
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=3,4 "Built target MeltEngineLib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=12,13 "Built target MeltEngineLib"
 .PHONY : MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all
 
 # Build rule for subdir invocation for target.
@@ -142,6 +161,32 @@ MeltEngineLib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/rule
 MeltEngineLib/CMakeFiles/MeltEngineLib.dir/clean:
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/clean
 .PHONY : MeltEngineLib/CMakeFiles/MeltEngineLib.dir/clean
+
+#=============================================================================
+# Target rules for target MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir
+
+# All Build rule for target.
+MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/all: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all
+	$(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/depend
+	$(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=3,4,5,6,7,8,9,10,11 "Built target MeltEngineEditorLib"
+.PHONY : MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/all
+
+# Build rule for subdir invocation for target.
+MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 11
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 0
+.PHONY : MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/rule
+
+# Convenience name for target.
+MeltEngineEditorLib: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/rule
+.PHONY : MeltEngineEditorLib
+
+# clean rule for target.
+MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/clean:
+	$(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/clean
+.PHONY : MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

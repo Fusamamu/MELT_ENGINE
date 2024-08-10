@@ -93,6 +93,8 @@ MELT_ENGINE_EXTERNAL_OBJECTS =
 MELT_ENGINE: CMakeFiles/MELT_ENGINE.dir/main.cpp.o
 MELT_ENGINE: CMakeFiles/MELT_ENGINE.dir/build.make
 MELT_ENGINE: MeltEngineLib/libMeltEngineLib.a
+MELT_ENGINE: MeltEngineEditorLib/libMeltEngineEditorLib.a
+MELT_ENGINE: MeltEngineLib/libMeltEngineLib.a
 MELT_ENGINE: /Library/Frameworks/SDL2.framework/Versions/A/SDL2
 MELT_ENGINE: /usr/local/lib/libGLEW.2.2.0.dylib
 MELT_ENGINE: CMakeFiles/MELT_ENGINE.dir/link.txt

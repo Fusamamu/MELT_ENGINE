@@ -142,6 +142,19 @@ MeltEngineLib/fast:
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build
 .PHONY : MeltEngineLib/fast
 
+#=============================================================================
+# Target rules for targets named MeltEngineEditorLib
+
+# Build rule for target.
+MeltEngineEditorLib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MeltEngineEditorLib
+.PHONY : MeltEngineEditorLib
+
+# fast build rule for target.
+MeltEngineEditorLib/fast:
+	$(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build
+.PHONY : MeltEngineEditorLib/fast
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -175,6 +188,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MELT_ENGINE"
+	@echo "... MeltEngineEditorLib"
 	@echo "... MeltEngineLib"
 	@echo "... main.o"
 	@echo "... main.i"
