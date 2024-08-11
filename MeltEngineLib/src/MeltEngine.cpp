@@ -5,6 +5,7 @@ namespace MELT
     Engine::Engine():
         m_IsRunning(true),
         m_Window(nullptr)
+        //m_BasicShader(Shader("../MeltEngineLib/res/shaders/Basic.shader"))
     {
         if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0)
         {
@@ -26,7 +27,7 @@ namespace MELT
         SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
         SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
 
-        SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
+        auto window_flags = (SDL_WindowFlags)(SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
         m_Window = SDL_CreateWindow(
                 "MELT (V1.1)",
                 SDL_WINDOWPOS_CENTERED,
@@ -61,13 +62,28 @@ namespace MELT
             SDL_Quit();
             return;
         }
+
+        m_Quad = new Quad();
+
+        m_BasicShader = new Shader("../MeltEngineLib/res/shaders/Basic.shader");
+
+        glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (0.0f, 0.0f, 0.0f));
+        glm::mat4 _view  = glm::lookAt(
+                    glm::vec3(0.0f, 0.0f, 3.0f),
+                    glm::vec3(0.0f, 0.0f, 0.0f),
+                    glm::vec3(0.0f, 1.0f, 0.0f)
+                );
+
+        glm::mat4 _projection = glm::ortho(0.0f, 800.0f, 0.0f, 600.0f, 0.1f, 100.0f);
+
+        m_BasicShader->Use();
+        m_BasicShader->SetMat4UniformModel     (_model);
+        m_BasicShader->SetMat4UniformView      (_view);
+        m_BasicShader->SetMat4UniformProjection(_projection);
     }
 
-    Engine::~Engine()
-    {
-        
-    }
-   
+    Engine::~Engine() = default;
+
     void Engine::Init()
     {
 
@@ -93,9 +109,15 @@ namespace MELT
                 }
             }
 
+            glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+
+            m_Quad->Draw();
 #ifdef M_EDITOR
             UpdateEditor();
 #endif
+
             SDL_GL_SwapWindow(m_Window);
         }
     }

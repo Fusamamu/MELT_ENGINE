@@ -4,6 +4,9 @@
 #include <fstream>
 #include <sstream>
 #include <GL/glew.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 namespace MELT
 {
@@ -19,10 +22,14 @@ namespace MELT
     public:
         GLuint ID;
 
-        Shader(const std::string& _filePath);
+        explicit Shader(const std::string& _filePath);
         ~Shader();
 
         void Use();
+
+        void SetMat4UniformModel     (glm::mat4 _model);
+        void SetMat4UniformView      (glm::mat4 _view);
+        void SetMat4UniformProjection(glm::mat4 _projection);
 
         friend std::ostream& operator<<(std::ostream& _os, Shader& _shader)
         {
@@ -38,6 +45,10 @@ namespace MELT
     private:
         std::string m_VertexSrc;
         std::string m_FragmentSrc;
+
+        GLint m_UniformLoc_Model;
+        GLint m_UniformLoc_View;
+        GLint m_UniformLoc_Projection;
 
         GLuint CreateShader(const std::string& _vertexSrc, const std::string& _fragmentSrc);
         GLuint CompileShader(GLenum _shaderType, const std::string& _shaderSrc);

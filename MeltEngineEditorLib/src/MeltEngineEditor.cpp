@@ -101,17 +101,30 @@ namespace MELT_EDITOR
         }
         ImGui::End();
 
-
         ImGui::ShowDemoWindow(); // Show demo window! :)
 
+        if (ImGui::Begin("SCENE VIEW"))
+        {
+            const float window_width  = ImGui::GetContentRegionAvail().x;
+            const float window_height = ImGui::GetContentRegionAvail().y;
+
+            //rescale_framebuffer(window_width, window_height);
+            glViewport(0, 0, 800, 600);
+
+            ImVec2 pos = ImGui::GetCursorScreenPos();
+
+            ImGui::GetWindowDrawList()->AddImage(
+                    (void*)Engine->m_Quad->TextureID,
+                    ImVec2(pos.x, pos.y),
+                    ImVec2(pos.x + window_width, pos.y + window_height),
+                    ImVec2(0, 1),
+                    ImVec2(1, 0)
+            );
+        }
+        ImGui::End();
         ImGui::Render();
 
-        //Need to goto engine not here
-        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
         ImGuiIO& io = ImGui::GetIO(); (void)io;
         if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
         {

@@ -41,6 +41,10 @@ namespace MELT
         _inputFile.close();
 
         ID = CreateShader(m_VertexSrc, m_FragmentSrc);
+
+        m_UniformLoc_Model      = glGetUniformLocation(ID, "model");
+        m_UniformLoc_View       = glGetUniformLocation(ID, "view");
+        m_UniformLoc_Projection = glGetUniformLocation(ID, "projection");
     }
 
     Shader::~Shader()
@@ -51,6 +55,21 @@ namespace MELT
     void Shader::Use()
     {
         glUseProgram(ID);
+    }
+
+    void Shader::SetMat4UniformModel(glm::mat4 _model)
+    {
+        glUniformMatrix4fv(m_UniformLoc_Model, 1, GL_FALSE, glm::value_ptr(_model));
+    }
+
+    void Shader::SetMat4UniformView(glm::mat4 _view)
+    {
+        glUniformMatrix4fv(m_UniformLoc_View, 1, GL_FALSE, glm::value_ptr(_view));
+    }
+
+    void Shader::SetMat4UniformProjection(glm::mat4 _projection)
+    {
+        glUniformMatrix4fv(m_UniformLoc_Projection, 1, GL_FALSE, glm::value_ptr(_projection));
     }
 
     GLuint Shader::CreateShader(const std::string& _vertexSrc, const std::string& _fragmentSrc)

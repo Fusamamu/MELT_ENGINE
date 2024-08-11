@@ -2,4 +2,13 @@
 
 namespace MELT
 {
+    Vertex::Vertex()
+    {
+
+    }
+
+    Vertex::~Vertex()
+    {
+
+    }
 }
