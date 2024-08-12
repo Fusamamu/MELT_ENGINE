@@ -32,8 +32,8 @@ namespace MELT
                 "MELT (V1.1)",
                 SDL_WINDOWPOS_CENTERED,
                 SDL_WINDOWPOS_CENTERED,
-                1280,
-                720,
+                800,
+                600,
                 window_flags);
 
         if(!m_Window)
@@ -65,7 +65,7 @@ namespace MELT
 
         m_Quad = new Quad();
 
-        m_BasicShader = new Shader("../MeltEngineLib/res/shaders/Basic.shader");
+        m_BasicShader = new Shader("../MeltEngineLib/res/shaders/2DGrid.shader");
 
         glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (0.0f, 0.0f, 0.0f));
         glm::mat4 _view  = glm::lookAt(
@@ -102,10 +102,22 @@ namespace MELT
                     case SDL_QUIT:
                         m_IsRunning = false;
                         break;
+                    case SDL_WINDOWEVENT:
+                        if(m_Event.window.event == SDL_WINDOWEVENT_RESIZED)
+                        {
+                            GLsizei _width  = m_Event.window.data1;
+                            GLsizei _height = m_Event.window.data2;
+
+                            std::cout << "SDL WINDOW : " << _width << " , " << _height << std::endl;
+
+                            m_Quad->RescaleFrameBuffer(2 * _width, 2 * _height);
+                        }
+                        break;
                     case SDL_KEYDOWN:
                         if(m_Event.key.keysym.sym == SDLK_ESCAPE)
                             m_IsRunning = false;
                         break;
+
                 }
             }
 

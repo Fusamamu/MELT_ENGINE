@@ -108,9 +108,6 @@ namespace MELT_EDITOR
             const float window_width  = ImGui::GetContentRegionAvail().x;
             const float window_height = ImGui::GetContentRegionAvail().y;
 
-            //rescale_framebuffer(window_width, window_height);
-            glViewport(0, 0, 800, 600);
-
             ImVec2 pos = ImGui::GetCursorScreenPos();
 
             ImGui::GetWindowDrawList()->AddImage(

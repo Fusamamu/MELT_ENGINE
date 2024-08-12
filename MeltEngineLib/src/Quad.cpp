@@ -4,10 +4,10 @@ namespace MELT
 {
     Quad::Quad()
     {
-        m_Vertices[0].position = glm::vec3( 0.5f,  0.5f, 0.0f);
-        m_Vertices[1].position = glm::vec3( 0.5f, -0.5f, 0.0f);
-        m_Vertices[2].position = glm::vec3(-0.5f, -0.5f, 0.0f);
-        m_Vertices[3].position = glm::vec3(-0.5f,  0.5f, 0.0f);
+        m_Vertices[0].position = glm::vec3( 1.0f,  1.0f, 0.0f);
+        m_Vertices[1].position = glm::vec3( 1.0f, -1.0f, 0.0f);
+        m_Vertices[2].position = glm::vec3(-1.0f, -1.0f, 0.0f);
+        m_Vertices[3].position = glm::vec3(-1.0f,  1.0f, 0.0f);
 
         m_Vertices[0].color = glm::vec3(1.0f, 1.0f, 1.0f);
         m_Vertices[1].color = glm::vec3(1.0f, 1.0f, 1.0f);
@@ -46,8 +46,8 @@ namespace MELT
 
         glBindVertexArray(0);
 
-        GLsizei _width = 800;
-        GLsizei _height = 600;
+        GLsizei _width  = 1600;
+        GLsizei _height = 1200;
 
         glGenFramebuffers(1, &FBO);
         glBindFramebuffer(GL_FRAMEBUFFER, FBO);
@@ -84,9 +84,30 @@ namespace MELT
     void Quad::Draw()
     {
         glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+
+        glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
         glBindVertexArray(0);
+
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    }
+
+    //Not used
+    void Quad::RescaleFrameBuffer(const GLsizei&_w, const GLsizei &_h)
+    {
+        std::cout << _w << " , " << _h << std::endl;
+
+        glBindTexture(GL_TEXTURE_2D, TextureID);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, _w, _h, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, TextureID, 0);
+
+        glBindRenderbuffer(GL_RENDERBUFFER, RBO);
+        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, _w, _h);
+        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, RBO);
     }
 }

@@ -15,6 +15,7 @@ namespace MELT
         ~Quad();
 
         void Draw();
+        void RescaleFrameBuffer(const GLsizei& _w, const GLsizei& _h);
 
     private:
         GLuint VAO;
