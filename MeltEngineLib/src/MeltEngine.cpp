@@ -5,7 +5,7 @@ namespace MELT
     Engine::Engine():
         m_IsRunning(true),
         m_Window(nullptr)
-        //m_BasicShader(Shader("../MeltEngineLib/res/shaders/Basic.shader"))
+        //m_2DGridShader(Shader("../MeltEngineLib/res/shaders/Basic.shader"))
     {
         if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0)
         {
@@ -65,7 +65,8 @@ namespace MELT
 
         m_Quad = new Quad();
 
-        m_BasicShader = new Shader("../MeltEngineLib/res/shaders/2DGrid.shader");
+        m_BasicShader  = new Shader("../MeltEngineLib/res/shaders/Basic.shader");
+        m_2DGridShader = new Shader("../MeltEngineLib/res/shaders/2DGrid.shader");
 
         glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (0.0f, 0.0f, 0.0f));
         glm::mat4 _view  = glm::lookAt(
@@ -76,10 +77,11 @@ namespace MELT
 
         glm::mat4 _projection = glm::ortho(0.0f, 800.0f, 0.0f, 600.0f, 0.1f, 100.0f);
 
-        m_BasicShader->Use();
-        m_BasicShader->SetMat4UniformModel     (_model);
-        m_BasicShader->SetMat4UniformView      (_view);
-        m_BasicShader->SetMat4UniformProjection(_projection);
+        m_2DGridShader->Use();
+        m_2DGridShader->SetMat4UniformModel     (_model);
+        m_2DGridShader->SetMat4UniformView      (_view);
+        m_2DGridShader->SetMat4UniformProjection(_projection);
+        m_2DGridShader->SetVec2UniformScreenSize(glm::vec2(800, 600));
     }
 
     Engine::~Engine() = default;
@@ -91,6 +93,10 @@ namespace MELT
 
     void Engine::Update()
     {
+        bool isDragging = false;
+        int initialMouseX, initialMouseY;
+        int currentMouseX, currentMouseY;
+
         glEnable(GL_DEPTH_TEST);
         while(m_IsRunning)
         {
@@ -111,6 +117,9 @@ namespace MELT
                             std::cout << "SDL WINDOW : " << _width << " , " << _height << std::endl;
 
                             m_Quad->RescaleFrameBuffer(2 * _width, 2 * _height);
+
+                            m_2DGridShader->Use();
+                            m_2DGridShader->SetVec2UniformScreenSize(glm::vec2(_width, _height));
                         }
                         break;
                     case SDL_KEYDOWN:
@@ -118,6 +127,37 @@ namespace MELT
                             m_IsRunning = false;
                         break;
 
+                    case SDL_MOUSEBUTTONDOWN:
+                        if (m_Event.button.button == SDL_BUTTON_LEFT) {
+                            // Start dragging
+                            isDragging = true;
+                            SDL_GetMouseState(&initialMouseX, &initialMouseY);
+                        }
+                        break;
+
+                    case SDL_MOUSEBUTTONUP:
+                        if (m_Event.button.button == SDL_BUTTON_LEFT) {
+                            // Stop dragging
+                            isDragging = false;
+                        }
+                        break;
+
+                    case SDL_MOUSEMOTION:
+                        if (isDragging) {
+                            // Update current mouse position
+                            SDL_GetMouseState(&currentMouseX, &currentMouseY);
+
+                            // Calculate the drag offset
+                            int offsetX = currentMouseX - initialMouseX;
+                            int offsetY = currentMouseY - initialMouseY;
+
+                            // Handle the offset as needed
+                            // For example, move an object, scroll a view, etc.
+
+                            m_2DGridShader->Use();
+                            m_2DGridShader->SetVec2UniformOrigin(glm::vec2(offsetX, offsetY));
+                        }
+                        break;
                 }
             }
 

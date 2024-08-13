@@ -45,6 +45,8 @@ namespace MELT
         m_UniformLoc_Model      = glGetUniformLocation(ID, "model");
         m_UniformLoc_View       = glGetUniformLocation(ID, "view");
         m_UniformLoc_Projection = glGetUniformLocation(ID, "projection");
+        m_UniformLoc_ScreenSize = glGetUniformLocation(ID, "screenSize");
+        m_UniformLoc_Origin     = glGetUniformLocation(ID, "origin");
     }
 
     Shader::~Shader()
@@ -70,6 +72,16 @@ namespace MELT
     void Shader::SetMat4UniformProjection(glm::mat4 _projection)
     {
         glUniformMatrix4fv(m_UniformLoc_Projection, 1, GL_FALSE, glm::value_ptr(_projection));
+    }
+
+    void Shader::SetVec2UniformScreenSize(glm::vec2 _screenSize)
+    {
+        glUniform2f(m_UniformLoc_ScreenSize, _screenSize.x, _screenSize.y);
+    }
+
+    void Shader::SetVec2UniformOrigin(glm::vec2 _origin)
+    {
+        glUniform2f(m_UniformLoc_Origin, _origin.x, _origin.y);
     }
 
     GLuint Shader::CreateShader(const std::string& _vertexSrc, const std::string& _fragmentSrc)

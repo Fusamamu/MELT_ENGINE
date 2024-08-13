@@ -34,6 +34,7 @@ namespace MELT
         SDL_GLContext m_GLContext;
         SDL_Event     m_Event;
 
+        Shader* m_2DGridShader;
         Shader* m_BasicShader;
     };
 }

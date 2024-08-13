@@ -8,11 +8,18 @@ uniform mat4 proj;
 uniform mat4 view;
 uniform mat4 model;
 
+uniform vec2 screenSize;
+uniform vec2 origin;
+
 out vec3 FragPos;
+out vec2 ScreenSize;
+out vec2 Origin;
 
 void main()
 {
-    FragPos = position;
+    FragPos     = position;
+    ScreenSize  = screenSize;
+    Origin      = origin;
     gl_Position = vec4(position.x, position.y, position.z, 1.0);
 }
 
@@ -21,6 +28,8 @@ void main()
 layout(location = 0) out vec4 color;
 
 in vec3 FragPos;
+in vec2 ScreenSize;
+in vec2 Origin;
 
 float remap(float x, float oldMin, float oldMax, float newMin, float newMax)
 {
@@ -32,32 +41,30 @@ void main()
     vec4 _white = vec4(1.0, 1.0, 1.0, 1.0);
     vec4 _black = vec4(0.0, 0.0, 0.0, 0.0);
 
-//     float _x = mod(FragPos.x, 1.0);
-//     float _y = mod(FragPos.y, 0.1);
-//
-//     float _remapX = remap(FragPos.x, -1.0, 1.0, 0.0, 800.0);
-//     float _remapY = remap(FragPos.y, -1.0, 1.0, 0.0, 600.0);
-//
-//     vec3 _r = vec3(mod(_remapX, 50.0));
+    float _screenWidth  = ScreenSize.x;
+    float _screenHeight = ScreenSize.y;
+
+    float _cellSize = 50;
 
 
- // Scale factor to determine the size of the checkerboard squares
-    float scale = 10.0;
-
-    // Determine the position in the checkerboard grid
-    float checkerX = mod(floor(FragPos.x * scale), 2.0);
-    float checkerY = mod(floor(FragPos.y * scale), 2.0);
-
-    // Calculate whether the fragment is on a black or white square
-    float checker = mod(checkerX + checkerY, 2.0);
-
-    // Set the color based on the checkerboard pattern
-    color = mix(_white, _black, checker);
-
-    //color = vec4(vec3(_r), 1.0);
-
-    //color = vec4(FragPos.x, FragPos.y, FragPos.z,  1.0);
+    vec2 _offset = vec2(100, 100);
 
 
 
+    float _x = remap(FragPos.x, -1.0, 1.0, -_screenWidth /2, _screenWidth /2) - Origin.x;
+    float _y = remap(FragPos.y, -1.0, 1.0, -_screenHeight/2, _screenHeight/2) + Origin.y;
+
+    float _axisX = 1 - step(0.7, mod(_x, 400));
+    float _axisY = 1 - step(0.7, mod(_y, 300));
+
+    float _axis = max(_axisX, _axisY);
+
+    vec3 _axisCol = vec3(1.0, 0.0, 0.0) * _axis;
+
+
+    _x = step(0.4, mod(_x, 50));
+    _y = step(0.4, mod(_y, 50));
+    float _r = min(_x, _y);
+
+    color = vec4(vec3(_r) + _axisCol, 1.0);
 }

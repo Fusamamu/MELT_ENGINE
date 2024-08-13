@@ -30,6 +30,8 @@ namespace MELT
         void SetMat4UniformModel     (glm::mat4 _model);
         void SetMat4UniformView      (glm::mat4 _view);
         void SetMat4UniformProjection(glm::mat4 _projection);
+        void SetVec2UniformScreenSize(glm::vec2 _screenSize);
+        void SetVec2UniformOrigin    (glm::vec2 _origin);
 
         friend std::ostream& operator<<(std::ostream& _os, Shader& _shader)
         {
@@ -49,6 +51,8 @@ namespace MELT
         GLint m_UniformLoc_Model;
         GLint m_UniformLoc_View;
         GLint m_UniformLoc_Projection;
+        GLint m_UniformLoc_ScreenSize;
+        GLint m_UniformLoc_Origin;
 
         GLuint CreateShader(const std::string& _vertexSrc, const std::string& _fragmentSrc);
         GLuint CompileShader(GLenum _shaderType, const std::string& _shaderSrc);
