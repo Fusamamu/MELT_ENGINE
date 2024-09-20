@@ -6,9 +6,17 @@ add_library(${PROJECT_NAME} STATIC
         src/MeltEngine.cpp
         src/Shader.cpp
         src/Quad.cpp
-        src/Vertex.cpp)
+        src/Vertex.cpp
+        ECS/EntityManager.cpp
+        ECS/ComponentArray.cpp
+        ECS/ComponentManager.cpp
+        ECS/SystemManager.cpp
+        ECS/Event.cpp
+        ECS/EventManager.cpp
+        ECS/Coordinator.cpp)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
+target_include_directories(${PROJECT_NAME} PUBLIC ./ECS/include)
 
 find_package(SDL2   REQUIRED COMPONENTS SDL2)
 find_package(GLEW   REQUIRED)

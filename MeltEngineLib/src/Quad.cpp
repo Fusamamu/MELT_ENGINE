@@ -83,6 +83,13 @@ namespace MELT
 
     void Quad::Draw()
     {
+        glBindVertexArray(VAO);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+        glBindVertexArray(0);
+    }
+
+    void Quad::DrawFrameBuffer()
+    {
         glBindFramebuffer(GL_FRAMEBUFFER, FBO);
         glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

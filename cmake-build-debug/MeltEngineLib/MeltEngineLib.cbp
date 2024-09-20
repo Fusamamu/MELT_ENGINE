@@ -26,6 +26,7 @@
 				<Compiler>
 					<Add option="-DM_EDITOR"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/Cocoa.framework"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/IOKit.framework"/>
@@ -54,6 +55,7 @@
 				<Compiler>
 					<Add option="-DM_EDITOR"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/Cocoa.framework"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/IOKit.framework"/>
@@ -74,6 +76,30 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/ComponentArray.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/ComponentManager.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/Coordinator.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/Coordinator.h">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/EntityManager.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/Event.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/EventManager.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/SystemManager.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/MeltEngine.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>

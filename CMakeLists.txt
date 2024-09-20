@@ -9,4 +9,4 @@ add_subdirectory(MeltEngineLib)
 add_subdirectory(MeltEngineEditorLib)
 
 add_executable(MELT_ENGINE main.cpp)
-target_link_libraries(MELT_ENGINE PRIVATE MeltEngineLib MeltEngineEditorLib)
+target_link_libraries(MELT_ENGINE PUBLIC MeltEngineLib MeltEngineEditorLib)

@@ -14,6 +14,9 @@ namespace MELT
     public:
         Quad* m_Quad;
 
+        float ScreenWidth;
+        float ScreenHeight;
+
         std::function<void(void)>      UpdateEngine;
         std::function<void(SDL_Event)> UpdateEditorInput;
         std::function<void(void)>      UpdateEditor;
@@ -36,5 +39,7 @@ namespace MELT
 
         Shader* m_2DGridShader;
         Shader* m_BasicShader;
+
+        glm::vec2 m_CurrentOffset;
     };
 }

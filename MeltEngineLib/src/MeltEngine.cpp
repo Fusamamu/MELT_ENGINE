@@ -3,6 +3,8 @@
 namespace MELT
 {
     Engine::Engine():
+        ScreenWidth(1600.0f),
+        ScreenHeight(1200.0f),
         m_IsRunning(true),
         m_Window(nullptr)
         //m_2DGridShader(Shader("../MeltEngineLib/res/shaders/Basic.shader"))
@@ -32,8 +34,8 @@ namespace MELT
                 "MELT (V1.1)",
                 SDL_WINDOWPOS_CENTERED,
                 SDL_WINDOWPOS_CENTERED,
-                800,
-                600,
+                static_cast<int>(ScreenWidth),
+                static_cast<int>(ScreenHeight),
                 window_flags);
 
         if(!m_Window)
@@ -69,19 +71,26 @@ namespace MELT
         m_2DGridShader = new Shader("../MeltEngineLib/res/shaders/2DGrid.shader");
 
         glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (0.0f, 0.0f, 0.0f));
+        _model = glm::scale(_model, glm::vec3(25.0f, 25.0f, 1.0f));
         glm::mat4 _view  = glm::lookAt(
                     glm::vec3(0.0f, 0.0f, 3.0f),
                     glm::vec3(0.0f, 0.0f, 0.0f),
                     glm::vec3(0.0f, 1.0f, 0.0f)
                 );
 
-        glm::mat4 _projection = glm::ortho(0.0f, 800.0f, 0.0f, 600.0f, 0.1f, 100.0f);
+        glm::mat4 _projection = glm::ortho(-400.0f, 400.0f, -300.0f, 300.0f, 0.1f, 100.0f);
 
         m_2DGridShader->Use();
         m_2DGridShader->SetMat4UniformModel     (_model);
         m_2DGridShader->SetMat4UniformView      (_view);
         m_2DGridShader->SetMat4UniformProjection(_projection);
         m_2DGridShader->SetVec2UniformScreenSize(glm::vec2(800, 600));
+
+        m_BasicShader->Use();
+        m_BasicShader->SetMat4UniformModel     (_model);
+        m_BasicShader->SetMat4UniformView      (_view);
+        m_BasicShader->SetMat4UniformProjection(_projection);
+        m_BasicShader->SetVec2UniformScreenSize(glm::vec2(800, 600));
     }
 
     Engine::~Engine() = default;
@@ -116,6 +125,9 @@ namespace MELT
 
                             std::cout << "SDL WINDOW : " << _width << " , " << _height << std::endl;
 
+                            ScreenWidth  = static_cast<float>(_width);
+                            ScreenHeight = static_cast<float>(_height);
+
                             m_Quad->RescaleFrameBuffer(2 * _width, 2 * _height);
 
                             m_2DGridShader->Use();
@@ -132,6 +144,8 @@ namespace MELT
                             // Start dragging
                             isDragging = true;
                             SDL_GetMouseState(&initialMouseX, &initialMouseY);
+                            initialMouseX -= static_cast<int>(m_CurrentOffset.x);
+                            initialMouseY -= static_cast<int>(m_CurrentOffset.y);
                         }
                         break;
 
@@ -148,27 +162,51 @@ namespace MELT
                             SDL_GetMouseState(&currentMouseX, &currentMouseY);
 
                             // Calculate the drag offset
-                            int offsetX = currentMouseX - initialMouseX;
-                            int offsetY = currentMouseY - initialMouseY;
+                            int offsetX = (currentMouseX - initialMouseX);
+                            int offsetY = (currentMouseY - initialMouseY);
 
-                            // Handle the offset as needed
-                            // For example, move an object, scroll a view, etc.
+                            m_CurrentOffset.x = static_cast<float>(offsetX);
+                            m_CurrentOffset.y = static_cast<float>(offsetY);
 
                             m_2DGridShader->Use();
-                            m_2DGridShader->SetVec2UniformOrigin(glm::vec2(offsetX, offsetY));
+                            m_2DGridShader->SetVec2UniformOrigin(m_CurrentOffset);
                         }
                         break;
                 }
             }
 
+            //Input
+            //Update
+            //Render
+
             glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 
-            m_Quad->Draw();
 #ifdef M_EDITOR
+            glBindFramebuffer(GL_FRAMEBUFFER, m_Quad->FBO);
+            glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+//            m_2DGridShader->Use();
+//            m_2DGridShader->SetVec2UniformScreenSize(glm::vec2(ScreenWidth, ScreenHeight));
+//            m_Quad->Draw();
+
+            m_BasicShader->Use();
+            glm::mat4 _projection = glm::ortho(
+                    -(ScreenWidth  / 2) - m_CurrentOffset.x,
+                     (ScreenWidth  / 2) - m_CurrentOffset.x,
+                    -(ScreenHeight / 2) + m_CurrentOffset.y,
+                     (ScreenHeight / 2) + m_CurrentOffset.y,
+                    0.1f, 100.0f);
+            m_BasicShader->SetMat4UniformProjection(_projection);
+
+            m_Quad->Draw();
+
+            glBindFramebuffer(GL_FRAMEBUFFER, 0);
             UpdateEditor();
 #endif
+
 
             SDL_GL_SwapWindow(m_Window);
         }

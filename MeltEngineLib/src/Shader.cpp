@@ -6,8 +6,26 @@ namespace MELT
     {
         std::ifstream _inputFile (_filePath);
 
-        if(!_inputFile.is_open())
+        std::filesystem::path filepath = _filePath;
+        if ( !exists(filepath) )
+        {
+            std::cout << "File path " << filepath << " at absolute location "
+                      << absolute(filepath) << " does not exist\n";
+
             return;
+        }
+
+        if(!_inputFile.good())
+        {
+            std::cout << "File does not exist!" << std::endl;
+            return;
+        }
+
+        if(!_inputFile.is_open())
+        {
+            std::cout << "input file not open!" << std::endl;
+            return;
+        }
 
         ShaderType _shaderType = ShaderType::NONE;
 
@@ -16,6 +34,8 @@ namespace MELT
         std::string _line;
         while(std::getline(_inputFile, _line))
         {
+            //std::cout << _line << std::endl;
+
             if(_line.find("#shader vertex") != std::string::npos)
             {
                 _shaderType = ShaderType::VERTEX;
@@ -44,7 +64,7 @@ namespace MELT
 
         m_UniformLoc_Model      = glGetUniformLocation(ID, "model");
         m_UniformLoc_View       = glGetUniformLocation(ID, "view");
-        m_UniformLoc_Projection = glGetUniformLocation(ID, "projection");
+        m_UniformLoc_Projection = glGetUniformLocation(ID, "proj");
         m_UniformLoc_ScreenSize = glGetUniformLocation(ID, "screenSize");
         m_UniformLoc_Origin     = glGetUniformLocation(ID, "origin");
     }

@@ -113,8 +113,8 @@ MeltEngineLib/clean: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/clean
 # Target rules for target CMakeFiles/MELT_ENGINE.dir
 
 # All Build rule for target.
-CMakeFiles/MELT_ENGINE.dir/all: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/all
 CMakeFiles/MELT_ENGINE.dir/all: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all
+CMakeFiles/MELT_ENGINE.dir/all: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MELT_ENGINE.dir/build.make CMakeFiles/MELT_ENGINE.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MELT_ENGINE.dir/build.make CMakeFiles/MELT_ENGINE.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=1,2 "Built target MELT_ENGINE"
@@ -122,7 +122,7 @@ CMakeFiles/MELT_ENGINE.dir/all: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/MELT_ENGINE.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" 16
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MELT_ENGINE.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" 0
 .PHONY : CMakeFiles/MELT_ENGINE.dir/rule
@@ -143,12 +143,12 @@ CMakeFiles/MELT_ENGINE.dir/clean:
 MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all:
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/depend
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=12,13,14,15,16 "Built target MeltEngineLib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=12,13,14,15,16,17,18,19,20,21,22,23 "Built target MeltEngineLib"
 .PHONY : MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all
 
 # Build rule for subdir invocation for target.
 MeltEngineLib/CMakeFiles/MeltEngineLib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" 5
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" 0
 .PHONY : MeltEngineLib/CMakeFiles/MeltEngineLib.dir/rule
@@ -174,7 +174,7 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/all: MeltEngineLib/CMakeF
 
 # Build rule for subdir invocation for target.
 MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" 14
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" 21
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" 0
 .PHONY : MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/rule

@@ -31,9 +31,17 @@ in vec3 FragPos;
 in vec2 ScreenSize;
 in vec2 Origin;
 
+const float _Thickness = 0.1;
+const float _Scale = 0.08;
+
 float remap(float x, float oldMin, float oldMax, float newMin, float newMax)
 {
     return ((x - oldMin) / (oldMax - oldMin)) * (newMax - newMin) + newMin;
+}
+
+float applyScale(float base, float scale)
+{
+    return floor(fract((base - 0.5 * _Thickness) * scale) + _Thickness * scale);
 }
 
 void main()
@@ -44,27 +52,33 @@ void main()
     float _screenWidth  = ScreenSize.x;
     float _screenHeight = ScreenSize.y;
 
-    float _cellSize = 50;
-
-
-    vec2 _offset = vec2(100, 100);
-
-
+    const float _cellSize = 50;
 
     float _x = remap(FragPos.x, -1.0, 1.0, -_screenWidth /2, _screenWidth /2) - Origin.x;
     float _y = remap(FragPos.y, -1.0, 1.0, -_screenHeight/2, _screenHeight/2) + Origin.y;
 
-    float _axisX = 1 - step(0.7, mod(_x, 400));
-    float _axisY = 1 - step(0.7, mod(_y, 300));
+//     float _logValue = log(_Scale)/log(10.0);
+//
+//     float xx = ceil(_logValue);
+//
+//     float xxx = pow(10, xx);
+//
+//     float xxxx =  _Scale/xxx;
 
-    float _axis = max(_axisX, _axisY);
+    float logMappedScale = _Scale / pow(10, ceil(log(_Scale)/log(10.0)));
+    float localScale = 1 / logMappedScale;
 
-    vec3 _axisCol = vec3(1.0, 0.0, 0.0) * _axis;
+    _x = applyScale(_x, 10.0 * localScale);
+
+    _y = applyScale(_y, 10.0 * localScale);
+
+                   if (_x == 1 || _y == 1) {
+                      color = _white;
+                   } else {
+                      color = _black;
+                   }
 
 
-    _x = step(0.4, mod(_x, 50));
-    _y = step(0.4, mod(_y, 50));
-    float _r = min(_x, _y);
-
-    color = vec4(vec3(_r) + _axisCol, 1.0);
+//     float _rr = float(FragPos.x * 100);
+//     color = vec4(vec3(localScale), 1.0);
 }

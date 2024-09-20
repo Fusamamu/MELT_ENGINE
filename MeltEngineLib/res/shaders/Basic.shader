@@ -10,8 +10,8 @@ uniform mat4 model;
 
 void main()
 {
-    //gl_Position = proj * view * model * vec4(position.x, position.y, position.z, 1.0);
-    gl_Position = vec4(position.x, position.y, position.z, 1.0);
+    gl_Position = proj * view * model * vec4(position.x, position.y, position.z, 1.0);
+    //gl_Position = vec4(position.x, position.y, position.z, 1.0);
 }
 
 #shader fragment
@@ -20,5 +20,5 @@ layout(location = 0) out vec4 color;
 
 void main()
 {
-    color = vec4(1.0, 1.0, 1.0, 1.0);
+    color = vec4(1.0, 0.0, 0.0, 1.0);
 }

@@ -1,7 +1,12 @@
 #pragma once
 #include <cstdio>
 #include <iostream>
+#include <string>
+#include <fstream>
+#include <sstream>
+#include <vector>
 #include <functional>
+#include <filesystem>
 #include "MeltEngine.h"
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
@@ -13,10 +18,18 @@ namespace MELT_EDITOR
     {   
     public:
         MELT::Engine* Engine;
+
+        std::vector<std::string> fileNames;
+
         explicit Editor(MELT::Engine* _engine);
         ~Editor();
 
         void UpdateInput(SDL_Event _event);
         void Update();
+
+        void GetContent();
+
+        std::string CurrentTextDisplay;
+        std::string LoadTextFile(const std::string& _filePath);
     };
 }

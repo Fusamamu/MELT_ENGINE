@@ -154,6 +154,78 @@ src/MeltEngine.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/MeltEngine.cpp.s
 .PHONY : src/MeltEngine.cpp.s
 
+src/Quad.o: src/Quad.cpp.o
+.PHONY : src/Quad.o
+
+# target to build an object file
+src/Quad.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.o
+.PHONY : src/Quad.cpp.o
+
+src/Quad.i: src/Quad.cpp.i
+.PHONY : src/Quad.i
+
+# target to preprocess a source file
+src/Quad.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.i
+.PHONY : src/Quad.cpp.i
+
+src/Quad.s: src/Quad.cpp.s
+.PHONY : src/Quad.s
+
+# target to generate assembly for a file
+src/Quad.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.s
+.PHONY : src/Quad.cpp.s
+
+src/Shader.o: src/Shader.cpp.o
+.PHONY : src/Shader.o
+
+# target to build an object file
+src/Shader.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Shader.cpp.o
+.PHONY : src/Shader.cpp.o
+
+src/Shader.i: src/Shader.cpp.i
+.PHONY : src/Shader.i
+
+# target to preprocess a source file
+src/Shader.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Shader.cpp.i
+.PHONY : src/Shader.cpp.i
+
+src/Shader.s: src/Shader.cpp.s
+.PHONY : src/Shader.s
+
+# target to generate assembly for a file
+src/Shader.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Shader.cpp.s
+.PHONY : src/Shader.cpp.s
+
+src/Vertex.o: src/Vertex.cpp.o
+.PHONY : src/Vertex.o
+
+# target to build an object file
+src/Vertex.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Vertex.cpp.o
+.PHONY : src/Vertex.cpp.o
+
+src/Vertex.i: src/Vertex.cpp.i
+.PHONY : src/Vertex.i
+
+# target to preprocess a source file
+src/Vertex.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Vertex.cpp.i
+.PHONY : src/Vertex.cpp.i
+
+src/Vertex.s: src/Vertex.cpp.s
+.PHONY : src/Vertex.s
+
+# target to generate assembly for a file
+src/Vertex.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Vertex.cpp.s
+.PHONY : src/Vertex.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -166,6 +238,15 @@ help:
 	@echo "... src/MeltEngine.o"
 	@echo "... src/MeltEngine.i"
 	@echo "... src/MeltEngine.s"
+	@echo "... src/Quad.o"
+	@echo "... src/Quad.i"
+	@echo "... src/Quad.s"
+	@echo "... src/Shader.o"
+	@echo "... src/Shader.i"
+	@echo "... src/Shader.s"
+	@echo "... src/Vertex.o"
+	@echo "... src/Vertex.i"
+	@echo "... src/Vertex.s"
 .PHONY : help
 
 

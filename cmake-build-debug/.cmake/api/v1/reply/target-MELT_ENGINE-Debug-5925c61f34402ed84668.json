@@ -42,13 +42,13 @@
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 24,
+				"line" : 32,
 				"parent" : 3
 			},
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 25,
+				"line" : 33,
 				"parent" : 3
 			},
 			{
@@ -88,6 +88,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"
 				},
 				{
 					"backtrace" : 2,
@@ -135,11 +139,11 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "MeltEngineEditorLib::@9246d5d2345499881ca5"
+			"id" : "MeltEngineLib::@078894b7bdc11508b9bc"
 		},
 		{
 			"backtrace" : 2,
-			"id" : "MeltEngineLib::@078894b7bdc11508b9bc"
+			"id" : "MeltEngineEditorLib::@9246d5d2345499881ca5"
 		}
 	],
 	"id" : "MELT_ENGINE::@6890427a1f51a3e7e1df",

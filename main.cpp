@@ -1,11 +1,26 @@
 #include "MeltEngineEditor.h"
 
+#include <fstream>
+
+
 int main()
 {
 
 
     MELT::Engine _engine;
     MELT_EDITOR::Editor _editor (&_engine);
+
+    std::ifstream _inputFile("CMakeCache.txt");
+
+    if(_inputFile.good())
+    {
+        std::cout << "good" << std::endl;
+    }else
+    {
+        std::cout << "bad" << std::endl;
+    }
+
+    _inputFile.close();
 
     //MELT::Quad _a;
 

@@ -25,11 +25,20 @@ namespace MELT_EDITOR
 
         Engine->UpdateEditorInput = std::bind(&Editor::UpdateInput, this, std::placeholders::_1);
         Engine->UpdateEditor      = std::bind(&Editor::Update     , this);
+
+        try
+        {
+            for(const auto& _entry : std::filesystem::directory_iterator("../"))
+                fileNames.push_back(_entry.path().filename());
+        }
+        catch(const std::filesystem::filesystem_error& _e)
+        {
+            std::cout << "ERROR : " << _e.what() << std::endl;
+        }
     }
 
     Editor::~Editor()
     {
-        std::cout << "Editor dtor" << std::endl;
         ImGui_ImplOpenGL3_Shutdown();
         ImGui_ImplSDL2_Shutdown();
         ImGui::DestroyContext();
@@ -89,17 +98,40 @@ namespace MELT_EDITOR
 
         ImGui::DockSpaceOverViewport(0, ImGui::GetMainViewport());
 
-        if (ImGui::Begin("Window 1"))
+
+
+        if (ImGui::Begin("Content"))
         {
-            ImGui::Text("This is window 1");
+            static int _selected = -1;
+            for(std::size_t _i = 0; _i < fileNames.size(); ++_i)
+            {
+                if(ImGui::Selectable(fileNames[_i].c_str(), _selected == _i))
+                {
+                    _selected = _i;
+                    CurrentTextDisplay = LoadTextFile("../" +  fileNames[_i]);
+                }
+            }
         }
         ImGui::End();
 
-        if (ImGui::Begin("Window 2"))
+        if (ImGui::Begin("Inspector"))
         {
-            ImGui::Text("This is window 2");
+            if(!CurrentTextDisplay.empty())
+                ImGui::TextUnformatted(CurrentTextDisplay.c_str());
         }
         ImGui::End();
+
+        if (ImGui::Begin("Hierarchy"))
+        {
+            if (ImGui::BeginPopupContextWindow()) {
+                if (ImGui::MenuItem("Create object")) {
+                    // Handle Property 1 action
+                }
+                ImGui::EndPopup();
+            }
+        }
+        ImGui::End();
+
 
         ImGui::ShowDemoWindow(); // Show demo window! :)
 
@@ -107,6 +139,9 @@ namespace MELT_EDITOR
         {
             const float window_width  = ImGui::GetContentRegionAvail().x;
             const float window_height = ImGui::GetContentRegionAvail().y;
+
+            Engine->ScreenWidth  = window_width;
+            Engine->ScreenHeight = window_height;
 
             ImVec2 pos = ImGui::GetCursorScreenPos();
 
@@ -128,5 +163,23 @@ namespace MELT_EDITOR
             ImGui::UpdatePlatformWindows();
             ImGui::RenderPlatformWindowsDefault();
         }
+    }
+
+    void Editor::GetContent()
+    {
+
+    }
+
+    std::string Editor::LoadTextFile(const std::string &_filePath)
+    {
+        std::ifstream _inputFile (_filePath);
+        if(!_inputFile.is_open())
+        {
+            std::cerr << "Could not open file path : " << _filePath << std::endl;
+            return "";
+        }
+        std::stringstream _buffer;
+        _buffer << _inputFile.rdbuf();
+        return _buffer.str();
     }
 }
