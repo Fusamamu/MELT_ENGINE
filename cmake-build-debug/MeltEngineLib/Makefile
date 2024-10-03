@@ -178,6 +178,54 @@ ECS/ComponentManager.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/ComponentManager.cpp.s
 .PHONY : ECS/ComponentManager.cpp.s
 
+ECS/Components/Camera.o: ECS/Components/Camera.cpp.o
+.PHONY : ECS/Components/Camera.o
+
+# target to build an object file
+ECS/Components/Camera.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Components/Camera.cpp.o
+.PHONY : ECS/Components/Camera.cpp.o
+
+ECS/Components/Camera.i: ECS/Components/Camera.cpp.i
+.PHONY : ECS/Components/Camera.i
+
+# target to preprocess a source file
+ECS/Components/Camera.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Components/Camera.cpp.i
+.PHONY : ECS/Components/Camera.cpp.i
+
+ECS/Components/Camera.s: ECS/Components/Camera.cpp.s
+.PHONY : ECS/Components/Camera.s
+
+# target to generate assembly for a file
+ECS/Components/Camera.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Components/Camera.cpp.s
+.PHONY : ECS/Components/Camera.cpp.s
+
+ECS/Components/Transform.o: ECS/Components/Transform.cpp.o
+.PHONY : ECS/Components/Transform.o
+
+# target to build an object file
+ECS/Components/Transform.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Components/Transform.cpp.o
+.PHONY : ECS/Components/Transform.cpp.o
+
+ECS/Components/Transform.i: ECS/Components/Transform.cpp.i
+.PHONY : ECS/Components/Transform.i
+
+# target to preprocess a source file
+ECS/Components/Transform.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Components/Transform.cpp.i
+.PHONY : ECS/Components/Transform.cpp.i
+
+ECS/Components/Transform.s: ECS/Components/Transform.cpp.s
+.PHONY : ECS/Components/Transform.s
+
+# target to generate assembly for a file
+ECS/Components/Transform.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Components/Transform.cpp.s
+.PHONY : ECS/Components/Transform.cpp.s
+
 ECS/Coordinator.o: ECS/Coordinator.cpp.o
 .PHONY : ECS/Coordinator.o
 
@@ -298,6 +346,30 @@ ECS/SystemManager.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/SystemManager.cpp.s
 .PHONY : ECS/SystemManager.cpp.s
 
+ECS/Systems/CameraControlSystem.o: ECS/Systems/CameraControlSystem.cpp.o
+.PHONY : ECS/Systems/CameraControlSystem.o
+
+# target to build an object file
+ECS/Systems/CameraControlSystem.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Systems/CameraControlSystem.cpp.o
+.PHONY : ECS/Systems/CameraControlSystem.cpp.o
+
+ECS/Systems/CameraControlSystem.i: ECS/Systems/CameraControlSystem.cpp.i
+.PHONY : ECS/Systems/CameraControlSystem.i
+
+# target to preprocess a source file
+ECS/Systems/CameraControlSystem.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Systems/CameraControlSystem.cpp.i
+.PHONY : ECS/Systems/CameraControlSystem.cpp.i
+
+ECS/Systems/CameraControlSystem.s: ECS/Systems/CameraControlSystem.cpp.s
+.PHONY : ECS/Systems/CameraControlSystem.s
+
+# target to generate assembly for a file
+ECS/Systems/CameraControlSystem.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Systems/CameraControlSystem.cpp.s
+.PHONY : ECS/Systems/CameraControlSystem.cpp.s
+
 src/MeltEngine.o: src/MeltEngine.cpp.o
 .PHONY : src/MeltEngine.o
 
@@ -409,6 +481,12 @@ help:
 	@echo "... ECS/ComponentManager.o"
 	@echo "... ECS/ComponentManager.i"
 	@echo "... ECS/ComponentManager.s"
+	@echo "... ECS/Components/Camera.o"
+	@echo "... ECS/Components/Camera.i"
+	@echo "... ECS/Components/Camera.s"
+	@echo "... ECS/Components/Transform.o"
+	@echo "... ECS/Components/Transform.i"
+	@echo "... ECS/Components/Transform.s"
 	@echo "... ECS/Coordinator.o"
 	@echo "... ECS/Coordinator.i"
 	@echo "... ECS/Coordinator.s"
@@ -424,6 +502,9 @@ help:
 	@echo "... ECS/SystemManager.o"
 	@echo "... ECS/SystemManager.i"
 	@echo "... ECS/SystemManager.s"
+	@echo "... ECS/Systems/CameraControlSystem.o"
+	@echo "... ECS/Systems/CameraControlSystem.i"
+	@echo "... ECS/Systems/CameraControlSystem.s"
 	@echo "... src/MeltEngine.o"
 	@echo "... src/MeltEngine.i"
 	@echo "... src/MeltEngine.s"

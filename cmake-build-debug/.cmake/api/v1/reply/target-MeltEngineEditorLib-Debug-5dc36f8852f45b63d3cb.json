@@ -3,7 +3,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "MeltEngineLib/libMeltEngineLib.a"
+			"path" : "MeltEngineEditorLib/libMeltEngineEditorLib.a"
 		}
 	],
 	"backtrace" : 1,
@@ -12,13 +12,13 @@
 		"commands" : 
 		[
 			"add_library",
+			"target_link_libraries",
 			"add_definitions",
-			"target_include_directories",
-			"target_link_libraries"
+			"target_include_directories"
 		],
 		"files" : 
 		[
-			"MeltEngineLib/CMakeLists.txt",
+			"MeltEngineEditorLib/CMakeLists.txt",
 			"CMakeLists.txt"
 		],
 		"nodes" : 
@@ -29,40 +29,46 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 5,
+				"line" : 10,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 21,
 				"parent" : 0
 			},
 			{
 				"file" : 1
 			},
 			{
-				"command" : 1,
+				"command" : 2,
 				"file" : 1,
 				"line" : 6,
-				"parent" : 2
+				"parent" : 3
 			},
 			{
-				"command" : 2,
+				"command" : 3,
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 17,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
 				"file" : 0,
 				"line" : 18,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 3,
 				"file" : 0,
 				"line" : 19,
-				"parent" : 0
-			},
-			{
-				"command" : 3,
-				"file" : 0,
-				"line" : 32,
-				"parent" : 0
-			},
-			{
-				"command" : 3,
-				"file" : 0,
-				"line" : 33,
 				"parent" : 0
 			}
 		]
@@ -79,26 +85,14 @@
 			"defines" : 
 			[
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
 					"define" : "M_EDITOR"
 				}
 			],
 			"frameworks" : 
 			[
 				{
-					"path" : "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework"
-				},
-				{
-					"path" : "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/Cocoa.framework"
-				},
-				{
-					"path" : "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/IOKit.framework"
-				},
-				{
-					"path" : "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/CoreVideo.framework"
-				},
-				{
-					"backtrace" : 6,
+					"backtrace" : 2,
 					"isSystem" : true,
 					"path" : "/Library/Frameworks/SDL2.framework"
 				}
@@ -106,20 +100,44 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 4,
-					"path" : "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"
-				},
-				{
 					"backtrace" : 5,
-					"path" : "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"
+					"path" : "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./include"
 				},
 				{
 					"backtrace" : 6,
+					"path" : "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui"
+				},
+				{
+					"backtrace" : 7,
+					"path" : "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/backends"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/x86_64-w64-mingw32/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include"
+				},
+				{
+					"backtrace" : 2,
 					"isSystem" : true,
 					"path" : "/Library/Frameworks/SDL2.framework/Headers"
 				},
 				{
-					"backtrace" : 7,
+					"backtrace" : 2,
 					"isSystem" : true,
 					"path" : "/usr/local/include"
 				}
@@ -142,20 +160,24 @@
 				4,
 				5,
 				6,
-				7,
-				8,
-				9,
-				10
+				7
 			]
 		}
 	],
-	"id" : "MeltEngineLib::@078894b7bdc11508b9bc",
-	"name" : "MeltEngineLib",
-	"nameOnDisk" : "libMeltEngineLib.a",
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "MeltEngineLib::@078894b7bdc11508b9bc"
+		}
+	],
+	"id" : "MeltEngineEditorLib::@9246d5d2345499881ca5",
+	"name" : "MeltEngineEditorLib",
+	"nameOnDisk" : "libMeltEngineEditorLib.a",
 	"paths" : 
 	{
-		"build" : "MeltEngineLib",
-		"source" : "MeltEngineLib"
+		"build" : "MeltEngineEditorLib",
+		"source" : "MeltEngineEditorLib"
 	},
 	"sourceGroups" : 
 	[
@@ -170,10 +192,7 @@
 				4,
 				5,
 				6,
-				7,
-				8,
-				9,
-				10
+				7
 			]
 		}
 	],
@@ -182,67 +201,49 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "MeltEngineLib/src/MeltEngine.cpp",
+			"path" : "MeltEngineEditorLib/src/MeltEngineEditor.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "MeltEngineLib/src/Shader.cpp",
+			"path" : "MeltEngineEditorLib/vendors/imgui/imgui.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "MeltEngineLib/src/Quad.cpp",
+			"path" : "MeltEngineEditorLib/vendors/imgui/imgui_demo.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "MeltEngineLib/src/Vertex.cpp",
+			"path" : "MeltEngineEditorLib/vendors/imgui/imgui_draw.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "MeltEngineLib/ECS/EntityManager.cpp",
+			"path" : "MeltEngineEditorLib/vendors/imgui/imgui_tables.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "MeltEngineLib/ECS/ComponentArray.cpp",
+			"path" : "MeltEngineEditorLib/vendors/imgui/imgui_widgets.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "MeltEngineLib/ECS/ComponentManager.cpp",
+			"path" : "MeltEngineEditorLib/vendors/imgui/backends/imgui_impl_sdl2.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "MeltEngineLib/ECS/SystemManager.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "MeltEngineLib/ECS/Event.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "MeltEngineLib/ECS/EventManager.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "MeltEngineLib/ECS/Coordinator.cpp",
+			"path" : "MeltEngineEditorLib/vendors/imgui/backends/imgui_impl_opengl3.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

@@ -22,59 +22,53 @@ namespace MELT
         m_SystemManager   ->EntityDestroyed(_entity);
     }
 
-    template<typename T>
-    void Coordinator::RegisterComponent()
-    {
-        m_ComponentManager->RegisterComponent<T>();
-    }
-
-    template<typename T>
-    void Coordinator::AddComponent(Entity entity, T component)
-    {
-        m_ComponentManager->AddComponent<T>(entity, component);
-
-        auto signature = m_EntityManager->GetSignature(entity);
-        signature.set(m_ComponentManager->GetComponentType<T>(), true);
-
-        m_EntityManager->SetSignature          (entity, signature);
-        m_SystemManager->EntitySignatureChanged(entity, signature);
-    }
-
-    template<typename T>
-    void Coordinator::RemoveComponent(Entity entity)
-    {
-        m_ComponentManager->RemoveComponent<T>(entity);
-
-        auto signature = m_EntityManager->GetSignature(entity);
-        signature.set(m_ComponentManager->GetComponentType<T>(), false);
-
-        m_EntityManager->SetSignature          (entity, signature);
-        m_SystemManager->EntitySignatureChanged(entity, signature);
-    }
-
-    template<typename T>
-    T& Coordinator::GetComponent(Entity entity)
-    {
-        return m_ComponentManager->GetComponent<T>(entity);
-    }
-
-    template<typename T>
-    ComponentType Coordinator::GetComponentType()
-    {
-        return m_ComponentManager->GetComponentType<T>();
-    }
-
-    template<typename T>
-    std::shared_ptr<T> Coordinator::RegisterSystem()
-    {
-        return m_SystemManager->RegisterSystem<T>();
-    }
-
-    template<typename T>
-    void Coordinator::SetSystemSignature(Signature signature)
-    {
-        m_SystemManager->SetSignature<T>(signature);
-    }
+//    template<typename T>
+//    void Coordinator::AddComponent(Entity entity, T component)
+//    {
+//        m_ComponentManager->AddComponent<T>(entity, component);
+//
+//        auto signature = m_EntityManager->GetSignature(entity);
+//        signature.set(m_ComponentManager->GetComponentType<T>(), true);
+//
+//        m_EntityManager->SetSignature          (entity, signature);
+//        m_SystemManager->EntitySignatureChanged(entity, signature);
+//    }
+//
+//    template<typename T>
+//    void Coordinator::RemoveComponent(Entity entity)
+//    {
+//        m_ComponentManager->RemoveComponent<T>(entity);
+//
+//        auto signature = m_EntityManager->GetSignature(entity);
+//        signature.set(m_ComponentManager->GetComponentType<T>(), false);
+//
+//        m_EntityManager->SetSignature          (entity, signature);
+//        m_SystemManager->EntitySignatureChanged(entity, signature);
+//    }
+//
+//    template<typename T>
+//    T& Coordinator::GetComponent(Entity entity)
+//    {
+//        return m_ComponentManager->GetComponent<T>(entity);
+//    }
+//
+//    template<typename T>
+//    ComponentType Coordinator::GetComponentType()
+//    {
+//        return m_ComponentManager->GetComponentType<T>();
+//    }
+//
+//    template<typename T>
+//    std::shared_ptr<T> Coordinator::RegisterSystem()
+//    {
+//        return m_SystemManager->RegisterSystem<T>();
+//    }
+//
+//    template<typename T>
+//    void Coordinator::SetSystemSignature(Signature signature)
+//    {
+//        m_SystemManager->SetSignature<T>(signature);
+//    }
 
     void Coordinator::AddEventListener(EventId eventId, std::function<void(Event&)> const& listener)
     {

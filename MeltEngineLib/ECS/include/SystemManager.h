@@ -29,4 +29,22 @@ namespace MELT
         std::unordered_map<const char*, Signature> m_Signatures;
         std::unordered_map<const char*, std::shared_ptr<System>> m_Systems;
     };
+
+    template<typename T>
+    std::shared_ptr<T> SystemManager::RegisterSystem()
+    {
+        const char* _typeName = typeid(T).name();
+        assert(m_Systems.find(_typeName) == m_Systems.end() && "Registering system more than once.");
+        auto _system = std::make_shared<T>();
+        m_Systems.emplace(_typeName, _system);
+        return _system;
+    }
+
+    template<typename T>
+    void SystemManager::SetSignature(Signature _signature)
+    {
+        const char* _typeName = typeid(T).name();
+        assert(m_Systems.find(_typeName) != m_Systems.end() && "System used before registered.");
+        m_Signatures.emplace(_typeName, _signature);
+    }
 }

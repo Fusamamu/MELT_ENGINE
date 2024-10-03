@@ -13,10 +13,15 @@ add_library(${PROJECT_NAME} STATIC
         ECS/SystemManager.cpp
         ECS/Event.cpp
         ECS/EventManager.cpp
-        ECS/Coordinator.cpp)
+        ECS/Coordinator.cpp
+        ECS/Components/Camera.cpp
+        ECS/Systems/CameraControlSystem.cpp
+        ECS/Components/Transform.cpp)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
 target_include_directories(${PROJECT_NAME} PUBLIC ./ECS/include)
+target_include_directories(${PROJECT_NAME} PUBLIC ./ECS/Components/include)
+target_include_directories(${PROJECT_NAME} PUBLIC ./ECS/Systems/include)
 
 find_package(SDL2   REQUIRED COMPONENTS SDL2)
 find_package(GLEW   REQUIRED)

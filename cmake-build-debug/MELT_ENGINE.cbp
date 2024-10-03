@@ -27,6 +27,8 @@
 					<Add option="-DM_EDITOR"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/backends"/>
@@ -56,6 +58,8 @@
 					<Add option="-DM_EDITOR"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/backends"/>
@@ -105,6 +109,8 @@
 					<Add option="-DM_EDITOR"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/Cocoa.framework"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/IOKit.framework"/>
@@ -134,6 +140,8 @@
 					<Add option="-DM_EDITOR"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/Cocoa.framework"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/IOKit.framework"/>
@@ -167,6 +175,8 @@
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/x86_64-w64-mingw32/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include"/>
 					<Add directory="/Library/Frameworks/SDL2.framework/Headers"/>
 					<Add directory="/Library/Frameworks/SDL2.framework"/>
 					<Add directory="/usr/local/include"/>
@@ -196,6 +206,8 @@
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/x86_64-w64-mingw32/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include"/>
 					<Add directory="/Library/Frameworks/SDL2.framework/Headers"/>
 					<Add directory="/Library/Frameworks/SDL2.framework"/>
 					<Add directory="/usr/local/include"/>
@@ -251,10 +263,13 @@
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/ComponentManager.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
-		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/Coordinator.cpp">
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/Components/Camera.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
-		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/Coordinator.h">
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/Components/Transform.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/Coordinator.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/EntityManager.cpp">
@@ -267,6 +282,9 @@
 			<Option target="MeltEngineLib"/>
 		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/SystemManager.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/Systems/CameraControlSystem.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/MeltEngine.cpp">

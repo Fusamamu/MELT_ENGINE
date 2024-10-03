@@ -1207,4 +1207,21 @@ MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/MeltEngine.cpp.o: \
   /usr/local/include/glm/gtc/../mat4x3.hpp \
   /usr/local/include/glm/gtc/type_ptr.inl \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Quad.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Vertex.h
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Vertex.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include/Camera.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include/Transform.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/include/Coordinator.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/include/Type.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/include/Event.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/any \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/include/EntityManager.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/queue \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/deque \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/include/EventManager.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/list \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/include/ComponentManager.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/include/ComponentArray.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/include/SystemManager.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/set \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__tree \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include/CameraControlSystem.h

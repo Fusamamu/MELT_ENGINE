@@ -31,6 +31,8 @@
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/x86_64-w64-mingw32/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include"/>
 					<Add directory="/Library/Frameworks/SDL2.framework/Headers"/>
 					<Add directory="/Library/Frameworks/SDL2.framework"/>
 					<Add directory="/usr/local/include"/>
@@ -60,6 +62,8 @@
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/x86_64-w64-mingw32/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include"/>
 					<Add directory="/Library/Frameworks/SDL2.framework/Headers"/>
 					<Add directory="/Library/Frameworks/SDL2.framework"/>
 					<Add directory="/usr/local/include"/>

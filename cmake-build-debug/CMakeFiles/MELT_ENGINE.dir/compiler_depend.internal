@@ -454,6 +454,7 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__thread/poll_with_backoff.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__thread/timed_backoff_policy.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__threading_support
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__tree
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__tuple_dir/apply_cv.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__tuple_dir/make_tuple_types.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__tuple_dir/pair_like.h
@@ -616,6 +617,7 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__variant/monostate.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__verbose_abort
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/algorithm
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/any
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/array
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/atomic
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/bit
@@ -639,6 +641,7 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/ctype.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cwchar
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cwctype
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/deque
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/errno.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/exception
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/filesystem
@@ -655,6 +658,7 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/iterator
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/limits
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/limits.h
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/list
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/locale
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/locale.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/math.h
@@ -663,7 +667,9 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/new
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/optional
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/ostream
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/queue
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/ratio
+ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/set
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/sstream
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/stddef.h
  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/stdexcept
@@ -916,6 +922,17 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o
  /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/backends/imgui_impl_sdl2.h
  /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/imconfig.h
  /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/imgui.h
+ /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/Components/include/Camera.h
+ /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/Components/include/Transform.h
+ /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/Systems/include/CameraControlSystem.h
+ /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/include/ComponentArray.h
+ /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/include/ComponentManager.h
+ /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/include/Coordinator.h
+ /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/include/EntityManager.h
+ /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/include/Event.h
+ /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/include/EventManager.h
+ /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/include/SystemManager.h
+ /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/include/Type.h
  /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/include/MeltEngine.h
  /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/include/Quad.h
  /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/include/Shader.h

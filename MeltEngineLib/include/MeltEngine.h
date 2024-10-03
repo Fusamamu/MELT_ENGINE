@@ -6,12 +6,18 @@
 
 #include "Shader.h"
 #include "Quad.h"
+#include "Camera.h"
+#include "Transform.h"
+#include "Coordinator.h"
+#include "CameraControlSystem.h"
 
 namespace MELT
 {
     class Engine
     {
     public:
+        Coordinator ECSCoord;
+
         Quad* m_Quad;
 
         float ScreenWidth;

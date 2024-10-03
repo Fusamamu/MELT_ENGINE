@@ -15,8 +15,6 @@ namespace MELT
             return;
         }
 
-        const char* glsl_version = "#version 150";
-
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_FORWARD_COMPATIBLE_FLAG); // Always required on Mac
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK,SDL_GL_CONTEXT_PROFILE_CORE);
 
@@ -97,8 +95,20 @@ namespace MELT
 
     void Engine::Init()
     {
+        ECSCoord.Init();
+        ECSCoord.RegisterComponent<Camera>();
+        ECSCoord.RegisterComponent<Transform>();
 
-    } 
+        auto _cameraControlSystem = ECSCoord.RegisterSystem<CameraControlSystem>();
+        {
+            Signature _signature;
+            _signature.set(ECSCoord.GetComponentType<Camera>());
+            _signature.set(ECSCoord.GetComponentType<Transform>());
+            ECSCoord.SetSystemSignature<CameraControlSystem>(_signature);
+        }
+        _cameraControlSystem->Init();
+
+    }
 
     void Engine::Update()
     {

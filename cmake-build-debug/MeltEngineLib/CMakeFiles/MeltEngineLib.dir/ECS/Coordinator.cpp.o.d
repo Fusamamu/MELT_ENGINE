@@ -1,6 +1,6 @@
 MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Coordinator.cpp.o: \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/Coordinator.cpp \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/Coordinator.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/include/Coordinator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/unordered_map \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/is_permutation.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/comp.h \
@@ -805,4 +805,5 @@ MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Coordinator.cpp.o: \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/include/ComponentArray.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/include/SystemManager.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/set \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__tree
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__tree \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include/Camera.h
