@@ -81,6 +81,19 @@ namespace MELT_EDITOR
         ImGui_ImplSDL2_ProcessEvent(&_event);
     }
 
+    void DrawPanel()
+    {
+        ImDrawList* _drawList = ImGui::GetWindowDrawList();
+
+        ImVec2 _panelPos = ImGui::GetCursorScreenPos();
+        ImVec2 _panelSize (ImGui::GetWindowWidth() - 20.0f, 100.0f);
+
+        _drawList->AddRectFilled(
+                _panelPos,
+                ImVec2(_panelPos.x + _panelSize.x, _panelPos.y + _panelSize.y),
+                IM_COL32(28, 31, 29, 255), 6.0f);
+    }
+
     void Editor::Update()
     {
         ImGui_ImplOpenGL3_NewFrame();
@@ -151,48 +164,171 @@ namespace MELT_EDITOR
             if(!CurrentTextDisplay.empty())
                 ImGui::TextUnformatted(CurrentTextDisplay.c_str());
 
+            ImDrawList* _drawList = ImGui::GetWindowDrawList();
 
-            ImDrawList* drawList = ImGui::GetWindowDrawList();
+            ImVec2 _panelPos = ImGui::GetCursorScreenPos();
+            ImVec2 _panelSize (ImGui::GetWindowWidth() - 20.0f, 100.0f);
 
-            float windowWidth = ImGui::GetWindowWidth() - 20.0f;
-            float windowHeight = 100.0f;
-
-            // Define position and size for the child window
-            ImVec2 childPos = ImGui::GetCursorScreenPos();  // Position relative to the parent window
-            ImVec2 childSize(windowWidth, windowHeight);                      // Size of the child window
-            float rounding = 8.0f;
-            ImU32 fillColor = IM_COL32(28, 31, 29, 255); // Background color (white)
-            ImU32 borderColor = IM_COL32(0, 0, 0, 255);     // Border color (black)
-            drawList->AddRectFilled(childPos, ImVec2(childPos.x + childSize.x, childPos.y + childSize.y), fillColor, rounding);
+            _drawList->AddRectFilled(
+                    _panelPos,
+                    ImVec2(_panelPos.x + _panelSize.x, _panelPos.y + _panelSize.y),
+                    IM_COL32(28, 31, 29, 255), 6.0f);
 
 
-            ImGui::BeginChild("Transform inspector");
-            //ImGui::BeginChild("Transform inspector", ImVec2(childSize.x - 20.0f, childSize.y - 10.0f), false);
+            _drawList->AddRectFilled(
+                    _panelPos,
+                    ImVec2(_panelPos.x + _panelSize.x, _panelPos.y + ImGui::GetTextLineHeight() + 5.0f),
+                    IM_COL32(61, 63, 66, 255), 0.0f);
 
-//                const float padding = 10.0f; // Define your padding
-//                ImGui::SetCursorPos(ImVec2(padding, padding));
+            ImVec2 text_size = ImGui::CalcTextSize("Text");
+            ImVec2 text_position = _panelPos;
 
-                //ImGui::BeginChild("Tree window");
-                //ImGui::BeginChild("Tree window", ImVec2(childSize.x - 20.0f, childSize.y - 10.0f), false);
+            _drawList->AddText(text_position, IM_COL32(0, 0, 0, 255), "Transform component"); // Change color as needed
 
-                ImGui::Text("Entity");
+            _panelPos.y += 100.0f + 10.0f;
 
-                ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
 
-//                    ImGui::SetCursorPosX(10);
-//                    ImGui::SetCursorPosY(10);
+            _drawList->AddRectFilled(
+                    _panelPos,
+                    ImVec2(_panelPos.x + _panelSize.x, _panelPos.y + _panelSize.y),
+                    IM_COL32(28, 31, 29, 255), 6.0f);
 
-                ImGui::Text("Position:");
-                ImGui::SameLine();
-                static float vec3[3] = { 0.0f, 0.0f, 0.0f };
-                ImGui::InputFloat3("", vec3);  // Empty label so it's not repeated
 
-                ImGui::PopStyleColor();
-                //ImGui::EndChild();
+            _drawList->AddRectFilled(
+                    _panelPos,
+                    ImVec2(_panelPos.x + _panelSize.x, _panelPos.y + ImGui::GetTextLineHeight() + 5.0f),
+                    IM_COL32(61, 63, 66, 255), 0.0f);
 
-            ImGui::EndChild();
+            text_position = _panelPos;
+
+            _drawList->AddText(text_position, IM_COL32(0, 0, 0, 255), "Transform component"); // Change color as needed
+
+
+//            ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
+//            ImDrawList* draw_list = ImGui::GetWindowDrawList();
+//
+//            // Get the cursor position (top-left corner where we want to start drawing)
+//            ImVec2 p = ImGui::GetWindowPos();
+//
+//
+//            const ImGuiStyle& style = ImGui::GetStyle();
+//
+//            // Get the height of the tab bar
+//            float tab_bar_height = style.FramePadding.y;
+//            p.y += tab_bar_height;
+//
+//            // Get the available width of the window
+//            float window_width = ImGui::GetWindowWidth();
+//
+//            // Define a fixed height for the rectangle
+//            float rect_height = 50.0f;
+//
+//            // Draw a rectangle that covers the full width of the window
+//            draw_list->AddRectFilled(p, ImVec2(p.x + window_width, p.y + rect_height),
+//                                     IM_COL32(100, 150, 250, 255));
+//
+//            ImGui::PopStyleVar();
+
+
+
+
+//            ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 8.0f);
+//            if (ImGui::CollapsingHeader("Transform component"))
+//            {
+//                //ImGui::PushStyleVar(ImGuiCol_Bg, 6.0f);
+//
+//                ImGui::PushStyleVar(ImGuiStyleVar_ChildRounding, 6.0f);
+//                ImGui::PushStyleColor(ImGuiCol_ChildBg, IM_COL32(28, 31, 29, 255));
+//
+//                //ImGui::BeginChild("Transform inspector", ImVec2(0, 200), true);
+//
+//                //ImGui::Text("Transform component");
+//                ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
+//
+//                static float _position[3] = { 0.0f, 0.0f, 0.0f };
+//                static float _rotation[3] = { 0.0f, 0.0f, 0.0f };
+//                static float _scale   [3] = { 0.0f, 0.0f, 0.0f };
+//
+//                ImGui::Text("Position");
+//                ImGui::SameLine(120.0f);
+//                ImGui::InputFloat3("", _position);
+//                ImGui::Text("Rotation");
+//                ImGui::SameLine(120.0f);
+//                ImGui::InputFloat3("", _rotation);
+//                ImGui::Text("Scale");
+//                ImGui::SameLine(120.0f);
+//                ImGui::InputFloat3("", _scale);
+//
+//                ImGui::PopStyleColor();
+//                //ImGui::EndChild();
+//
+//                ImGui::PopStyleVar(2);
+//                ImGui::PopStyleColor();
+//
+//            }
+//            else
+//            {
+//                ImGui::PopStyleVar();
+//            }
+
+//            if (ImGui::Selectable("Selectable Rectangle", false, ImGuiSelectableFlags_AllowDoubleClick))
+//            {
+//                // Logic for when the rectangle is selected
+//            }
+//
+//            int aa = 0;
+//
+//            if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_SourceAllowNullID))
+//            {
+//                ImGui::SetDragDropPayload("ITEM_REORDER", &aa, sizeof(int)); // Set the drag payload as the item's index
+//                ImGui::Text("Dragging %s", "slkdjalkf");  // Display the item being dragged
+//                ImGui::EndDragDropSource();
+//            }
+
+//           static std::vector<std::string> items = {"Item 1", "Item 2", "Item 3", "Item 4"};
+//            for (int i = 0; i < items.size(); i++)
+//            {
+//                // Unique ID for each item
+//                ImGui::PushID(i);
+//
+//                if (ImGui::CollapsingHeader(items[i].c_str()))
+//                {
+//                    ImGui::Text("Content for %s", items[i].c_str());
+//                }
+//
+//                // Handle dragging
+//                if (ImGui::BeginDragDropSource(ImGuiDragDropFlags_SourceAllowNullID))
+//                {
+//                    ImGui::SetDragDropPayload("ITEM_REORDER", &i, sizeof(int)); // Set the drag payload as the item's index
+//                    ImGui::Text("Dragging %s", items[i].c_str());  // Display the item being dragged
+//                    ImGui::EndDragDropSource();
+//                }
+//
+//                // Handle dropping
+//                if (ImGui::BeginDragDropTarget())
+//                {
+//                    if (const ImGuiPayload* payload = ImGui::AcceptDragDropPayload("ITEM_REORDER"))
+//                    {
+//                        int dragged_index = *(const int*)payload->Data;
+//
+//                        // Swap the items
+//                        if (dragged_index != i)
+//                        {
+//                            std::swap(items[dragged_index], items[i]);
+//                        }
+//                    }
+//                    ImGui::EndDragDropTarget();
+//                }
+//
+//                ImGui::PopID();
+//            }
+
         }
         ImGui::End();
+
+
+
+
 
 
         ImGui::PushStyleColor(ImGuiCol_WindowBg, IM_COL32(33, 36, 35, 255));
