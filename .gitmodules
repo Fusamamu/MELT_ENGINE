@@ -4,3 +4,6 @@
 [submodule "MeltEngineEditorLib/vendors/imgui"]
 	path = MeltEngineEditorLib/vendors/imgui
 	url = https://github.com/ocornut/imgui.git
+[submodule "MeltEngineEditorLib/vendors/IconFontCppHeaders"]
+	path = MeltEngineEditorLib/vendors/IconFontCppHeaders
+	url = https://github.com/juliettef/IconFontCppHeaders.git

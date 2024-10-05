@@ -16,6 +16,7 @@ add_library(${PROJECT_NAME} STATIC
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
 target_include_directories(${PROJECT_NAME} PUBLIC ./vendors/imgui)
 target_include_directories(${PROJECT_NAME} PUBLIC ./vendors/imgui/backends)
+target_include_directories(${PROJECT_NAME} PUBLIC ./vendors/IconFontCppHeaders)
 target_include_directories(${PROJECT_NAME} PUBLIC ./vendors/x86_64-w64-mingw32/include)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC MeltEngineLib)

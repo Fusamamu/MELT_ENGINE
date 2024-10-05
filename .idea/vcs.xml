@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/MeltEngineEditorLib/vendors/IconFontCppHeaders" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/MeltEngineEditorLib/vendors/imgui" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/MeltEngineLib/vendors/imgui" vcs="Git" />
   </component>
