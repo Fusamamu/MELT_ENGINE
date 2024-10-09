@@ -12,7 +12,8 @@ add_library(${PROJECT_NAME} STATIC
             ${IMGUI_SRCS}
             ${IMGUI_BACKENDS}/imgui_impl_sdl2.cpp
             ${IMGUI_BACKENDS}/imgui_impl_opengl3.cpp
-            src/ScriptEditorGUI/ScriptEditorGUI.cpp)
+            src/ScriptEditorGUI/ScriptEditorGUI.cpp
+        src/ConsoleGUI.cpp)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
 target_include_directories(${PROJECT_NAME} PUBLIC ./include/ScriptEditor)

@@ -131,6 +131,30 @@ MeltEngineEditorLib/fast:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build
 .PHONY : MeltEngineEditorLib/fast
 
+src/ConsoleGUI.o: src/ConsoleGUI.cpp.o
+.PHONY : src/ConsoleGUI.o
+
+# target to build an object file
+src/ConsoleGUI.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ConsoleGUI.cpp.o
+.PHONY : src/ConsoleGUI.cpp.o
+
+src/ConsoleGUI.i: src/ConsoleGUI.cpp.i
+.PHONY : src/ConsoleGUI.i
+
+# target to preprocess a source file
+src/ConsoleGUI.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ConsoleGUI.cpp.i
+.PHONY : src/ConsoleGUI.cpp.i
+
+src/ConsoleGUI.s: src/ConsoleGUI.cpp.s
+.PHONY : src/ConsoleGUI.s
+
+# target to generate assembly for a file
+src/ConsoleGUI.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ConsoleGUI.cpp.s
+.PHONY : src/ConsoleGUI.cpp.s
+
 src/MeltEngineEditor.o: src/MeltEngineEditor.cpp.o
 .PHONY : src/MeltEngineEditor.o
 
@@ -356,6 +380,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MeltEngineEditorLib"
+	@echo "... src/ConsoleGUI.o"
+	@echo "... src/ConsoleGUI.i"
+	@echo "... src/ConsoleGUI.s"
 	@echo "... src/MeltEngineEditor.o"
 	@echo "... src/MeltEngineEditor.i"
 	@echo "... src/MeltEngineEditor.s"

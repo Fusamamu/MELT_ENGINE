@@ -9,23 +9,23 @@ add_library(${PROJECT_NAME} STATIC
         src/Shader.cpp
         src/Quad.cpp
         src/Vertex.cpp
-        ECS/EntityManager.cpp
-        ECS/ComponentArray.cpp
-        ECS/ComponentManager.cpp
-        ECS/SystemManager.cpp
-        ECS/Event.cpp
-        ECS/EventManager.cpp
-        ECS/Coordinator.cpp
-        ECS/Components/Camera.cpp
-        ECS/Systems/CameraControlSystem.cpp
-        ECS/Components/Transform.cpp
+        src/ECS/EntityManager.cpp
+        src/ECS/ComponentArray.cpp
+        src/ECS/ComponentManager.cpp
+        src/ECS/SystemManager.cpp
+        src/ECS/Event.cpp
+        src/ECS/EventManager.cpp
+        src/ECS/Coordinator.cpp
+        src/ECS/Components/Camera.cpp
+        src/ECS/Systems/CameraControlSystem.cpp
+        src/ECS/Components/Transform.cpp
         src/EventSystem/Event.cpp
         src/EventSystem/EventHandler.cpp)
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
-target_include_directories(${PROJECT_NAME} PUBLIC ./ECS/include)
-target_include_directories(${PROJECT_NAME} PUBLIC ./ECS/Components/include)
-target_include_directories(${PROJECT_NAME} PUBLIC ./ECS/Systems/include)
+target_include_directories(${PROJECT_NAME} PUBLIC ./include/ECS)
+target_include_directories(${PROJECT_NAME} PUBLIC ./include/ECS/Components)
+target_include_directories(${PROJECT_NAME} PUBLIC ./include/ECS/Systems)
 target_include_directories(${PROJECT_NAME} PUBLIC ./vendors/yaml-cpp/include)
 
 find_package(SDL2   REQUIRED COMPONENTS SDL2)

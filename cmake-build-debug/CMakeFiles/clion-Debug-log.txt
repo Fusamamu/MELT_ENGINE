@@ -28,6 +28,6 @@ Call Stack (most recent call first):
   MeltEngineLib/CMakeLists.txt:34 (find_package)
 
 
--- Configuring done (0.2s)
--- Generating done (0.1s)
+-- Configuring done (0.5s)
+-- Generating done (0.3s)
 -- Build files have been written to: /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug

@@ -919,6 +919,7 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/xsaveoptintrin.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/xsavesintrin.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/xtestintrin.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/include/ConsoleGUI.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/include/MeltEngineEditor.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/include/ScriptEditor/ScriptEditorGUI.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/IconFontCppHeaders/IconsKenney.h \
@@ -926,17 +927,17 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/backends/imgui_impl_sdl2.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/imconfig.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/imgui.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/Components/include/Camera.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/Components/include/Transform.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/Systems/include/CameraControlSystem.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/include/ComponentArray.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/include/ComponentManager.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/include/Coordinator.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/include/EntityManager.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/include/Event.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/include/EventManager.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/include/SystemManager.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/include/Type.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/ComponentArray.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/ComponentManager.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/Camera.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/Transform.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Coordinator.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/EntityManager.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Event.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/EventManager.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/SystemManager.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Systems/CameraControlSystem.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Type.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/MeltEngine.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Quad.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Shader.h \
@@ -1340,8 +1341,6 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /usr/local/include/glm/detail/func_packing.inl:
 
-/usr/local/include/glm/detail/func_matrix.inl:
-
 /usr/local/include/glm/detail/func_geometric.inl:
 
 /usr/local/include/glm/detail/func_exponential.inl:
@@ -1472,6 +1471,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /usr/local/include/glm/detail/type_mat3x2.hpp:
 
+/usr/local/include/glm/detail/type_float.hpp:
+
 /usr/local/include/glm/detail/setup.hpp:
 
 /usr/local/include/SDL2/close_code.h:
@@ -1586,19 +1587,17 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Quad.h:
 
-/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/include/Type.h:
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Systems/CameraControlSystem.h:
 
-/usr/local/include/glm/detail/type_float.hpp:
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/EventManager.h:
 
-/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/include/Event.h:
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Event.h:
 
-/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/include/Coordinator.h:
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/Transform.h:
 
-/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/include/ComponentArray.h:
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/Camera.h:
 
-/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/Systems/include/CameraControlSystem.h:
-
-/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/Components/include/Camera.h:
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/ComponentArray.h:
 
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/imgui.h:
 
@@ -1613,6 +1612,10 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /usr/local/include/glm/detail/qualifier.hpp:
 
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/include/MeltEngineEditor.h:
+
+/usr/local/include/glm/detail/func_matrix.inl:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/include/ConsoleGUI.h:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/xsavecintrin.h:
 
@@ -1631,6 +1634,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/tsxldtrkintrin.h:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/stdarg.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Coordinator.h:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/sgxintrin.h:
 
@@ -1667,8 +1672,6 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/enqcmdintrin.h:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/emmintrin.h:
-
-/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/include/EntityManager.h:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/clwbintrin.h:
 
@@ -1762,13 +1765,13 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /usr/local/include/SDL2/SDL_locale.h:
 
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/EntityManager.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/wctype.h:
 
 /usr/local/include/glm/mat3x2.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/wchar.h:
-
-/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/include/EventManager.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/time.h:
 
@@ -3072,6 +3075,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/set_symmetric_difference.h:
 
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Type.h:
+
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/fmaintrin.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__functional/unwrap_ref.h:
@@ -3166,6 +3171,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__chrono/weekday.h:
 
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/ComponentManager.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_find_first_of.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/stdlib.h:
@@ -3197,8 +3204,6 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_minmax_element.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_partial_sort_copy.h:
-
-/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/include/ComponentManager.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__functional/is_transparent.h:
 
@@ -3400,8 +3405,6 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/AvailabilityInternalLegacy.h:
 
-/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/Components/include/Transform.h:
-
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_partition_point.h:
 
 /usr/local/include/SDL2/SDL_blendmode.h:
@@ -3485,6 +3488,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/find_first_of.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_equal.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/SystemManager.h:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/immintrin.h:
 
@@ -3639,8 +3644,6 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/partition_point.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__chrono/year_month.h:
-
-/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/ECS/include/SystemManager.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/ctype.h:
 

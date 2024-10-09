@@ -65,6 +65,8 @@ namespace MELT_EDITOR
         {
             std::cout << "ERROR : " << _e.what() << std::endl;
         }
+
+        ConsoleGUI.EditorOwner = this;
     }
 
     Editor::~Editor()
@@ -110,6 +112,7 @@ namespace MELT_EDITOR
         DrawContentGUI  ();
 
         ScriptEditorGUI.DrawGUI();
+        ConsoleGUI     .DrawGUI();
 
         ImGui::ShowDemoWindow();
         ImGui::Render();
@@ -240,6 +243,8 @@ namespace MELT_EDITOR
 
     static bool isSelected = false;
 
+    int _selectedItem = -1;
+
     void Editor::DrawHierarchyGUI()
     {
         ImGui::PushStyleColor(ImGuiCol_WindowBg, IM_COL32(33, 36, 35, 255));
@@ -276,7 +281,12 @@ namespace MELT_EDITOR
                 if (ImGui::MenuItem("Create entity"))
                 {
                     MELT::Entity _entity = Engine->ECSCoord.CreateEntity();
-                    Entities.emplace(_entity, false);
+
+                    Engine->ECSCoord.AddComponent<MELT::Transform>(_entity, {
+                        glm::vec3(0.0, 0.0, 0.0),
+                        glm::vec3(0.0, 0.0, 0.0),
+                        glm::vec3(0.0, 0.0, 0.0),
+                    });
                 }
 
                 if (ImGui::MenuItem("Create scene")) {
@@ -298,34 +308,59 @@ namespace MELT_EDITOR
             if (ImGui::CollapsingHeader("Scene 1"))
             {
 
-                static MELT::Entity _deletedEntity = -1;
+//                static MELT::Entity _deletedEntity = -1;
+//
+//                for(const auto& [_entity, _isSelected] : Entities)
+//                {
+//                    std::string _e = "Entity_" + std::to_string(_entity);
+//                    if(ImGui::Selectable(_e.c_str(), _isSelected))
+//                    {
+//                        Entities[_entity] = !_isSelected;
+//                    }
+//
+//                    if (ImGui::IsItemHovered() && ImGui::IsMouseClicked(ImGuiMouseButton_Right))
+//                    {
+//                        _deletedEntity = _entity;
+//                        ImGui::OpenPopup("ItemRightClickMenu");
+//                    }
+//                }
 
-                for(const auto& [_entity, _isSelected] : Entities)
+//                for(const auto& _entity : Engine->ECSCoord.m_EntityManager->ActiveEntities)
+//                {
+//                    std::string _e = "Entity_" + std::to_string(_entity);
+//                    if(ImGui::Selectable(_e.c_str()))
+//                    {
+//                    }
+//                }
+
+                for(int _i = 0; _i < Engine->ECSCoord.m_EntityManager->ActiveEntities.size(); _i++)
                 {
+                    auto _entity = Engine->ECSCoord.m_EntityManager->ActiveEntities[_i];
                     std::string _e = "Entity_" + std::to_string(_entity);
-                    if(ImGui::Selectable(_e.c_str(), _isSelected))
+                    if(ImGui::Selectable(_e.c_str(), _i == _selectedItem))
                     {
-                        Entities[_entity] = !_isSelected;
-                    }
-
-                    if (ImGui::IsItemHovered() && ImGui::IsMouseClicked(ImGuiMouseButton_Right))
-                    {
-                        _deletedEntity = _entity;
-                        ImGui::OpenPopup("ItemRightClickMenu");
+                        _selectedItem = _i;
+                        Engine->ECSCoord.SelectedEntity = _entity;
                     }
                 }
 
-                if (ImGui::BeginPopup("ItemRightClickMenu")) {
-                    if (ImGui::MenuItem("Rename")) {
-                    }
-                    if (ImGui::MenuItem("Delete"))
-                    {
-                        auto _rm = Entities.find(_deletedEntity);
-                        if(_rm != Entities.end())
-                            Entities.erase(_rm);
-                    }
-                    ImGui::EndPopup();
-                }
+
+
+
+
+
+
+//                if (ImGui::BeginPopup("ItemRightClickMenu")) {
+//                    if (ImGui::MenuItem("Rename")) {
+//                    }
+//                    if (ImGui::MenuItem("Delete"))
+//                    {
+//                        auto _rm = Entities.find(_deletedEntity);
+//                        if(_rm != Entities.end())
+//                            Entities.erase(_rm);
+//                    }
+//                    ImGui::EndPopup();
+//                }
             }
             ImGui::PopStyleColor();
             ImGui::PopStyleVar();

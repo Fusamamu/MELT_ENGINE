@@ -8,12 +8,16 @@
 #include <functional>
 #include <filesystem>
 #include <unordered_map>
-#include "MeltEngine.h"
+
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_opengl3.h"
 #include "IconsKenney.h"
+
+#include "MeltEngine.h"
+
 #include "ScriptEditorGUI.h"
+#include "ConsoleGUI.h"
 
 namespace MELT_EDITOR
 {
@@ -25,6 +29,7 @@ namespace MELT_EDITOR
         std::vector<std::string> fileNames;
 
         ScriptEditorGUI ScriptEditorGUI;
+        ConsoleGUI ConsoleGUI;
 
         explicit Editor(MELT::Engine* _engine);
         ~Editor();

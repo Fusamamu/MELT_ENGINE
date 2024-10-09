@@ -6,9 +6,12 @@
 
 #include "Shader.h"
 #include "Quad.h"
+
+#include "Type.h"
+
 #include "Camera.h"
 #include "Transform.h"
-#include "Type.h"
+
 #include "Coordinator.h"
 #include "CameraControlSystem.h"
 

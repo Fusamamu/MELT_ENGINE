@@ -131,245 +131,245 @@ MeltEngineLib/fast:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build
 .PHONY : MeltEngineLib/fast
 
-ECS/ComponentArray.o: ECS/ComponentArray.cpp.o
-.PHONY : ECS/ComponentArray.o
+src/ECS/ComponentArray.o: src/ECS/ComponentArray.cpp.o
+.PHONY : src/ECS/ComponentArray.o
 
 # target to build an object file
-ECS/ComponentArray.cpp.o:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/ComponentArray.cpp.o
-.PHONY : ECS/ComponentArray.cpp.o
+src/ECS/ComponentArray.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/ComponentArray.cpp.o
+.PHONY : src/ECS/ComponentArray.cpp.o
 
-ECS/ComponentArray.i: ECS/ComponentArray.cpp.i
-.PHONY : ECS/ComponentArray.i
+src/ECS/ComponentArray.i: src/ECS/ComponentArray.cpp.i
+.PHONY : src/ECS/ComponentArray.i
 
 # target to preprocess a source file
-ECS/ComponentArray.cpp.i:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/ComponentArray.cpp.i
-.PHONY : ECS/ComponentArray.cpp.i
+src/ECS/ComponentArray.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/ComponentArray.cpp.i
+.PHONY : src/ECS/ComponentArray.cpp.i
 
-ECS/ComponentArray.s: ECS/ComponentArray.cpp.s
-.PHONY : ECS/ComponentArray.s
+src/ECS/ComponentArray.s: src/ECS/ComponentArray.cpp.s
+.PHONY : src/ECS/ComponentArray.s
 
 # target to generate assembly for a file
-ECS/ComponentArray.cpp.s:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/ComponentArray.cpp.s
-.PHONY : ECS/ComponentArray.cpp.s
+src/ECS/ComponentArray.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/ComponentArray.cpp.s
+.PHONY : src/ECS/ComponentArray.cpp.s
 
-ECS/ComponentManager.o: ECS/ComponentManager.cpp.o
-.PHONY : ECS/ComponentManager.o
+src/ECS/ComponentManager.o: src/ECS/ComponentManager.cpp.o
+.PHONY : src/ECS/ComponentManager.o
 
 # target to build an object file
-ECS/ComponentManager.cpp.o:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/ComponentManager.cpp.o
-.PHONY : ECS/ComponentManager.cpp.o
+src/ECS/ComponentManager.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/ComponentManager.cpp.o
+.PHONY : src/ECS/ComponentManager.cpp.o
 
-ECS/ComponentManager.i: ECS/ComponentManager.cpp.i
-.PHONY : ECS/ComponentManager.i
+src/ECS/ComponentManager.i: src/ECS/ComponentManager.cpp.i
+.PHONY : src/ECS/ComponentManager.i
 
 # target to preprocess a source file
-ECS/ComponentManager.cpp.i:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/ComponentManager.cpp.i
-.PHONY : ECS/ComponentManager.cpp.i
+src/ECS/ComponentManager.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/ComponentManager.cpp.i
+.PHONY : src/ECS/ComponentManager.cpp.i
 
-ECS/ComponentManager.s: ECS/ComponentManager.cpp.s
-.PHONY : ECS/ComponentManager.s
+src/ECS/ComponentManager.s: src/ECS/ComponentManager.cpp.s
+.PHONY : src/ECS/ComponentManager.s
 
 # target to generate assembly for a file
-ECS/ComponentManager.cpp.s:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/ComponentManager.cpp.s
-.PHONY : ECS/ComponentManager.cpp.s
+src/ECS/ComponentManager.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/ComponentManager.cpp.s
+.PHONY : src/ECS/ComponentManager.cpp.s
 
-ECS/Components/Camera.o: ECS/Components/Camera.cpp.o
-.PHONY : ECS/Components/Camera.o
+src/ECS/Components/Camera.o: src/ECS/Components/Camera.cpp.o
+.PHONY : src/ECS/Components/Camera.o
 
 # target to build an object file
-ECS/Components/Camera.cpp.o:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Components/Camera.cpp.o
-.PHONY : ECS/Components/Camera.cpp.o
+src/ECS/Components/Camera.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Camera.cpp.o
+.PHONY : src/ECS/Components/Camera.cpp.o
 
-ECS/Components/Camera.i: ECS/Components/Camera.cpp.i
-.PHONY : ECS/Components/Camera.i
+src/ECS/Components/Camera.i: src/ECS/Components/Camera.cpp.i
+.PHONY : src/ECS/Components/Camera.i
 
 # target to preprocess a source file
-ECS/Components/Camera.cpp.i:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Components/Camera.cpp.i
-.PHONY : ECS/Components/Camera.cpp.i
+src/ECS/Components/Camera.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Camera.cpp.i
+.PHONY : src/ECS/Components/Camera.cpp.i
 
-ECS/Components/Camera.s: ECS/Components/Camera.cpp.s
-.PHONY : ECS/Components/Camera.s
+src/ECS/Components/Camera.s: src/ECS/Components/Camera.cpp.s
+.PHONY : src/ECS/Components/Camera.s
 
 # target to generate assembly for a file
-ECS/Components/Camera.cpp.s:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Components/Camera.cpp.s
-.PHONY : ECS/Components/Camera.cpp.s
+src/ECS/Components/Camera.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Camera.cpp.s
+.PHONY : src/ECS/Components/Camera.cpp.s
 
-ECS/Components/Transform.o: ECS/Components/Transform.cpp.o
-.PHONY : ECS/Components/Transform.o
+src/ECS/Components/Transform.o: src/ECS/Components/Transform.cpp.o
+.PHONY : src/ECS/Components/Transform.o
 
 # target to build an object file
-ECS/Components/Transform.cpp.o:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Components/Transform.cpp.o
-.PHONY : ECS/Components/Transform.cpp.o
+src/ECS/Components/Transform.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Transform.cpp.o
+.PHONY : src/ECS/Components/Transform.cpp.o
 
-ECS/Components/Transform.i: ECS/Components/Transform.cpp.i
-.PHONY : ECS/Components/Transform.i
+src/ECS/Components/Transform.i: src/ECS/Components/Transform.cpp.i
+.PHONY : src/ECS/Components/Transform.i
 
 # target to preprocess a source file
-ECS/Components/Transform.cpp.i:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Components/Transform.cpp.i
-.PHONY : ECS/Components/Transform.cpp.i
+src/ECS/Components/Transform.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Transform.cpp.i
+.PHONY : src/ECS/Components/Transform.cpp.i
 
-ECS/Components/Transform.s: ECS/Components/Transform.cpp.s
-.PHONY : ECS/Components/Transform.s
+src/ECS/Components/Transform.s: src/ECS/Components/Transform.cpp.s
+.PHONY : src/ECS/Components/Transform.s
 
 # target to generate assembly for a file
-ECS/Components/Transform.cpp.s:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Components/Transform.cpp.s
-.PHONY : ECS/Components/Transform.cpp.s
+src/ECS/Components/Transform.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Transform.cpp.s
+.PHONY : src/ECS/Components/Transform.cpp.s
 
-ECS/Coordinator.o: ECS/Coordinator.cpp.o
-.PHONY : ECS/Coordinator.o
+src/ECS/Coordinator.o: src/ECS/Coordinator.cpp.o
+.PHONY : src/ECS/Coordinator.o
 
 # target to build an object file
-ECS/Coordinator.cpp.o:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Coordinator.cpp.o
-.PHONY : ECS/Coordinator.cpp.o
+src/ECS/Coordinator.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Coordinator.cpp.o
+.PHONY : src/ECS/Coordinator.cpp.o
 
-ECS/Coordinator.i: ECS/Coordinator.cpp.i
-.PHONY : ECS/Coordinator.i
+src/ECS/Coordinator.i: src/ECS/Coordinator.cpp.i
+.PHONY : src/ECS/Coordinator.i
 
 # target to preprocess a source file
-ECS/Coordinator.cpp.i:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Coordinator.cpp.i
-.PHONY : ECS/Coordinator.cpp.i
+src/ECS/Coordinator.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Coordinator.cpp.i
+.PHONY : src/ECS/Coordinator.cpp.i
 
-ECS/Coordinator.s: ECS/Coordinator.cpp.s
-.PHONY : ECS/Coordinator.s
+src/ECS/Coordinator.s: src/ECS/Coordinator.cpp.s
+.PHONY : src/ECS/Coordinator.s
 
 # target to generate assembly for a file
-ECS/Coordinator.cpp.s:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Coordinator.cpp.s
-.PHONY : ECS/Coordinator.cpp.s
+src/ECS/Coordinator.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Coordinator.cpp.s
+.PHONY : src/ECS/Coordinator.cpp.s
 
-ECS/EntityManager.o: ECS/EntityManager.cpp.o
-.PHONY : ECS/EntityManager.o
+src/ECS/EntityManager.o: src/ECS/EntityManager.cpp.o
+.PHONY : src/ECS/EntityManager.o
 
 # target to build an object file
-ECS/EntityManager.cpp.o:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/EntityManager.cpp.o
-.PHONY : ECS/EntityManager.cpp.o
+src/ECS/EntityManager.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/EntityManager.cpp.o
+.PHONY : src/ECS/EntityManager.cpp.o
 
-ECS/EntityManager.i: ECS/EntityManager.cpp.i
-.PHONY : ECS/EntityManager.i
+src/ECS/EntityManager.i: src/ECS/EntityManager.cpp.i
+.PHONY : src/ECS/EntityManager.i
 
 # target to preprocess a source file
-ECS/EntityManager.cpp.i:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/EntityManager.cpp.i
-.PHONY : ECS/EntityManager.cpp.i
+src/ECS/EntityManager.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/EntityManager.cpp.i
+.PHONY : src/ECS/EntityManager.cpp.i
 
-ECS/EntityManager.s: ECS/EntityManager.cpp.s
-.PHONY : ECS/EntityManager.s
+src/ECS/EntityManager.s: src/ECS/EntityManager.cpp.s
+.PHONY : src/ECS/EntityManager.s
 
 # target to generate assembly for a file
-ECS/EntityManager.cpp.s:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/EntityManager.cpp.s
-.PHONY : ECS/EntityManager.cpp.s
+src/ECS/EntityManager.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/EntityManager.cpp.s
+.PHONY : src/ECS/EntityManager.cpp.s
 
-ECS/Event.o: ECS/Event.cpp.o
-.PHONY : ECS/Event.o
+src/ECS/Event.o: src/ECS/Event.cpp.o
+.PHONY : src/ECS/Event.o
 
 # target to build an object file
-ECS/Event.cpp.o:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Event.cpp.o
-.PHONY : ECS/Event.cpp.o
+src/ECS/Event.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Event.cpp.o
+.PHONY : src/ECS/Event.cpp.o
 
-ECS/Event.i: ECS/Event.cpp.i
-.PHONY : ECS/Event.i
+src/ECS/Event.i: src/ECS/Event.cpp.i
+.PHONY : src/ECS/Event.i
 
 # target to preprocess a source file
-ECS/Event.cpp.i:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Event.cpp.i
-.PHONY : ECS/Event.cpp.i
+src/ECS/Event.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Event.cpp.i
+.PHONY : src/ECS/Event.cpp.i
 
-ECS/Event.s: ECS/Event.cpp.s
-.PHONY : ECS/Event.s
+src/ECS/Event.s: src/ECS/Event.cpp.s
+.PHONY : src/ECS/Event.s
 
 # target to generate assembly for a file
-ECS/Event.cpp.s:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Event.cpp.s
-.PHONY : ECS/Event.cpp.s
+src/ECS/Event.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Event.cpp.s
+.PHONY : src/ECS/Event.cpp.s
 
-ECS/EventManager.o: ECS/EventManager.cpp.o
-.PHONY : ECS/EventManager.o
+src/ECS/EventManager.o: src/ECS/EventManager.cpp.o
+.PHONY : src/ECS/EventManager.o
 
 # target to build an object file
-ECS/EventManager.cpp.o:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/EventManager.cpp.o
-.PHONY : ECS/EventManager.cpp.o
+src/ECS/EventManager.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/EventManager.cpp.o
+.PHONY : src/ECS/EventManager.cpp.o
 
-ECS/EventManager.i: ECS/EventManager.cpp.i
-.PHONY : ECS/EventManager.i
+src/ECS/EventManager.i: src/ECS/EventManager.cpp.i
+.PHONY : src/ECS/EventManager.i
 
 # target to preprocess a source file
-ECS/EventManager.cpp.i:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/EventManager.cpp.i
-.PHONY : ECS/EventManager.cpp.i
+src/ECS/EventManager.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/EventManager.cpp.i
+.PHONY : src/ECS/EventManager.cpp.i
 
-ECS/EventManager.s: ECS/EventManager.cpp.s
-.PHONY : ECS/EventManager.s
+src/ECS/EventManager.s: src/ECS/EventManager.cpp.s
+.PHONY : src/ECS/EventManager.s
 
 # target to generate assembly for a file
-ECS/EventManager.cpp.s:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/EventManager.cpp.s
-.PHONY : ECS/EventManager.cpp.s
+src/ECS/EventManager.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/EventManager.cpp.s
+.PHONY : src/ECS/EventManager.cpp.s
 
-ECS/SystemManager.o: ECS/SystemManager.cpp.o
-.PHONY : ECS/SystemManager.o
+src/ECS/SystemManager.o: src/ECS/SystemManager.cpp.o
+.PHONY : src/ECS/SystemManager.o
 
 # target to build an object file
-ECS/SystemManager.cpp.o:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/SystemManager.cpp.o
-.PHONY : ECS/SystemManager.cpp.o
+src/ECS/SystemManager.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/SystemManager.cpp.o
+.PHONY : src/ECS/SystemManager.cpp.o
 
-ECS/SystemManager.i: ECS/SystemManager.cpp.i
-.PHONY : ECS/SystemManager.i
+src/ECS/SystemManager.i: src/ECS/SystemManager.cpp.i
+.PHONY : src/ECS/SystemManager.i
 
 # target to preprocess a source file
-ECS/SystemManager.cpp.i:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/SystemManager.cpp.i
-.PHONY : ECS/SystemManager.cpp.i
+src/ECS/SystemManager.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/SystemManager.cpp.i
+.PHONY : src/ECS/SystemManager.cpp.i
 
-ECS/SystemManager.s: ECS/SystemManager.cpp.s
-.PHONY : ECS/SystemManager.s
+src/ECS/SystemManager.s: src/ECS/SystemManager.cpp.s
+.PHONY : src/ECS/SystemManager.s
 
 # target to generate assembly for a file
-ECS/SystemManager.cpp.s:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/SystemManager.cpp.s
-.PHONY : ECS/SystemManager.cpp.s
+src/ECS/SystemManager.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/SystemManager.cpp.s
+.PHONY : src/ECS/SystemManager.cpp.s
 
-ECS/Systems/CameraControlSystem.o: ECS/Systems/CameraControlSystem.cpp.o
-.PHONY : ECS/Systems/CameraControlSystem.o
+src/ECS/Systems/CameraControlSystem.o: src/ECS/Systems/CameraControlSystem.cpp.o
+.PHONY : src/ECS/Systems/CameraControlSystem.o
 
 # target to build an object file
-ECS/Systems/CameraControlSystem.cpp.o:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Systems/CameraControlSystem.cpp.o
-.PHONY : ECS/Systems/CameraControlSystem.cpp.o
+src/ECS/Systems/CameraControlSystem.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/CameraControlSystem.cpp.o
+.PHONY : src/ECS/Systems/CameraControlSystem.cpp.o
 
-ECS/Systems/CameraControlSystem.i: ECS/Systems/CameraControlSystem.cpp.i
-.PHONY : ECS/Systems/CameraControlSystem.i
+src/ECS/Systems/CameraControlSystem.i: src/ECS/Systems/CameraControlSystem.cpp.i
+.PHONY : src/ECS/Systems/CameraControlSystem.i
 
 # target to preprocess a source file
-ECS/Systems/CameraControlSystem.cpp.i:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Systems/CameraControlSystem.cpp.i
-.PHONY : ECS/Systems/CameraControlSystem.cpp.i
+src/ECS/Systems/CameraControlSystem.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/CameraControlSystem.cpp.i
+.PHONY : src/ECS/Systems/CameraControlSystem.cpp.i
 
-ECS/Systems/CameraControlSystem.s: ECS/Systems/CameraControlSystem.cpp.s
-.PHONY : ECS/Systems/CameraControlSystem.s
+src/ECS/Systems/CameraControlSystem.s: src/ECS/Systems/CameraControlSystem.cpp.s
+.PHONY : src/ECS/Systems/CameraControlSystem.s
 
 # target to generate assembly for a file
-ECS/Systems/CameraControlSystem.cpp.s:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Systems/CameraControlSystem.cpp.s
-.PHONY : ECS/Systems/CameraControlSystem.cpp.s
+src/ECS/Systems/CameraControlSystem.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/CameraControlSystem.cpp.s
+.PHONY : src/ECS/Systems/CameraControlSystem.cpp.s
 
 src/EventSystem/Event.o: src/EventSystem/Event.cpp.o
 .PHONY : src/EventSystem/Event.o
@@ -524,36 +524,36 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... MeltEngineLib"
-	@echo "... ECS/ComponentArray.o"
-	@echo "... ECS/ComponentArray.i"
-	@echo "... ECS/ComponentArray.s"
-	@echo "... ECS/ComponentManager.o"
-	@echo "... ECS/ComponentManager.i"
-	@echo "... ECS/ComponentManager.s"
-	@echo "... ECS/Components/Camera.o"
-	@echo "... ECS/Components/Camera.i"
-	@echo "... ECS/Components/Camera.s"
-	@echo "... ECS/Components/Transform.o"
-	@echo "... ECS/Components/Transform.i"
-	@echo "... ECS/Components/Transform.s"
-	@echo "... ECS/Coordinator.o"
-	@echo "... ECS/Coordinator.i"
-	@echo "... ECS/Coordinator.s"
-	@echo "... ECS/EntityManager.o"
-	@echo "... ECS/EntityManager.i"
-	@echo "... ECS/EntityManager.s"
-	@echo "... ECS/Event.o"
-	@echo "... ECS/Event.i"
-	@echo "... ECS/Event.s"
-	@echo "... ECS/EventManager.o"
-	@echo "... ECS/EventManager.i"
-	@echo "... ECS/EventManager.s"
-	@echo "... ECS/SystemManager.o"
-	@echo "... ECS/SystemManager.i"
-	@echo "... ECS/SystemManager.s"
-	@echo "... ECS/Systems/CameraControlSystem.o"
-	@echo "... ECS/Systems/CameraControlSystem.i"
-	@echo "... ECS/Systems/CameraControlSystem.s"
+	@echo "... src/ECS/ComponentArray.o"
+	@echo "... src/ECS/ComponentArray.i"
+	@echo "... src/ECS/ComponentArray.s"
+	@echo "... src/ECS/ComponentManager.o"
+	@echo "... src/ECS/ComponentManager.i"
+	@echo "... src/ECS/ComponentManager.s"
+	@echo "... src/ECS/Components/Camera.o"
+	@echo "... src/ECS/Components/Camera.i"
+	@echo "... src/ECS/Components/Camera.s"
+	@echo "... src/ECS/Components/Transform.o"
+	@echo "... src/ECS/Components/Transform.i"
+	@echo "... src/ECS/Components/Transform.s"
+	@echo "... src/ECS/Coordinator.o"
+	@echo "... src/ECS/Coordinator.i"
+	@echo "... src/ECS/Coordinator.s"
+	@echo "... src/ECS/EntityManager.o"
+	@echo "... src/ECS/EntityManager.i"
+	@echo "... src/ECS/EntityManager.s"
+	@echo "... src/ECS/Event.o"
+	@echo "... src/ECS/Event.i"
+	@echo "... src/ECS/Event.s"
+	@echo "... src/ECS/EventManager.o"
+	@echo "... src/ECS/EventManager.i"
+	@echo "... src/ECS/EventManager.s"
+	@echo "... src/ECS/SystemManager.o"
+	@echo "... src/ECS/SystemManager.i"
+	@echo "... src/ECS/SystemManager.s"
+	@echo "... src/ECS/Systems/CameraControlSystem.o"
+	@echo "... src/ECS/Systems/CameraControlSystem.i"
+	@echo "... src/ECS/Systems/CameraControlSystem.s"
 	@echo "... src/EventSystem/Event.o"
 	@echo "... src/EventSystem/Event.i"
 	@echo "... src/EventSystem/Event.s"
