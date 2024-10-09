@@ -89,6 +89,7 @@ namespace MELT
         m_BasicShader->SetMat4UniformView      (_view);
         m_BasicShader->SetMat4UniformProjection(_projection);
         m_BasicShader->SetVec2UniformScreenSize(glm::vec2(800, 600));
+        m_BasicShader->SetVec3UniformColor(glm::vec3(1.0f, 1.0f, 1.0f));
     }
 
     Engine::~Engine() = default;
@@ -107,7 +108,6 @@ namespace MELT
             ECSCoord.SetSystemSignature<CameraControlSystem>(_signature);
         }
         _cameraControlSystem->Init();
-
     }
 
     void Engine::Update()
@@ -150,17 +150,38 @@ namespace MELT
                         break;
 
                     case SDL_MOUSEBUTTONDOWN:
-                        if (m_Event.button.button == SDL_BUTTON_LEFT) {
+                        if (m_Event.button.button == SDL_BUTTON_RIGHT)
+                        {
                             // Start dragging
                             isDragging = true;
                             SDL_GetMouseState(&initialMouseX, &initialMouseY);
-                            initialMouseX -= static_cast<int>(m_CurrentOffset.x);
-                            initialMouseY -= static_cast<int>(m_CurrentOffset.y);
+                            initialMouseX -= static_cast<int>(CurrentOffset.x);
+                            initialMouseY -= static_cast<int>(CurrentOffset.y);
+                        }
+
+
+                        if (m_Event.button.button == SDL_BUTTON_LEFT)
+                        {
+                            glm::vec2 _mousePos {MouseWorldPosition.x, MouseWorldPosition.y };
+
+                            float distance = glm::distance(_mousePos, m_Quad->WorldPosition);
+
+                            if(distance < 100.0f)
+                            {
+                                m_BasicShader->Use();
+                                m_BasicShader->SetVec3UniformColor(glm::vec3(1.0, 0.0, 0.0));
+                            }
+                            else
+                            {
+                                m_BasicShader->Use();
+                                m_BasicShader->SetVec3UniformColor(glm::vec3(1.0, 1.0, 1.0));
+                            }
+
                         }
                         break;
 
                     case SDL_MOUSEBUTTONUP:
-                        if (m_Event.button.button == SDL_BUTTON_LEFT) {
+                        if (m_Event.button.button == SDL_BUTTON_RIGHT) {
                             // Stop dragging
                             isDragging = false;
                         }
@@ -175,11 +196,11 @@ namespace MELT
                             int offsetX = (currentMouseX - initialMouseX);
                             int offsetY = (currentMouseY - initialMouseY);
 
-                            m_CurrentOffset.x = static_cast<float>(offsetX);
-                            m_CurrentOffset.y = static_cast<float>(offsetY);
+                            CurrentOffset.x = static_cast<float>(offsetX);
+                            CurrentOffset.y = static_cast<float>(offsetY);
 
                             m_2DGridShader->Use();
-                            m_2DGridShader->SetVec2UniformOrigin(m_CurrentOffset);
+                            m_2DGridShader->SetVec2UniformOrigin(CurrentOffset);
                         }
                         break;
                 }
@@ -187,7 +208,16 @@ namespace MELT
 
             //Input
             //Update
+//            m_BasicShader->Use();
+//            glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (MouseWorldPosition.x, MouseWorldPosition.y, 0.0f));
+//            _model = glm::scale(_model, glm::vec3(25.0f, 25.0f, 1.0f));
+//            m_BasicShader->SetMat4UniformModel(_model);
+
             //Render
+
+
+
+
 
             glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -204,10 +234,10 @@ namespace MELT
 
             m_BasicShader->Use();
             glm::mat4 _projection = glm::ortho(
-                    -(ScreenWidth  / 2) - m_CurrentOffset.x,
-                     (ScreenWidth  / 2) - m_CurrentOffset.x,
-                    -(ScreenHeight / 2) + m_CurrentOffset.y,
-                     (ScreenHeight / 2) + m_CurrentOffset.y,
+                    -(ScreenWidth  / 2) - CurrentOffset.x,
+                     (ScreenWidth  / 2) - CurrentOffset.x,
+                    -(ScreenHeight / 2) + CurrentOffset.y,
+                     (ScreenHeight / 2) + CurrentOffset.y,
                     0.1f, 100.0f);
             m_BasicShader->SetMat4UniformProjection(_projection);
 

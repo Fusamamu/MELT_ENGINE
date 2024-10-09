@@ -8,8 +8,11 @@
 #include "Quad.h"
 #include "Camera.h"
 #include "Transform.h"
+#include "Type.h"
 #include "Coordinator.h"
 #include "CameraControlSystem.h"
+
+#include "yaml-cpp/yaml.h"
 
 namespace MELT
 {
@@ -22,6 +25,8 @@ namespace MELT
 
         float ScreenWidth;
         float ScreenHeight;
+        glm::vec2 CurrentOffset;
+        glm::vec2 MouseWorldPosition;
 
         std::function<void(void)>      UpdateEngine;
         std::function<void(SDL_Event)> UpdateEditorInput;
@@ -46,6 +51,5 @@ namespace MELT
         Shader* m_2DGridShader;
         Shader* m_BasicShader;
 
-        glm::vec2 m_CurrentOffset;
     };
 }

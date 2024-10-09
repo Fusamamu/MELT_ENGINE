@@ -5,7 +5,7 @@
 		<Option title="MELT_ENGINE"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\MeltEngineLib\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\Library\;CMake Files\..\..\..\..\..\Library\Frameworks\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\CMake\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glew\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glm\;CMake Files\MeltEngineEditorLib\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\MeltEngineLib\;CMake Files\MeltEngineLib\vendors\;CMake Files\MeltEngineLib\vendors\yaml-cpp\;CMake Files\MeltEngineLib\vendors\yaml-cpp\util\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\Library\;CMake Files\..\..\..\..\..\Library\Frameworks\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\CMake\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glew\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glm\;CMake Files\MeltEngineEditorLib\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug"/>
@@ -25,11 +25,15 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DM_EDITOR"/>
+					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./include/ScriptEditor"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/backends"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/IconFontCppHeaders"/>
@@ -57,11 +61,15 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DM_EDITOR"/>
+					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./include/ScriptEditor"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/backends"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/IconFontCppHeaders"/>
@@ -109,10 +117,13 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DM_EDITOR"/>
+					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/Cocoa.framework"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/IOKit.framework"/>
@@ -140,10 +151,13 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DM_EDITOR"/>
+					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/Cocoa.framework"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/IOKit.framework"/>
@@ -163,6 +177,222 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="Experimental">
+				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 Experimental"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Nightly">
+				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 Nightly"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Continuous">
+				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 Continuous"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="yaml-cpp">
+				<Option output="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/libyaml-cppd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
+					<Add option="-DM_EDITOR"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 yaml-cpp"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="yaml-cpp/fast">
+				<Option output="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/libyaml-cppd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
+					<Add option="-DM_EDITOR"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 yaml-cpp/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="yaml-cpp-sandbox">
+				<Option output="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/sandbox" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DM_EDITOR"/>
+					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 yaml-cpp-sandbox"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="yaml-cpp-sandbox/fast">
+				<Option output="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/sandbox" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DM_EDITOR"/>
+					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 yaml-cpp-sandbox/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="yaml-cpp-parse">
+				<Option output="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/parse" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DM_EDITOR"/>
+					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 yaml-cpp-parse"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="yaml-cpp-parse/fast">
+				<Option output="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/parse" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DM_EDITOR"/>
+					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 yaml-cpp-parse/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="yaml-cpp-read">
+				<Option output="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/read" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DM_EDITOR"/>
+					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 yaml-cpp-read"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="yaml-cpp-read/fast">
+				<Option output="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/read" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DM_EDITOR"/>
+					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 yaml-cpp-read/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp/util/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 			<Target title="MeltEngineEditorLib">
 				<Option output="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/libMeltEngineEditorLib.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib"/>
@@ -171,7 +401,9 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DM_EDITOR"/>
+					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./include/ScriptEditor"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/backends"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/IconFontCppHeaders"/>
@@ -180,6 +412,8 @@
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
 					<Add directory="/Library/Frameworks/SDL2.framework/Headers"/>
 					<Add directory="/Library/Frameworks/SDL2.framework"/>
 					<Add directory="/usr/local/include"/>
@@ -203,7 +437,9 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add option="-DM_EDITOR"/>
+					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./include/ScriptEditor"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/backends"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/IconFontCppHeaders"/>
@@ -212,6 +448,8 @@
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
 					<Add directory="/Library/Frameworks/SDL2.framework/Headers"/>
 					<Add directory="/Library/Frameworks/SDL2.framework"/>
 					<Add directory="/usr/local/include"/>
@@ -229,6 +467,9 @@
 			</Target>
 		</Build>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/src/MeltEngineEditor.cpp">
+			<Option target="MeltEngineEditorLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/src/ScriptEditorGUI/ScriptEditorGUI.cpp">
 			<Option target="MeltEngineEditorLib"/>
 		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/backends/imgui_impl_opengl3.cpp">
@@ -291,6 +532,12 @@
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/ECS/Systems/CameraControlSystem.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/EventSystem/Event.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/EventSystem/EventHandler.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/MeltEngine.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
@@ -303,6 +550,150 @@
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Vertex.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/binary.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/contrib/graphbuilder.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/contrib/graphbuilderadapter.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/contrib/graphbuilderadapter.h">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/convert.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/depthguard.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/directives.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/directives.h">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/emit.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/emitfromevents.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/emitter.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/emitterstate.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/emitterstate.h">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/emitterutils.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/emitterutils.h">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/exceptions.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/exp.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/exp.h">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/memory.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/node.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/node_data.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/nodebuilder.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/nodebuilder.h">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/nodeevents.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/nodeevents.h">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/null.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/ostream_wrapper.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/parse.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/parser.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/regex_yaml.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/regex_yaml.h">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/scanner.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/scanner.h">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/scanscalar.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/scanscalar.h">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/scantag.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/scantag.h">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/scantoken.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/simplekey.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/singledocparser.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/singledocparser.h">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/stream.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/stream.h">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/tag.cpp">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/tag.h">
+			<Option target="yaml-cpp"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/util/parse.cpp">
+			<Option target="yaml-cpp-parse"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/util/read.cpp">
+			<Option target="yaml-cpp-read"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/util/sandbox.cpp">
+			<Option target="yaml-cpp-sandbox"/>
+		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/main.cpp">
 			<Option target="MELT_ENGINE"/>
 		</Unit>
@@ -311,6 +702,18 @@
 		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\MeltEngineLib\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\MeltEngineLib\vendors\yaml-cpp\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/yaml-cpp-config.cmake.in">
+			<Option virtualFolder="CMake Files\MeltEngineLib\vendors\yaml-cpp\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/yaml-cpp.pc.in">
+			<Option virtualFolder="CMake Files\MeltEngineLib\vendors\yaml-cpp\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/util/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\MeltEngineLib\vendors\yaml-cpp\util\"/>
 		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/../../../../../Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config-version.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\CMake\"/>

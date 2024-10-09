@@ -9,6 +9,12 @@ namespace MELT
     class Quad
     {
     public:
+        //Test
+        bool IsSelected = false;
+        glm::vec2 WorldPosition = { 0.0f, 0.0f };
+        glm::vec2 Size          = { 25.0f, 25.0f };
+
+
         GLuint VAO;
         GLuint VBO;
         GLuint EBO;

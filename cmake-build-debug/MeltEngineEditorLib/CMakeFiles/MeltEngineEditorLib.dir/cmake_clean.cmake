@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/MeltEngineEditorLib.dir/src/MeltEngineEditor.cpp.o"
   "CMakeFiles/MeltEngineEditorLib.dir/src/MeltEngineEditor.cpp.o.d"
+  "CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.o"
+  "CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.o.d"
   "CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/backends/imgui_impl_opengl3.cpp.o"
   "CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/backends/imgui_impl_opengl3.cpp.o.d"
   "CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/backends/imgui_impl_sdl2.cpp.o"

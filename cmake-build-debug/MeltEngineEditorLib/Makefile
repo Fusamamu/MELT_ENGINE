@@ -113,6 +113,7 @@ preinstall/fast:
 
 # clear depends
 depend:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(CMAKE_COMMAND) -P "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/VerifyGlobs.cmake"
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
@@ -153,6 +154,30 @@ src/MeltEngineEditor.s: src/MeltEngineEditor.cpp.s
 src/MeltEngineEditor.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/MeltEngineEditor.cpp.s
 .PHONY : src/MeltEngineEditor.cpp.s
+
+src/ScriptEditorGUI/ScriptEditorGUI.o: src/ScriptEditorGUI/ScriptEditorGUI.cpp.o
+.PHONY : src/ScriptEditorGUI/ScriptEditorGUI.o
+
+# target to build an object file
+src/ScriptEditorGUI/ScriptEditorGUI.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.o
+.PHONY : src/ScriptEditorGUI/ScriptEditorGUI.cpp.o
+
+src/ScriptEditorGUI/ScriptEditorGUI.i: src/ScriptEditorGUI/ScriptEditorGUI.cpp.i
+.PHONY : src/ScriptEditorGUI/ScriptEditorGUI.i
+
+# target to preprocess a source file
+src/ScriptEditorGUI/ScriptEditorGUI.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.i
+.PHONY : src/ScriptEditorGUI/ScriptEditorGUI.cpp.i
+
+src/ScriptEditorGUI/ScriptEditorGUI.s: src/ScriptEditorGUI/ScriptEditorGUI.cpp.s
+.PHONY : src/ScriptEditorGUI/ScriptEditorGUI.s
+
+# target to generate assembly for a file
+src/ScriptEditorGUI/ScriptEditorGUI.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.s
+.PHONY : src/ScriptEditorGUI/ScriptEditorGUI.cpp.s
 
 vendors/imgui/backends/imgui_impl_opengl3.o: vendors/imgui/backends/imgui_impl_opengl3.cpp.o
 .PHONY : vendors/imgui/backends/imgui_impl_opengl3.o
@@ -334,6 +359,9 @@ help:
 	@echo "... src/MeltEngineEditor.o"
 	@echo "... src/MeltEngineEditor.i"
 	@echo "... src/MeltEngineEditor.s"
+	@echo "... src/ScriptEditorGUI/ScriptEditorGUI.o"
+	@echo "... src/ScriptEditorGUI/ScriptEditorGUI.i"
+	@echo "... src/ScriptEditorGUI/ScriptEditorGUI.s"
 	@echo "... vendors/imgui/backends/imgui_impl_opengl3.o"
 	@echo "... vendors/imgui/backends/imgui_impl_opengl3.i"
 	@echo "... vendors/imgui/backends/imgui_impl_opengl3.s"
@@ -366,6 +394,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(CMAKE_COMMAND) -P "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/VerifyGlobs.cmake"
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

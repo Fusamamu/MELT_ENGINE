@@ -181,6 +181,20 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/backends/im
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/backends/imgui_impl_opengl3.cpp.s"
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/backends/imgui_impl_opengl3.cpp" -o CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/backends/imgui_impl_opengl3.cpp.s
 
+MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.o: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/flags.make
+MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/src/ScriptEditorGUI/ScriptEditorGUI.cpp
+MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.o: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.o"
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.o -MF CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.o.d -o CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.o -c "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/src/ScriptEditorGUI/ScriptEditorGUI.cpp"
+
+MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.i"
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/src/ScriptEditorGUI/ScriptEditorGUI.cpp" > CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.i
+
+MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.s"
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/src/ScriptEditorGUI/ScriptEditorGUI.cpp" -o CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.s
+
 # Object files for target MeltEngineEditorLib
 MeltEngineEditorLib_OBJECTS = \
 "CMakeFiles/MeltEngineEditorLib.dir/src/MeltEngineEditor.cpp.o" \
@@ -190,7 +204,8 @@ MeltEngineEditorLib_OBJECTS = \
 "CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/imgui_tables.cpp.o" \
 "CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/imgui_widgets.cpp.o" \
 "CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/backends/imgui_impl_sdl2.cpp.o" \
-"CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/backends/imgui_impl_opengl3.cpp.o"
+"CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/backends/imgui_impl_opengl3.cpp.o" \
+"CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.o"
 
 # External object files for target MeltEngineEditorLib
 MeltEngineEditorLib_EXTERNAL_OBJECTS =
@@ -203,9 +218,10 @@ MeltEngineEditorLib/libMeltEngineEditorLib.a: MeltEngineEditorLib/CMakeFiles/Mel
 MeltEngineEditorLib/libMeltEngineEditorLib.a: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/imgui_widgets.cpp.o
 MeltEngineEditorLib/libMeltEngineEditorLib.a: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/backends/imgui_impl_sdl2.cpp.o
 MeltEngineEditorLib/libMeltEngineEditorLib.a: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/backends/imgui_impl_opengl3.cpp.o
+MeltEngineEditorLib/libMeltEngineEditorLib.a: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.o
 MeltEngineEditorLib/libMeltEngineEditorLib.a: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make
 MeltEngineEditorLib/libMeltEngineEditorLib.a: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX static library libMeltEngineEditorLib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library libMeltEngineEditorLib.a"
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib" && $(CMAKE_COMMAND) -P CMakeFiles/MeltEngineEditorLib.dir/cmake_clean_target.cmake
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MeltEngineEditorLib.dir/link.txt --verbose=$(VERBOSE)
 

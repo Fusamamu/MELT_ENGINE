@@ -113,6 +113,7 @@ preinstall/fast:
 
 # clear depends
 depend:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(CMAKE_COMMAND) -P "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/VerifyGlobs.cmake"
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
@@ -370,6 +371,54 @@ ECS/Systems/CameraControlSystem.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/ECS/Systems/CameraControlSystem.cpp.s
 .PHONY : ECS/Systems/CameraControlSystem.cpp.s
 
+src/EventSystem/Event.o: src/EventSystem/Event.cpp.o
+.PHONY : src/EventSystem/Event.o
+
+# target to build an object file
+src/EventSystem/Event.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/EventSystem/Event.cpp.o
+.PHONY : src/EventSystem/Event.cpp.o
+
+src/EventSystem/Event.i: src/EventSystem/Event.cpp.i
+.PHONY : src/EventSystem/Event.i
+
+# target to preprocess a source file
+src/EventSystem/Event.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/EventSystem/Event.cpp.i
+.PHONY : src/EventSystem/Event.cpp.i
+
+src/EventSystem/Event.s: src/EventSystem/Event.cpp.s
+.PHONY : src/EventSystem/Event.s
+
+# target to generate assembly for a file
+src/EventSystem/Event.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/EventSystem/Event.cpp.s
+.PHONY : src/EventSystem/Event.cpp.s
+
+src/EventSystem/EventHandler.o: src/EventSystem/EventHandler.cpp.o
+.PHONY : src/EventSystem/EventHandler.o
+
+# target to build an object file
+src/EventSystem/EventHandler.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/EventSystem/EventHandler.cpp.o
+.PHONY : src/EventSystem/EventHandler.cpp.o
+
+src/EventSystem/EventHandler.i: src/EventSystem/EventHandler.cpp.i
+.PHONY : src/EventSystem/EventHandler.i
+
+# target to preprocess a source file
+src/EventSystem/EventHandler.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/EventSystem/EventHandler.cpp.i
+.PHONY : src/EventSystem/EventHandler.cpp.i
+
+src/EventSystem/EventHandler.s: src/EventSystem/EventHandler.cpp.s
+.PHONY : src/EventSystem/EventHandler.s
+
+# target to generate assembly for a file
+src/EventSystem/EventHandler.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/EventSystem/EventHandler.cpp.s
+.PHONY : src/EventSystem/EventHandler.cpp.s
+
 src/MeltEngine.o: src/MeltEngine.cpp.o
 .PHONY : src/MeltEngine.o
 
@@ -505,6 +554,12 @@ help:
 	@echo "... ECS/Systems/CameraControlSystem.o"
 	@echo "... ECS/Systems/CameraControlSystem.i"
 	@echo "... ECS/Systems/CameraControlSystem.s"
+	@echo "... src/EventSystem/Event.o"
+	@echo "... src/EventSystem/Event.i"
+	@echo "... src/EventSystem/Event.s"
+	@echo "... src/EventSystem/EventHandler.o"
+	@echo "... src/EventSystem/EventHandler.i"
+	@echo "... src/EventSystem/EventHandler.s"
 	@echo "... src/MeltEngine.o"
 	@echo "... src/MeltEngine.i"
 	@echo "... src/MeltEngine.s"
@@ -528,6 +583,7 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(CMAKE_COMMAND) -P "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/VerifyGlobs.cmake"
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

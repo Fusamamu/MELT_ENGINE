@@ -4,7 +4,8 @@
 namespace MELT_EDITOR
 {
     Editor::Editor(MELT::Engine* _engine):
-        Engine(_engine)
+        Engine(_engine),
+        BackgroundColor(IM_COL32(8, 14, 15, 255))
     {
         std::cout << "Editor ctor" << std::endl;
         IMGUI_CHECKVERSION();
@@ -25,6 +26,10 @@ namespace MELT_EDITOR
         io.Fonts->AddFontFromFileTTF("../MeltEngineEditorLib/res/icons/kenney/kenney-icon-font.ttf", 16.0f, &icons_config, icons_ranges);
 
         ImGuiStyle& _style = ImGui::GetStyle();
+
+
+
+
 
         _style.Colors[ImGuiCol_WindowBg]             = ImVec4(8.0f / 255.0f, 14.0f / 255.0f, 15.0f / 255.0f, 1.0f);  // Set to a custom color (RGBA)
         _style.Colors[ImGuiCol_TitleBg]              = ImVec4(33.0f / 255.0f, 36.0f / 255.0f, 35.0f / 255.0f, 1.0f);
@@ -67,7 +72,7 @@ namespace MELT_EDITOR
         ImGui_ImplOpenGL3_Shutdown();
         ImGui_ImplSDL2_Shutdown();
         ImGui::DestroyContext();
-    } 
+    }
 
     void Editor::UpdateInput(SDL_Event _event)
     {
@@ -104,6 +109,8 @@ namespace MELT_EDITOR
         DrawAssetsGUI   ();
         DrawContentGUI  ();
 
+        ScriptEditorGUI.DrawGUI();
+
         ImGui::ShowDemoWindow();
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -132,7 +139,12 @@ namespace MELT_EDITOR
                 }
                 if (ImGui::MenuItem("Save", "Ctrl+S"))
                 {
-                    // Handle "Save" action
+                    TestSave();
+                }
+
+                if (ImGui::MenuItem("Save scene"))
+                {
+                    SaveScene();
                 }
                 ImGui::EndMenu();
             }
@@ -207,14 +219,32 @@ namespace MELT_EDITOR
                     ImVec2(0, 1),
                     ImVec2(1, 0)
             );
+
+            ImVec2 mousePos = ImGui::GetMousePos();
+            ImGui::Text("Mouse Position: (%.1f, %.1f)", mousePos.x, mousePos.y);
+
+            ImVec2 windowPos = ImGui::GetWindowPos();
+            ImVec2 mousePosInWindow = ImVec2(mousePos.x - windowPos.x, mousePos.y - windowPos.y);
+            ImGui::Text("Mouse Position in Window: (%.1f, %.1f)", mousePosInWindow.x, mousePosInWindow.y);
+
+            ImVec2 _worldPos = ImVec2(
+                    mousePosInWindow.x - Engine->ScreenWidth /2 - Engine->CurrentOffset.x,
+                    -(mousePosInWindow.y - Engine->ScreenHeight/2 - Engine->CurrentOffset.y));
+            ImGui::Text("World Position: (%.1f, %.1f)", _worldPos.x, _worldPos.y);
+
+            Engine->MouseWorldPosition.x = _worldPos.x;
+            Engine->MouseWorldPosition.y = _worldPos.y;
         }
         ImGui::End();
     }
 
+    static bool isSelected = false;
+
     void Editor::DrawHierarchyGUI()
     {
         ImGui::PushStyleColor(ImGuiCol_WindowBg, IM_COL32(33, 36, 35, 255));
-        ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(10.0f, 10.0f));  // Increase padding (x, y)
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(10.0f, 10.0f));
+
         if (ImGui::Begin("Hierarchy"))
         {
             ImDrawList* drawList = ImGui::GetWindowDrawList();
@@ -222,150 +252,86 @@ namespace MELT_EDITOR
             float windowWidth = ImGui::GetWindowWidth() - 20.0f;
             float windowHeight = 700.0f;
 
-            // Define position and size for the child window
-            ImVec2 childPos = ImGui::GetCursorScreenPos();  // Position relative to the parent window
-            ImVec2 childSize(windowWidth, windowHeight);                      // Size of the child window
-            float rounding = 10.0f;                          // Rounding radius
-            ImU32 fillColor = IM_COL32(8, 14, 15, 255); // Background color (white)
-            ImU32 borderColor = IM_COL32(0, 0, 0, 255);     // Border color (black)
-
-
+            ImVec2 childPos = ImGui::GetCursorScreenPos();
+            ImVec2 childSize(windowWidth, windowHeight);
+            float rounding = 10.0f;
+            ImU32 fillColor = IM_COL32(8, 14, 15, 255);
             drawList->AddRectFilled(childPos, ImVec2(childPos.x + childSize.x, childPos.y + childSize.y), fillColor, rounding);
 
-            if (ImGui::IsMouseReleased(1) && ImGui::IsMouseHoveringRect(childPos, ImVec2(childPos.x + childSize.x, childPos.y + childSize.y))) {
+            if (ImGui::IsMouseClicked(ImGuiMouseButton_Right) &&
+            !ImGui::IsAnyItemHovered() &&
+            ImGui::IsMouseHoveringRect(childPos, ImVec2(childPos.x + childSize.x, childPos.y + childSize.y)))
                 ImGui::OpenPopup("CustomPopup");
-            }
 
             ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiCond_Always);
+
             ImGui::PushStyleColor(ImGuiCol_PopupBg, IM_COL32(73, 74, 70, 255));
-            ImGui::PushStyleColor(ImGuiCol_Border, IM_COL32(73, 74, 70, 0));
+            ImGui::PushStyleColor(ImGuiCol_Border , IM_COL32(73, 74, 70, 0));
             ImGui::PushStyleVar(ImGuiStyleVar_PopupRounding, 10.0f);
-
-            if (ImGui::BeginPopup("CustomPopup")) {
-
-
+            if (ImGui::BeginPopup("CustomPopup"))
+            {
                 ImGui::Text("Object creation");
                 ImGui::Separator(); // Add a separator
 
-                if (ImGui::MenuItem("Create entity")) {
-                    // Action for Option 2
+                if (ImGui::MenuItem("Create entity"))
+                {
+                    MELT::Entity _entity = Engine->ECSCoord.CreateEntity();
+                    Entities.emplace(_entity, false);
                 }
+
                 if (ImGui::MenuItem("Create scene")) {
-                    // Handle Property 1 action
                 }
-
                 if (ImGui::MenuItem("Create group")) {
-                    // Action for Option 1
                 }
-                ImGui::PopStyleColor(2);
-                ImGui::PopStyleVar(); // Restore previous style variable
                 ImGui::EndPopup();
-            }else
-            {
-                ImGui::PopStyleColor(2);
-                ImGui::PopStyleVar(); // Restore previous style variable
             }
-
-
+            ImGui::PopStyleColor(2);
+            ImGui::PopStyleVar();
 
             ImGui::BeginChild("Scene window", childSize, false);
 
-
-
-            const float padding = 10.0f; // Define your padding
-            ImGui::SetCursorPos(ImVec2(padding, padding));
+            ImGui::SetCursorPos(ImVec2(10.0f, 10.0f));
             ImGui::BeginChild("Tree window", ImVec2(childSize.x - 20.0f, childSize.y - 10.0f), false);
 
             ImGui::PushStyleColor(ImGuiCol_Header, IM_COL32(92, 97, 62, 255));
             ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 8.0f);
-            if (ImGui::CollapsingHeader("Scene 1")) {
-
-                ImGui::PopStyleColor();
-                if (ImGui::TreeNodeEx("Root", ImGuiTreeNodeFlags_Selected)) {
-                    // If the root node is clicked, you can handle the selection logic here
-                    if (ImGui::IsItemClicked()) {
-                        ImGui::Text("Root selected");
-                    }
-
-                    // Create a sub-tree node that is also selectable
-                    if (ImGui::TreeNodeEx("Sub-Tree", ImGuiTreeNodeFlags_Selected)) {
-                        // Handle selection logic for the sub-tree
-                        if (ImGui::IsItemClicked()) {
-                            ImGui::Text("Sub-Tree selected");
-                        }
-
-                        // Selectable items within the sub-tree
-                        if (ImGui::Selectable("Selectable 1")) {
-                            ImGui::Text("Selectable 1 clicked");
-                        }
-                        if (ImGui::Selectable("Selectable 2")) {
-                            ImGui::Text("Selectable 2 clicked");
-                        }
-
-                        ImGui::TreePop();  // Close the sub-tree
-                    }
-
-                    ImGui::TreePop();  // Close the root
-                }
-            }else
+            if (ImGui::CollapsingHeader("Scene 1"))
             {
-                ImGui::PopStyleColor();
+
+                static MELT::Entity _deletedEntity = -1;
+
+                for(const auto& [_entity, _isSelected] : Entities)
+                {
+                    std::string _e = "Entity_" + std::to_string(_entity);
+                    if(ImGui::Selectable(_e.c_str(), _isSelected))
+                    {
+                        Entities[_entity] = !_isSelected;
+                    }
+
+                    if (ImGui::IsItemHovered() && ImGui::IsMouseClicked(ImGuiMouseButton_Right))
+                    {
+                        _deletedEntity = _entity;
+                        ImGui::OpenPopup("ItemRightClickMenu");
+                    }
+                }
+
+                if (ImGui::BeginPopup("ItemRightClickMenu")) {
+                    if (ImGui::MenuItem("Rename")) {
+                    }
+                    if (ImGui::MenuItem("Delete"))
+                    {
+                        auto _rm = Entities.find(_deletedEntity);
+                        if(_rm != Entities.end())
+                            Entities.erase(_rm);
+                    }
+                    ImGui::EndPopup();
+                }
             }
+            ImGui::PopStyleColor();
             ImGui::PopStyleVar();
 
-
-
-            ImGui::PushStyleColor(ImGuiCol_Header, IM_COL32(92, 97, 62, 255));
-            ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 8.0f);
-            if (ImGui::CollapsingHeader("Scene 2")) {
-
-                ImGui::PopStyleColor();
-                if (ImGui::TreeNodeEx("Root", ImGuiTreeNodeFlags_Selected)) {
-                    // If the root node is clicked, you can handle the selection logic here
-                    if (ImGui::IsItemClicked()) {
-                        ImGui::Text("Root selected");
-                    }
-
-                    // Create a sub-tree node that is also selectable
-                    if (ImGui::TreeNodeEx("Sub-Tree", ImGuiTreeNodeFlags_Selected)) {
-                        // Handle selection logic for the sub-tree
-                        if (ImGui::IsItemClicked()) {
-                            ImGui::Text("Sub-Tree selected");
-                        }
-
-                        // Selectable items within the sub-tree
-                        if (ImGui::Selectable("Selectable 1")) {
-                            ImGui::Text("Selectable 1 clicked");
-                        }
-                        if (ImGui::Selectable("Selectable 2")) {
-                            ImGui::Text("Selectable 2 clicked");
-                        }
-
-                        ImGui::TreePop();  // Close the sub-tree
-                    }
-
-                    ImGui::TreePop();  // Close the root
-                }
-            }else
-            {
-                ImGui::PopStyleColor();
-            }
-            ImGui::PopStyleVar();
-
-
-
-            ImGui::EndChild();  // Close child window
-            ImGui::EndChild();  // Close child window
-
-
-
-
-
-
-
-
-
-
+            ImGui::EndChild();
+            ImGui::EndChild();
 
             ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 8.0f);
             if (ImGui::CollapsingHeader("Scene 1")) {
@@ -398,7 +364,6 @@ namespace MELT_EDITOR
                 }
             }
             ImGui::PopStyleVar();
-
         }
         ImGui::End();
         ImGui::PopStyleVar();
@@ -407,7 +372,6 @@ namespace MELT_EDITOR
 
     void Editor::DrawInspectorGUI()
     {
-
         if (ImGui::Begin("Inspector"))
         {
             if(!CurrentTextDisplay.empty())
@@ -584,5 +548,29 @@ namespace MELT_EDITOR
         std::stringstream _buffer;
         _buffer << _inputFile.rdbuf();
         return _buffer.str();
+    }
+
+    void Editor::TestSave()
+    {
+        YAML::Node _root;
+
+        _root["Test"] = "Test";
+
+        std::ofstream _file;
+        _file.open(PROJECT_SETTING_PATH);
+        _file << _root;
+        _file.close();
+    }
+
+    void Editor::SaveScene()
+    {
+        YAML::Node _root;
+
+        _root["Scene"] = "Test";
+
+        std::ofstream _file;
+        _file.open(SCENE_PATH);
+        _file << _root;
+        _file.close();
     }
 }

@@ -660,6 +660,7 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/list \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/locale \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/locale.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/map \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/math.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/memory \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/mutex \
@@ -668,6 +669,7 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/ostream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/queue \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/ratio \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/regex \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/set \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/sstream \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/stddef.h \
@@ -685,6 +687,7 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/typeinfo \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/unordered_map \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/utility \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/valarray \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/variant \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/vector \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/version \
@@ -917,6 +920,7 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/xsavesintrin.h \
   /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/xtestintrin.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/include/MeltEngineEditor.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/include/ScriptEditor/ScriptEditorGUI.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/IconFontCppHeaders/IconsKenney.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/backends/imgui_impl_opengl3.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/backends/imgui_impl_sdl2.h \
@@ -937,6 +941,37 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Quad.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Shader.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Vertex.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/binary.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/dll.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/emitter.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/emitterdef.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/emittermanip.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/emitterstyle.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/exceptions.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/mark.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/convert.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/impl.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/iterator.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/iterator_fwd.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/memory.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/node.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/node_data.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/node_ref.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/emit.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/impl.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/iterator.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/node.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/parse.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/ptr.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/type.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/noexcept.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/null.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/ostream_wrapper.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/parser.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/stlemitter.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/traits.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/yaml.h \
   /usr/local/include/GL/glew.h \
   /usr/local/include/SDL2/SDL.h \
   /usr/local/include/SDL2/SDL_assert.h \
@@ -1375,8 +1410,6 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /usr/local/include/glm/ext/matrix_float2x3_precision.hpp:
 
-/usr/local/include/glm/ext/matrix_float2x3.hpp:
-
 /usr/local/include/glm/ext/matrix_float2x2_precision.hpp:
 
 /usr/local/include/glm/ext/matrix_double4x4.hpp:
@@ -1421,8 +1454,6 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /usr/local/include/glm/ext/vector_int1.hpp:
 
-/usr/local/include/glm/ext/scalar_int_sized.hpp:
-
 /usr/local/include/glm/ext/scalar_constants.hpp:
 
 /usr/local/include/glm/exponential.hpp:
@@ -1440,8 +1471,6 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /usr/local/include/glm/detail/type_mat3x3.hpp:
 
 /usr/local/include/glm/detail/type_mat3x2.hpp:
-
-/usr/local/include/glm/detail/type_mat2x3.hpp:
 
 /usr/local/include/glm/detail/setup.hpp:
 
@@ -1462,8 +1491,6 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /usr/local/include/SDL2/SDL_system.h:
 
 /usr/local/include/SDL2/SDL_surface.h:
-
-/usr/local/include/SDL2/SDL_stdinc.h:
 
 /usr/local/include/SDL2/SDL_sensor.h:
 
@@ -1514,6 +1541,48 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /usr/local/include/glm/ext/matrix_double3x2_precision.hpp:
 
 /usr/local/include/SDL2/SDL.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/stlemitter.h:
+
+/usr/local/include/glm/ext/scalar_int_sized.hpp:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/parser.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/ostream_wrapper.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/noexcept.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/type.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/ptr.h:
+
+/usr/local/include/SDL2/SDL_stdinc.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/node_ref.h:
+
+/usr/local/include/glm/detail/type_mat2x3.hpp:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/node_data.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/iterator_fwd.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/impl.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/convert.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/mark.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/emitterstyle.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/emittermanip.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/emitterdef.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/emitter.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/binary.h:
 
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Quad.h:
 
@@ -1625,6 +1694,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/avx512vp2intersectintrin.h:
 
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/memory.h:
+
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/avx512vlvp2intersectintrin.h:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/avx512vlvbmi2intrin.h:
@@ -1729,9 +1800,7 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_uid_t.h:
 
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/search_n.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_u_short.h:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_ucontext.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_u_int32_t.h:
 
@@ -1826,6 +1895,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/strings.h:
 
 /usr/local/include/glm/detail/type_half.inl:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/exceptions.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cctype:
 
@@ -1928,6 +1999,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/stddef.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/ostream:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/iterator.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/conjunction.h:
 
@@ -2139,6 +2212,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/optional:
 
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/node.h:
+
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/shaintrin.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/locale:
@@ -2147,6 +2222,10 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_referenceable.h:
 
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/sample.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/map:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/deque:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_unsigned_integer.h:
@@ -2154,6 +2233,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_reference_wrapper.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_primary_template.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/dll.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_mode_t.h:
 
@@ -2168,6 +2249,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_pointer.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_pod.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/yaml.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/stdint.h:
 
@@ -2218,6 +2301,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/assert.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/climits:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/traits.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/version:
 
@@ -2445,6 +2530,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__memory/ranges_construct_at.h:
 
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/include/ScriptEditor/ScriptEditorGUI.h:
+
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/fxsrintrin.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/ostreambuf_iterator.h:
@@ -2641,6 +2728,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__fwd/tuple.h:
 
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/iterator.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/clamp.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/disjunction.h:
@@ -2825,6 +2914,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__chrono/year_month_day.h:
 
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/impl.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__functional/unary_negate.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/i386/endian.h:
@@ -2848,6 +2939,10 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/any_of.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__chrono/file_clock.h:
+
+/usr/local/include/glm/ext/matrix_float2x3.hpp:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/regex:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_copy_n.h:
 
@@ -2988,8 +3083,6 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/os/availability.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_trivially_move_constructible.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/sample.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__fwd/pair.h:
 
@@ -3213,9 +3306,13 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/istream:
 
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/null.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/noexcept_move_assign_container.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_replace.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/parse.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/add_cv.h:
 
@@ -3309,6 +3406,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /usr/local/include/SDL2/SDL_blendmode.h:
 
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/node.h:
+
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/avx512pfintrin.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/string:
@@ -3351,7 +3450,11 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__bit/bit_log2.h:
 
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/valarray:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/partial_sort_copy.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/emit.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__iterator/istream_iterator.h:
 
@@ -3386,6 +3489,10 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/immintrin.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/lexicographical_compare.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_u_short.h:
+
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/search_n.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_swappable.h:
 
@@ -3502,8 +3609,6 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/min_element.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/is_sorted.h:
-
-/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/sys/_types/_ucontext.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_shuffle.h:
 

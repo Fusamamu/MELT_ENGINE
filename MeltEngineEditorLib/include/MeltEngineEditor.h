@@ -7,11 +7,13 @@
 #include <vector>
 #include <functional>
 #include <filesystem>
+#include <unordered_map>
 #include "MeltEngine.h"
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_opengl3.h"
 #include "IconsKenney.h"
+#include "ScriptEditorGUI.h"
 
 namespace MELT_EDITOR
 {
@@ -21,6 +23,8 @@ namespace MELT_EDITOR
         MELT::Engine* Engine;
 
         std::vector<std::string> fileNames;
+
+        ScriptEditorGUI ScriptEditorGUI;
 
         explicit Editor(MELT::Engine* _engine);
         ~Editor();
@@ -42,6 +46,17 @@ namespace MELT_EDITOR
         std::string CurrentTextDisplay;
         std::string LoadTextFile(const std::string& _filePath);
 
+
+        std::unordered_map<MELT::Entity, bool> Entities;
+
         std::vector<std::string> Components;
+
+        const char* PROJECT_SETTING_PATH = "../Project/ProjectSettings.yaml";
+        const char* SCENE_PATH           = "../Project/Scene.yaml";
+
+        void SaveScene();
+        void TestSave();
+
+        const ImU32 BackgroundColor;
     };
 }

@@ -67,6 +67,7 @@ namespace MELT
         m_UniformLoc_Projection = glGetUniformLocation(ID, "proj");
         m_UniformLoc_ScreenSize = glGetUniformLocation(ID, "screenSize");
         m_UniformLoc_Origin     = glGetUniformLocation(ID, "origin");
+        m_UniformLoc_Color      = glGetUniformLocation(ID, "Color");
     }
 
     Shader::~Shader()
@@ -102,6 +103,11 @@ namespace MELT
     void Shader::SetVec2UniformOrigin(glm::vec2 _origin)
     {
         glUniform2f(m_UniformLoc_Origin, _origin.x, _origin.y);
+    }
+
+    void Shader::SetVec3UniformColor(glm::vec3 _color)
+    {
+        glUniform3f(m_UniformLoc_Color, _color.r, _color.g, _color.b);
     }
 
     GLuint Shader::CreateShader(const std::string& _vertexSrc, const std::string& _fragmentSrc)

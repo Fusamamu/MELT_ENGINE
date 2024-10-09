@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "MeltEngineLib/vendors/yaml-cpp",
+		"source" : "MeltEngineLib/vendors/yaml-cpp"
+	}
+}

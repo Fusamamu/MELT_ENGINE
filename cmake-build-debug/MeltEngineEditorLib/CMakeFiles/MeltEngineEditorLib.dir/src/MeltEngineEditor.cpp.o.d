@@ -1211,8 +1211,8 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/MeltEngineEditor.cpp.
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Vertex.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include/Camera.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/Components/include/Transform.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/include/Coordinator.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/include/Type.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/include/Coordinator.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/include/Event.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/any \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/include/EntityManager.h \
@@ -1226,8 +1226,43 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/MeltEngineEditor.cpp.
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/set \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__tree \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./ECS/Systems/include/CameraControlSystem.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/yaml.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/parser.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/dll.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/emitter.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/binary.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/emitterdef.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/emittermanip.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/null.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/ostream_wrapper.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/emitterstyle.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/stlemitter.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/map \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/exceptions.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/mark.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/noexcept.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/traits.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/node.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/iterator_fwd.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/ptr.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/type.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/impl.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/memory.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/node.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/node_ref.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/node_data.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/iterator.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/iterator.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/convert.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/valarray \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/impl.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/parse.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/emit.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/imgui.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/imconfig.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/backends/imgui_impl_sdl2.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/backends/imgui_impl_opengl3.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/IconFontCppHeaders/IconsKenney.h
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/IconFontCppHeaders/IconsKenney.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./include/ScriptEditor/ScriptEditorGUI.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/regex

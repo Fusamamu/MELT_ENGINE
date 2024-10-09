@@ -7,3 +7,6 @@
 [submodule "MeltEngineEditorLib/vendors/IconFontCppHeaders"]
 	path = MeltEngineEditorLib/vendors/IconFontCppHeaders
 	url = https://github.com/juliettef/IconFontCppHeaders.git
+[submodule "MeltEngineLib/vendors/yaml-cpp"]
+	path = MeltEngineLib/vendors/yaml-cpp
+	url = https://github.com/jbeder/yaml-cpp.git
