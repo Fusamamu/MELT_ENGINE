@@ -12,6 +12,10 @@
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_opengl3.h"
+
+//not good
+#include "glm/gtc/type_ptr.hpp"
+
 #include "IconsKenney.h"
 
 #include "MeltEngine.h"
@@ -46,7 +50,7 @@ namespace MELT_EDITOR
         void DrawAssetsGUI();
         void DrawContentGUI();
 
-        void DrawComponentPanel(std::size_t _id);
+        void DrawComponentPanel(MELT::Transform& _position);
 
         std::string CurrentTextDisplay;
         std::string LoadTextFile(const std::string& _filePath);

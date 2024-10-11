@@ -7,7 +7,7 @@ add_subdirectory(./vendors/yaml-cpp)
 add_library(${PROJECT_NAME} STATIC
         src/MeltEngine.cpp
         src/Shader.cpp
-        src/Quad.cpp
+        src/Renderer/Quad.cpp
         src/Vertex.cpp
         src/ECS/EntityManager.cpp
         src/ECS/ComponentArray.cpp
@@ -20,9 +20,14 @@ add_library(${PROJECT_NAME} STATIC
         src/ECS/Systems/CameraControlSystem.cpp
         src/ECS/Components/Transform.cpp
         src/EventSystem/Event.cpp
-        src/EventSystem/EventHandler.cpp)
+        src/EventSystem/EventHandler.cpp
+        src/ECS/Systems/RenderSystem.cpp
+        src/ECS/Components/Renderer.cpp
+        src/Renderer/FrameBuffer.cpp)
 
-target_include_directories(${PROJECT_NAME} PUBLIC ./include)
+target_include_directories(${PROJECT_NAME} PUBLIC
+        ./include
+        ./include/Renderer)
 target_include_directories(${PROJECT_NAME} PUBLIC ./include/ECS)
 target_include_directories(${PROJECT_NAME} PUBLIC ./include/ECS/Components)
 target_include_directories(${PROJECT_NAME} PUBLIC ./include/ECS/Systems)

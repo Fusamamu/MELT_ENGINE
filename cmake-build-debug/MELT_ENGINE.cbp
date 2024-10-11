@@ -27,6 +27,7 @@
 					<Add option="-DM_EDITOR"/>
 					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems"/>
@@ -63,6 +64,7 @@
 					<Add option="-DM_EDITOR"/>
 					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems"/>
@@ -119,6 +121,7 @@
 					<Add option="-DM_EDITOR"/>
 					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems"/>
@@ -153,6 +156,7 @@
 					<Add option="-DM_EDITOR"/>
 					<Add option="-DYAML_CPP_STATIC_DEFINE"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems"/>
@@ -409,6 +413,7 @@
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/IconFontCppHeaders"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/x86_64-w64-mingw32/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems"/>
@@ -445,6 +450,7 @@
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/IconFontCppHeaders"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/x86_64-w64-mingw32/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems"/>
@@ -514,6 +520,9 @@
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/ECS/Components/Camera.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/ECS/Components/Renderer.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/ECS/Components/Transform.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
@@ -535,6 +544,9 @@
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/ECS/Systems/CameraControlSystem.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/ECS/Systems/RenderSystem.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/EventSystem/Event.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
@@ -544,7 +556,10 @@
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/MeltEngine.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
-		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Quad.cpp">
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/FrameBuffer.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/Quad.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Shader.cpp">

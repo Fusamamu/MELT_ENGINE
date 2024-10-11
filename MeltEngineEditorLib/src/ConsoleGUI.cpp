@@ -20,6 +20,11 @@ namespace MELT_EDITOR
         ImGui::Text("%s", _selectedEntity);
         ImGui::End();
 
-        //auto& transform = EditorOwner->Engine->ECSCoord.GetComponent<MELT::Transform>(_entity);
+        //Temp
+//        if(_entity > 100)
+//            return;
+//
+//        MELT::Transform& _transform = EditorOwner->Engine->ECSCoord.GetComponent<MELT::Transform>(_entity);
+//        _transform.Position.x = 100.0f;
     }
 }

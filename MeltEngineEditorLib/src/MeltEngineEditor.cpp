@@ -216,7 +216,7 @@ namespace MELT_EDITOR
             ImVec2 pos = ImGui::GetCursorScreenPos();
 
             ImGui::GetWindowDrawList()->AddImage(
-                    (void*)Engine->m_Quad->TextureID,
+                    (void*)Engine->m_RenderSystem->mFrameBuffer->TextureID,
                     ImVec2(pos.x, pos.y),
                     ImVec2(pos.x + window_width, pos.y + window_height),
                     ImVec2(0, 1),
@@ -286,6 +286,10 @@ namespace MELT_EDITOR
                         glm::vec3(0.0, 0.0, 0.0),
                         glm::vec3(0.0, 0.0, 0.0),
                         glm::vec3(0.0, 0.0, 0.0),
+                    });
+
+                    Engine->ECSCoord.AddComponent<MELT::Renderer>(_entity, {
+
                     });
                 }
 
@@ -414,22 +418,27 @@ namespace MELT_EDITOR
 
             ImGui::Text(ICON_KI_ARROW_TOP_LEFT "  Hello with an icon!");
 
+            glm::vec3 _position(0.0f);
 
-            if(!Components.empty())
+            MELT::Entity _e = Engine->ECSCoord.SelectedEntity;
+
+            if(_e < 100)
             {
-                for(std::size_t _i = 0; _i < Components.size(); ++_i)
-                    DrawComponentPanel(_i);
+                MELT::Transform& _transform = Engine->ECSCoord.GetComponent<MELT::Transform>(_e);
+                DrawComponentPanel(_transform);
+//                if(!Components.empty())
+//                {
+//                    for(std::size_t _i = 0; _i < Components.size(); ++_i)
+//                        DrawComponentPanel(_transform);
+//                }
             }
 
-            ImVec2 buttonSize = ImVec2(120, 30);  // Example button size
-
+            //Add components button
+            ImVec2 buttonSize = ImVec2(120, 30);
             ImVec2 windowSize = ImGui::GetWindowSize();
-            ImVec2 windowPos = ImGui::GetWindowPos();
             ImGui::SetCursorPosY(windowSize.y - buttonSize.y - ImGui::GetStyle().WindowPadding.y);
-
             float buttonX = (windowSize.x - buttonSize.x) / 2.0f;
             ImGui::SetCursorPosX(buttonX);
-
             if (ImGui::Button("Add component", buttonSize))
                 Components.emplace_back("Transform");
         }
@@ -496,7 +505,7 @@ namespace MELT_EDITOR
         ImGui::End();
     }
 
-    void Editor::DrawComponentPanel(std::size_t _id)
+    void Editor::DrawComponentPanel(MELT::Transform& _transform)
     {
         const float _panelWidth  = ImGui::GetContentRegionAvail().x;
         const float _panelHeight = 100.0f;
@@ -532,28 +541,36 @@ namespace MELT_EDITOR
         ImGui::PushStyleColor(ImGuiCol_ButtonActive , ImVec4(0.6f, 0.6f, 0.6f, 1.0f));
 
         if(ImGui::Button(ICON_KI_MINUS, ImVec2(40, ImGui::GetFrameHeight())))
-            Components.erase(Components.begin() + _id);
+        {
+            //Components.erase(Components.begin() + _id);
+
+        }
 
         ImGui::PopStyleColor(3);
 
         //ImGui::SetCursorScreenPos(ImVec2(_panelOriginPos.x + _style.FramePadding.x, _panelOriginPos.y + ImGui::GetFrameHeightWithSpacing()));
 
         ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
-        static float _position[3] = { 0.0f, 0.0f, 0.0f };
-        static float _rotation[3] = { 0.0f, 0.0f, 0.0f };
-        static float _scale   [3] = { 0.0f, 0.0f, 0.0f };
 
+
+        //static float _position[3] = { 0.0f, 0.0f, 0.0f };
         ImGui::Indent();
         ImGui::Text("Position");
         ImGui::SameLine(120.0f);
-        ImGui::InputFloat3("", _position);
+        ImGui::InputFloat3("##Position", glm::value_ptr(_transform.Position));
 
+
+        //static float _rotation[3] = { 0.0f, 0.0f, 0.0f };
         ImGui::Text("Rotation");
         ImGui::SameLine(120.0f);
-        ImGui::InputFloat3("", _rotation);
+        ImGui::InputFloat3("##Rotation", glm::value_ptr(_transform.Rotation));
+
+
+        //static float _scale   [3] = { 0.0f, 0.0f, 0.0f };
         ImGui::Text("Scale");
         ImGui::SameLine(120.0f);
-        ImGui::InputFloat3("", _scale);
+        ImGui::InputFloat3("##Scale", glm::value_ptr(_transform.Scale));
+
         ImGui::Unindent();
 
         ImGui::PopStyleColor();

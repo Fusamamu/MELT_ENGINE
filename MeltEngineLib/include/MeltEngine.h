@@ -5,15 +5,17 @@
 #include <SDL2/SDL_opengl.h>
 
 #include "Shader.h"
-#include "Quad.h"
+#include "Renderer/Quad.h"
 
 #include "Type.h"
 
 #include "Camera.h"
 #include "Transform.h"
+#include "Renderer.h"
 
 #include "Coordinator.h"
 #include "CameraControlSystem.h"
+#include "RenderSystem.h"
 
 #include "yaml-cpp/yaml.h"
 
@@ -24,12 +26,13 @@ namespace MELT
     public:
         Coordinator ECSCoord;
 
-        Quad* m_Quad;
+        //Quad* m_Quad;
+        std::shared_ptr<RenderSystem> m_RenderSystem;
 
-        float ScreenWidth;
-        float ScreenHeight;
-        glm::vec2 CurrentOffset;
-        glm::vec2 MouseWorldPosition;
+        static float ScreenWidth;
+        static float ScreenHeight;
+        static glm::vec2 CurrentOffset;
+        static glm::vec2 MouseWorldPosition;
 
         std::function<void(void)>      UpdateEngine;
         std::function<void(SDL_Event)> UpdateEditorInput;
@@ -50,9 +53,5 @@ namespace MELT
         SDL_Window*   m_Window;
         SDL_GLContext m_GLContext;
         SDL_Event     m_Event;
-
-        Shader* m_2DGridShader;
-        Shader* m_BasicShader;
-
     };
 }

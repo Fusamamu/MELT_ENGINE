@@ -97,19 +97,19 @@ MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Shader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineLib.dir/src/Shader.cpp.s"
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Shader.cpp" -o CMakeFiles/MeltEngineLib.dir/src/Shader.cpp.s
 
-MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/flags.make
-MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/Quad.cpp
-MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.o"
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.o -MF CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.o.d -o CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.o -c "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Quad.cpp"
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/flags.make
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/Quad.cpp
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.o"
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.o -MF CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.o.d -o CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.o -c "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/Quad.cpp"
 
-MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.i"
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Quad.cpp" > CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.i
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.i"
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/Quad.cpp" > CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.i
 
-MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.s"
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Quad.cpp" -o CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.s
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.s"
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/Quad.cpp" -o CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.s
 
 MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Vertex.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/flags.make
 MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Vertex.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/Vertex.cpp
@@ -293,11 +293,53 @@ MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/EventSystem/EventHandler.cpp.s: c
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineLib.dir/src/EventSystem/EventHandler.cpp.s"
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/EventSystem/EventHandler.cpp" -o CMakeFiles/MeltEngineLib.dir/src/EventSystem/EventHandler.cpp.s
 
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/flags.make
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/ECS/Systems/RenderSystem.cpp
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.o"
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.o -MF CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.o.d -o CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.o -c "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/ECS/Systems/RenderSystem.cpp"
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.i"
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/ECS/Systems/RenderSystem.cpp" > CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.i
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.s"
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/ECS/Systems/RenderSystem.cpp" -o CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.s
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/flags.make
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/ECS/Components/Renderer.cpp
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.o"
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.o -MF CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.o.d -o CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.o -c "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/ECS/Components/Renderer.cpp"
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.i"
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/ECS/Components/Renderer.cpp" > CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.i
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.s"
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/ECS/Components/Renderer.cpp" -o CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.s
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/flags.make
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/FrameBuffer.cpp
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.o"
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.o -MF CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.o.d -o CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.o -c "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/FrameBuffer.cpp"
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.i"
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/FrameBuffer.cpp" > CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.i
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.s"
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/FrameBuffer.cpp" -o CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.s
+
 # Object files for target MeltEngineLib
 MeltEngineLib_OBJECTS = \
 "CMakeFiles/MeltEngineLib.dir/src/MeltEngine.cpp.o" \
 "CMakeFiles/MeltEngineLib.dir/src/Shader.cpp.o" \
-"CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.o" \
+"CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.o" \
 "CMakeFiles/MeltEngineLib.dir/src/Vertex.cpp.o" \
 "CMakeFiles/MeltEngineLib.dir/src/ECS/EntityManager.cpp.o" \
 "CMakeFiles/MeltEngineLib.dir/src/ECS/ComponentArray.cpp.o" \
@@ -310,14 +352,17 @@ MeltEngineLib_OBJECTS = \
 "CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/CameraControlSystem.cpp.o" \
 "CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Transform.cpp.o" \
 "CMakeFiles/MeltEngineLib.dir/src/EventSystem/Event.cpp.o" \
-"CMakeFiles/MeltEngineLib.dir/src/EventSystem/EventHandler.cpp.o"
+"CMakeFiles/MeltEngineLib.dir/src/EventSystem/EventHandler.cpp.o" \
+"CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.o" \
+"CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.o" \
+"CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.o"
 
 # External object files for target MeltEngineLib
 MeltEngineLib_EXTERNAL_OBJECTS =
 
 MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/MeltEngine.cpp.o
 MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Shader.cpp.o
-MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.o
+MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.o
 MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Vertex.cpp.o
 MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/EntityManager.cpp.o
 MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/ComponentArray.cpp.o
@@ -331,9 +376,12 @@ MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src
 MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Transform.cpp.o
 MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/EventSystem/Event.cpp.o
 MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/EventSystem/EventHandler.cpp.o
+MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.o
+MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.o
+MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.o
 MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make
 MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX static library libMeltEngineLib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX static library libMeltEngineLib.a"
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && $(CMAKE_COMMAND) -P CMakeFiles/MeltEngineLib.dir/cmake_clean_target.cmake
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MeltEngineLib.dir/link.txt --verbose=$(VERBOSE)
 

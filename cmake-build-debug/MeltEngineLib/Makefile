@@ -203,6 +203,30 @@ src/ECS/Components/Camera.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Camera.cpp.s
 .PHONY : src/ECS/Components/Camera.cpp.s
 
+src/ECS/Components/Renderer.o: src/ECS/Components/Renderer.cpp.o
+.PHONY : src/ECS/Components/Renderer.o
+
+# target to build an object file
+src/ECS/Components/Renderer.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.o
+.PHONY : src/ECS/Components/Renderer.cpp.o
+
+src/ECS/Components/Renderer.i: src/ECS/Components/Renderer.cpp.i
+.PHONY : src/ECS/Components/Renderer.i
+
+# target to preprocess a source file
+src/ECS/Components/Renderer.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.i
+.PHONY : src/ECS/Components/Renderer.cpp.i
+
+src/ECS/Components/Renderer.s: src/ECS/Components/Renderer.cpp.s
+.PHONY : src/ECS/Components/Renderer.s
+
+# target to generate assembly for a file
+src/ECS/Components/Renderer.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.s
+.PHONY : src/ECS/Components/Renderer.cpp.s
+
 src/ECS/Components/Transform.o: src/ECS/Components/Transform.cpp.o
 .PHONY : src/ECS/Components/Transform.o
 
@@ -371,6 +395,30 @@ src/ECS/Systems/CameraControlSystem.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/CameraControlSystem.cpp.s
 .PHONY : src/ECS/Systems/CameraControlSystem.cpp.s
 
+src/ECS/Systems/RenderSystem.o: src/ECS/Systems/RenderSystem.cpp.o
+.PHONY : src/ECS/Systems/RenderSystem.o
+
+# target to build an object file
+src/ECS/Systems/RenderSystem.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.o
+.PHONY : src/ECS/Systems/RenderSystem.cpp.o
+
+src/ECS/Systems/RenderSystem.i: src/ECS/Systems/RenderSystem.cpp.i
+.PHONY : src/ECS/Systems/RenderSystem.i
+
+# target to preprocess a source file
+src/ECS/Systems/RenderSystem.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.i
+.PHONY : src/ECS/Systems/RenderSystem.cpp.i
+
+src/ECS/Systems/RenderSystem.s: src/ECS/Systems/RenderSystem.cpp.s
+.PHONY : src/ECS/Systems/RenderSystem.s
+
+# target to generate assembly for a file
+src/ECS/Systems/RenderSystem.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.s
+.PHONY : src/ECS/Systems/RenderSystem.cpp.s
+
 src/EventSystem/Event.o: src/EventSystem/Event.cpp.o
 .PHONY : src/EventSystem/Event.o
 
@@ -443,29 +491,53 @@ src/MeltEngine.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/MeltEngine.cpp.s
 .PHONY : src/MeltEngine.cpp.s
 
-src/Quad.o: src/Quad.cpp.o
-.PHONY : src/Quad.o
+src/Renderer/FrameBuffer.o: src/Renderer/FrameBuffer.cpp.o
+.PHONY : src/Renderer/FrameBuffer.o
 
 # target to build an object file
-src/Quad.cpp.o:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.o
-.PHONY : src/Quad.cpp.o
+src/Renderer/FrameBuffer.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.o
+.PHONY : src/Renderer/FrameBuffer.cpp.o
 
-src/Quad.i: src/Quad.cpp.i
-.PHONY : src/Quad.i
+src/Renderer/FrameBuffer.i: src/Renderer/FrameBuffer.cpp.i
+.PHONY : src/Renderer/FrameBuffer.i
 
 # target to preprocess a source file
-src/Quad.cpp.i:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.i
-.PHONY : src/Quad.cpp.i
+src/Renderer/FrameBuffer.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.i
+.PHONY : src/Renderer/FrameBuffer.cpp.i
 
-src/Quad.s: src/Quad.cpp.s
-.PHONY : src/Quad.s
+src/Renderer/FrameBuffer.s: src/Renderer/FrameBuffer.cpp.s
+.PHONY : src/Renderer/FrameBuffer.s
 
 # target to generate assembly for a file
-src/Quad.cpp.s:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Quad.cpp.s
-.PHONY : src/Quad.cpp.s
+src/Renderer/FrameBuffer.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.s
+.PHONY : src/Renderer/FrameBuffer.cpp.s
+
+src/Renderer/Quad.o: src/Renderer/Quad.cpp.o
+.PHONY : src/Renderer/Quad.o
+
+# target to build an object file
+src/Renderer/Quad.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.o
+.PHONY : src/Renderer/Quad.cpp.o
+
+src/Renderer/Quad.i: src/Renderer/Quad.cpp.i
+.PHONY : src/Renderer/Quad.i
+
+# target to preprocess a source file
+src/Renderer/Quad.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.i
+.PHONY : src/Renderer/Quad.cpp.i
+
+src/Renderer/Quad.s: src/Renderer/Quad.cpp.s
+.PHONY : src/Renderer/Quad.s
+
+# target to generate assembly for a file
+src/Renderer/Quad.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.s
+.PHONY : src/Renderer/Quad.cpp.s
 
 src/Shader.o: src/Shader.cpp.o
 .PHONY : src/Shader.o
@@ -533,6 +605,9 @@ help:
 	@echo "... src/ECS/Components/Camera.o"
 	@echo "... src/ECS/Components/Camera.i"
 	@echo "... src/ECS/Components/Camera.s"
+	@echo "... src/ECS/Components/Renderer.o"
+	@echo "... src/ECS/Components/Renderer.i"
+	@echo "... src/ECS/Components/Renderer.s"
 	@echo "... src/ECS/Components/Transform.o"
 	@echo "... src/ECS/Components/Transform.i"
 	@echo "... src/ECS/Components/Transform.s"
@@ -554,6 +629,9 @@ help:
 	@echo "... src/ECS/Systems/CameraControlSystem.o"
 	@echo "... src/ECS/Systems/CameraControlSystem.i"
 	@echo "... src/ECS/Systems/CameraControlSystem.s"
+	@echo "... src/ECS/Systems/RenderSystem.o"
+	@echo "... src/ECS/Systems/RenderSystem.i"
+	@echo "... src/ECS/Systems/RenderSystem.s"
 	@echo "... src/EventSystem/Event.o"
 	@echo "... src/EventSystem/Event.i"
 	@echo "... src/EventSystem/Event.s"
@@ -563,9 +641,12 @@ help:
 	@echo "... src/MeltEngine.o"
 	@echo "... src/MeltEngine.i"
 	@echo "... src/MeltEngine.s"
-	@echo "... src/Quad.o"
-	@echo "... src/Quad.i"
-	@echo "... src/Quad.s"
+	@echo "... src/Renderer/FrameBuffer.o"
+	@echo "... src/Renderer/FrameBuffer.i"
+	@echo "... src/Renderer/FrameBuffer.s"
+	@echo "... src/Renderer/Quad.o"
+	@echo "... src/Renderer/Quad.i"
+	@echo "... src/Renderer/Quad.s"
 	@echo "... src/Shader.o"
 	@echo "... src/Shader.i"
 	@echo "... src/Shader.s"

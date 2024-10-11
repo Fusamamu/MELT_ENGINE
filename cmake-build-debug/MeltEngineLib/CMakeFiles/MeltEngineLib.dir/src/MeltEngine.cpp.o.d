@@ -1206,11 +1206,12 @@ MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/MeltEngine.cpp.o: \
   /usr/local/include/glm/gtc/../mat4x2.hpp \
   /usr/local/include/glm/gtc/../mat4x3.hpp \
   /usr/local/include/glm/gtc/type_ptr.inl \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Quad.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer/Quad.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Vertex.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Type.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components/Camera.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components/Transform.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components/Renderer.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Coordinator.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Event.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/any \
@@ -1225,6 +1226,8 @@ MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/MeltEngine.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/set \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__tree \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems/CameraControlSystem.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems/RenderSystem.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer/FrameBuffer.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/yaml.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/parser.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/dll.h \

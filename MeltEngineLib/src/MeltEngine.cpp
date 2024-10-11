@@ -2,12 +2,14 @@
 
 namespace MELT
 {
+    float Engine::ScreenWidth  = 1600.0f;
+    float Engine::ScreenHeight = 1200.0f;
+    glm::vec2 Engine::CurrentOffset { };
+    glm::vec2 Engine::MouseWorldPosition { };
+
     Engine::Engine():
-        ScreenWidth(1600.0f),
-        ScreenHeight(1200.0f),
         m_IsRunning(true),
         m_Window(nullptr)
-        //m_2DGridShader(Shader("../MeltEngineLib/res/shaders/Basic.shader"))
     {
         if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0)
         {
@@ -62,34 +64,6 @@ namespace MELT
             SDL_Quit();
             return;
         }
-
-        m_Quad = new Quad();
-
-        m_BasicShader  = new Shader("../MeltEngineLib/res/shaders/Basic.shader");
-        m_2DGridShader = new Shader("../MeltEngineLib/res/shaders/2DGrid.shader");
-
-        glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (0.0f, 0.0f, 0.0f));
-        _model = glm::scale(_model, glm::vec3(25.0f, 25.0f, 1.0f));
-        glm::mat4 _view  = glm::lookAt(
-                    glm::vec3(0.0f, 0.0f, 3.0f),
-                    glm::vec3(0.0f, 0.0f, 0.0f),
-                    glm::vec3(0.0f, 1.0f, 0.0f)
-                );
-
-        glm::mat4 _projection = glm::ortho(-400.0f, 400.0f, -300.0f, 300.0f, 0.1f, 100.0f);
-
-        m_2DGridShader->Use();
-        m_2DGridShader->SetMat4UniformModel     (_model);
-        m_2DGridShader->SetMat4UniformView      (_view);
-        m_2DGridShader->SetMat4UniformProjection(_projection);
-        m_2DGridShader->SetVec2UniformScreenSize(glm::vec2(800, 600));
-
-        m_BasicShader->Use();
-        m_BasicShader->SetMat4UniformModel     (_model);
-        m_BasicShader->SetMat4UniformView      (_view);
-        m_BasicShader->SetMat4UniformProjection(_projection);
-        m_BasicShader->SetVec2UniformScreenSize(glm::vec2(800, 600));
-        m_BasicShader->SetVec3UniformColor(glm::vec3(1.0f, 1.0f, 1.0f));
     }
 
     Engine::~Engine() = default;
@@ -97,8 +71,9 @@ namespace MELT
     void Engine::Init()
     {
         ECSCoord.Init();
-        ECSCoord.RegisterComponent<Camera>();
+        ECSCoord.RegisterComponent<Camera>   ();
         ECSCoord.RegisterComponent<Transform>();
+        ECSCoord.RegisterComponent<Renderer> ();
 
         auto _cameraControlSystem = ECSCoord.RegisterSystem<CameraControlSystem>();
         {
@@ -108,6 +83,16 @@ namespace MELT
             ECSCoord.SetSystemSignature<CameraControlSystem>(_signature);
         }
         _cameraControlSystem->Init();
+
+        m_RenderSystem = ECSCoord.RegisterSystem<RenderSystem>();
+        {
+            Signature signature;
+            signature.set(ECSCoord.GetComponentType<Renderer>());
+            signature.set(ECSCoord.GetComponentType<Transform>());
+            ECSCoord.SetSystemSignature<RenderSystem>(signature);
+        }
+        m_RenderSystem->Init();
+        m_RenderSystem->ECSCoord = &ECSCoord;
     }
 
     void Engine::Update()
@@ -138,10 +123,9 @@ namespace MELT
                             ScreenWidth  = static_cast<float>(_width);
                             ScreenHeight = static_cast<float>(_height);
 
-                            m_Quad->RescaleFrameBuffer(2 * _width, 2 * _height);
-
-                            m_2DGridShader->Use();
-                            m_2DGridShader->SetVec2UniformScreenSize(glm::vec2(_width, _height));
+                            m_RenderSystem->mFrameBuffer->RescaleFrameBuffer(2 * _width, 2 * _height);
+                            m_RenderSystem->m_2DGridShader->Use();
+                            m_RenderSystem->m_2DGridShader->SetVec2UniformScreenSize(glm::vec2(_width, _height));
                         }
                         break;
                     case SDL_KEYDOWN:
@@ -164,18 +148,18 @@ namespace MELT
                         {
                             glm::vec2 _mousePos {MouseWorldPosition.x, MouseWorldPosition.y };
 
-                            float distance = glm::distance(_mousePos, m_Quad->WorldPosition);
+//                            float distance = glm::distance(_mousePos, m_Quad->WorldPosition);
 
-                            if(distance < 100.0f)
-                            {
-                                m_BasicShader->Use();
-                                m_BasicShader->SetVec3UniformColor(glm::vec3(1.0, 0.0, 0.0));
-                            }
-                            else
-                            {
-                                m_BasicShader->Use();
-                                m_BasicShader->SetVec3UniformColor(glm::vec3(1.0, 1.0, 1.0));
-                            }
+//                            if(distance < 100.0f)
+//                            {
+//                                m_BasicShader->Use();
+//                                m_BasicShader->SetVec3UniformColor(glm::vec3(1.0, 0.0, 0.0));
+//                            }
+//                            else
+//                            {
+//                                m_BasicShader->Use();
+//                                m_BasicShader->SetVec3UniformColor(glm::vec3(1.0, 1.0, 1.0));
+//                            }
 
                         }
                         break;
@@ -199,8 +183,8 @@ namespace MELT
                             CurrentOffset.x = static_cast<float>(offsetX);
                             CurrentOffset.y = static_cast<float>(offsetY);
 
-                            m_2DGridShader->Use();
-                            m_2DGridShader->SetVec2UniformOrigin(CurrentOffset);
+                            m_RenderSystem->m_2DGridShader->Use();
+                            m_RenderSystem->m_2DGridShader->SetVec2UniformOrigin(CurrentOffset);
                         }
                         break;
                 }
@@ -214,40 +198,12 @@ namespace MELT
 //            m_BasicShader->SetMat4UniformModel(_model);
 
             //Render
-
-
-
-
-
             glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-
 #ifdef M_EDITOR
-            glBindFramebuffer(GL_FRAMEBUFFER, m_Quad->FBO);
-            glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-//            m_2DGridShader->Use();
-//            m_2DGridShader->SetVec2UniformScreenSize(glm::vec2(ScreenWidth, ScreenHeight));
-//            m_Quad->Draw();
-
-            m_BasicShader->Use();
-            glm::mat4 _projection = glm::ortho(
-                    -(ScreenWidth  / 2) - CurrentOffset.x,
-                     (ScreenWidth  / 2) - CurrentOffset.x,
-                    -(ScreenHeight / 2) + CurrentOffset.y,
-                     (ScreenHeight / 2) + CurrentOffset.y,
-                    0.1f, 100.0f);
-            m_BasicShader->SetMat4UniformProjection(_projection);
-
-            m_Quad->Draw();
-
-            glBindFramebuffer(GL_FRAMEBUFFER, 0);
+            m_RenderSystem->Update(0.0f);
             UpdateEditor();
 #endif
-
-
             SDL_GL_SwapWindow(m_Window);
         }
     }

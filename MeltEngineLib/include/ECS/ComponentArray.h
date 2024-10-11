@@ -20,8 +20,9 @@ namespace MELT
         T& GetData(Entity _entity)
         {
             assert(m_EntityToIndexMap.find(_entity) != m_EntityToIndexMap.end() && "Retrieving non-existent component.");
-            return m_ComponentArray(m_EntityToIndexMap[_entity]);
+            return m_ComponentArray[m_EntityToIndexMap[_entity]];
         }
+
         void InsertData(Entity _entity, T _component)
         {
             std::size_t _newIndex = m_Size;
