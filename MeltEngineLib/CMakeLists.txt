@@ -6,7 +6,7 @@ add_subdirectory(./vendors/yaml-cpp)
 
 add_library(${PROJECT_NAME} STATIC
         src/MeltEngine.cpp
-        src/Shader.cpp
+        src/Renderer/Shader.cpp
         src/Renderer/Quad.cpp
         src/Vertex.cpp
         src/ECS/EntityManager.cpp
@@ -19,19 +19,22 @@ add_library(${PROJECT_NAME} STATIC
         src/ECS/Components/Camera.cpp
         src/ECS/Systems/CameraControlSystem.cpp
         src/ECS/Components/Transform.cpp
-        src/EventSystem/Event.cpp
-        src/EventSystem/EventHandler.cpp
         src/ECS/Systems/RenderSystem.cpp
         src/ECS/Components/Renderer.cpp
-        src/Renderer/FrameBuffer.cpp)
+        src/EventSystem/Event.cpp
+        src/EventSystem/EventHandler.cpp
+        src/Renderer/FrameBuffer.cpp
+        src/TextureManager.cpp
+        src/Renderer/Line.cpp)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
         ./include
-        ./include/Renderer)
-target_include_directories(${PROJECT_NAME} PUBLIC ./include/ECS)
-target_include_directories(${PROJECT_NAME} PUBLIC ./include/ECS/Components)
-target_include_directories(${PROJECT_NAME} PUBLIC ./include/ECS/Systems)
-target_include_directories(${PROJECT_NAME} PUBLIC ./vendors/yaml-cpp/include)
+        ./include/Renderer
+        ./include/ECS
+        ./include/ECS/Components
+        ./include/ECS/Systems
+        ./vendors/stb
+        ./vendors/yaml-cpp/include)
 
 find_package(SDL2   REQUIRED COMPONENTS SDL2)
 find_package(GLEW   REQUIRED)

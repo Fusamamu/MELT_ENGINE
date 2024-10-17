@@ -34,8 +34,6 @@ namespace MELT
         std::string _line;
         while(std::getline(_inputFile, _line))
         {
-            //std::cout << _line << std::endl;
-
             if(_line.find("#shader vertex") != std::string::npos)
             {
                 _shaderType = ShaderType::VERTEX;

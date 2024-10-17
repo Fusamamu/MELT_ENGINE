@@ -24,8 +24,10 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/EventSystem/EventHandler.cpp" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/EventSystem/EventHandler.cpp.o" "gcc" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/EventSystem/EventHandler.cpp.o.d"
   "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/MeltEngine.cpp" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/MeltEngine.cpp.o" "gcc" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/MeltEngine.cpp.o.d"
   "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/FrameBuffer.cpp" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.o" "gcc" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.o.d"
+  "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/Line.cpp" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Line.cpp.o" "gcc" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Line.cpp.o.d"
   "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/Quad.cpp" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.o" "gcc" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.o.d"
-  "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Shader.cpp" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Shader.cpp.o" "gcc" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Shader.cpp.o.d"
+  "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/Shader.cpp" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Shader.cpp.o" "gcc" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Shader.cpp.o.d"
+  "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/TextureManager.cpp" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/TextureManager.cpp.o" "gcc" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/TextureManager.cpp.o.d"
   "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Vertex.cpp" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Vertex.cpp.o" "gcc" "MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Vertex.cpp.o.d"
   )
 

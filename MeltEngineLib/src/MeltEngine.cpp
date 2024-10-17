@@ -70,6 +70,8 @@ namespace MELT
 
     void Engine::Init()
     {
+        TextureMng.Init();
+
         ECSCoord.Init();
         ECSCoord.RegisterComponent<Camera>   ();
         ECSCoord.RegisterComponent<Transform>();
@@ -92,6 +94,7 @@ namespace MELT
             ECSCoord.SetSystemSignature<RenderSystem>(signature);
         }
         m_RenderSystem->Init();
+        m_RenderSystem->Engine   = this;
         m_RenderSystem->ECSCoord = &ECSCoord;
     }
 
@@ -123,9 +126,9 @@ namespace MELT
                             ScreenWidth  = static_cast<float>(_width);
                             ScreenHeight = static_cast<float>(_height);
 
-                            m_RenderSystem->mFrameBuffer->RescaleFrameBuffer(2 * _width, 2 * _height);
-                            m_RenderSystem->m_2DGridShader->Use();
-                            m_RenderSystem->m_2DGridShader->SetVec2UniformScreenSize(glm::vec2(_width, _height));
+                            m_RenderSystem->EditorSceneFrameBuffer->RescaleFrameBuffer(2 * _width, 2 * _height);
+                            m_RenderSystem->GridShader2D->Use();
+                            m_RenderSystem->GridShader2D->SetVec2UniformScreenSize(glm::vec2(_width, _height));
                         }
                         break;
                     case SDL_KEYDOWN:
@@ -143,7 +146,6 @@ namespace MELT
                             initialMouseY -= static_cast<int>(CurrentOffset.y);
                         }
 
-
                         if (m_Event.button.button == SDL_BUTTON_LEFT)
                         {
                             glm::vec2 _mousePos {MouseWorldPosition.x, MouseWorldPosition.y };
@@ -152,23 +154,21 @@ namespace MELT
 
 //                            if(distance < 100.0f)
 //                            {
-//                                m_BasicShader->Use();
-//                                m_BasicShader->SetVec3UniformColor(glm::vec3(1.0, 0.0, 0.0));
+//                                BasicShader->Use();
+//                                BasicShader->SetVec3UniformColor(glm::vec3(1.0, 0.0, 0.0));
 //                            }
 //                            else
 //                            {
-//                                m_BasicShader->Use();
-//                                m_BasicShader->SetVec3UniformColor(glm::vec3(1.0, 1.0, 1.0));
+//                                BasicShader->Use();
+//                                BasicShader->SetVec3UniformColor(glm::vec3(1.0, 1.0, 1.0));
 //                            }
 
                         }
                         break;
 
                     case SDL_MOUSEBUTTONUP:
-                        if (m_Event.button.button == SDL_BUTTON_RIGHT) {
-                            // Stop dragging
+                        if (m_Event.button.button == SDL_BUTTON_RIGHT)
                             isDragging = false;
-                        }
                         break;
 
                     case SDL_MOUSEMOTION:
@@ -183,8 +183,8 @@ namespace MELT
                             CurrentOffset.x = static_cast<float>(offsetX);
                             CurrentOffset.y = static_cast<float>(offsetY);
 
-                            m_RenderSystem->m_2DGridShader->Use();
-                            m_RenderSystem->m_2DGridShader->SetVec2UniformOrigin(CurrentOffset);
+                            m_RenderSystem->GridShader2D->Use();
+                            m_RenderSystem->GridShader2D->SetVec2UniformOrigin(CurrentOffset);
                         }
                         break;
                 }
@@ -192,10 +192,10 @@ namespace MELT
 
             //Input
             //Update
-//            m_BasicShader->Use();
+//            BasicShader->Use();
 //            glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (MouseWorldPosition.x, MouseWorldPosition.y, 0.0f));
 //            _model = glm::scale(_model, glm::vec3(25.0f, 25.0f, 1.0f));
-//            m_BasicShader->SetMat4UniformModel(_model);
+//            BasicShader->SetMat4UniformModel(_model);
 
             //Render
             glClearColor(0.5f, 0.5f, 0.5f, 1.0f);

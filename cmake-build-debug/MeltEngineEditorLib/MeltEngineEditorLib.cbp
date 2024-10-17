@@ -37,6 +37,7 @@
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/stb"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
 					<Add directory="/Library/Frameworks/SDL2.framework/Headers"/>
@@ -74,6 +75,7 @@
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/stb"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
 					<Add directory="/Library/Frameworks/SDL2.framework/Headers"/>
@@ -99,6 +101,9 @@
 			<Option target="MeltEngineEditorLib"/>
 		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/src/ScriptEditorGUI/ScriptEditorGUI.cpp">
+			<Option target="MeltEngineEditorLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/src/SpriteEditorGUI.cpp">
 			<Option target="MeltEngineEditorLib"/>
 		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/backends/imgui_impl_opengl3.cpp">

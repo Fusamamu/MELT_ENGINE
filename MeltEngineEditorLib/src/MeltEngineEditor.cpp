@@ -27,10 +27,6 @@ namespace MELT_EDITOR
 
         ImGuiStyle& _style = ImGui::GetStyle();
 
-
-
-
-
         _style.Colors[ImGuiCol_WindowBg]             = ImVec4(8.0f / 255.0f, 14.0f / 255.0f, 15.0f / 255.0f, 1.0f);  // Set to a custom color (RGBA)
         _style.Colors[ImGuiCol_TitleBg]              = ImVec4(33.0f / 255.0f, 36.0f / 255.0f, 35.0f / 255.0f, 1.0f);
         _style.Colors[ImGuiCol_TitleBgActive]        = ImVec4(61.0f / 255.0f, 53.0f / 255.0f, 40.0f / 255.0f, 1.0f);
@@ -67,6 +63,8 @@ namespace MELT_EDITOR
         }
 
         ConsoleGUI.EditorOwner = this;
+        SpriteEditorGUI.EditorOwner = this;
+
     }
 
     Editor::~Editor()
@@ -94,6 +92,7 @@ namespace MELT_EDITOR
                 IM_COL32(28, 31, 29, 255), 6.0f);
     }
 
+
     void Editor::Update()
     {
         ImGui_ImplOpenGL3_NewFrame();
@@ -111,8 +110,13 @@ namespace MELT_EDITOR
         DrawAssetsGUI   ();
         DrawContentGUI  ();
 
+        SpriteEditorGUI.DrawGUI();
         ScriptEditorGUI.DrawGUI();
         ConsoleGUI     .DrawGUI();
+
+
+
+
 
         ImGui::ShowDemoWindow();
         ImGui::Render();
@@ -162,6 +166,13 @@ namespace MELT_EDITOR
                 {
                     // Handle "Redo" action
                 }
+                ImGui::EndMenu();
+            }
+
+            if (ImGui::BeginMenu("Window"))
+            {
+                if (ImGui::MenuItem("Sprite Editor"))
+                    SpriteEditorGUI.Open();
                 ImGui::EndMenu();
             }
 
@@ -216,7 +227,7 @@ namespace MELT_EDITOR
             ImVec2 pos = ImGui::GetCursorScreenPos();
 
             ImGui::GetWindowDrawList()->AddImage(
-                    (void*)Engine->m_RenderSystem->mFrameBuffer->TextureID,
+                    (void*)(intptr_t)Engine->m_RenderSystem->EditorSceneFrameBuffer->TextureID,
                     ImVec2(pos.x, pos.y),
                     ImVec2(pos.x + window_width, pos.y + window_height),
                     ImVec2(0, 1),
@@ -433,6 +444,45 @@ namespace MELT_EDITOR
 //                }
             }
 
+            ImVec2 _contentRegionAvail = ImGui::GetContentRegionAvail();
+
+            auto& _textureData = Engine->TextureMng.TextureDataTable["blacknwhite"];
+
+            float _contentWidth = _contentRegionAvail.x;
+            float _contentHeight = 500.0f;
+
+
+            ImGui::BeginChild("TextureDisplay", ImVec2(_contentWidth, _contentHeight), true);
+            ImGui::Text("Texture Detail");
+            ImGui::Text("W : %d, H : %d", _textureData.Width, _textureData.Height);
+            ImGui::Text("Size: %.2f MB", _textureData.TextureSizeMb);
+
+            ImGui::SliderFloat("Float Slider", &_textureData.DisplayScale, 1.0f, 5.0);
+
+            float _width  = (float)_textureData.Width  * _textureData.DisplayScale;
+            float _height = (float)_textureData.Height * _textureData.DisplayScale;
+
+            ImGui::SetCursorPosX(_contentWidth /2.0f - _width/2.0f);
+            ImGui::SetCursorPosY(_contentHeight/2.0f - _height/2.0f);
+
+            ImTextureID textureID = (ImTextureID)(intptr_t)_textureData.TextureID;
+
+            ImVec2 imageSize(_width, _height); // Set this to your texture's dimensions
+
+            ImVec4 tintColor(1.0f, 1.0f, 1.0f, 0.5f); // 50% transparency
+
+            //ImGui::Image(textureID, imageSize, ImVec2(0, 0), ImVec2(1, 1), tintColor);
+
+
+
+
+            ImGui::Image((void*)(intptr_t)_textureData.TextureID, imageSize);
+            ImGui::EndChild();
+
+
+
+
+
             //Add components button
             ImVec2 buttonSize = ImVec2(120, 30);
             ImVec2 windowSize = ImGui::GetWindowSize();
@@ -468,40 +518,54 @@ namespace MELT_EDITOR
             "Item 9", "Item 10", "Item 11", "Item 12"
     };
 
-    void Editor::DrawAssetsGUI()
+    void DisplayFileBrowser(const std::filesystem::path& path)
     {
+        for (const auto& entry : std::filesystem::directory_iterator(path)) {
 
-        ImGui::Begin("Main Window");
+            std::string filename = entry.path().filename().string();
 
-        // Create the first child window with scrollable area
-        ImGui::BeginChild("Child Window 1", ImVec2(200, ImGui::GetContentRegionAvail().y), true); // Width: 200, Height: 300
-        ImGui::Text("Select an Item:");
+            if (filename == ".DS_Store")
+                continue;
 
-        // Create a scrollable area
-        ImGui::BeginChild("Scrollable List", ImVec2(0, ImGui::GetContentRegionAvail().y), true); // Height: 250
-        for (const char* item : items) {
-            if (ImGui::Selectable(item)) {
-                // Handle item selection
-                ImGui::Text("%s selected", item); // Example of showing selection
+            if (entry.is_directory())
+            {
+                if (ImGui::TreeNode(entry.path().filename().string().c_str()))
+                {
+                    DisplayFileBrowser(entry.path());
+                    ImGui::TreePop();
+                }
+            }
+            else if (entry.is_regular_file())
+            {
+                if (ImGui::Selectable(entry.path().filename().string().c_str()))
+                {
+                    std::string selectedFile = entry.path().string();
+                }
             }
         }
-        ImGui::EndChild();
+    }
+
+    void Editor::DrawAssetsGUI()
+    {
+        ImGui::Begin("Project");
+
+        ImGui::BeginChild("Files", ImVec2(200, ImGui::GetContentRegionAvail().y), true);
+        ImGui::Text("Files :");
+
+        ImGui::BeginChild("##Scrollable List", ImVec2(0, ImGui::GetContentRegionAvail().y), true);
+
+        DisplayFileBrowser("../Project");
 
         ImGui::EndChild();
+        ImGui::EndChild();
 
-        // Space between child windows
         ImGui::SameLine();
 
-        // Create the second child window
         ImGui::BeginChild("Child Window 2", ImVec2(ImGui::GetContentRegionAvail().x, ImGui::GetContentRegionAvail().y), true); // Width: 200, Height: 100
         ImGui::Text("This is Child Window 2");
         ImGui::Button("Button 2");
         ImGui::EndChild();
-
-        // Optionally add more space for clarity
         ImGui::NewLine();
-
-
         ImGui::End();
     }
 

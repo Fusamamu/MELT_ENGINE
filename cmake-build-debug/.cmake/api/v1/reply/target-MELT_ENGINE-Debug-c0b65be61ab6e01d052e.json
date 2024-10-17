@@ -42,19 +42,19 @@
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 47,
+				"line" : 50,
 				"parent" : 3
 			},
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 48,
+				"line" : 51,
 				"parent" : 3
 			},
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 55,
+				"line" : 58,
 				"parent" : 3
 			},
 			{
@@ -114,6 +114,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/stb"
 				},
 				{
 					"backtrace" : 2,

@@ -922,6 +922,7 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/include/ConsoleGUI.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/include/MeltEngineEditor.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/include/ScriptEditor/ScriptEditorGUI.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/include/SpriteEditorGUI.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/IconFontCppHeaders/IconsKenney.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/backends/imgui_impl_opengl3.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/backends/imgui_impl_sdl2.h \
@@ -942,8 +943,10 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Type.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/MeltEngine.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/FrameBuffer.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/Line.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/Quad.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Shader.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/Shader.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/TextureManager.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Vertex.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/binary.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/dll.h \
@@ -1544,8 +1547,6 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h:
 
-/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/node_data.h:
-
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/iterator_fwd.h:
 
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/impl.h:
@@ -1563,6 +1564,10 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/emitter.h:
 
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/binary.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/node_data.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/TextureManager.h:
 
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/Quad.h:
 
@@ -1591,6 +1596,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/backends/imgui_impl_opengl3.h:
 
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/IconFontCppHeaders/IconsKenney.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/include/SpriteEditorGUI.h:
 
 /usr/local/include/glm/detail/qualifier.hpp:
 
@@ -1681,6 +1688,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/avx512vp2intersectintrin.h:
 
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/node/detail/memory.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/Line.h:
 
 /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/avx512vlvp2intersectintrin.h:
 
@@ -2816,6 +2825,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__concepts/movable.h:
 
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/Shader.h:
+
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/errno.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/machine/limits.h:
@@ -3235,8 +3246,6 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/max.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__chrono/month_weekday.h:
-
-/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Shader.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_max.h:
 

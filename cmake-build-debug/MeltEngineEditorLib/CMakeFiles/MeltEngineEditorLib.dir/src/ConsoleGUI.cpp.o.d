@@ -1180,7 +1180,8 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ConsoleGUI.cpp.o: \
   /usr/local/include/SDL2/SDL_locale.h \
   /usr/local/include/SDL2/SDL_misc.h \
   /usr/local/include/SDL2/SDL_opengl.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Shader.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/TextureManager.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer/Shader.h \
   /usr/local/include/glm/glm.hpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cfloat \
   /usr/local/include/glm/gtc/../fwd.hpp \
@@ -1212,6 +1213,7 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ConsoleGUI.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__tree \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems/CameraControlSystem.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems/RenderSystem.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer/Line.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer/FrameBuffer.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/yaml.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/parser.h \
@@ -1246,5 +1248,6 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ConsoleGUI.cpp.o: \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/impl.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/parse.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/emit.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./include/SpriteEditorGUI.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./include/ScriptEditor/ScriptEditorGUI.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/regex

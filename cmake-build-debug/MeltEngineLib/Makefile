@@ -515,6 +515,30 @@ src/Renderer/FrameBuffer.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.s
 .PHONY : src/Renderer/FrameBuffer.cpp.s
 
+src/Renderer/Line.o: src/Renderer/Line.cpp.o
+.PHONY : src/Renderer/Line.o
+
+# target to build an object file
+src/Renderer/Line.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Line.cpp.o
+.PHONY : src/Renderer/Line.cpp.o
+
+src/Renderer/Line.i: src/Renderer/Line.cpp.i
+.PHONY : src/Renderer/Line.i
+
+# target to preprocess a source file
+src/Renderer/Line.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Line.cpp.i
+.PHONY : src/Renderer/Line.cpp.i
+
+src/Renderer/Line.s: src/Renderer/Line.cpp.s
+.PHONY : src/Renderer/Line.s
+
+# target to generate assembly for a file
+src/Renderer/Line.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Line.cpp.s
+.PHONY : src/Renderer/Line.cpp.s
+
 src/Renderer/Quad.o: src/Renderer/Quad.cpp.o
 .PHONY : src/Renderer/Quad.o
 
@@ -539,29 +563,53 @@ src/Renderer/Quad.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.s
 .PHONY : src/Renderer/Quad.cpp.s
 
-src/Shader.o: src/Shader.cpp.o
-.PHONY : src/Shader.o
+src/Renderer/Shader.o: src/Renderer/Shader.cpp.o
+.PHONY : src/Renderer/Shader.o
 
 # target to build an object file
-src/Shader.cpp.o:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Shader.cpp.o
-.PHONY : src/Shader.cpp.o
+src/Renderer/Shader.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Shader.cpp.o
+.PHONY : src/Renderer/Shader.cpp.o
 
-src/Shader.i: src/Shader.cpp.i
-.PHONY : src/Shader.i
+src/Renderer/Shader.i: src/Renderer/Shader.cpp.i
+.PHONY : src/Renderer/Shader.i
 
 # target to preprocess a source file
-src/Shader.cpp.i:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Shader.cpp.i
-.PHONY : src/Shader.cpp.i
+src/Renderer/Shader.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Shader.cpp.i
+.PHONY : src/Renderer/Shader.cpp.i
 
-src/Shader.s: src/Shader.cpp.s
-.PHONY : src/Shader.s
+src/Renderer/Shader.s: src/Renderer/Shader.cpp.s
+.PHONY : src/Renderer/Shader.s
 
 # target to generate assembly for a file
-src/Shader.cpp.s:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Shader.cpp.s
-.PHONY : src/Shader.cpp.s
+src/Renderer/Shader.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Shader.cpp.s
+.PHONY : src/Renderer/Shader.cpp.s
+
+src/TextureManager.o: src/TextureManager.cpp.o
+.PHONY : src/TextureManager.o
+
+# target to build an object file
+src/TextureManager.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/TextureManager.cpp.o
+.PHONY : src/TextureManager.cpp.o
+
+src/TextureManager.i: src/TextureManager.cpp.i
+.PHONY : src/TextureManager.i
+
+# target to preprocess a source file
+src/TextureManager.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/TextureManager.cpp.i
+.PHONY : src/TextureManager.cpp.i
+
+src/TextureManager.s: src/TextureManager.cpp.s
+.PHONY : src/TextureManager.s
+
+# target to generate assembly for a file
+src/TextureManager.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/TextureManager.cpp.s
+.PHONY : src/TextureManager.cpp.s
 
 src/Vertex.o: src/Vertex.cpp.o
 .PHONY : src/Vertex.o
@@ -644,12 +692,18 @@ help:
 	@echo "... src/Renderer/FrameBuffer.o"
 	@echo "... src/Renderer/FrameBuffer.i"
 	@echo "... src/Renderer/FrameBuffer.s"
+	@echo "... src/Renderer/Line.o"
+	@echo "... src/Renderer/Line.i"
+	@echo "... src/Renderer/Line.s"
 	@echo "... src/Renderer/Quad.o"
 	@echo "... src/Renderer/Quad.i"
 	@echo "... src/Renderer/Quad.s"
-	@echo "... src/Shader.o"
-	@echo "... src/Shader.i"
-	@echo "... src/Shader.s"
+	@echo "... src/Renderer/Shader.o"
+	@echo "... src/Renderer/Shader.i"
+	@echo "... src/Renderer/Shader.s"
+	@echo "... src/TextureManager.o"
+	@echo "... src/TextureManager.i"
+	@echo "... src/TextureManager.s"
 	@echo "... src/Vertex.o"
 	@echo "... src/Vertex.i"
 	@echo "... src/Vertex.s"

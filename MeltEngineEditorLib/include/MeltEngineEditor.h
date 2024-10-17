@@ -20,6 +20,7 @@
 
 #include "MeltEngine.h"
 
+#include "SpriteEditorGUI.h"
 #include "ScriptEditorGUI.h"
 #include "ConsoleGUI.h"
 
@@ -32,8 +33,11 @@ namespace MELT_EDITOR
 
         std::vector<std::string> fileNames;
 
+        SpriteEditorGUI SpriteEditorGUI;
         ScriptEditorGUI ScriptEditorGUI;
         ConsoleGUI ConsoleGUI;
+
+        bool SpriteEditorDisplayed;
 
         explicit Editor(MELT::Engine* _engine);
         ~Editor();

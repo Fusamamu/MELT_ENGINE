@@ -203,6 +203,30 @@ src/ScriptEditorGUI/ScriptEditorGUI.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ScriptEditorGUI/ScriptEditorGUI.cpp.s
 .PHONY : src/ScriptEditorGUI/ScriptEditorGUI.cpp.s
 
+src/SpriteEditorGUI.o: src/SpriteEditorGUI.cpp.o
+.PHONY : src/SpriteEditorGUI.o
+
+# target to build an object file
+src/SpriteEditorGUI.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
+.PHONY : src/SpriteEditorGUI.cpp.o
+
+src/SpriteEditorGUI.i: src/SpriteEditorGUI.cpp.i
+.PHONY : src/SpriteEditorGUI.i
+
+# target to preprocess a source file
+src/SpriteEditorGUI.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.i
+.PHONY : src/SpriteEditorGUI.cpp.i
+
+src/SpriteEditorGUI.s: src/SpriteEditorGUI.cpp.s
+.PHONY : src/SpriteEditorGUI.s
+
+# target to generate assembly for a file
+src/SpriteEditorGUI.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.s
+.PHONY : src/SpriteEditorGUI.cpp.s
+
 vendors/imgui/backends/imgui_impl_opengl3.o: vendors/imgui/backends/imgui_impl_opengl3.cpp.o
 .PHONY : vendors/imgui/backends/imgui_impl_opengl3.o
 
@@ -389,6 +413,9 @@ help:
 	@echo "... src/ScriptEditorGUI/ScriptEditorGUI.o"
 	@echo "... src/ScriptEditorGUI/ScriptEditorGUI.i"
 	@echo "... src/ScriptEditorGUI/ScriptEditorGUI.s"
+	@echo "... src/SpriteEditorGUI.o"
+	@echo "... src/SpriteEditorGUI.i"
+	@echo "... src/SpriteEditorGUI.s"
 	@echo "... vendors/imgui/backends/imgui_impl_opengl3.o"
 	@echo "... vendors/imgui/backends/imgui_impl_opengl3.i"
 	@echo "... vendors/imgui/backends/imgui_impl_opengl3.s"
