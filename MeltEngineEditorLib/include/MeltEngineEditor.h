@@ -54,7 +54,8 @@ namespace MELT_EDITOR
         void DrawAssetsGUI();
         void DrawContentGUI();
 
-        void DrawComponentPanel(MELT::Transform& _position);
+        void DrawTransformComponentPanel(MELT::Transform& _transform);
+        void DrawSpriteRendererComponentPanel(MELT::SpriteRenderer& _spriteRenderer);
 
         std::string CurrentTextDisplay;
         std::string LoadTextFile(const std::string& _filePath);

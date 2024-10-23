@@ -15,6 +15,27 @@ namespace MELT
         _textureData.TextureFileName     = "blacknwhite";
         _textureData.FileExtension       = ".png";
         _textureData.TextureFileLocation = "../Project/Resources/Textures/";
+        _textureData.SpriteSheetPath     = _textureData.TextureFileLocation + _textureData.TextureFileName + ".yaml";
+
+
+        YAML::Node _root = YAML::LoadFile(_textureData.SpriteSheetPath);
+
+        const YAML::Node _spriteNode = _root["Sprites"];
+
+        for(std::size_t _i = 0; _i < _spriteNode.size(); ++_i)
+        {
+            SpriteData _spriteData;
+
+            YAML::Node _spriteChild = _spriteNode[_i];
+
+            _spriteData.Name = _spriteChild["Name"].as<std::string>();
+
+            std::cout << _spriteData.Name << std::endl;
+
+            _textureData.SpriteDataMap.emplace(_spriteData.Name, _spriteData);
+        }
+
+
 
         glGenTextures(1, &_textureData.TextureID);
         glBindTexture(GL_TEXTURE_2D, _textureData.TextureID);

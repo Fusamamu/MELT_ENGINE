@@ -3,6 +3,7 @@
 #include "Shader.h"
 #include "Quad.h"
 #include "Line.h"
+#include "GizmosTransform.h"
 #include "FrameBuffer.h"
 
 namespace MELT
@@ -16,6 +17,7 @@ namespace MELT
 
         Quad* m_Quad;
         Line* DummyLine;
+        GizmosTransform* GizmosAxis;
 
         FrameBuffer* EditorSceneFrameBuffer;
         FrameBuffer* EditorGUIFrameBuffer;
@@ -27,6 +29,7 @@ namespace MELT
         Shader* BasicShader;
         Shader* TextureShader;
         Shader* LineShader;
+        Shader* GizmosAxisShader;
 
         Engine* Engine;
         Coordinator* ECSCoord;

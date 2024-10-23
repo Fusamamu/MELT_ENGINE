@@ -14,6 +14,7 @@
 #include "Camera.h"
 #include "Transform.h"
 #include "Renderer.h"
+#include "SpriteRenderer.h"
 
 #include "Coordinator.h"
 #include "CameraControlSystem.h"
@@ -31,6 +32,11 @@ namespace MELT
         static glm::vec2 CurrentOffset;
         static glm::vec2 MouseWorldPosition;
 
+        const int WINDOW_WIDTH  = 900;
+        const int WINDOW_HEIGHT = 600;
+
+        Camera MainCamera;
+
         Coordinator ECSCoord;
 
         TextureManager TextureMng;
@@ -46,6 +52,9 @@ namespace MELT
 
         void Init();
         void Update();
+        void UpdateInput();
+        void UpdateLogic();
+        void UpdateRender();
         void Quit();
 
         SDL_Window* GetWindow();
@@ -56,5 +65,10 @@ namespace MELT
         SDL_Window*   m_Window;
         SDL_GLContext m_GLContext;
         SDL_Event     m_Event;
+
+        bool isDragging = false;
+        int initialMouseX, initialMouseY;
+        int currentMouseX, currentMouseY;
+
     };
 }

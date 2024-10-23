@@ -7,11 +7,10 @@ namespace MELT
         std::ifstream _inputFile (_filePath);
 
         std::filesystem::path filepath = _filePath;
-        if ( !exists(filepath) )
+        if (!exists(filepath))
         {
             std::cout << "File path " << filepath << " at absolute location "
                       << absolute(filepath) << " does not exist\n";
-
             return;
         }
 
@@ -29,7 +28,7 @@ namespace MELT
 
         ShaderType _shaderType = ShaderType::NONE;
 
-        std::stringstream _ss[2];
+        std::stringstream _ss[3];
 
         std::string _line;
         while(std::getline(_inputFile, _line))
@@ -37,6 +36,12 @@ namespace MELT
             if(_line.find("#shader vertex") != std::string::npos)
             {
                 _shaderType = ShaderType::VERTEX;
+                continue;
+            }
+
+            if(_line.find("#shader geometry") != std::string::npos)
+            {
+                _shaderType = ShaderType::GEOMETRY;
                 continue;
             }
 
@@ -54,11 +59,12 @@ namespace MELT
         }
 
         m_VertexSrc   = _ss[(int)(ShaderType::VERTEX)]  .str();
+        m_GeometrySrc = _ss[(int)(ShaderType::GEOMETRY)].str();
         m_FragmentSrc = _ss[(int)(ShaderType::FRAGMENT)].str();
 
         _inputFile.close();
 
-        ID = CreateShader(m_VertexSrc, m_FragmentSrc);
+        ID = CreateShader(m_VertexSrc, m_GeometrySrc, m_FragmentSrc);
 
         m_UniformLoc_Model      = glGetUniformLocation(ID, "model");
         m_UniformLoc_View       = glGetUniformLocation(ID, "view");
@@ -108,14 +114,21 @@ namespace MELT
         glUniform3f(m_UniformLoc_Color, _color.r, _color.g, _color.b);
     }
 
-    GLuint Shader::CreateShader(const std::string& _vertexSrc, const std::string& _fragmentSrc)
+    GLuint Shader::CreateShader(const std::string& _vertexSrc, const std::string& _geometrySrc, const std::string& _fragmentSrc)
     {
         GLuint _vertexShader   = CompileShader(GL_VERTEX_SHADER  , _vertexSrc  );
         GLuint _fragmentShader = CompileShader(GL_FRAGMENT_SHADER, _fragmentSrc);
 
         GLuint _shaderProgram = glCreateProgram();
-        glAttachShader(_shaderProgram, _vertexShader);
+        glAttachShader(_shaderProgram, _vertexShader  );
         glAttachShader(_shaderProgram, _fragmentShader);
+
+        if(!_geometrySrc.empty())
+        {
+            GLuint _geometryShader = CompileShader(GL_GEOMETRY_SHADER, _geometrySrc);
+            glAttachShader(_shaderProgram, _geometryShader);
+        }
+
         glLinkProgram(_shaderProgram);
 
         GLint _success;

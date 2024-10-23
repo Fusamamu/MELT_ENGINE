@@ -227,6 +227,30 @@ src/ECS/Components/Renderer.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Renderer.cpp.s
 .PHONY : src/ECS/Components/Renderer.cpp.s
 
+src/ECS/Components/SpriteRenderer.o: src/ECS/Components/SpriteRenderer.cpp.o
+.PHONY : src/ECS/Components/SpriteRenderer.o
+
+# target to build an object file
+src/ECS/Components/SpriteRenderer.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/SpriteRenderer.cpp.o
+.PHONY : src/ECS/Components/SpriteRenderer.cpp.o
+
+src/ECS/Components/SpriteRenderer.i: src/ECS/Components/SpriteRenderer.cpp.i
+.PHONY : src/ECS/Components/SpriteRenderer.i
+
+# target to preprocess a source file
+src/ECS/Components/SpriteRenderer.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/SpriteRenderer.cpp.i
+.PHONY : src/ECS/Components/SpriteRenderer.cpp.i
+
+src/ECS/Components/SpriteRenderer.s: src/ECS/Components/SpriteRenderer.cpp.s
+.PHONY : src/ECS/Components/SpriteRenderer.s
+
+# target to generate assembly for a file
+src/ECS/Components/SpriteRenderer.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/SpriteRenderer.cpp.s
+.PHONY : src/ECS/Components/SpriteRenderer.cpp.s
+
 src/ECS/Components/Transform.o: src/ECS/Components/Transform.cpp.o
 .PHONY : src/ECS/Components/Transform.o
 
@@ -467,6 +491,30 @@ src/EventSystem/EventHandler.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/EventSystem/EventHandler.cpp.s
 .PHONY : src/EventSystem/EventHandler.cpp.s
 
+src/GizmosTransform.o: src/GizmosTransform.cpp.o
+.PHONY : src/GizmosTransform.o
+
+# target to build an object file
+src/GizmosTransform.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/GizmosTransform.cpp.o
+.PHONY : src/GizmosTransform.cpp.o
+
+src/GizmosTransform.i: src/GizmosTransform.cpp.i
+.PHONY : src/GizmosTransform.i
+
+# target to preprocess a source file
+src/GizmosTransform.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/GizmosTransform.cpp.i
+.PHONY : src/GizmosTransform.cpp.i
+
+src/GizmosTransform.s: src/GizmosTransform.cpp.s
+.PHONY : src/GizmosTransform.s
+
+# target to generate assembly for a file
+src/GizmosTransform.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/GizmosTransform.cpp.s
+.PHONY : src/GizmosTransform.cpp.s
+
 src/MeltEngine.o: src/MeltEngine.cpp.o
 .PHONY : src/MeltEngine.o
 
@@ -656,6 +704,9 @@ help:
 	@echo "... src/ECS/Components/Renderer.o"
 	@echo "... src/ECS/Components/Renderer.i"
 	@echo "... src/ECS/Components/Renderer.s"
+	@echo "... src/ECS/Components/SpriteRenderer.o"
+	@echo "... src/ECS/Components/SpriteRenderer.i"
+	@echo "... src/ECS/Components/SpriteRenderer.s"
 	@echo "... src/ECS/Components/Transform.o"
 	@echo "... src/ECS/Components/Transform.i"
 	@echo "... src/ECS/Components/Transform.s"
@@ -686,6 +737,9 @@ help:
 	@echo "... src/EventSystem/EventHandler.o"
 	@echo "... src/EventSystem/EventHandler.i"
 	@echo "... src/EventSystem/EventHandler.s"
+	@echo "... src/GizmosTransform.o"
+	@echo "... src/GizmosTransform.i"
+	@echo "... src/GizmosTransform.s"
 	@echo "... src/MeltEngine.o"
 	@echo "... src/MeltEngine.i"
 	@echo "... src/MeltEngine.s"

@@ -932,6 +932,7 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/ComponentManager.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/Camera.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/Renderer.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/SpriteRenderer.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/Transform.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Coordinator.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/EntityManager.h \
@@ -941,6 +942,7 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Systems/CameraControlSystem.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Systems/RenderSystem.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Type.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/GizmosTransform.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/MeltEngine.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/FrameBuffer.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/Line.h \
@@ -1573,6 +1575,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/FrameBuffer.h:
 
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/GizmosTransform.h:
+
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Systems/CameraControlSystem.h:
 
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/EventManager.h:
@@ -2194,6 +2198,8 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_trivially_constructible.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_standard_layout.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/SpriteRenderer.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_is_sorted.h:
 

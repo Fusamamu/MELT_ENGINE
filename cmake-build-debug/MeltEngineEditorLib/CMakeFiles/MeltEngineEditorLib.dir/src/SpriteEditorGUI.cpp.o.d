@@ -736,17 +736,21 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__functional/pointer_to_binary_function.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__functional/pointer_to_unary_function.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__functional/unary_negate.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/imgui.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/imconfig.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/float.h \
-  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/float.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/float.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/assert.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/backends/imgui_impl_sdl2.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/backends/imgui_impl_opengl3.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/TargetConditionals.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./include/MeltEngineEditor.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/iostream \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/filesystem \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/directory_entry.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__errc \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cerrno \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/file_status.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/file_type.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/perms.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/file_time_type.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/filesystem_error.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/path.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/iomanip \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/istream \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/ostream \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/bitset \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/ios \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__locale \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/locale.h \
@@ -755,8 +759,6 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/mutex \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__mutex_base \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/system_error \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__errc \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cerrno \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/xlocale.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/_xlocale.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/xlocale/_ctype.h \
@@ -767,9 +769,6 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/xlocale/_time.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/xlocale/_wchar.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/xlocale/_wctype.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/istream \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/ostream \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/bitset \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/locale \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/streambuf \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/nl_types.h \
@@ -801,17 +800,6 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/_types/_nl_item.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__bsd_locale_defaults.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cstdarg \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/fstream \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/filesystem \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/copy_options.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/directory_entry.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/file_status.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/file_type.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/perms.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/file_time_type.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/filesystem_error.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/path.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/iomanip \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/operations.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/perm_options.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/space_info.h \
@@ -820,211 +808,237 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/path_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/u8path.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/sstream \
+  /usr/local/include/glm/glm.hpp \
+  /usr/local/include/glm/detail/_fixes.hpp \
+  /usr/local/include/glm/detail/setup.hpp \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cassert \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/assert.h \
+  /usr/local/include/glm/detail/../simd/platform.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cfloat \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/float.h \
+  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include/float.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/float.h \
+  /usr/local/include/glm/fwd.hpp \
+  /usr/local/include/glm/detail/qualifier.hpp \
+  /usr/local/include/glm/vec2.hpp \
+  /usr/local/include/glm/./ext/vector_bool2.hpp \
+  /usr/local/include/glm/./ext/../detail/type_vec2.hpp \
+  /usr/local/include/glm/detail/type_vec2.inl \
+  /usr/local/include/glm/detail/./compute_vector_relational.hpp \
+  /usr/local/include/glm/./ext/vector_bool2_precision.hpp \
+  /usr/local/include/glm/./ext/vector_float2.hpp \
+  /usr/local/include/glm/./ext/vector_float2_precision.hpp \
+  /usr/local/include/glm/./ext/vector_double2.hpp \
+  /usr/local/include/glm/./ext/vector_double2_precision.hpp \
+  /usr/local/include/glm/./ext/vector_int2.hpp \
+  /usr/local/include/glm/./ext/vector_int2_sized.hpp \
+  /usr/local/include/glm/./ext/../ext/vector_int2.hpp \
+  /usr/local/include/glm/./ext/../ext/scalar_int_sized.hpp \
+  /usr/local/include/glm/./ext/../detail/setup.hpp \
+  /usr/local/include/glm/./ext/vector_uint2.hpp \
+  /usr/local/include/glm/./ext/vector_uint2_sized.hpp \
+  /usr/local/include/glm/./ext/../ext/vector_uint2.hpp \
+  /usr/local/include/glm/./ext/../ext/scalar_uint_sized.hpp \
+  /usr/local/include/glm/vec3.hpp \
+  /usr/local/include/glm/./ext/vector_bool3.hpp \
+  /usr/local/include/glm/./ext/../detail/type_vec3.hpp \
+  /usr/local/include/glm/detail/type_vec3.inl \
+  /usr/local/include/glm/detail/compute_vector_relational.hpp \
+  /usr/local/include/glm/./ext/vector_bool3_precision.hpp \
+  /usr/local/include/glm/./ext/vector_float3.hpp \
+  /usr/local/include/glm/./ext/vector_float3_precision.hpp \
+  /usr/local/include/glm/./ext/vector_double3.hpp \
+  /usr/local/include/glm/./ext/vector_double3_precision.hpp \
+  /usr/local/include/glm/./ext/vector_int3.hpp \
+  /usr/local/include/glm/./ext/vector_int3_sized.hpp \
+  /usr/local/include/glm/./ext/../ext/vector_int3.hpp \
+  /usr/local/include/glm/./ext/vector_uint3.hpp \
+  /usr/local/include/glm/./ext/vector_uint3_sized.hpp \
+  /usr/local/include/glm/./ext/../ext/vector_uint3.hpp \
+  /usr/local/include/glm/vec4.hpp \
+  /usr/local/include/glm/./ext/vector_bool4.hpp \
+  /usr/local/include/glm/./ext/../detail/type_vec4.hpp \
+  /usr/local/include/glm/detail/type_vec4.inl \
+  /usr/local/include/glm/./ext/vector_bool4_precision.hpp \
+  /usr/local/include/glm/./ext/vector_float4.hpp \
+  /usr/local/include/glm/./ext/vector_float4_precision.hpp \
+  /usr/local/include/glm/./ext/vector_double4.hpp \
+  /usr/local/include/glm/./ext/vector_double4_precision.hpp \
+  /usr/local/include/glm/./ext/vector_int4.hpp \
+  /usr/local/include/glm/./ext/vector_int4_sized.hpp \
+  /usr/local/include/glm/./ext/../ext/vector_int4.hpp \
+  /usr/local/include/glm/./ext/vector_uint4.hpp \
+  /usr/local/include/glm/./ext/vector_uint4_sized.hpp \
+  /usr/local/include/glm/./ext/../ext/vector_uint4.hpp \
+  /usr/local/include/glm/mat2x2.hpp \
+  /usr/local/include/glm/./ext/matrix_double2x2.hpp \
+  /usr/local/include/glm/./ext/../detail/type_mat2x2.hpp \
+  /usr/local/include/glm/detail/type_vec2.hpp \
+  /usr/local/include/glm/detail/type_mat2x2.inl \
+  /usr/local/include/glm/detail/../matrix.hpp \
+  /usr/local/include/glm/mat2x3.hpp \
+  /usr/local/include/glm/./ext/matrix_double2x3.hpp \
+  /usr/local/include/glm/./ext/../detail/type_mat2x3.hpp \
+  /usr/local/include/glm/detail/type_vec3.hpp \
+  /usr/local/include/glm/detail/type_mat2x3.inl \
+  /usr/local/include/glm/./ext/matrix_double2x3_precision.hpp \
+  /usr/local/include/glm/./ext/matrix_float2x3.hpp \
+  /usr/local/include/glm/./ext/matrix_float2x3_precision.hpp \
+  /usr/local/include/glm/mat2x4.hpp \
+  /usr/local/include/glm/./ext/matrix_double2x4.hpp \
+  /usr/local/include/glm/./ext/../detail/type_mat2x4.hpp \
+  /usr/local/include/glm/detail/type_vec4.hpp \
+  /usr/local/include/glm/detail/type_mat2x4.inl \
+  /usr/local/include/glm/./ext/matrix_double2x4_precision.hpp \
+  /usr/local/include/glm/./ext/matrix_float2x4.hpp \
+  /usr/local/include/glm/./ext/matrix_float2x4_precision.hpp \
+  /usr/local/include/glm/mat3x2.hpp \
+  /usr/local/include/glm/./ext/matrix_double3x2.hpp \
+  /usr/local/include/glm/./ext/../detail/type_mat3x2.hpp \
+  /usr/local/include/glm/detail/type_mat3x2.inl \
+  /usr/local/include/glm/./ext/matrix_double3x2_precision.hpp \
+  /usr/local/include/glm/./ext/matrix_float3x2.hpp \
+  /usr/local/include/glm/./ext/matrix_float3x2_precision.hpp \
+  /usr/local/include/glm/mat3x3.hpp \
+  /usr/local/include/glm/./ext/matrix_double3x3.hpp \
+  /usr/local/include/glm/./ext/../detail/type_mat3x3.hpp \
+  /usr/local/include/glm/detail/type_mat3x3.inl \
+  /usr/local/include/glm/./ext/matrix_double3x3_precision.hpp \
+  /usr/local/include/glm/./ext/matrix_float3x3.hpp \
+  /usr/local/include/glm/./ext/matrix_float3x3_precision.hpp \
+  /usr/local/include/glm/mat3x4.hpp \
+  /usr/local/include/glm/./ext/matrix_double3x4.hpp \
+  /usr/local/include/glm/./ext/../detail/type_mat3x4.hpp \
+  /usr/local/include/glm/detail/type_mat3x4.inl \
+  /usr/local/include/glm/./ext/matrix_double3x4_precision.hpp \
+  /usr/local/include/glm/./ext/matrix_float3x4.hpp \
+  /usr/local/include/glm/./ext/matrix_float3x4_precision.hpp \
+  /usr/local/include/glm/mat4x2.hpp \
+  /usr/local/include/glm/./ext/matrix_double4x2.hpp \
+  /usr/local/include/glm/./ext/../detail/type_mat4x2.hpp \
+  /usr/local/include/glm/detail/type_mat4x2.inl \
+  /usr/local/include/glm/./ext/matrix_double4x2_precision.hpp \
+  /usr/local/include/glm/./ext/matrix_float4x2.hpp \
+  /usr/local/include/glm/./ext/matrix_float4x2_precision.hpp \
+  /usr/local/include/glm/mat4x3.hpp \
+  /usr/local/include/glm/./ext/matrix_double4x3.hpp \
+  /usr/local/include/glm/./ext/../detail/type_mat4x3.hpp \
+  /usr/local/include/glm/detail/type_mat4x3.inl \
+  /usr/local/include/glm/./ext/matrix_double4x3_precision.hpp \
+  /usr/local/include/glm/./ext/matrix_float4x3.hpp \
+  /usr/local/include/glm/./ext/matrix_float4x3_precision.hpp \
+  /usr/local/include/glm/mat4x4.hpp \
+  /usr/local/include/glm/./ext/matrix_double4x4.hpp \
+  /usr/local/include/glm/./ext/../detail/type_mat4x4.hpp \
+  /usr/local/include/glm/detail/type_mat4x4.inl \
+  /usr/local/include/glm/./ext/matrix_double4x4_precision.hpp \
+  /usr/local/include/glm/./ext/matrix_float4x4.hpp \
+  /usr/local/include/glm/./ext/matrix_float4x4_precision.hpp \
+  /usr/local/include/glm/detail/func_matrix.inl \
+  /usr/local/include/glm/detail/../geometric.hpp \
+  /usr/local/include/glm/detail/func_geometric.inl \
+  /usr/local/include/glm/detail/../exponential.hpp \
+  /usr/local/include/glm/detail/type_vec1.hpp \
+  /usr/local/include/glm/detail/type_vec1.inl \
+  /usr/local/include/glm/detail/func_exponential.inl \
+  /usr/local/include/glm/detail/../vector_relational.hpp \
+  /usr/local/include/glm/detail/func_vector_relational.inl \
+  /usr/local/include/glm/detail/_vectorize.hpp \
+  /usr/local/include/glm/detail/../common.hpp \
+  /usr/local/include/glm/detail/func_common.inl \
+  /usr/local/include/glm/detail/compute_common.hpp \
+  /usr/local/include/glm/./ext/matrix_double2x2_precision.hpp \
+  /usr/local/include/glm/./ext/matrix_float2x2.hpp \
+  /usr/local/include/glm/./ext/matrix_float2x2_precision.hpp \
+  /usr/local/include/glm/trigonometric.hpp \
+  /usr/local/include/glm/detail/func_trigonometric.inl \
+  /usr/local/include/glm/exponential.hpp \
+  /usr/local/include/glm/common.hpp /usr/local/include/glm/packing.hpp \
+  /usr/local/include/glm/detail/func_packing.inl \
+  /usr/local/include/glm/detail/type_half.hpp \
+  /usr/local/include/glm/detail/type_half.inl \
+  /usr/local/include/glm/geometric.hpp /usr/local/include/glm/matrix.hpp \
+  /usr/local/include/glm/vector_relational.hpp \
+  /usr/local/include/glm/integer.hpp \
+  /usr/local/include/glm/detail/func_integer.inl \
   /usr/local/include/glm/gtc/type_ptr.hpp \
   /usr/local/include/glm/gtc/../gtc/quaternion.hpp \
   /usr/local/include/glm/gtc/../gtc/constants.hpp \
   /usr/local/include/glm/gtc/../ext/scalar_constants.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/setup.hpp \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cassert \
-  /usr/local/include/glm/gtc/../ext/../detail/../simd/platform.h \
-  /usr/local/include/glm/gtc/../ext/scalar_constants.inl \
+  /usr/local/include/glm/./ext/scalar_constants.inl \
   /usr/local/include/glm/gtc/constants.inl \
   /usr/local/include/glm/gtc/../gtc/matrix_transform.hpp \
   /usr/local/include/glm/gtc/../mat4x4.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_double4x4.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat4x4.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_vec4.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/qualifier.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_vec4.inl \
-  /usr/local/include/glm/gtc/../ext/../detail/compute_vector_relational.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat4x4.inl \
-  /usr/local/include/glm/gtc/../ext/../detail/../matrix.hpp \
-  /usr/local/include/glm/gtc/../detail/qualifier.hpp \
-  /usr/local/include/glm/gtc/../detail/setup.hpp \
   /usr/local/include/glm/gtc/../vec2.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_bool2.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_vec2.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_vec2.inl \
-  /usr/local/include/glm/gtc/../ext/../detail/./compute_vector_relational.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_bool2_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_float2.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_float2_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_double2.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_double2_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_int2.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_int2_sized.hpp \
-  /usr/local/include/glm/gtc/../ext/../ext/vector_int2.hpp \
-  /usr/local/include/glm/gtc/../ext/../ext/scalar_int_sized.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_uint2.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_uint2_sized.hpp \
-  /usr/local/include/glm/gtc/../ext/../ext/vector_uint2.hpp \
-  /usr/local/include/glm/gtc/../ext/../ext/scalar_uint_sized.hpp \
   /usr/local/include/glm/gtc/../vec3.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_bool3.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_vec3.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_vec3.inl \
-  /usr/local/include/glm/gtc/.././ext/vector_bool3_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_float3.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_float3_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_double3.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_double3_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_int3.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_int3_sized.hpp \
-  /usr/local/include/glm/gtc/../ext/../ext/vector_int3.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_uint3.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_uint3_sized.hpp \
-  /usr/local/include/glm/gtc/../ext/../ext/vector_uint3.hpp \
   /usr/local/include/glm/gtc/../vec4.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_bool4.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_bool4_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_float4.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_float4_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_double4.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_double4_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_int4.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_int4_sized.hpp \
-  /usr/local/include/glm/gtc/../ext/../ext/vector_int4.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_uint4.hpp \
-  /usr/local/include/glm/gtc/.././ext/vector_uint4_sized.hpp \
-  /usr/local/include/glm/gtc/../ext/../ext/vector_uint4.hpp \
-  /usr/local/include/glm/gtc/../mat2x2.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_double2x2.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat2x2.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat2x2.inl \
-  /usr/local/include/glm/gtc/.././ext/matrix_double2x2_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float2x2.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float2x2_precision.hpp \
-  /usr/local/include/glm/gtc/../mat2x3.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_double2x3.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat2x3.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat2x3.inl \
-  /usr/local/include/glm/gtc/.././ext/matrix_double2x3_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float2x3.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float2x3_precision.hpp \
-  /usr/local/include/glm/gtc/../mat2x4.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_double2x4.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat2x4.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat2x4.inl \
-  /usr/local/include/glm/gtc/.././ext/matrix_double2x4_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float2x4.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float2x4_precision.hpp \
-  /usr/local/include/glm/gtc/../mat3x2.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_double3x2.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat3x2.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat3x2.inl \
-  /usr/local/include/glm/gtc/.././ext/matrix_double3x2_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float3x2.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float3x2_precision.hpp \
-  /usr/local/include/glm/gtc/../mat3x3.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_double3x3.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat3x3.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat3x3.inl \
-  /usr/local/include/glm/gtc/.././ext/matrix_double3x3_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float3x3.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float3x3_precision.hpp \
-  /usr/local/include/glm/gtc/../mat3x4.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_double3x4.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat3x4.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat3x4.inl \
-  /usr/local/include/glm/gtc/.././ext/matrix_double3x4_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float3x4.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float3x4_precision.hpp \
-  /usr/local/include/glm/gtc/../mat4x2.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_double4x2.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat4x2.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat4x2.inl \
-  /usr/local/include/glm/gtc/.././ext/matrix_double4x2_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float4x2.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float4x2_precision.hpp \
-  /usr/local/include/glm/gtc/../mat4x3.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_double4x3.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat4x3.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_mat4x3.inl \
-  /usr/local/include/glm/gtc/.././ext/matrix_double4x3_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float4x3.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float4x3_precision.hpp \
-  /usr/local/include/glm/gtc/../detail/func_matrix.inl \
-  /usr/local/include/glm/gtc/../ext/../detail/../geometric.hpp \
-  /usr/local/include/glm/gtc/../detail/type_vec3.hpp \
-  /usr/local/include/glm/gtc/../detail/func_geometric.inl \
-  /usr/local/include/glm/gtc/../ext/../detail/../exponential.hpp \
-  /usr/local/include/glm/gtc/../detail/type_vec1.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_vec1.inl \
-  /usr/local/include/glm/gtc/../detail/type_vec2.hpp \
-  /usr/local/include/glm/gtc/../detail/type_vec4.hpp \
-  /usr/local/include/glm/gtc/../detail/func_exponential.inl \
-  /usr/local/include/glm/gtc/../ext/../detail/../vector_relational.hpp \
-  /usr/local/include/glm/gtc/../detail/func_vector_relational.inl \
-  /usr/local/include/glm/gtc/../ext/../detail/_vectorize.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/../common.hpp \
-  /usr/local/include/glm/gtc/../detail/_fixes.hpp \
-  /usr/local/include/glm/gtc/../detail/func_common.inl \
-  /usr/local/include/glm/gtc/../ext/../detail/compute_common.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_vec1.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_double4x4_precision.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float4x4.hpp \
-  /usr/local/include/glm/gtc/.././ext/matrix_float4x4_precision.hpp \
   /usr/local/include/glm/gtc/../ext/matrix_projection.hpp \
-  /usr/local/include/glm/gtc/../ext/../gtc/constants.hpp \
-  /usr/local/include/glm/gtc/../ext/../geometric.hpp \
-  /usr/local/include/glm/gtc/../ext/../trigonometric.hpp \
-  /usr/local/include/glm/gtc/../detail/func_trigonometric.inl \
-  /usr/local/include/glm/gtc/../ext/../matrix.hpp \
-  /usr/local/include/glm/gtc/../ext/matrix_projection.inl \
+  /usr/local/include/glm/./ext/../gtc/constants.hpp \
+  /usr/local/include/glm/./ext/../geometric.hpp \
+  /usr/local/include/glm/./ext/../trigonometric.hpp \
+  /usr/local/include/glm/./ext/../matrix.hpp \
+  /usr/local/include/glm/./ext/matrix_projection.inl \
   /usr/local/include/glm/gtc/../ext/matrix_clip_space.hpp \
-  /usr/local/include/glm/gtc/../ext/../ext/scalar_constants.hpp \
-  /usr/local/include/glm/gtc/../ext/matrix_clip_space.inl \
+  /usr/local/include/glm/./ext/../ext/scalar_constants.hpp \
+  /usr/local/include/glm/./ext/matrix_clip_space.inl \
   /usr/local/include/glm/gtc/../ext/matrix_transform.hpp \
-  /usr/local/include/glm/gtc/../ext/matrix_transform.inl \
+  /usr/local/include/glm/./ext/matrix_transform.inl \
   /usr/local/include/glm/gtc/matrix_transform.inl \
   /usr/local/include/glm/gtc/../geometric.hpp \
   /usr/local/include/glm/gtc/../trigonometric.hpp \
   /usr/local/include/glm/gtc/../matrix.hpp \
   /usr/local/include/glm/gtc/../ext/vector_relational.hpp \
-  /usr/local/include/glm/gtc/../ext/vector_relational.inl \
-  /usr/local/include/glm/gtc/../ext/../vector_relational.hpp \
-  /usr/local/include/glm/gtc/../ext/../common.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_float.hpp \
+  /usr/local/include/glm/./ext/../detail/qualifier.hpp \
+  /usr/local/include/glm/./ext/vector_relational.inl \
+  /usr/local/include/glm/./ext/../vector_relational.hpp \
+  /usr/local/include/glm/./ext/../common.hpp \
+  /usr/local/include/glm/./ext/../detail/type_float.hpp \
   /usr/local/include/glm/gtc/../ext/quaternion_common.hpp \
-  /usr/local/include/glm/gtc/../ext/../ext/quaternion_geometric.hpp \
-  /usr/local/include/glm/gtc/../ext/../exponential.hpp \
-  /usr/local/include/glm/gtc/../ext/../ext/vector_relational.hpp \
-  /usr/local/include/glm/gtc/../ext/quaternion_geometric.inl \
-  /usr/local/include/glm/gtc/../ext/quaternion_common.inl \
+  /usr/local/include/glm/./ext/../ext/quaternion_geometric.hpp \
+  /usr/local/include/glm/./ext/../exponential.hpp \
+  /usr/local/include/glm/./ext/../ext/vector_relational.hpp \
+  /usr/local/include/glm/./ext/quaternion_geometric.inl \
+  /usr/local/include/glm/./ext/quaternion_common.inl \
   /usr/local/include/glm/gtc/../ext/quaternion_float.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_quat.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/../detail/type_mat3x3.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/../detail/type_mat4x4.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/../detail/type_vec3.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/../detail/type_vec4.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/../ext/vector_relational.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/../ext/quaternion_relational.hpp \
-  /usr/local/include/glm/gtc/../ext/quaternion_relational.inl \
-  /usr/local/include/glm/gtc/../ext/../detail/../gtc/constants.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/../gtc/matrix_transform.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_quat.inl \
-  /usr/local/include/glm/gtc/../ext/../detail/../trigonometric.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/../ext/quaternion_geometric.hpp \
+  /usr/local/include/glm/./ext/../detail/type_quat.hpp \
+  /usr/local/include/glm/detail/../detail/type_mat3x3.hpp \
+  /usr/local/include/glm/detail/../detail/type_mat4x4.hpp \
+  /usr/local/include/glm/detail/../detail/type_vec3.hpp \
+  /usr/local/include/glm/detail/../detail/type_vec4.hpp \
+  /usr/local/include/glm/detail/../ext/vector_relational.hpp \
+  /usr/local/include/glm/detail/../ext/quaternion_relational.hpp \
+  /usr/local/include/glm/./ext/quaternion_relational.inl \
+  /usr/local/include/glm/detail/../gtc/constants.hpp \
+  /usr/local/include/glm/detail/../gtc/matrix_transform.hpp \
+  /usr/local/include/glm/detail/type_quat.inl \
+  /usr/local/include/glm/detail/../trigonometric.hpp \
+  /usr/local/include/glm/detail/../ext/quaternion_geometric.hpp \
   /usr/local/include/glm/gtc/../ext/quaternion_float_precision.hpp \
   /usr/local/include/glm/gtc/../ext/quaternion_double.hpp \
   /usr/local/include/glm/gtc/../ext/quaternion_double_precision.hpp \
   /usr/local/include/glm/gtc/../ext/quaternion_relational.hpp \
   /usr/local/include/glm/gtc/../ext/quaternion_geometric.hpp \
   /usr/local/include/glm/gtc/../ext/quaternion_trigonometric.hpp \
-  /usr/local/include/glm/gtc/../ext/quaternion_trigonometric.inl \
+  /usr/local/include/glm/./ext/scalar_constants.hpp \
+  /usr/local/include/glm/./ext/vector_relational.hpp \
+  /usr/local/include/glm/./ext/quaternion_trigonometric.inl \
   /usr/local/include/glm/gtc/../ext/quaternion_transform.hpp \
-  /usr/local/include/glm/gtc/../ext/quaternion_transform.inl \
+  /usr/local/include/glm/./ext/quaternion_transform.inl \
   /usr/local/include/glm/gtc/../detail/type_mat3x3.hpp \
   /usr/local/include/glm/gtc/../detail/type_mat4x4.hpp \
+  /usr/local/include/glm/gtc/../detail/type_vec3.hpp \
+  /usr/local/include/glm/gtc/../detail/type_vec4.hpp \
   /usr/local/include/glm/gtc/quaternion.inl \
   /usr/local/include/glm/gtc/../exponential.hpp \
   /usr/local/include/glm/gtc/epsilon.hpp \
+  /usr/local/include/glm/gtc/../detail/setup.hpp \
+  /usr/local/include/glm/gtc/../detail/qualifier.hpp \
   /usr/local/include/glm/gtc/epsilon.inl \
   /usr/local/include/glm/gtc/../vector_relational.hpp \
   /usr/local/include/glm/gtc/../common.hpp \
   /usr/local/include/glm/gtc/../gtc/vec1.hpp \
   /usr/local/include/glm/gtc/../ext/vector_bool1.hpp \
+  /usr/local/include/glm/./ext/../detail/type_vec1.hpp \
   /usr/local/include/glm/gtc/../ext/vector_bool1_precision.hpp \
   /usr/local/include/glm/gtc/../ext/vector_float1.hpp \
   /usr/local/include/glm/gtc/../ext/vector_float1_precision.hpp \
@@ -1032,18 +1046,73 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /usr/local/include/glm/gtc/../ext/vector_double1_precision.hpp \
   /usr/local/include/glm/gtc/../ext/vector_int1.hpp \
   /usr/local/include/glm/gtc/../ext/vector_int1_sized.hpp \
-  /usr/local/include/glm/gtc/../ext/../ext/vector_int1.hpp \
+  /usr/local/include/glm/./ext/../ext/vector_int1.hpp \
   /usr/local/include/glm/gtc/../ext/vector_uint1.hpp \
   /usr/local/include/glm/gtc/../ext/vector_uint1_sized.hpp \
-  /usr/local/include/glm/gtc/../ext/../ext/vector_uint1.hpp \
+  /usr/local/include/glm/./ext/../ext/vector_uint1.hpp \
+  /usr/local/include/glm/gtc/../mat2x2.hpp \
+  /usr/local/include/glm/gtc/../mat2x3.hpp \
+  /usr/local/include/glm/gtc/../mat2x4.hpp \
+  /usr/local/include/glm/gtc/../mat3x2.hpp \
+  /usr/local/include/glm/gtc/../mat3x3.hpp \
+  /usr/local/include/glm/gtc/../mat3x4.hpp \
+  /usr/local/include/glm/gtc/../mat4x2.hpp \
+  /usr/local/include/glm/gtc/../mat4x3.hpp \
   /usr/local/include/glm/gtc/type_ptr.inl \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/IconFontCppHeaders/IconsKenney.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/MeltEngine.h \
+  /usr/local/include/glm/gtc/matrix_transform.hpp \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/imgui.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/imconfig.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/backends/imgui_impl_sdl2.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/backends/imgui_impl_opengl3.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/TargetConditionals.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/TextureManager.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/iostream \
   /usr/local/include/GL/glew.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework/Headers/glu.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework/Headers/OpenGLAvailability.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/os/availability.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/yaml.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/parser.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/dll.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/emitter.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/sstream \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/binary.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/emitterdef.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/emittermanip.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/null.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/ostream_wrapper.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/emitterstyle.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/stlemitter.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/list \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/set \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__tree \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/map \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/exceptions.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/mark.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/noexcept.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/traits.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/node.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/iterator_fwd.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/ptr.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/type.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/impl.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/memory.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/node.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/node_ref.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/node_data.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/iterator.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/iterator.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/convert.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/valarray \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/impl.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/parse.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/emit.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./include/MeltEngineEditor.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/fstream \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/IconFontCppHeaders/IconsKenney.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/MeltEngine.h \
   /usr/local/include/SDL2/SDL.h /usr/local/include/SDL2/SDL_main.h \
   /usr/local/include/SDL2/SDL_stdinc.h \
   /usr/local/include/SDL2/SDL_config.h \
@@ -1180,24 +1249,14 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /usr/local/include/SDL2/SDL_locale.h \
   /usr/local/include/SDL2/SDL_misc.h \
   /usr/local/include/SDL2/SDL_opengl.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/TextureManager.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer/Shader.h \
-  /usr/local/include/glm/glm.hpp \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/cfloat \
-  /usr/local/include/glm/gtc/../fwd.hpp \
-  /usr/local/include/glm/gtc/../packing.hpp \
-  /usr/local/include/glm/gtc/../detail/func_packing.inl \
-  /usr/local/include/glm/gtc/../ext/../detail/type_half.hpp \
-  /usr/local/include/glm/gtc/../ext/../detail/type_half.inl \
-  /usr/local/include/glm/gtc/../integer.hpp \
-  /usr/local/include/glm/gtc/../detail/func_integer.inl \
-  /usr/local/include/glm/gtc/matrix_transform.hpp \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer/Quad.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Vertex.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Type.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components/Camera.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components/Transform.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components/Renderer.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components/SpriteRenderer.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Coordinator.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Event.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/any \
@@ -1205,49 +1264,14 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/queue \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/deque \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/EventManager.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/list \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/ComponentManager.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/ComponentArray.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/SystemManager.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/set \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__tree \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems/CameraControlSystem.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems/RenderSystem.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer/Line.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/GizmosTransform.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer/FrameBuffer.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/yaml.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/parser.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/dll.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/emitter.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/binary.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/emitterdef.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/emittermanip.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/null.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/ostream_wrapper.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/emitterstyle.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/stlemitter.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/map \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/exceptions.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/mark.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/noexcept.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/traits.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/node.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/iterator_fwd.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/ptr.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/type.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/impl.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/memory.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/node.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/node_ref.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/node_data.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/node_iterator.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/iterator.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/iterator.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/convert.h \
-  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/valarray \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/detail/impl.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/parse.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/node/emit.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./include/ScriptEditor/ScriptEditorGUI.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/regex \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./include/ConsoleGUI.h

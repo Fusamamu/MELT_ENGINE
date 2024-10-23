@@ -62,9 +62,9 @@ namespace MELT_EDITOR
             std::cout << "ERROR : " << _e.what() << std::endl;
         }
 
-        ConsoleGUI.EditorOwner = this;
+        ConsoleGUI     .EditorOwner = this;
         SpriteEditorGUI.EditorOwner = this;
-
+        SpriteEditorGUI.Init();
     }
 
     Editor::~Editor()
@@ -100,8 +100,6 @@ namespace MELT_EDITOR
         ImGui::NewFrame();
 
         DrawMainMenubar();
-
-
         ImGui::DockSpaceOverViewport(0, ImGui::GetMainViewport());
 
         DrawSceneViewGUI();
@@ -113,10 +111,6 @@ namespace MELT_EDITOR
         SpriteEditorGUI.DrawGUI();
         ScriptEditorGUI.DrawGUI();
         ConsoleGUI     .DrawGUI();
-
-
-
-
 
         ImGui::ShowDemoWindow();
         ImGui::Render();
@@ -142,17 +136,11 @@ namespace MELT_EDITOR
             {
                 if (ImGui::MenuItem("Open", "Ctrl+O"))
                 {
-                    // Handle "Open" action
                 }
                 if (ImGui::MenuItem("Save", "Ctrl+S"))
-                {
                     TestSave();
-                }
-
                 if (ImGui::MenuItem("Save scene"))
-                {
                     SaveScene();
-                }
                 ImGui::EndMenu();
             }
 
@@ -160,11 +148,9 @@ namespace MELT_EDITOR
             {
                 if (ImGui::MenuItem("Undo", "Ctrl+Z"))
                 {
-                    // Handle "Undo" action
                 }
                 if (ImGui::MenuItem("Redo", "Ctrl+Y"))
                 {
-                    // Handle "Redo" action
                 }
                 ImGui::EndMenu();
             }
@@ -214,40 +200,91 @@ namespace MELT_EDITOR
         viewport->WorkSize.y -= ImGui::GetFrameHeight();
     }
 
+    ImVec2 RemapImVec2(const ImVec2& value,
+                       float originalMinX, float originalMaxX,
+                       float targetMinX, float targetMaxX,
+                       float originalMinY, float originalMaxY,
+                       float targetMinY, float targetMaxY)
+    {
+        ImVec2 result;
+
+        // Remap X component
+        result.x = targetMinX + ((value.x - originalMinX) / (originalMaxX - originalMinX)) * (targetMaxX - targetMinX);
+
+        // Remap Y component
+        result.y = targetMinY + ((value.y - originalMinY) / (originalMaxY - originalMinY)) * (targetMaxY - targetMinY);
+
+        return result;
+    }
+
     void Editor::DrawSceneViewGUI()
     {
         if (ImGui::Begin("Scene view"))
         {
-            const float window_width  = ImGui::GetContentRegionAvail().x;
-            const float window_height = ImGui::GetContentRegionAvail().y;
+            const float _contentWidth  = ImGui::GetContentRegionAvail().x;
+            const float _contentHeight = ImGui::GetContentRegionAvail().y;
 
-            Engine->ScreenWidth  = window_width;
-            Engine->ScreenHeight = window_height;
+            const float WINDOW_RATIO  = _contentWidth / _contentHeight;
+
+            MELT::Engine::ScreenHeight = Engine->MainCamera.OrthographicSize * 2;
+            MELT::Engine::ScreenWidth  = WINDOW_RATIO * MELT::Engine::ScreenHeight;
 
             ImVec2 pos = ImGui::GetCursorScreenPos();
 
             ImGui::GetWindowDrawList()->AddImage(
                     (void*)(intptr_t)Engine->m_RenderSystem->EditorSceneFrameBuffer->TextureID,
                     ImVec2(pos.x, pos.y),
-                    ImVec2(pos.x + window_width, pos.y + window_height),
+                    ImVec2(pos.x + _contentWidth, pos.y + _contentHeight),
                     ImVec2(0, 1),
                     ImVec2(1, 0)
             );
 
-            ImVec2 mousePos = ImGui::GetMousePos();
-            ImGui::Text("Mouse Position: (%.1f, %.1f)", mousePos.x, mousePos.y);
+            glm::vec3 _cameraPos = Engine->MainCamera.Position;
 
-            ImVec2 windowPos = ImGui::GetWindowPos();
-            ImVec2 mousePosInWindow = ImVec2(mousePos.x - windowPos.x, mousePos.y - windowPos.y);
-            ImGui::Text("Mouse Position in Window: (%.1f, %.1f)", mousePosInWindow.x, mousePosInWindow.y);
+            ImVec2 _cursorScreenPos = ImGui::GetCursorScreenPos();
+            ImVec2 _mousePos        = ImGui::GetMousePos();
+            ImVec2 _screenPos       = ImVec2(_mousePos.x - _cursorScreenPos.x, _mousePos.y - _cursorScreenPos.y);
 
-            ImVec2 _worldPos = ImVec2(
-                    mousePosInWindow.x - Engine->ScreenWidth /2 - Engine->CurrentOffset.x,
-                    -(mousePosInWindow.y - Engine->ScreenHeight/2 - Engine->CurrentOffset.y));
-            ImGui::Text("World Position: (%.1f, %.1f)", _worldPos.x, _worldPos.y);
+            ImVec2 _mousePosRelativeToScreenCenter = ImVec2(
+                      _screenPos.x - _contentWidth  / 2 + _cameraPos.x,
+                    -(_screenPos.y - _contentHeight / 2 - _cameraPos.y ));
 
-            Engine->MouseWorldPosition.x = _worldPos.x;
-            Engine->MouseWorldPosition.y = _worldPos.y;
+            ImGui::Text("Mouse window position      : (%.1f, %.1f)"     , _mousePos .x  , _mousePos .y  );
+            ImGui::Text("Mouse screen position      : (%.1f, %.1f)"     , _screenPos.x  , _screenPos.y  );
+            ImGui::Text("Mouse relative position    : (%.1f, %.1f)"     , _mousePosRelativeToScreenCenter .x  , _mousePosRelativeToScreenCenter .y  );
+            ImGui::Text("Window content W H         : (%.1f, %.1f)"     , _contentWidth , _contentHeight);
+            ImGui::Text("Orthographic projection W H: (%.1f, %.1f)"     , MELT::Engine::ScreenWidth, MELT::Engine::ScreenHeight);
+
+            float originalMinX = 0.0f, originalMaxX = _contentWidth;
+            float originalMinY = 0.0f, originalMaxY = _contentHeight;
+
+            float targetMinX = 0.0f, targetMaxX = 1.0f;
+            float targetMinY = 0.0f, targetMaxY = 1.0f;
+
+            ImVec2 normalizedPos = RemapImVec2(_screenPos,
+                                               originalMinX, originalMaxX, targetMinX, targetMaxX,
+                                               originalMinY, originalMaxY, targetMinY, targetMaxY);
+
+
+            ImGui::Text("Normalized position : (%.1f, %.1f)", normalizedPos.x, normalizedPos.y);
+
+            ImVec2 _mouseWorldPos = RemapImVec2(_screenPos,
+                                                originalMinX, originalMaxX, -MELT::Engine::ScreenWidth /2, MELT::Engine::ScreenWidth /2,
+                                                originalMinY, originalMaxY,  MELT::Engine::ScreenHeight/2, -MELT::Engine::ScreenHeight/2);
+
+            _mouseWorldPos.x += _cameraPos.x;
+            _mouseWorldPos.y += _cameraPos.y;
+
+            MELT::Engine::MouseWorldPosition.x = _mouseWorldPos.x;
+            MELT::Engine::MouseWorldPosition.y = _mouseWorldPos.y;
+
+            ImGui::Text("Mouse world position : (%.1f, %.1f)", _mouseWorldPos.x, _mouseWorldPos.y);
+
+
+            ImGui::InputFloat3("Camera position", glm::value_ptr(Engine->MainCamera.Position));
+            ImGui::SliderFloat("Zoom", &Engine->MainCamera.OrthographicSize, 1.0f, 200.f);
+
+
         }
         ImGui::End();
     }
@@ -299,7 +336,7 @@ namespace MELT_EDITOR
                         glm::vec3(0.0, 0.0, 0.0),
                     });
 
-                    Engine->ECSCoord.AddComponent<MELT::Renderer>(_entity, {
+                    Engine->ECSCoord.AddComponent<MELT::SpriteRenderer>(_entity, {
 
                     });
                 }
@@ -320,6 +357,7 @@ namespace MELT_EDITOR
 
             ImGui::PushStyleColor(ImGuiCol_Header, IM_COL32(92, 97, 62, 255));
             ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 8.0f);
+
             if (ImGui::CollapsingHeader("Scene 1"))
             {
 
@@ -430,18 +468,14 @@ namespace MELT_EDITOR
             ImGui::Text(ICON_KI_ARROW_TOP_LEFT "  Hello with an icon!");
 
             glm::vec3 _position(0.0f);
-
             MELT::Entity _e = Engine->ECSCoord.SelectedEntity;
 
             if(_e < 100)
             {
-                MELT::Transform& _transform = Engine->ECSCoord.GetComponent<MELT::Transform>(_e);
-                DrawComponentPanel(_transform);
-//                if(!Components.empty())
-//                {
-//                    for(std::size_t _i = 0; _i < Components.size(); ++_i)
-//                        DrawComponentPanel(_transform);
-//                }
+                MELT::Transform&      _transform      = Engine->ECSCoord.GetComponent<MELT::Transform>     (_e);
+                MELT::SpriteRenderer& _spriteRenderer = Engine->ECSCoord.GetComponent<MELT::SpriteRenderer>(_e);
+                DrawTransformComponentPanel     (_transform);
+                DrawSpriteRendererComponentPanel(_spriteRenderer);
             }
 
             ImVec2 _contentRegionAvail = ImGui::GetContentRegionAvail();
@@ -450,7 +484,6 @@ namespace MELT_EDITOR
 
             float _contentWidth = _contentRegionAvail.x;
             float _contentHeight = 500.0f;
-
 
             ImGui::BeginChild("TextureDisplay", ImVec2(_contentWidth, _contentHeight), true);
             ImGui::Text("Texture Detail");
@@ -465,23 +498,9 @@ namespace MELT_EDITOR
             ImGui::SetCursorPosX(_contentWidth /2.0f - _width/2.0f);
             ImGui::SetCursorPosY(_contentHeight/2.0f - _height/2.0f);
 
-            ImTextureID textureID = (ImTextureID)(intptr_t)_textureData.TextureID;
-
             ImVec2 imageSize(_width, _height); // Set this to your texture's dimensions
-
-            ImVec4 tintColor(1.0f, 1.0f, 1.0f, 0.5f); // 50% transparency
-
-            //ImGui::Image(textureID, imageSize, ImVec2(0, 0), ImVec2(1, 1), tintColor);
-
-
-
-
             ImGui::Image((void*)(intptr_t)_textureData.TextureID, imageSize);
             ImGui::EndChild();
-
-
-
-
 
             //Add components button
             ImVec2 buttonSize = ImVec2(120, 30);
@@ -561,7 +580,7 @@ namespace MELT_EDITOR
 
         ImGui::SameLine();
 
-        ImGui::BeginChild("Child Window 2", ImVec2(ImGui::GetContentRegionAvail().x, ImGui::GetContentRegionAvail().y), true); // Width: 200, Height: 100
+        ImGui::BeginChild("Child Window 2", ImVec2(ImGui::GetContentRegionAvail().x, ImGui::GetContentRegionAvail().y), true);
         ImGui::Text("This is Child Window 2");
         ImGui::Button("Button 2");
         ImGui::EndChild();
@@ -569,7 +588,7 @@ namespace MELT_EDITOR
         ImGui::End();
     }
 
-    void Editor::DrawComponentPanel(MELT::Transform& _transform)
+    void Editor::DrawTransformComponentPanel(MELT::Transform& _transform)
     {
         const float _panelWidth  = ImGui::GetContentRegionAvail().x;
         const float _panelHeight = 100.0f;
@@ -606,51 +625,102 @@ namespace MELT_EDITOR
 
         if(ImGui::Button(ICON_KI_MINUS, ImVec2(40, ImGui::GetFrameHeight())))
         {
-            //Components.erase(Components.begin() + _id);
-
         }
-
         ImGui::PopStyleColor(3);
 
-        //ImGui::SetCursorScreenPos(ImVec2(_panelOriginPos.x + _style.FramePadding.x, _panelOriginPos.y + ImGui::GetFrameHeightWithSpacing()));
-
         ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
-
-
-        //static float _position[3] = { 0.0f, 0.0f, 0.0f };
         ImGui::Indent();
         ImGui::Text("Position");
         ImGui::SameLine(120.0f);
         ImGui::InputFloat3("##Position", glm::value_ptr(_transform.Position));
 
-
-        //static float _rotation[3] = { 0.0f, 0.0f, 0.0f };
         ImGui::Text("Rotation");
         ImGui::SameLine(120.0f);
         ImGui::InputFloat3("##Rotation", glm::value_ptr(_transform.Rotation));
 
-
-        //static float _scale   [3] = { 0.0f, 0.0f, 0.0f };
         ImGui::Text("Scale");
         ImGui::SameLine(120.0f);
         ImGui::InputFloat3("##Scale", glm::value_ptr(_transform.Scale));
-
         ImGui::Unindent();
-
         ImGui::PopStyleColor();
 
         ImGui::SetCursorScreenPos(ImVec2(
                 _panelOriginPos.x,
                 _panelOriginPos.y + _panelHeight + _style.ItemSpacing.y));
+    }
 
-//        ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0, 0, 0, 0)); // Invisible style
-//        ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.4f, 0.4f, 0.4f, 1.0f)); // Highlight on hover
-//        ImGui::PushStyleColor(ImGuiCol_ButtonActive, ImVec4(0.6f, 0.6f, 0.6f, 1.0f)); // Highlight when active
-//        ImGui::Button("##Splitter", ImVec2(_panelSize.x, 1.5f));
-//        ImGui::PopStyleColor(3);
-//
-//        if (ImGui::IsItemActive()) // If the splitter is being dragged
-//            float mouseDelta = ImGui::GetIO().MouseDelta.y;
+    void Editor::DrawSpriteRendererComponentPanel(MELT::SpriteRenderer &_spriteRenderer)
+    {
+        const float _panelWidth  = ImGui::GetContentRegionAvail().x;
+        const float _panelHeight = 100.0f;
+
+        ImDrawList* _drawList = ImGui::GetWindowDrawList();
+        ImGuiStyle& _style    = ImGui::GetStyle();
+
+        ImVec2 _panelOriginPos = ImGui::GetCursorScreenPos();
+        ImVec2 _panelSize (_panelWidth, _panelHeight);
+
+        _drawList->AddRectFilled(
+                _panelOriginPos,
+                ImVec2(_panelOriginPos.x + _panelSize.x, _panelOriginPos.y + _panelSize.y),
+                IM_COL32(28, 31, 29, 255), 6.0f);
+
+        _drawList->AddRectFilled(
+                _panelOriginPos,
+                ImVec2(_panelOriginPos.x + _panelSize.x, _panelOriginPos.y + ImGui::GetFrameHeight()),
+                IM_COL32(61, 63, 66, 255), 0.0f);
+
+        ImGui::SetCursorScreenPos(ImVec2(_panelOriginPos.x + _style.FramePadding.x, _panelOriginPos.y + _style.FramePadding.y));
+
+        ImGui::SetWindowFontScale(0.75f);
+        ImGui::Text(ICON_KI_RADIO);
+        ImGui::SetWindowFontScale(1.0f);
+        ImGui::SameLine();
+        ImGui::Text("Transform component");
+
+        ImGui::SetCursorScreenPos(ImVec2(_panelOriginPos.x + _panelWidth - 40.0f, _panelOriginPos.y));
+
+        ImGui::PushStyleColor(ImGuiCol_Button       , IM_COL32(61, 63, 66, 255));
+        ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.4f, 0.4f, 0.4f, 1.0f));
+        ImGui::PushStyleColor(ImGuiCol_ButtonActive , ImVec4(0.6f, 0.6f, 0.6f, 1.0f));
+
+        if(ImGui::Button(ICON_KI_MINUS, ImVec2(40, ImGui::GetFrameHeight())))
+        {
+        }
+        ImGui::PopStyleColor(3);
+
+        ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
+        ImGui::Indent();
+        ImGui::Text("Texture source");
+
+        auto& _textureData = Engine->TextureMng.TextureDataTable["blacknwhite"];
+        std::vector<const char*> textureKeys;
+        textureKeys.reserve(_textureData.SpriteDataMap.size());
+        for (const auto& pair : _textureData.SpriteDataMap) {
+            textureKeys.push_back(pair.first.c_str());
+        }
+
+        static int currentItem = 0;  // Index of the current selected item
+
+        ImGui::Text("Sprite");
+        ImGui::SameLine(120.0f);
+
+
+
+        if (ImGui::Combo("##Sprite", &currentItem, textureKeys.data(), (int)textureKeys.size()))
+        {
+            std::cout << "sladj;" << std::endl;
+        }
+
+
+
+
+        ImGui::Unindent();
+        ImGui::PopStyleColor();
+
+        ImGui::SetCursorScreenPos(ImVec2(
+                _panelOriginPos.x,
+                _panelOriginPos.y + _panelHeight + _style.ItemSpacing.y));
     }
 
     std::string Editor::LoadTextFile(const std::string &_filePath)

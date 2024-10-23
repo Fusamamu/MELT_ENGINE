@@ -25,7 +25,9 @@ add_library(${PROJECT_NAME} STATIC
         src/EventSystem/EventHandler.cpp
         src/Renderer/FrameBuffer.cpp
         src/TextureManager.cpp
-        src/Renderer/Line.cpp)
+        src/Renderer/Line.cpp
+        src/ECS/Components/SpriteRenderer.cpp
+        src/GizmosTransform.cpp)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
         ./include

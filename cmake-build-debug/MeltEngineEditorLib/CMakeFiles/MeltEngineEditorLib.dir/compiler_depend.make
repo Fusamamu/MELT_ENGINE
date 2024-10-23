@@ -932,6 +932,7 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ConsoleGUI.cpp.o: /Us
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/ComponentManager.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/Camera.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/Renderer.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/SpriteRenderer.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/Transform.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Coordinator.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/EntityManager.h \
@@ -941,6 +942,7 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ConsoleGUI.cpp.o: /Us
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Systems/CameraControlSystem.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Systems/RenderSystem.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Type.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/GizmosTransform.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/MeltEngine.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/FrameBuffer.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/Line.h \
@@ -2187,6 +2189,7 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/MeltEngineEditor.cpp.
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/ComponentManager.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/Camera.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/Renderer.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/SpriteRenderer.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/Transform.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Coordinator.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/EntityManager.h \
@@ -2196,6 +2199,7 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/MeltEngineEditor.cpp.
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Systems/CameraControlSystem.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Systems/RenderSystem.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Type.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/GizmosTransform.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/MeltEngine.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/FrameBuffer.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/Line.h \
@@ -4246,6 +4250,7 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/ComponentManager.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/Camera.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/Renderer.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/SpriteRenderer.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/Transform.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Coordinator.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/EntityManager.h \
@@ -4255,6 +4260,7 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Systems/CameraControlSystem.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Systems/RenderSystem.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Type.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/GizmosTransform.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/MeltEngine.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/FrameBuffer.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/Line.h \
@@ -4345,7 +4351,44 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /usr/local/include/SDL2/SDL_video.h \
   /usr/local/include/SDL2/begin_code.h \
   /usr/local/include/SDL2/close_code.h \
-  /usr/local/include/glm/glm.hpp \
+  /usr/local/include/glm/common.hpp \
+  /usr/local/include/glm/detail/qualifier.hpp \
+  /usr/local/include/glm/detail/setup.hpp \
+  /usr/local/include/glm/detail/type_float.hpp \
+  /usr/local/include/glm/detail/type_mat2x2.hpp \
+  /usr/local/include/glm/detail/type_mat2x3.hpp \
+  /usr/local/include/glm/detail/type_mat2x4.hpp \
+  /usr/local/include/glm/detail/type_mat3x2.hpp \
+  /usr/local/include/glm/detail/type_mat3x3.hpp \
+  /usr/local/include/glm/detail/type_mat3x4.hpp \
+  /usr/local/include/glm/detail/type_mat4x2.hpp \
+  /usr/local/include/glm/detail/type_mat4x3.hpp \
+  /usr/local/include/glm/detail/type_mat4x4.hpp \
+  /usr/local/include/glm/detail/type_quat.hpp \
+  /usr/local/include/glm/detail/type_vec1.hpp \
+  /usr/local/include/glm/detail/type_vec2.hpp \
+  /usr/local/include/glm/detail/type_vec3.hpp \
+  /usr/local/include/glm/detail/type_vec4.hpp \
+  /usr/local/include/glm/exponential.hpp \
+  /usr/local/include/glm/ext/quaternion_geometric.hpp \
+  /usr/local/include/glm/ext/scalar_constants.hpp \
+  /usr/local/include/glm/ext/scalar_int_sized.hpp \
+  /usr/local/include/glm/ext/scalar_uint_sized.hpp \
+  /usr/local/include/glm/ext/vector_int1.hpp \
+  /usr/local/include/glm/ext/vector_int2.hpp \
+  /usr/local/include/glm/ext/vector_int3.hpp \
+  /usr/local/include/glm/ext/vector_int4.hpp \
+  /usr/local/include/glm/ext/vector_relational.hpp \
+  /usr/local/include/glm/ext/vector_uint1.hpp \
+  /usr/local/include/glm/ext/vector_uint2.hpp \
+  /usr/local/include/glm/ext/vector_uint3.hpp \
+  /usr/local/include/glm/ext/vector_uint4.hpp \
+  /usr/local/include/glm/geometric.hpp \
+  /usr/local/include/glm/gtc/constants.hpp \
+  /usr/local/include/glm/matrix.hpp \
+  /usr/local/include/glm/trigonometric.hpp \
+  /usr/local/include/glm/vector_relational.hpp \
+  /usr/local/include/glm/ext/matrix_clip_space.inl \
   /usr/local/include/glm/ext/matrix_double2x2.hpp \
   /usr/local/include/glm/ext/matrix_double2x2_precision.hpp \
   /usr/local/include/glm/ext/matrix_double2x3.hpp \
@@ -4382,6 +4425,15 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /usr/local/include/glm/ext/matrix_float4x3_precision.hpp \
   /usr/local/include/glm/ext/matrix_float4x4.hpp \
   /usr/local/include/glm/ext/matrix_float4x4_precision.hpp \
+  /usr/local/include/glm/ext/matrix_projection.inl \
+  /usr/local/include/glm/ext/matrix_transform.inl \
+  /usr/local/include/glm/ext/quaternion_common.inl \
+  /usr/local/include/glm/ext/quaternion_geometric.inl \
+  /usr/local/include/glm/ext/quaternion_relational.inl \
+  /usr/local/include/glm/ext/quaternion_transform.inl \
+  /usr/local/include/glm/ext/quaternion_trigonometric.inl \
+  /usr/local/include/glm/ext/scalar_constants.hpp \
+  /usr/local/include/glm/ext/scalar_constants.inl \
   /usr/local/include/glm/ext/vector_bool2.hpp \
   /usr/local/include/glm/ext/vector_bool2_precision.hpp \
   /usr/local/include/glm/ext/vector_bool3.hpp \
@@ -4406,31 +4458,14 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /usr/local/include/glm/ext/vector_int3_sized.hpp \
   /usr/local/include/glm/ext/vector_int4.hpp \
   /usr/local/include/glm/ext/vector_int4_sized.hpp \
+  /usr/local/include/glm/ext/vector_relational.hpp \
+  /usr/local/include/glm/ext/vector_relational.inl \
   /usr/local/include/glm/ext/vector_uint2.hpp \
   /usr/local/include/glm/ext/vector_uint2_sized.hpp \
   /usr/local/include/glm/ext/vector_uint3.hpp \
   /usr/local/include/glm/ext/vector_uint3_sized.hpp \
   /usr/local/include/glm/ext/vector_uint4.hpp \
   /usr/local/include/glm/ext/vector_uint4_sized.hpp \
-  /usr/local/include/glm/common.hpp \
-  /usr/local/include/glm/detail/_fixes.hpp \
-  /usr/local/include/glm/detail/func_common.inl \
-  /usr/local/include/glm/detail/func_exponential.inl \
-  /usr/local/include/glm/detail/func_geometric.inl \
-  /usr/local/include/glm/detail/func_integer.inl \
-  /usr/local/include/glm/detail/func_matrix.inl \
-  /usr/local/include/glm/detail/func_packing.inl \
-  /usr/local/include/glm/detail/func_trigonometric.inl \
-  /usr/local/include/glm/detail/func_vector_relational.inl \
-  /usr/local/include/glm/detail/qualifier.hpp \
-  /usr/local/include/glm/detail/setup.hpp \
-  /usr/local/include/glm/detail/type_mat3x3.hpp \
-  /usr/local/include/glm/detail/type_mat4x4.hpp \
-  /usr/local/include/glm/detail/type_vec1.hpp \
-  /usr/local/include/glm/detail/type_vec2.hpp \
-  /usr/local/include/glm/detail/type_vec3.hpp \
-  /usr/local/include/glm/detail/type_vec4.hpp \
-  /usr/local/include/glm/exponential.hpp \
   /usr/local/include/glm/common.hpp \
   /usr/local/include/glm/common.hpp \
   /usr/local/include/glm/detail/type_mat3x3.hpp \
@@ -4449,33 +4484,31 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /usr/local/include/glm/trigonometric.hpp \
   /usr/local/include/glm/vector_relational.hpp \
   /usr/local/include/glm/detail/compute_vector_relational.hpp \
+  /usr/local/include/glm/detail/_fixes.hpp \
   /usr/local/include/glm/detail/_vectorize.hpp \
   /usr/local/include/glm/detail/compute_common.hpp \
   /usr/local/include/glm/detail/compute_vector_relational.hpp \
+  /usr/local/include/glm/detail/func_common.inl \
+  /usr/local/include/glm/detail/func_exponential.inl \
+  /usr/local/include/glm/detail/func_geometric.inl \
+  /usr/local/include/glm/detail/func_integer.inl \
+  /usr/local/include/glm/detail/func_matrix.inl \
+  /usr/local/include/glm/detail/func_packing.inl \
+  /usr/local/include/glm/detail/func_trigonometric.inl \
+  /usr/local/include/glm/detail/func_vector_relational.inl \
   /usr/local/include/glm/detail/qualifier.hpp \
   /usr/local/include/glm/detail/setup.hpp \
-  /usr/local/include/glm/detail/type_float.hpp \
   /usr/local/include/glm/detail/type_half.hpp \
   /usr/local/include/glm/detail/type_half.inl \
-  /usr/local/include/glm/detail/type_mat2x2.hpp \
   /usr/local/include/glm/detail/type_mat2x2.inl \
-  /usr/local/include/glm/detail/type_mat2x3.hpp \
   /usr/local/include/glm/detail/type_mat2x3.inl \
-  /usr/local/include/glm/detail/type_mat2x4.hpp \
   /usr/local/include/glm/detail/type_mat2x4.inl \
-  /usr/local/include/glm/detail/type_mat3x2.hpp \
   /usr/local/include/glm/detail/type_mat3x2.inl \
-  /usr/local/include/glm/detail/type_mat3x3.hpp \
   /usr/local/include/glm/detail/type_mat3x3.inl \
-  /usr/local/include/glm/detail/type_mat3x4.hpp \
   /usr/local/include/glm/detail/type_mat3x4.inl \
-  /usr/local/include/glm/detail/type_mat4x2.hpp \
   /usr/local/include/glm/detail/type_mat4x2.inl \
-  /usr/local/include/glm/detail/type_mat4x3.hpp \
   /usr/local/include/glm/detail/type_mat4x3.inl \
-  /usr/local/include/glm/detail/type_mat4x4.hpp \
   /usr/local/include/glm/detail/type_mat4x4.inl \
-  /usr/local/include/glm/detail/type_quat.hpp \
   /usr/local/include/glm/detail/type_quat.inl \
   /usr/local/include/glm/detail/type_vec1.hpp \
   /usr/local/include/glm/detail/type_vec1.inl \
@@ -4486,46 +4519,30 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /usr/local/include/glm/detail/type_vec4.hpp \
   /usr/local/include/glm/detail/type_vec4.inl \
   /usr/local/include/glm/exponential.hpp \
-  /usr/local/include/glm/ext/quaternion_geometric.hpp \
-  /usr/local/include/glm/ext/scalar_constants.hpp \
-  /usr/local/include/glm/ext/scalar_int_sized.hpp \
-  /usr/local/include/glm/ext/scalar_uint_sized.hpp \
-  /usr/local/include/glm/ext/vector_int1.hpp \
-  /usr/local/include/glm/ext/vector_int2.hpp \
-  /usr/local/include/glm/ext/vector_int3.hpp \
-  /usr/local/include/glm/ext/vector_int4.hpp \
-  /usr/local/include/glm/ext/vector_relational.hpp \
-  /usr/local/include/glm/ext/vector_uint1.hpp \
-  /usr/local/include/glm/ext/vector_uint2.hpp \
-  /usr/local/include/glm/ext/vector_uint3.hpp \
-  /usr/local/include/glm/ext/vector_uint4.hpp \
+  /usr/local/include/glm/fwd.hpp \
   /usr/local/include/glm/geometric.hpp \
-  /usr/local/include/glm/gtc/constants.hpp \
-  /usr/local/include/glm/matrix.hpp \
-  /usr/local/include/glm/trigonometric.hpp \
-  /usr/local/include/glm/vector_relational.hpp \
+  /usr/local/include/glm/glm.hpp \
+  /usr/local/include/glm/common.hpp \
+  /usr/local/include/glm/detail/qualifier.hpp \
+  /usr/local/include/glm/detail/setup.hpp \
+  /usr/local/include/glm/detail/type_mat3x3.hpp \
+  /usr/local/include/glm/detail/type_mat4x4.hpp \
+  /usr/local/include/glm/detail/type_vec3.hpp \
+  /usr/local/include/glm/detail/type_vec4.hpp \
+  /usr/local/include/glm/exponential.hpp \
   /usr/local/include/glm/ext/matrix_clip_space.hpp \
-  /usr/local/include/glm/ext/matrix_clip_space.inl \
   /usr/local/include/glm/ext/matrix_projection.hpp \
-  /usr/local/include/glm/ext/matrix_projection.inl \
   /usr/local/include/glm/ext/matrix_transform.hpp \
-  /usr/local/include/glm/ext/matrix_transform.inl \
   /usr/local/include/glm/ext/quaternion_common.hpp \
-  /usr/local/include/glm/ext/quaternion_common.inl \
   /usr/local/include/glm/ext/quaternion_double.hpp \
   /usr/local/include/glm/ext/quaternion_double_precision.hpp \
   /usr/local/include/glm/ext/quaternion_float.hpp \
   /usr/local/include/glm/ext/quaternion_float_precision.hpp \
   /usr/local/include/glm/ext/quaternion_geometric.hpp \
-  /usr/local/include/glm/ext/quaternion_geometric.inl \
   /usr/local/include/glm/ext/quaternion_relational.hpp \
-  /usr/local/include/glm/ext/quaternion_relational.inl \
   /usr/local/include/glm/ext/quaternion_transform.hpp \
-  /usr/local/include/glm/ext/quaternion_transform.inl \
   /usr/local/include/glm/ext/quaternion_trigonometric.hpp \
-  /usr/local/include/glm/ext/quaternion_trigonometric.inl \
   /usr/local/include/glm/ext/scalar_constants.hpp \
-  /usr/local/include/glm/ext/scalar_constants.inl \
   /usr/local/include/glm/ext/vector_bool1.hpp \
   /usr/local/include/glm/ext/vector_bool1_precision.hpp \
   /usr/local/include/glm/ext/vector_double1.hpp \
@@ -4535,15 +4552,36 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /usr/local/include/glm/ext/vector_int1.hpp \
   /usr/local/include/glm/ext/vector_int1_sized.hpp \
   /usr/local/include/glm/ext/vector_relational.hpp \
-  /usr/local/include/glm/ext/vector_relational.inl \
   /usr/local/include/glm/ext/vector_uint1.hpp \
   /usr/local/include/glm/ext/vector_uint1_sized.hpp \
-  /usr/local/include/glm/fwd.hpp \
   /usr/local/include/glm/geometric.hpp \
   /usr/local/include/glm/gtc/constants.hpp \
   /usr/local/include/glm/gtc/matrix_transform.hpp \
   /usr/local/include/glm/gtc/quaternion.hpp \
   /usr/local/include/glm/gtc/vec1.hpp \
+  /usr/local/include/glm/mat2x2.hpp \
+  /usr/local/include/glm/mat2x3.hpp \
+  /usr/local/include/glm/mat2x4.hpp \
+  /usr/local/include/glm/mat3x2.hpp \
+  /usr/local/include/glm/mat3x3.hpp \
+  /usr/local/include/glm/mat3x4.hpp \
+  /usr/local/include/glm/mat4x2.hpp \
+  /usr/local/include/glm/mat4x3.hpp \
+  /usr/local/include/glm/mat4x4.hpp \
+  /usr/local/include/glm/matrix.hpp \
+  /usr/local/include/glm/trigonometric.hpp \
+  /usr/local/include/glm/vec2.hpp \
+  /usr/local/include/glm/vec3.hpp \
+  /usr/local/include/glm/vec4.hpp \
+  /usr/local/include/glm/vector_relational.hpp \
+  /usr/local/include/glm/gtc/constants.inl \
+  /usr/local/include/glm/gtc/epsilon.hpp \
+  /usr/local/include/glm/gtc/epsilon.inl \
+  /usr/local/include/glm/gtc/matrix_transform.hpp \
+  /usr/local/include/glm/gtc/matrix_transform.inl \
+  /usr/local/include/glm/gtc/quaternion.inl \
+  /usr/local/include/glm/gtc/type_ptr.hpp \
+  /usr/local/include/glm/gtc/type_ptr.inl \
   /usr/local/include/glm/integer.hpp \
   /usr/local/include/glm/mat2x2.hpp \
   /usr/local/include/glm/mat2x3.hpp \
@@ -4560,15 +4598,7 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /usr/local/include/glm/vec2.hpp \
   /usr/local/include/glm/vec3.hpp \
   /usr/local/include/glm/vec4.hpp \
-  /usr/local/include/glm/vector_relational.hpp \
-  /usr/local/include/glm/gtc/constants.inl \
-  /usr/local/include/glm/gtc/epsilon.hpp \
-  /usr/local/include/glm/gtc/epsilon.inl \
-  /usr/local/include/glm/gtc/matrix_transform.hpp \
-  /usr/local/include/glm/gtc/matrix_transform.inl \
-  /usr/local/include/glm/gtc/quaternion.inl \
-  /usr/local/include/glm/gtc/type_ptr.hpp \
-  /usr/local/include/glm/gtc/type_ptr.inl
+  /usr/local/include/glm/vector_relational.hpp
 
 MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/backends/imgui_impl_opengl3.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/backends/imgui_impl_opengl3.cpp \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/Availability.h \
@@ -7011,6 +7041,8 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/imgui_widge
 
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/Renderer/FrameBuffer.h:
 
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/GizmosTransform.h:
+
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Systems/CameraControlSystem.h:
 
 /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/EventManager.h:
@@ -7636,6 +7668,8 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/imgui/imgui_widge
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_trivially_constructible.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__type_traits/is_standard_layout.h:
+
+/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/include/ECS/Components/SpriteRenderer.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__algorithm/ranges_is_sorted.h:
 

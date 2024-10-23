@@ -60,4 +60,17 @@ namespace MELT
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
         glBindVertexArray(0);
     }
+
+    void Quad::SetTexCoords(std::array<glm::vec2, 4> _texCoords)
+    {
+        m_Vertices[0].texCoord = _texCoords[0];
+        m_Vertices[1].texCoord = _texCoords[1];
+        m_Vertices[2].texCoord = _texCoords[2];
+        m_Vertices[3].texCoord = _texCoords[3];
+
+        glBindVertexArray(VAO);
+        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(m_Vertices), m_Vertices.data(), GL_STATIC_DRAW);
+        glBindVertexArray(0);
+    }
 }

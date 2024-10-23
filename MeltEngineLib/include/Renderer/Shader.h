@@ -15,7 +15,8 @@ namespace MELT
     {
         NONE     = -1,
         VERTEX   = 0,
-        FRAGMENT = 1
+        GEOMETRY = 1,
+        FRAGMENT = 2
     };
 
     class Shader
@@ -48,6 +49,7 @@ namespace MELT
 
     private:
         std::string m_VertexSrc;
+        std::string m_GeometrySrc;
         std::string m_FragmentSrc;
 
         GLint m_UniformLoc_Model;
@@ -57,7 +59,7 @@ namespace MELT
         GLint m_UniformLoc_Origin;
         GLint m_UniformLoc_Color;
 
-        GLuint CreateShader(const std::string& _vertexSrc, const std::string& _fragmentSrc);
+        GLuint CreateShader(const std::string& _vertexSrc, const std::string& _geometrySrc, const std::string& _fragmentSrc);
         GLuint CompileShader(GLenum _shaderType, const std::string& _shaderSrc);
     };
 }

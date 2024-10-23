@@ -6,8 +6,8 @@ namespace MELT
     {
         m_Vertices[0].x = 0.0f;
         m_Vertices[0].y = 0.0f;
-        m_Vertices[1].x = 200.0f;
-        m_Vertices[1].y = 200.0f;
+        m_Vertices[1].x = 10.0f;
+        m_Vertices[1].y = 10.0f;
 
         glGenVertexArrays(1, &VAO);
         glBindVertexArray(VAO);

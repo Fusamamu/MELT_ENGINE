@@ -32,7 +32,7 @@ namespace MELT
         glBindRenderbuffer(GL_RENDERBUFFER, 0);
     }
 
-    void FrameBuffer::RescaleFrameBuffer(const GLsizei&_w, const GLsizei &_h)
+    void FrameBuffer::RescaleFrameBuffer(const GLsizei& _w, const GLsizei & _h)
     {
         std::cout << _w << " , " << _h << std::endl;
 

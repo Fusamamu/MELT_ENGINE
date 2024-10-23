@@ -22,6 +22,7 @@ namespace MELT
         ~Quad();
 
         void Draw();
+        void SetTexCoords(std::array<glm::vec2, 4> _texCoords);
 
     private:
         std::array<Vertex, 4> m_Vertices;
