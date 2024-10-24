@@ -360,32 +360,6 @@ namespace MELT_EDITOR
 
             if (ImGui::CollapsingHeader("Scene 1"))
             {
-
-//                static MELT::Entity _deletedEntity = -1;
-//
-//                for(const auto& [_entity, _isSelected] : Entities)
-//                {
-//                    std::string _e = "Entity_" + std::to_string(_entity);
-//                    if(ImGui::Selectable(_e.c_str(), _isSelected))
-//                    {
-//                        Entities[_entity] = !_isSelected;
-//                    }
-//
-//                    if (ImGui::IsItemHovered() && ImGui::IsMouseClicked(ImGuiMouseButton_Right))
-//                    {
-//                        _deletedEntity = _entity;
-//                        ImGui::OpenPopup("ItemRightClickMenu");
-//                    }
-//                }
-
-//                for(const auto& _entity : Engine->ECSCoord.m_EntityManager->ActiveEntities)
-//                {
-//                    std::string _e = "Entity_" + std::to_string(_entity);
-//                    if(ImGui::Selectable(_e.c_str()))
-//                    {
-//                    }
-//                }
-
                 for(int _i = 0; _i < Engine->ECSCoord.m_EntityManager->ActiveEntities.size(); _i++)
                 {
                     auto _entity = Engine->ECSCoord.m_EntityManager->ActiveEntities[_i];
@@ -396,25 +370,8 @@ namespace MELT_EDITOR
                         Engine->ECSCoord.SelectedEntity = _entity;
                     }
                 }
-
-
-
-
-
-
-
-//                if (ImGui::BeginPopup("ItemRightClickMenu")) {
-//                    if (ImGui::MenuItem("Rename")) {
-//                    }
-//                    if (ImGui::MenuItem("Delete"))
-//                    {
-//                        auto _rm = Entities.find(_deletedEntity);
-//                        if(_rm != Entities.end())
-//                            Entities.erase(_rm);
-//                    }
-//                    ImGui::EndPopup();
-//                }
             }
+
             ImGui::PopStyleColor();
             ImGui::PopStyleVar();
 

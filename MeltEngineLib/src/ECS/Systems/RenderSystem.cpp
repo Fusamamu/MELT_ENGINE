@@ -9,12 +9,13 @@ namespace MELT
         DummyLine  = new Line();
         GizmosAxis = new GizmosTransform();
 
-        GridShader2D       = new Shader("../MeltEngineLib/res/shaders/2DGrid.shader");
-        CheckerboardShader = new Shader("../MeltEngineLib/res/shaders/CheckerboardPattern.shader");
-        BasicShader        = new Shader("../MeltEngineLib/res/shaders/Basic.shader");
-        TextureShader      = new Shader("../MeltEngineLib/res/shaders/Texture.shader");
-        LineShader         = new Shader("../MeltEngineLib/res/shaders/Line.shader");
-        GizmosAxisShader   = new Shader("../MeltEngineLib/res/shaders/GizmosAxis.shader");
+        GridShader2D         = new Shader("../MeltEngineLib/res/shaders/2DGrid.shader");
+        CheckerboardShader   = new Shader("../MeltEngineLib/res/shaders/CheckerboardPattern.shader");
+        BasicShader          = new Shader("../MeltEngineLib/res/shaders/Basic.shader");
+        TextureShader        = new Shader("../MeltEngineLib/res/shaders/Texture.shader");
+        TextureOutlineShader = new Shader("../MeltEngineLib/res/shaders/TextureOutline.shader");
+        LineShader           = new Shader("../MeltEngineLib/res/shaders/Line.shader");
+        GizmosAxisShader     = new Shader("../MeltEngineLib/res/shaders/GizmosAxis.shader");
 
         glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (0.0f, 0.0f, 0.0f));
         //_model = glm::scale(_model, glm::vec3(25.0f, 25.0f, 1.0f));
@@ -45,6 +46,12 @@ namespace MELT
         TextureShader->SetMat4UniformView      (_view);
         TextureShader->SetMat4UniformProjection(_projection);
         TextureShader->SetVec3UniformColor(glm::vec3(1.0f, 1.0f, 1.0f));
+
+        TextureOutlineShader->Use();
+        TextureOutlineShader->SetMat4UniformModel     (_model);
+        TextureOutlineShader->SetMat4UniformView      (_view);
+        TextureOutlineShader->SetMat4UniformProjection(_projection);
+        TextureOutlineShader->SetVec3UniformColor(glm::vec3(1.0f, 1.0f, 1.0f));
 
         LineShader->Use();
         LineShader->SetMat4UniformModel     (_model);
@@ -116,6 +123,10 @@ namespace MELT
         TargetShader->SetMat4UniformView(_view);
         TargetShader->SetMat4UniformProjection(_projection);
 
+        TextureOutlineShader->Use();
+        TextureOutlineShader->SetMat4UniformView(_view);
+        TextureOutlineShader->SetMat4UniformProjection(_projection);
+
         for(const unsigned int& _entity : Entities)
         {
             Transform& _transform = ECSCoord->GetComponent<Transform>(_entity);
@@ -123,9 +134,16 @@ namespace MELT
             float _xPos = _transform.Position.x;
             float _yPos = _transform.Position.y;
 
-            TargetShader->Use();
             glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (_xPos, _yPos, 0.0f));
+
+            TargetShader->Use();
             TargetShader->SetMat4UniformModel(_model);
+
+            if(ECSCoord->SelectedEntity == _entity)
+            {
+                TextureOutlineShader->Use();
+                TextureOutlineShader->SetMat4UniformModel(_model);
+            }
 
             m_Quad->Draw();
         }

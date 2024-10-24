@@ -27,5 +27,8 @@ uniform sampler2D Texture;
 
 void main()
 {
-    color = texture(Texture, TexCoord);
+    vec4 centerColor = texture(Texture, TexCoord);
+    if (centerColor.a < 0.1)
+       discard;
+    color = centerColor;
 }

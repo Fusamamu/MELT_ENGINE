@@ -5,7 +5,7 @@ namespace MELT
     float Engine::ScreenWidth  = 30.0f;
     float Engine::ScreenHeight = 30.0f;
 
-    glm::vec2 Engine::CurrentOffset { };
+    //glm::vec2 Engine::CurrentOffset { };
     glm::vec2 Engine::MouseWorldPosition { };
 
     Engine::Engine():
@@ -154,28 +154,42 @@ namespace MELT
 
                     if (m_Event.button.button == SDL_BUTTON_LEFT)
                     {
+                        m_LeftMouseDrag = true;
+                        SDL_GetMouseState(&initialMouseX, &initialMouseY);
+
                         glm::vec3 _mousePos {MouseWorldPosition.x, MouseWorldPosition.y, 0 };
+
+                        bool _entitySelected = false;
 
                         for(int _i = 0; _i < ECSCoord.m_EntityManager->ActiveEntities.size(); _i++)
                         {
                             auto _entity = ECSCoord.m_EntityManager->ActiveEntities[_i];
+
                             Transform& _transform = ECSCoord.GetComponent<Transform>(_entity);
 
                             auto _dist = glm::distance(_mousePos, _transform.Position);
 
                             if(_dist < 1.0f)
                             {
-                                std::cout << "Found object" << std::endl;
                                 ECSCoord.SelectedEntity = _entity;
+                                _entitySelected = true;
                                 break;
                             }
                         }
+
+                        if(!_entitySelected)
+                            ECSCoord.SelectedEntity = -1;
                     }
                     break;
 
                 case SDL_MOUSEBUTTONUP:
-                    if (m_Event.button.button == SDL_BUTTON_RIGHT)
-                        isDragging = false;
+                    {
+                        if (m_Event.button.button == SDL_BUTTON_LEFT)
+                            m_LeftMouseDrag = false;
+
+                        if (m_Event.button.button == SDL_BUTTON_RIGHT)
+                            isDragging = false;
+                    }
                     break;
 
                 case SDL_MOUSEMOTION:
@@ -189,6 +203,17 @@ namespace MELT
 
                         MainCamera.Position.x -= offsetX * 0.5f;
                         MainCamera.Position.y += offsetY * 0.5f;
+                    }
+
+                    if(m_LeftMouseDrag)
+                    {
+                        if(ECSCoord.SelectedEntity != -1)
+                        {
+                            Transform& _transform = ECSCoord.GetComponent<Transform>(ECSCoord.SelectedEntity);
+
+                            _transform.Position.x = MouseWorldPosition.x;
+                            _transform.Position.y = MouseWorldPosition.y;
+                        }
                     }
                     break;
 

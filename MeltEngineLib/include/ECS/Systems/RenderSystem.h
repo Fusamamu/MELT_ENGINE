@@ -28,6 +28,7 @@ namespace MELT
         Shader* CheckerboardShader;
         Shader* BasicShader;
         Shader* TextureShader;
+        Shader* TextureOutlineShader;
         Shader* LineShader;
         Shader* GizmosAxisShader;
 
