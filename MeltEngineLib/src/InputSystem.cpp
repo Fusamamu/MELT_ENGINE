@@ -43,12 +43,6 @@ namespace MELT
             case SDL_QUIT:
                 break;
         }
-
-//        MouseDelta.x = static_cast<float>(MousePosition.x - MousePressPosition.x);
-//        MouseDelta.y = static_cast<float>(MousePosition.y - MousePressPosition.y);
-//
-//        MousePressPosition.x = MousePosition.x;
-//        MousePressPosition.y = MousePosition.y;
     }
 
     void InputSystem::CheckMouseHoldStates()
@@ -112,9 +106,4 @@ namespace MELT
     {
         return mouseHeld[button];
     }
-
-//    SDL_Point InputSystem::GetMousePosition()
-//    {
-//        return MousePosition;
-//    }
 }

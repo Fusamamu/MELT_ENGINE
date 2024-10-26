@@ -5,9 +5,6 @@ namespace MELT
     float Engine::ScreenWidth  = 30.0f;
     float Engine::ScreenHeight = 30.0f;
 
-    //glm::vec2 Engine::CurrentOffset { };
-    glm::vec2 Engine::MouseWorldPosition { };
-
     Engine::Engine():
         m_IsRunning(true),
         m_Window(nullptr)
@@ -155,7 +152,7 @@ namespace MELT
 
         if(Input.IsMouseButtonPressed(SDL_BUTTON_LEFT))
         {
-            glm::vec3 _mousePos { MouseWorldPosition.x, MouseWorldPosition.y, 0 };
+            //glm::vec3 _mousePos { MouseWorldPosition.x, MouseWorldPosition.y, 0 };
 
             bool _entitySelected = false;
 
@@ -165,7 +162,7 @@ namespace MELT
 
                 Transform& _transform = ECSCoord.GetComponent<Transform>(_entity);
 
-                auto _dist = glm::distance(_mousePos, _transform.Position);
+                auto _dist = glm::distance(Input.MouseScreenWorldPosition, _transform.Position);
 
                 if(_dist < 1.0f)
                 {
@@ -184,14 +181,13 @@ namespace MELT
             if(ECSCoord.SelectedEntity != -1)
             {
                 Transform& _transform = ECSCoord.GetComponent<Transform>(ECSCoord.SelectedEntity);
-                _transform.Position.x = MouseWorldPosition.x;
-                _transform.Position.y = MouseWorldPosition.y;
+                _transform.Position.x = Input.MouseScreenWorldPosition.x;
+                _transform.Position.y = Input.MouseScreenWorldPosition.y;
             }
         }
 
         if(Input.IsMouseButtonReleased(SDL_BUTTON_LEFT))
         {
-            //m_LeftMouseDrag = false;
         }
 
         if(Input.IsMouseButtonPressed(SDL_BUTTON_RIGHT))

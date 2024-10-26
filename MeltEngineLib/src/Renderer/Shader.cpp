@@ -66,12 +66,17 @@ namespace MELT
 
         ID = CreateShader(m_VertexSrc, m_GeometrySrc, m_FragmentSrc);
 
-        m_UniformLoc_Model      = glGetUniformLocation(ID, "model");
-        m_UniformLoc_View       = glGetUniformLocation(ID, "view");
-        m_UniformLoc_Projection = glGetUniformLocation(ID, "proj");
-        m_UniformLoc_ScreenSize = glGetUniformLocation(ID, "screenSize");
-        m_UniformLoc_Origin     = glGetUniformLocation(ID, "origin");
-        m_UniformLoc_Color      = glGetUniformLocation(ID, "Color");
+        m_UniformLoc_Model               = glGetUniformLocation(ID, "model");
+        m_UniformLoc_View                = glGetUniformLocation(ID, "view");
+        m_UniformLoc_Projection          = glGetUniformLocation(ID, "proj");
+        m_UniformLoc_ScreenSize          = glGetUniformLocation(ID, "screenSize");
+        m_UniformLoc_Origin              = glGetUniformLocation(ID, "origin");
+        m_UniformLoc_Color               = glGetUniformLocation(ID, "Color");
+        m_UniformLoc_ObjectColor         = glGetUniformLocation(ID, "objectColor");
+        m_UniformLoc_ObjectShininess     = glGetUniformLocation(ID, "shininess");
+        m_UniformLoc_LightColor          = glGetUniformLocation(ID, "lightColor");
+        m_UniformLoc_CameraWorldPosition = glGetUniformLocation(ID, "cameraWorldPos");
+        m_UniformLoc_LightWorldPosition  = glGetUniformLocation(ID, "lightWorldPos");
     }
 
     Shader::~Shader()
@@ -112,6 +117,31 @@ namespace MELT
     void Shader::SetVec3UniformColor(glm::vec3 _color)
     {
         glUniform3f(m_UniformLoc_Color, _color.r, _color.g, _color.b);
+    }
+
+    void Shader::SetVec3UniformObjectColor(glm::vec3 _objectColor)
+    {
+        glUniform3f(m_UniformLoc_ObjectColor, _objectColor.r, _objectColor.g, _objectColor.b);
+    }
+
+    void Shader::SetFloatUniformObjectShininess(float _shininess)
+    {
+        glUniform1f(m_UniformLoc_ObjectShininess, _shininess);
+    }
+
+    void Shader::SetVec3UniformLightColor(glm::vec3 _lightColor)
+    {
+        glUniform3f(m_UniformLoc_LightColor, _lightColor.r, _lightColor.g, _lightColor.b);
+    }
+
+    void Shader::SetVec3UniformLightWorldPosition(glm::vec3 _lightWorldPos)
+    {
+        glUniform3f(m_UniformLoc_LightWorldPosition, _lightWorldPos.x, _lightWorldPos.y, _lightWorldPos.z);
+    }
+
+    void Shader::SetVec3UniformCameraWorldPosition(glm::vec3 _cameraWorldPos)
+    {
+        glUniform3f(m_UniformLoc_Color, _cameraWorldPos.x, _cameraWorldPos.y, _cameraWorldPos.x);
     }
 
     GLuint Shader::CreateShader(const std::string& _vertexSrc, const std::string& _geometrySrc, const std::string& _fragmentSrc)

@@ -112,7 +112,7 @@ namespace MELT_EDITOR
         ScriptEditorGUI.DrawGUI();
         ConsoleGUI     .DrawGUI();
 
-        ImGui::ShowDemoWindow();
+        //ImGui::ShowDemoWindow();
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         ImGuiIO& io = ImGui::GetIO(); (void)io;
@@ -275,21 +275,17 @@ namespace MELT_EDITOR
             _mouseWorldPos.x += _cameraPos.x;
             _mouseWorldPos.y += _cameraPos.y;
 
-            MELT::Engine::MouseWorldPosition.x = _mouseWorldPos.x;
-            MELT::Engine::MouseWorldPosition.y = _mouseWorldPos.y;
+            MELT::Input.MouseScreenWorldPosition.x = _mouseWorldPos.x;
+            MELT::Input.MouseScreenWorldPosition.y = _mouseWorldPos.y;
 
             ImGui::Text("Mouse world position : (%.1f, %.1f)", _mouseWorldPos.x, _mouseWorldPos.y);
-
-
             ImGui::InputFloat3("Camera position", glm::value_ptr(Engine->MainCamera.Position));
             ImGui::SliderFloat("Zoom", &Engine->MainCamera.OrthographicSize, 1.0f, 200.f);
-
-
         }
         ImGui::End();
     }
 
-    static bool isSelected = false;
+    //static bool isSelected = false;
 
     int _selectedItem = -1;
 
@@ -377,38 +373,6 @@ namespace MELT_EDITOR
 
             ImGui::EndChild();
             ImGui::EndChild();
-
-            ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 8.0f);
-            if (ImGui::CollapsingHeader("Scene 1")) {
-
-                if (ImGui::TreeNodeEx("Root", ImGuiTreeNodeFlags_Selected)) {
-                    // If the root node is clicked, you can handle the selection logic here
-                    if (ImGui::IsItemClicked()) {
-                        ImGui::Text("Root selected");
-                    }
-
-                    // Create a sub-tree node that is also selectable
-                    if (ImGui::TreeNodeEx("Sub-Tree", ImGuiTreeNodeFlags_Selected)) {
-                        // Handle selection logic for the sub-tree
-                        if (ImGui::IsItemClicked()) {
-                            ImGui::Text("Sub-Tree selected");
-                        }
-
-                        // Selectable items within the sub-tree
-                        if (ImGui::Selectable("Selectable 1")) {
-                            ImGui::Text("Selectable 1 clicked");
-                        }
-                        if (ImGui::Selectable("Selectable 2")) {
-                            ImGui::Text("Selectable 2 clicked");
-                        }
-
-                        ImGui::TreePop();  // Close the sub-tree
-                    }
-
-                    ImGui::TreePop();  // Close the root
-                }
-            }
-            ImGui::PopStyleVar();
         }
         ImGui::End();
         ImGui::PopStyleVar();

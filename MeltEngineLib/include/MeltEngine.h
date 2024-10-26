@@ -33,15 +33,12 @@ namespace MELT
     public:
         static float ScreenWidth;
         static float ScreenHeight;
-        static glm::vec2 MouseWorldPosition;
 
-        const int WINDOW_WIDTH  = 900;
-        const int WINDOW_HEIGHT = 600;
+        const int WINDOW_WIDTH  = 1600;
+        const int WINDOW_HEIGHT = 800;
 
         Camera MainCamera;
-
         Coordinator ECSCoord;
-
         TextureManager TextureMng;
 
         std::shared_ptr<RenderSystem> m_RenderSystem;

@@ -8,10 +8,11 @@ namespace MELT
     class InputSystem
     {
     public:
-        SDL_Point MousePressPosition { 0, 0 };
+        SDL_Point MousePressPosition    { 0, 0 };
         SDL_Point MousePreviousPosition { 0, 0 };
-        SDL_Point MousePosition      { 0, 0 };
+        SDL_Point MousePosition         { 0, 0 };
 
+        glm::vec3 MouseScreenWorldPosition { };
         glm::vec2 MouseDelta { 0, 0 };
 
         InputSystem(const InputSystem& _other) = delete;

@@ -15,7 +15,7 @@ CMake Deprecation Warning at /usr/local/lib/cmake/glm/glmConfig.cmake:1 (cmake_m
   Update the VERSION argument <min> value or use a ...<max> suffix to tell
   CMake that the project does not need compatibility with older versions.
 Call Stack (most recent call first):
-  MeltEngineLib/CMakeLists.txt:51 (find_package)
+  MeltEngineLib/CMakeLists.txt:56 (find_package)
 
 
 CMake Deprecation Warning at /usr/local/lib/cmake/glm/glmConfig.cmake:2 (cmake_policy):
@@ -25,7 +25,7 @@ CMake Deprecation Warning at /usr/local/lib/cmake/glm/glmConfig.cmake:2 (cmake_p
   Update the VERSION argument <min> value or use a ...<max> suffix to tell
   CMake that the project does not need compatibility with older versions.
 Call Stack (most recent call first):
-  MeltEngineLib/CMakeLists.txt:51 (find_package)
+  MeltEngineLib/CMakeLists.txt:56 (find_package)
 
 
 -- Configuring done (0.1s)

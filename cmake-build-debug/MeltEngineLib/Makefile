@@ -602,6 +602,54 @@ src/MeltEngine.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/MeltEngine.cpp.s
 .PHONY : src/MeltEngine.cpp.s
 
+src/Primitive/Cube.o: src/Primitive/Cube.cpp.o
+.PHONY : src/Primitive/Cube.o
+
+# target to build an object file
+src/Primitive/Cube.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Primitive/Cube.cpp.o
+.PHONY : src/Primitive/Cube.cpp.o
+
+src/Primitive/Cube.i: src/Primitive/Cube.cpp.i
+.PHONY : src/Primitive/Cube.i
+
+# target to preprocess a source file
+src/Primitive/Cube.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Primitive/Cube.cpp.i
+.PHONY : src/Primitive/Cube.cpp.i
+
+src/Primitive/Cube.s: src/Primitive/Cube.cpp.s
+.PHONY : src/Primitive/Cube.s
+
+# target to generate assembly for a file
+src/Primitive/Cube.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Primitive/Cube.cpp.s
+.PHONY : src/Primitive/Cube.cpp.s
+
+src/Primitive/Quad.o: src/Primitive/Quad.cpp.o
+.PHONY : src/Primitive/Quad.o
+
+# target to build an object file
+src/Primitive/Quad.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Primitive/Quad.cpp.o
+.PHONY : src/Primitive/Quad.cpp.o
+
+src/Primitive/Quad.i: src/Primitive/Quad.cpp.i
+.PHONY : src/Primitive/Quad.i
+
+# target to preprocess a source file
+src/Primitive/Quad.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Primitive/Quad.cpp.i
+.PHONY : src/Primitive/Quad.cpp.i
+
+src/Primitive/Quad.s: src/Primitive/Quad.cpp.s
+.PHONY : src/Primitive/Quad.s
+
+# target to generate assembly for a file
+src/Primitive/Quad.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Primitive/Quad.cpp.s
+.PHONY : src/Primitive/Quad.cpp.s
+
 src/Renderer/FrameBuffer.o: src/Renderer/FrameBuffer.cpp.o
 .PHONY : src/Renderer/FrameBuffer.o
 
@@ -649,30 +697,6 @@ src/Renderer/Line.s: src/Renderer/Line.cpp.s
 src/Renderer/Line.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Line.cpp.s
 .PHONY : src/Renderer/Line.cpp.s
-
-src/Renderer/Quad.o: src/Renderer/Quad.cpp.o
-.PHONY : src/Renderer/Quad.o
-
-# target to build an object file
-src/Renderer/Quad.cpp.o:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.o
-.PHONY : src/Renderer/Quad.cpp.o
-
-src/Renderer/Quad.i: src/Renderer/Quad.cpp.i
-.PHONY : src/Renderer/Quad.i
-
-# target to preprocess a source file
-src/Renderer/Quad.cpp.i:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.i
-.PHONY : src/Renderer/Quad.cpp.i
-
-src/Renderer/Quad.s: src/Renderer/Quad.cpp.s
-.PHONY : src/Renderer/Quad.s
-
-# target to generate assembly for a file
-src/Renderer/Quad.cpp.s:
-	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Quad.cpp.s
-.PHONY : src/Renderer/Quad.cpp.s
 
 src/Renderer/Shader.o: src/Renderer/Shader.cpp.o
 .PHONY : src/Renderer/Shader.o
@@ -815,15 +839,18 @@ help:
 	@echo "... src/MeltEngine.o"
 	@echo "... src/MeltEngine.i"
 	@echo "... src/MeltEngine.s"
+	@echo "... src/Primitive/Cube.o"
+	@echo "... src/Primitive/Cube.i"
+	@echo "... src/Primitive/Cube.s"
+	@echo "... src/Primitive/Quad.o"
+	@echo "... src/Primitive/Quad.i"
+	@echo "... src/Primitive/Quad.s"
 	@echo "... src/Renderer/FrameBuffer.o"
 	@echo "... src/Renderer/FrameBuffer.i"
 	@echo "... src/Renderer/FrameBuffer.s"
 	@echo "... src/Renderer/Line.o"
 	@echo "... src/Renderer/Line.i"
 	@echo "... src/Renderer/Line.s"
-	@echo "... src/Renderer/Quad.o"
-	@echo "... src/Renderer/Quad.i"
-	@echo "... src/Renderer/Quad.s"
 	@echo "... src/Renderer/Shader.o"
 	@echo "... src/Renderer/Shader.i"
 	@echo "... src/Renderer/Shader.s"

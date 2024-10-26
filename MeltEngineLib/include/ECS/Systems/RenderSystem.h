@@ -2,6 +2,7 @@
 #include "SystemManager.h"
 #include "Shader.h"
 #include "Quad.h"
+#include "Cube.h"
 #include "Line.h"
 #include "GizmosTransform.h"
 #include "FrameBuffer.h"
@@ -15,7 +16,8 @@ namespace MELT
     {
     public:
 
-        Quad* m_Quad;
+        Quad* aQuad;
+        Cube* aCube;
         Line* DummyLine;
         GizmosTransform* GizmosAxis;
 
@@ -31,6 +33,7 @@ namespace MELT
         Shader* TextureOutlineShader;
         Shader* LineShader;
         Shader* GizmosAxisShader;
+        Shader* PhongShader;
 
         Engine* Engine;
         Coordinator* ECSCoord;

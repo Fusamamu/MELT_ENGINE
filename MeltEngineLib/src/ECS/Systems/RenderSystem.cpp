@@ -5,7 +5,8 @@ namespace MELT
 {
     void RenderSystem::Init()
     {
-        m_Quad     = new Quad();
+        aQuad      = new Quad();
+        aCube      = new Cube();
         DummyLine  = new Line();
         GizmosAxis = new GizmosTransform();
 
@@ -16,6 +17,7 @@ namespace MELT
         TextureOutlineShader = new Shader("../MeltEngineLib/res/shaders/TextureOutline.shader");
         LineShader           = new Shader("../MeltEngineLib/res/shaders/Line.shader");
         GizmosAxisShader     = new Shader("../MeltEngineLib/res/shaders/GizmosAxis.shader");
+        PhongShader          = new Shader("../MeltEngineLib/res/shaders/Phong.shader");
 
         glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (0.0f, 0.0f, 0.0f));
         //_model = glm::scale(_model, glm::vec3(25.0f, 25.0f, 1.0f));
@@ -66,6 +68,16 @@ namespace MELT
         GizmosAxisShader->SetMat4UniformView      (_view);
         GizmosAxisShader->SetMat4UniformProjection(_projection);
 
+        PhongShader->Use();
+        PhongShader->SetMat4UniformModel     (_model);
+        PhongShader->SetMat4UniformView      (_view);
+        PhongShader->SetMat4UniformProjection(_projection);
+        PhongShader->SetVec3UniformObjectColor(glm::vec3(1.0, 0.0, 0.0));
+        PhongShader->SetVec3UniformLightColor (glm::vec3(1.0, 1.0, 1.0));
+        PhongShader->SetFloatUniformObjectShininess(1.0f);
+        PhongShader->SetVec3UniformLightWorldPosition(glm::vec3(100, 100, 100));
+        //PhongShader->SetVec3UniformCameraWorldPosition(Engine->MainCamera.Position);
+
         EditorSceneFrameBuffer = new FrameBuffer();
         EditorGUIFrameBuffer   = new FrameBuffer();
 
@@ -76,7 +88,7 @@ namespace MELT
         _texCoords[1] = glm::vec2 (0.125, 0.166);
         _texCoords[2] = glm::vec2 (0.0  , 0.166);
         _texCoords[3] = glm::vec2 (0.0  , 0.0);
-        m_Quad->SetTexCoords(_texCoords);
+        aQuad->SetTexCoords(_texCoords);
     }
 
     void RenderSystem::Update(float _dt)
@@ -89,9 +101,8 @@ namespace MELT
         glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         CheckerboardShader->Use();
-        m_Quad->Draw();
+        aQuad->Draw();
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
 
         glBindFramebuffer(GL_FRAMEBUFFER, EditorSceneFrameBuffer->FBO);
         glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
@@ -99,16 +110,23 @@ namespace MELT
 
 //        GridShader2D->Use();
 //        GridShader2D->SetVec2UniformScreenSize(glm::vec2(Engine::ScreenWidth, Engine::ScreenHeight));
-//        m_Quad->Draw();
+//        aQuad->Draw();
 
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, Engine->TextureMng.TextureDataTable["blacknwhite"].TextureID);
 
+//        glm::mat4 _view  = glm::lookAt(
+//                Engine->MainCamera.Position,
+//                glm::vec3(Engine->MainCamera.Target.x + Engine->MainCamera.Position.x,
+//                          Engine->MainCamera.Target.y + Engine->MainCamera.Position.y,
+//                          Engine->MainCamera.Target.z),
+//                Engine->MainCamera.Up
+//        );
+
+
         glm::mat4 _view  = glm::lookAt(
                 Engine->MainCamera.Position,
-                glm::vec3(Engine->MainCamera.Target.x + Engine->MainCamera.Position.x,
-                          Engine->MainCamera.Target.y + Engine->MainCamera.Position.y,
-                          Engine->MainCamera.Target.z),
+                glm::vec3(0.0),
                 Engine->MainCamera.Up
         );
 
@@ -145,8 +163,14 @@ namespace MELT
                 TextureOutlineShader->SetMat4UniformModel(_model);
             }
 
-            m_Quad->Draw();
+            aQuad->Draw();
         }
+
+        PhongShader->Use();
+        PhongShader->SetMat4UniformView(_view);
+        PhongShader->SetMat4UniformProjection(_projection);
+        PhongShader->SetVec3UniformCameraWorldPosition(Engine->MainCamera.Position);
+        aCube->Draw();
 
         glDisable(GL_DEPTH_TEST);
         LineShader->Use();

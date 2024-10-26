@@ -9,7 +9,6 @@ add_library(${PROJECT_NAME} STATIC
         src/MeltEngine.cpp
         src/Vertex.cpp
         src/Renderer/Shader.cpp
-        src/Renderer/Quad.cpp
 
         src/ECS/EntityManager.cpp
         src/ECS/ComponentArray.cpp
@@ -33,7 +32,9 @@ add_library(${PROJECT_NAME} STATIC
         src/EventSystem/EventHandlerWrapper.cpp
         src/EventSystem/EventManager.cpp
 
-        src/InputSystem.cpp)
+        src/InputSystem.cpp
+        src/Primitive/Cube.cpp
+        src/Primitive/Quad.cpp)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC ./include/Core.h)
 
@@ -41,6 +42,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ./include
         ./include/EventSystem
         ./include/Renderer
+        ./include/Primitive
         ./include/ECS
         ./include/ECS/Components
         ./include/ECS/Systems
