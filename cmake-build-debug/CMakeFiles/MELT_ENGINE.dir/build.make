@@ -69,19 +69,36 @@ include CMakeFiles/MELT_ENGINE.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/MELT_ENGINE.dir/flags.make
 
+CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch: CMakeFiles/MELT_ENGINE.dir/flags.make
+CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch: CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.cxx
+CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch: CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx
+CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch: CMakeFiles/MELT_ENGINE.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -emit-pch -Xclang -include -Xclang "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx" -x c++-header -MD -MT CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch -MF CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch.d -o CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch -c "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.cxx"
+
+CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -emit-pch -Xclang -include -Xclang "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx" -x c++-header -E "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.cxx" > CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.i
+
+CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -emit-pch -Xclang -include -Xclang "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx" -x c++-header -S "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.cxx" -o CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.s
+
 CMakeFiles/MELT_ENGINE.dir/main.cpp.o: CMakeFiles/MELT_ENGINE.dir/flags.make
 CMakeFiles/MELT_ENGINE.dir/main.cpp.o: /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/main.cpp
+CMakeFiles/MELT_ENGINE.dir/main.cpp.o: CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx
+CMakeFiles/MELT_ENGINE.dir/main.cpp.o: CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch
 CMakeFiles/MELT_ENGINE.dir/main.cpp.o: CMakeFiles/MELT_ENGINE.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MELT_ENGINE.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MELT_ENGINE.dir/main.cpp.o -MF CMakeFiles/MELT_ENGINE.dir/main.cpp.o.d -o CMakeFiles/MELT_ENGINE.dir/main.cpp.o -c "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/MELT_ENGINE.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx" -MD -MT CMakeFiles/MELT_ENGINE.dir/main.cpp.o -MF CMakeFiles/MELT_ENGINE.dir/main.cpp.o.d -o CMakeFiles/MELT_ENGINE.dir/main.cpp.o -c "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/main.cpp"
 
 CMakeFiles/MELT_ENGINE.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MELT_ENGINE.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/main.cpp" > CMakeFiles/MELT_ENGINE.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx" -E "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/main.cpp" > CMakeFiles/MELT_ENGINE.dir/main.cpp.i
 
 CMakeFiles/MELT_ENGINE.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MELT_ENGINE.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/main.cpp" -o CMakeFiles/MELT_ENGINE.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx" -S "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/main.cpp" -o CMakeFiles/MELT_ENGINE.dir/main.cpp.s
 
 # Object files for target MELT_ENGINE
 MELT_ENGINE_OBJECTS = \
@@ -90,6 +107,7 @@ MELT_ENGINE_OBJECTS = \
 # External object files for target MELT_ENGINE
 MELT_ENGINE_EXTERNAL_OBJECTS =
 
+MELT_ENGINE: CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch
 MELT_ENGINE: CMakeFiles/MELT_ENGINE.dir/main.cpp.o
 MELT_ENGINE: CMakeFiles/MELT_ENGINE.dir/build.make
 MELT_ENGINE: MeltEngineLib/libMeltEngineLib.a
@@ -99,7 +117,7 @@ MELT_ENGINE: /Library/Frameworks/SDL2.framework/Versions/A/SDL2
 MELT_ENGINE: /usr/local/lib/libGLEW.2.2.0.dylib
 MELT_ENGINE: MeltEngineLib/vendors/yaml-cpp/libyaml-cppd.a
 MELT_ENGINE: CMakeFiles/MELT_ENGINE.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable MELT_ENGINE"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable MELT_ENGINE"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MELT_ENGINE.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

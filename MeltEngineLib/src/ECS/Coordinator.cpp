@@ -6,7 +6,7 @@ namespace MELT
     {
         m_ComponentManager = std::make_unique<ComponentManager>();
         m_EntityManager     = std::make_unique<EntityManager>();
-        m_EventManager     = std::make_unique<EventManager>();
+        //m_EventManager     = std::make_unique<EventManager>();
         m_SystemManager    = std::make_unique<SystemManager>();
     }
 
@@ -22,18 +22,18 @@ namespace MELT
         m_SystemManager   ->EntityDestroyed(_entity);
     }
 
-    void Coordinator::AddEventListener(EventId eventId, std::function<void(Event&)> const& listener)
-    {
-        m_EventManager->AddListener(eventId, listener);
-    }
-
-    void Coordinator::SendEvent(Event& event)
-    {
-        m_EventManager->SendEvent(event);
-    }
-
-    void Coordinator::SendEvent(EventId eventId)
-    {
-        m_EventManager->SendEvent(eventId);
-    }
+//    void Coordinator::AddEventListener(EventId eventId, std::function<void(Event&)> const& listener)
+//    {
+//        m_EventManager->AddListener(eventId, listener);
+//    }
+//
+//    void Coordinator::SendEvent(Event& event)
+//    {
+//        m_EventManager->SendEvent(event);
+//    }
+//
+//    void Coordinator::SendEvent(EventId eventId)
+//    {
+//        m_EventManager->SendEvent(eventId);
+//    }
 }

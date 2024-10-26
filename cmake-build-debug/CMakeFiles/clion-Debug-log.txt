@@ -15,7 +15,7 @@ CMake Deprecation Warning at /usr/local/lib/cmake/glm/glmConfig.cmake:1 (cmake_m
   Update the VERSION argument <min> value or use a ...<max> suffix to tell
   CMake that the project does not need compatibility with older versions.
 Call Stack (most recent call first):
-  MeltEngineLib/CMakeLists.txt:44 (find_package)
+  MeltEngineLib/CMakeLists.txt:51 (find_package)
 
 
 CMake Deprecation Warning at /usr/local/lib/cmake/glm/glmConfig.cmake:2 (cmake_policy):
@@ -25,9 +25,9 @@ CMake Deprecation Warning at /usr/local/lib/cmake/glm/glmConfig.cmake:2 (cmake_p
   Update the VERSION argument <min> value or use a ...<max> suffix to tell
   CMake that the project does not need compatibility with older versions.
 Call Stack (most recent call first):
-  MeltEngineLib/CMakeLists.txt:44 (find_package)
+  MeltEngineLib/CMakeLists.txt:51 (find_package)
 
 
--- Configuring done (0.5s)
--- Generating done (0.3s)
+-- Configuring done (0.1s)
+-- Generating done (0.2s)
 -- Build files have been written to: /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug

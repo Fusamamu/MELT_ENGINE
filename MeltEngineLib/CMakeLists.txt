@@ -5,32 +5,41 @@ set(CMAKE_CXX_STANDARD 17)
 add_subdirectory(./vendors/yaml-cpp)
 
 add_library(${PROJECT_NAME} STATIC
+        src/Core.cpp
         src/MeltEngine.cpp
+        src/Vertex.cpp
         src/Renderer/Shader.cpp
         src/Renderer/Quad.cpp
-        src/Vertex.cpp
+
         src/ECS/EntityManager.cpp
         src/ECS/ComponentArray.cpp
-        src/ECS/ComponentManager.cpp
         src/ECS/SystemManager.cpp
-        src/ECS/Event.cpp
-        src/ECS/EventManager.cpp
         src/ECS/Coordinator.cpp
-        src/ECS/Components/Camera.cpp
-        src/ECS/Systems/CameraControlSystem.cpp
-        src/ECS/Components/Transform.cpp
         src/ECS/Systems/RenderSystem.cpp
+        src/ECS/Systems/CameraControlSystem.cpp
+        src/ECS/ComponentManager.cpp
+        src/ECS/Components/Camera.cpp
+        src/ECS/Components/Transform.cpp
         src/ECS/Components/Renderer.cpp
-        src/EventSystem/Event.cpp
-        src/EventSystem/EventHandler.cpp
+        src/ECS/Components/SpriteRenderer.cpp
+
         src/Renderer/FrameBuffer.cpp
         src/TextureManager.cpp
         src/Renderer/Line.cpp
-        src/ECS/Components/SpriteRenderer.cpp
-        src/GizmosTransform.cpp)
+        src/GizmosTransform.cpp
+
+        src/EventSystem/Event.cpp
+        src/EventSystem/EventHandler.cpp
+        src/EventSystem/EventHandlerWrapper.cpp
+        src/EventSystem/EventManager.cpp
+
+        src/InputSystem.cpp)
+
+target_precompile_headers(${PROJECT_NAME} PUBLIC ./include/Core.h)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
         ./include
+        ./include/EventSystem
         ./include/Renderer
         ./include/ECS
         ./include/ECS/Components

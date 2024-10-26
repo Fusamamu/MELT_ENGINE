@@ -1,6 +1,7 @@
-#include <iostream>
-#include <functional>
+#include "Core.h"
+
 #include <GL/glew.h>
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
 
@@ -20,6 +21,9 @@
 #include "CameraControlSystem.h"
 #include "RenderSystem.h"
 
+#include "EventManager.h"
+#include "InputSystem.h"
+
 #include "yaml-cpp/yaml.h"
 
 namespace MELT
@@ -29,7 +33,6 @@ namespace MELT
     public:
         static float ScreenWidth;
         static float ScreenHeight;
-        //static glm::vec2 CurrentOffset;
         static glm::vec2 MouseWorldPosition;
 
         const int WINDOW_WIDTH  = 900;
@@ -67,9 +70,5 @@ namespace MELT
         SDL_Event     m_Event;
 
         bool isDragging = false;
-        bool m_LeftMouseDrag = false;
-        int initialMouseX, initialMouseY;
-        int currentMouseX, currentMouseY;
-
     };
 }

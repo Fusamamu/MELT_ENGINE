@@ -1,4 +1,4 @@
-#include "ECS/Event.h"
+#include "Event.h"
 
 namespace MELT
 {

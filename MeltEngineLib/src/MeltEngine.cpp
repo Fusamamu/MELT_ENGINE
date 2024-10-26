@@ -109,13 +109,18 @@ namespace MELT
             UpdateInput ();
             UpdateLogic ();
             UpdateRender();
+            gEventManager.DispatchEvents();
+
+            SDL_Delay(16);
         }
     }
 
     void Engine::UpdateInput()
     {
+        Input.ClearInput();
         while(SDL_PollEvent(&m_Event))
         {
+            Input.Update(m_Event);
             UpdateEditorInput(m_Event);
 
             switch(m_Event.type)
@@ -129,104 +134,86 @@ namespace MELT
                         GLsizei _width  = m_Event.window.data1;
                         GLsizei _height = m_Event.window.data2;
 
-                        std::cout << "SDL WINDOW : " << _width << " , " << _height << std::endl;
-
-//                        ScreenWidth  = static_cast<float>(_width) * ZoomFactor;
-//                        ScreenHeight = static_cast<float>(_height)* ZoomFactor;
-
                         m_RenderSystem->EditorSceneFrameBuffer->RescaleFrameBuffer(2 * _width, 2 * _height);
                         m_RenderSystem->GridShader2D->Use();
                         m_RenderSystem->GridShader2D->SetVec2UniformScreenSize(glm::vec2(_width, _height));
                     }
                     break;
-                case SDL_KEYDOWN:
-                    if(m_Event.key.keysym.sym == SDLK_ESCAPE)
-                        m_IsRunning = false;
-                    break;
-
-                case SDL_MOUSEBUTTONDOWN:
-
-                    if (m_Event.button.button == SDL_BUTTON_RIGHT)
-                    {
-                        isDragging = true;
-                        SDL_GetMouseState(&initialMouseX, &initialMouseY);
-                    }
-
-                    if (m_Event.button.button == SDL_BUTTON_LEFT)
-                    {
-                        m_LeftMouseDrag = true;
-                        SDL_GetMouseState(&initialMouseX, &initialMouseY);
-
-                        glm::vec3 _mousePos {MouseWorldPosition.x, MouseWorldPosition.y, 0 };
-
-                        bool _entitySelected = false;
-
-                        for(int _i = 0; _i < ECSCoord.m_EntityManager->ActiveEntities.size(); _i++)
-                        {
-                            auto _entity = ECSCoord.m_EntityManager->ActiveEntities[_i];
-
-                            Transform& _transform = ECSCoord.GetComponent<Transform>(_entity);
-
-                            auto _dist = glm::distance(_mousePos, _transform.Position);
-
-                            if(_dist < 1.0f)
-                            {
-                                ECSCoord.SelectedEntity = _entity;
-                                _entitySelected = true;
-                                break;
-                            }
-                        }
-
-                        if(!_entitySelected)
-                            ECSCoord.SelectedEntity = -1;
-                    }
-                    break;
-
-                case SDL_MOUSEBUTTONUP:
-                    {
-                        if (m_Event.button.button == SDL_BUTTON_LEFT)
-                            m_LeftMouseDrag = false;
-
-                        if (m_Event.button.button == SDL_BUTTON_RIGHT)
-                            isDragging = false;
-                    }
-                    break;
-
-                case SDL_MOUSEMOTION:
-                    if (isDragging)
-                    {
-                        float offsetX = m_Event.motion.x - initialMouseX;
-                        float offsetY = m_Event.motion.y - initialMouseY;
-
-                        initialMouseX = m_Event.motion.x;
-                        initialMouseY = m_Event.motion.y;
-
-                        MainCamera.Position.x -= offsetX * 0.5f;
-                        MainCamera.Position.y += offsetY * 0.5f;
-                    }
-
-                    if(m_LeftMouseDrag)
-                    {
-                        if(ECSCoord.SelectedEntity != -1)
-                        {
-                            Transform& _transform = ECSCoord.GetComponent<Transform>(ECSCoord.SelectedEntity);
-
-                            _transform.Position.x = MouseWorldPosition.x;
-                            _transform.Position.y = MouseWorldPosition.y;
-                        }
-                    }
-                    break;
-
-                case SDL_MOUSEWHEEL:
-
-                    break;
             }
         }
+        Input.CheckMouseHoldStates();
     }
+
+    glm::vec2 offset{};
 
     void Engine::UpdateLogic()
     {
+        if(Input.IsKeyPressed(SDL_SCANCODE_ESCAPE))
+        {
+            m_IsRunning = false;
+        }
 
+        if(Input.IsMouseButtonPressed(SDL_BUTTON_LEFT))
+        {
+            glm::vec3 _mousePos { MouseWorldPosition.x, MouseWorldPosition.y, 0 };
+
+            bool _entitySelected = false;
+
+            for(int _i = 0; _i < ECSCoord.m_EntityManager->ActiveEntities.size(); _i++)
+            {
+                auto _entity = ECSCoord.m_EntityManager->ActiveEntities[_i];
+
+                Transform& _transform = ECSCoord.GetComponent<Transform>(_entity);
+
+                auto _dist = glm::distance(_mousePos, _transform.Position);
+
+                if(_dist < 1.0f)
+                {
+                    ECSCoord.SelectedEntity = _entity;
+                    _entitySelected = true;
+                    break;
+                }
+            }
+
+            if(!_entitySelected)
+                ECSCoord.SelectedEntity = -1;
+        }
+
+        if(Input.IsMouseButtonHeld(SDL_BUTTON_LEFT))
+        {
+            if(ECSCoord.SelectedEntity != -1)
+            {
+                Transform& _transform = ECSCoord.GetComponent<Transform>(ECSCoord.SelectedEntity);
+                _transform.Position.x = MouseWorldPosition.x;
+                _transform.Position.y = MouseWorldPosition.y;
+            }
+        }
+
+        if(Input.IsMouseButtonReleased(SDL_BUTTON_LEFT))
+        {
+            //m_LeftMouseDrag = false;
+        }
+
+        if(Input.IsMouseButtonPressed(SDL_BUTTON_RIGHT))
+        {
+            isDragging = true;
+        }
+
+        if(Input.IsMouseButtonHeld(SDL_BUTTON_RIGHT))
+        {
+            if (isDragging)
+            {
+                auto _delta = Input.MouseDelta;
+                auto screenToWorldScale = ScreenHeight / 2 * MainCamera.OrthographicSize;
+                MainCamera.Position.x -= _delta.x * 2.0f/ screenToWorldScale;
+                MainCamera.Position.y += _delta.y * 2.0f/ screenToWorldScale;
+            }
+        }
+
+        if(Input.IsMouseButtonReleased(SDL_BUTTON_RIGHT))
+        {
+            isDragging = false;
+        }
     }
 
     void Engine::UpdateRender()

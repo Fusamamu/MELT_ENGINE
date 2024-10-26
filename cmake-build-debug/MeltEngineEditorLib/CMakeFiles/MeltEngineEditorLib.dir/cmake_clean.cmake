@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/MeltEngineEditorLib.dir/cmake_pch.hxx.pch"
+  "CMakeFiles/MeltEngineEditorLib.dir/cmake_pch.hxx.pch.d"
   "CMakeFiles/MeltEngineEditorLib.dir/src/ConsoleGUI.cpp.o"
   "CMakeFiles/MeltEngineEditorLib.dir/src/ConsoleGUI.cpp.o.d"
   "CMakeFiles/MeltEngineEditorLib.dir/src/MeltEngineEditor.cpp.o"
