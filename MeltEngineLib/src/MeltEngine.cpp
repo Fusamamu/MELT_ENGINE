@@ -95,6 +95,9 @@ namespace MELT
         m_RenderSystem->Init();
         m_RenderSystem->Engine   = this;
         m_RenderSystem->ECSCoord = &ECSCoord;
+
+        TargetRenderPipeline = new RenderPipeline();
+        TargetRenderPipeline->Init(this);
     }
 
     void Engine::Update()
@@ -131,6 +134,8 @@ namespace MELT
                         GLsizei _width  = m_Event.window.data1;
                         GLsizei _height = m_Event.window.data2;
 
+                        TargetRenderPipeline->EditorSceneFrameBuffer->RescaleFrameBuffer(2 * _width, 2 * _height);
+
                         m_RenderSystem->EditorSceneFrameBuffer->RescaleFrameBuffer(2 * _width, 2 * _height);
                         m_RenderSystem->GridShader2D->Use();
                         m_RenderSystem->GridShader2D->SetVec2UniformScreenSize(glm::vec2(_width, _height));
@@ -152,35 +157,63 @@ namespace MELT
 
         if(Input.IsMouseButtonPressed(SDL_BUTTON_LEFT))
         {
-            //glm::vec3 _mousePos { MouseWorldPosition.x, MouseWorldPosition.y, 0 };
+            for(Node& _node : NodeMng.SceneNodes)
+                _node.isSelected = false;
 
-            bool _entitySelected = false;
-
-            for(int _i = 0; _i < ECSCoord.m_EntityManager->ActiveEntities.size(); _i++)
+            for(Node& _node : NodeMng.SceneNodes)
             {
-                auto _entity = ECSCoord.m_EntityManager->ActiveEntities[_i];
+                MELT::Entity  _entity = _node.entityRef;
 
-                Transform& _transform = ECSCoord.GetComponent<Transform>(_entity);
+                Transform& _transform = ECSCoord.GetComponent<Transform>(_node.entityRef);
 
                 auto _dist = glm::distance(Input.MouseScreenWorldPosition, _transform.Position);
 
                 if(_dist < 1.0f)
                 {
-                    ECSCoord.SelectedEntity = _entity;
-                    _entitySelected = true;
+                    _node.isSelected = true;
+
+                    NodeMng.CurrentSelectedNode = &_node;
+
+                    //NodeMng.SelectNode(&_node);
                     break;
                 }
             }
 
-            if(!_entitySelected)
-                ECSCoord.SelectedEntity = -1;
+
+
+
+//            for(int _i = 0; _i < ECSCoord.m_EntityManager->ActiveEntities.size(); _i++)
+//            {
+//                auto _entity = ECSCoord.m_EntityManager->ActiveEntities[_i];
+//
+//                Transform& _transform = ECSCoord.GetComponent<Transform>(_entity);
+//
+//                auto _dist = glm::distance(Input.MouseScreenWorldPosition, _transform.Position);
+//
+//                if(_dist < 1.0f)
+//                {
+//                    ECSCoord.SelectedEntity = _entity;
+//                    _entitySelected = true;
+//                    break;
+//                }
+//            }
+
+//            if(!_entitySelected)
+//                ECSCoord.SelectedEntity = -1;
         }
 
         if(Input.IsMouseButtonHeld(SDL_BUTTON_LEFT))
         {
-            if(ECSCoord.SelectedEntity != -1)
+//            if(ECSCoord.SelectedEntity != -1)
+//            {
+//                Transform& _transform = ECSCoord.GetComponent<Transform>(ECSCoord.SelectedEntity);
+//                _transform.Position.x = Input.MouseScreenWorldPosition.x;
+//                _transform.Position.y = Input.MouseScreenWorldPosition.y;
+//            }
+
+            if(NodeMng.CurrentSelectedNode != nullptr && NodeMng.CurrentSelectedNode->isSelected)
             {
-                Transform& _transform = ECSCoord.GetComponent<Transform>(ECSCoord.SelectedEntity);
+                Transform& _transform = ECSCoord.GetComponent<Transform>(NodeMng.CurrentSelectedNode->entityRef);
                 _transform.Position.x = Input.MouseScreenWorldPosition.x;
                 _transform.Position.y = Input.MouseScreenWorldPosition.y;
             }
@@ -216,8 +249,14 @@ namespace MELT
     {
         glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+
 #ifdef M_EDITOR
-        m_RenderSystem->Update(0.0f);
+        if(TargetRenderPipeline)
+            TargetRenderPipeline->Render(0.0f);
+
+
+//        m_RenderSystem->Update(0.0f);
         UpdateEditor();
 #endif
         SDL_GL_SwapWindow(m_Window);
@@ -228,6 +267,25 @@ namespace MELT
         SDL_GL_DeleteContext(m_GLContext);
         SDL_DestroyWindow(m_Window);
         SDL_Quit();
+    }
+
+    void Engine::CreateNode()
+    {
+        Node& _node = NodeMng.CreateNode(MELT::vec2<float>(0.0f));
+
+        MELT::Entity _entity = ECSCoord.CreateEntity();
+
+        ECSCoord.AddComponent<MELT::Transform>(_entity, {
+                glm::vec3(0.0, 0.0, 0.0),
+                glm::vec3(0.0, 0.0, 0.0),
+                glm::vec3(0.0, 0.0, 0.0),
+        });
+
+        ECSCoord.AddComponent<MELT::SpriteRenderer>(_entity, {
+
+        });
+
+        _node.entityRef = _entity;
     }
 
     SDL_Window* Engine::GetWindow()

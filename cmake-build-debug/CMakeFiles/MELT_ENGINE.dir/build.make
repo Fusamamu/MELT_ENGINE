@@ -113,6 +113,7 @@ MELT_ENGINE: CMakeFiles/MELT_ENGINE.dir/build.make
 MELT_ENGINE: MeltEngineLib/libMeltEngineLib.a
 MELT_ENGINE: MeltEngineEditorLib/libMeltEngineEditorLib.a
 MELT_ENGINE: MeltEngineLib/libMeltEngineLib.a
+MELT_ENGINE: /usr/local/lib/libassimp.dylib
 MELT_ENGINE: /Library/Frameworks/SDL2.framework/Versions/A/SDL2
 MELT_ENGINE: /usr/local/lib/libGLEW.2.2.0.dylib
 MELT_ENGINE: MeltEngineLib/vendors/yaml-cpp/libyaml-cppd.a

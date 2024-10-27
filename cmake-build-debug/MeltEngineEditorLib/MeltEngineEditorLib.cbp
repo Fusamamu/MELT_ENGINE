@@ -39,8 +39,11 @@
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/Resources"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/MathLib"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/stb"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/assimp"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
 					<Add directory="/Library/Frameworks/SDL2.framework/Headers"/>
 					<Add directory="/Library/Frameworks/SDL2.framework"/>
@@ -79,8 +82,11 @@
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/Resources"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/MathLib"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/stb"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/assimp"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
 					<Add directory="/Library/Frameworks/SDL2.framework/Headers"/>
 					<Add directory="/Library/Frameworks/SDL2.framework"/>

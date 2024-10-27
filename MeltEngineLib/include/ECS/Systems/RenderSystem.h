@@ -16,14 +16,17 @@ namespace MELT
     {
     public:
 
+        //Geometry
         Quad* aQuad;
         Cube* aCube;
         Line* DummyLine;
         GizmosTransform* GizmosAxis;
 
+        //Render target
         FrameBuffer* EditorSceneFrameBuffer;
         FrameBuffer* EditorGUIFrameBuffer;
 
+        //Shader
         Shader* TargetShader;
 
         Shader* GridShader2D;
@@ -35,6 +38,7 @@ namespace MELT
         Shader* GizmosAxisShader;
         Shader* PhongShader;
 
+        //Dependencies
         Engine* Engine;
         Coordinator* ECSCoord;
 

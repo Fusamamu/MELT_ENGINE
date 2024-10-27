@@ -578,6 +578,30 @@ src/InputSystem.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/InputSystem.cpp.s
 .PHONY : src/InputSystem.cpp.s
 
+src/MathLib/Vector.o: src/MathLib/Vector.cpp.o
+.PHONY : src/MathLib/Vector.o
+
+# target to build an object file
+src/MathLib/Vector.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/MathLib/Vector.cpp.o
+.PHONY : src/MathLib/Vector.cpp.o
+
+src/MathLib/Vector.i: src/MathLib/Vector.cpp.i
+.PHONY : src/MathLib/Vector.i
+
+# target to preprocess a source file
+src/MathLib/Vector.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/MathLib/Vector.cpp.i
+.PHONY : src/MathLib/Vector.cpp.i
+
+src/MathLib/Vector.s: src/MathLib/Vector.cpp.s
+.PHONY : src/MathLib/Vector.s
+
+# target to generate assembly for a file
+src/MathLib/Vector.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/MathLib/Vector.cpp.s
+.PHONY : src/MathLib/Vector.cpp.s
+
 src/MeltEngine.o: src/MeltEngine.cpp.o
 .PHONY : src/MeltEngine.o
 
@@ -601,6 +625,78 @@ src/MeltEngine.s: src/MeltEngine.cpp.s
 src/MeltEngine.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/MeltEngine.cpp.s
 .PHONY : src/MeltEngine.cpp.s
+
+src/Mesh.o: src/Mesh.cpp.o
+.PHONY : src/Mesh.o
+
+# target to build an object file
+src/Mesh.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Mesh.cpp.o
+.PHONY : src/Mesh.cpp.o
+
+src/Mesh.i: src/Mesh.cpp.i
+.PHONY : src/Mesh.i
+
+# target to preprocess a source file
+src/Mesh.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Mesh.cpp.i
+.PHONY : src/Mesh.cpp.i
+
+src/Mesh.s: src/Mesh.cpp.s
+.PHONY : src/Mesh.s
+
+# target to generate assembly for a file
+src/Mesh.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Mesh.cpp.s
+.PHONY : src/Mesh.cpp.s
+
+src/Node.o: src/Node.cpp.o
+.PHONY : src/Node.o
+
+# target to build an object file
+src/Node.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Node.cpp.o
+.PHONY : src/Node.cpp.o
+
+src/Node.i: src/Node.cpp.i
+.PHONY : src/Node.i
+
+# target to preprocess a source file
+src/Node.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Node.cpp.i
+.PHONY : src/Node.cpp.i
+
+src/Node.s: src/Node.cpp.s
+.PHONY : src/Node.s
+
+# target to generate assembly for a file
+src/Node.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Node.cpp.s
+.PHONY : src/Node.cpp.s
+
+src/NodeManager.o: src/NodeManager.cpp.o
+.PHONY : src/NodeManager.o
+
+# target to build an object file
+src/NodeManager.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/NodeManager.cpp.o
+.PHONY : src/NodeManager.cpp.o
+
+src/NodeManager.i: src/NodeManager.cpp.i
+.PHONY : src/NodeManager.i
+
+# target to preprocess a source file
+src/NodeManager.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/NodeManager.cpp.i
+.PHONY : src/NodeManager.cpp.i
+
+src/NodeManager.s: src/NodeManager.cpp.s
+.PHONY : src/NodeManager.s
+
+# target to generate assembly for a file
+src/NodeManager.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/NodeManager.cpp.s
+.PHONY : src/NodeManager.cpp.s
 
 src/Primitive/Cube.o: src/Primitive/Cube.cpp.o
 .PHONY : src/Primitive/Cube.o
@@ -698,6 +794,54 @@ src/Renderer/Line.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Line.cpp.s
 .PHONY : src/Renderer/Line.cpp.s
 
+src/Renderer/RenderPipeline.o: src/Renderer/RenderPipeline.cpp.o
+.PHONY : src/Renderer/RenderPipeline.o
+
+# target to build an object file
+src/Renderer/RenderPipeline.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/RenderPipeline.cpp.o
+.PHONY : src/Renderer/RenderPipeline.cpp.o
+
+src/Renderer/RenderPipeline.i: src/Renderer/RenderPipeline.cpp.i
+.PHONY : src/Renderer/RenderPipeline.i
+
+# target to preprocess a source file
+src/Renderer/RenderPipeline.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/RenderPipeline.cpp.i
+.PHONY : src/Renderer/RenderPipeline.cpp.i
+
+src/Renderer/RenderPipeline.s: src/Renderer/RenderPipeline.cpp.s
+.PHONY : src/Renderer/RenderPipeline.s
+
+# target to generate assembly for a file
+src/Renderer/RenderPipeline.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/RenderPipeline.cpp.s
+.PHONY : src/Renderer/RenderPipeline.cpp.s
+
+src/Renderer/RendererAPI.o: src/Renderer/RendererAPI.cpp.o
+.PHONY : src/Renderer/RendererAPI.o
+
+# target to build an object file
+src/Renderer/RendererAPI.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/RendererAPI.cpp.o
+.PHONY : src/Renderer/RendererAPI.cpp.o
+
+src/Renderer/RendererAPI.i: src/Renderer/RendererAPI.cpp.i
+.PHONY : src/Renderer/RendererAPI.i
+
+# target to preprocess a source file
+src/Renderer/RendererAPI.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/RendererAPI.cpp.i
+.PHONY : src/Renderer/RendererAPI.cpp.i
+
+src/Renderer/RendererAPI.s: src/Renderer/RendererAPI.cpp.s
+.PHONY : src/Renderer/RendererAPI.s
+
+# target to generate assembly for a file
+src/Renderer/RendererAPI.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/RendererAPI.cpp.s
+.PHONY : src/Renderer/RendererAPI.cpp.s
+
 src/Renderer/Shader.o: src/Renderer/Shader.cpp.o
 .PHONY : src/Renderer/Shader.o
 
@@ -721,6 +865,30 @@ src/Renderer/Shader.s: src/Renderer/Shader.cpp.s
 src/Renderer/Shader.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/Shader.cpp.s
 .PHONY : src/Renderer/Shader.cpp.s
+
+src/Resources/MeshImporter.o: src/Resources/MeshImporter.cpp.o
+.PHONY : src/Resources/MeshImporter.o
+
+# target to build an object file
+src/Resources/MeshImporter.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Resources/MeshImporter.cpp.o
+.PHONY : src/Resources/MeshImporter.cpp.o
+
+src/Resources/MeshImporter.i: src/Resources/MeshImporter.cpp.i
+.PHONY : src/Resources/MeshImporter.i
+
+# target to preprocess a source file
+src/Resources/MeshImporter.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Resources/MeshImporter.cpp.i
+.PHONY : src/Resources/MeshImporter.cpp.i
+
+src/Resources/MeshImporter.s: src/Resources/MeshImporter.cpp.s
+.PHONY : src/Resources/MeshImporter.s
+
+# target to generate assembly for a file
+src/Resources/MeshImporter.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Resources/MeshImporter.cpp.s
+.PHONY : src/Resources/MeshImporter.cpp.s
 
 src/TextureManager.o: src/TextureManager.cpp.o
 .PHONY : src/TextureManager.o
@@ -836,9 +1004,21 @@ help:
 	@echo "... src/InputSystem.o"
 	@echo "... src/InputSystem.i"
 	@echo "... src/InputSystem.s"
+	@echo "... src/MathLib/Vector.o"
+	@echo "... src/MathLib/Vector.i"
+	@echo "... src/MathLib/Vector.s"
 	@echo "... src/MeltEngine.o"
 	@echo "... src/MeltEngine.i"
 	@echo "... src/MeltEngine.s"
+	@echo "... src/Mesh.o"
+	@echo "... src/Mesh.i"
+	@echo "... src/Mesh.s"
+	@echo "... src/Node.o"
+	@echo "... src/Node.i"
+	@echo "... src/Node.s"
+	@echo "... src/NodeManager.o"
+	@echo "... src/NodeManager.i"
+	@echo "... src/NodeManager.s"
 	@echo "... src/Primitive/Cube.o"
 	@echo "... src/Primitive/Cube.i"
 	@echo "... src/Primitive/Cube.s"
@@ -851,9 +1031,18 @@ help:
 	@echo "... src/Renderer/Line.o"
 	@echo "... src/Renderer/Line.i"
 	@echo "... src/Renderer/Line.s"
+	@echo "... src/Renderer/RenderPipeline.o"
+	@echo "... src/Renderer/RenderPipeline.i"
+	@echo "... src/Renderer/RenderPipeline.s"
+	@echo "... src/Renderer/RendererAPI.o"
+	@echo "... src/Renderer/RendererAPI.i"
+	@echo "... src/Renderer/RendererAPI.s"
 	@echo "... src/Renderer/Shader.o"
 	@echo "... src/Renderer/Shader.i"
 	@echo "... src/Renderer/Shader.s"
+	@echo "... src/Resources/MeshImporter.o"
+	@echo "... src/Resources/MeshImporter.i"
+	@echo "... src/Resources/MeshImporter.s"
 	@echo "... src/TextureManager.o"
 	@echo "... src/TextureManager.i"
 	@echo "... src/TextureManager.s"

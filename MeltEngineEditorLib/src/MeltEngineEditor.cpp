@@ -231,8 +231,16 @@ namespace MELT_EDITOR
 
             ImVec2 pos = ImGui::GetCursorScreenPos();
 
+//            ImGui::GetWindowDrawList()->AddImage(
+//                    (void*)(intptr_t)Engine->m_RenderSystem->EditorSceneFrameBuffer->TextureID,
+//                    ImVec2(pos.x, pos.y),
+//                    ImVec2(pos.x + _contentWidth, pos.y + _contentHeight),
+//                    ImVec2(0, 1),
+//                    ImVec2(1, 0)
+//            );
+
             ImGui::GetWindowDrawList()->AddImage(
-                    (void*)(intptr_t)Engine->m_RenderSystem->EditorSceneFrameBuffer->TextureID,
+                    (void*)(intptr_t)Engine->TargetRenderPipeline->EditorSceneFrameBuffer->TextureID,
                     ImVec2(pos.x, pos.y),
                     ImVec2(pos.x + _contentWidth, pos.y + _contentHeight),
                     ImVec2(0, 1),
@@ -324,17 +332,19 @@ namespace MELT_EDITOR
 
                 if (ImGui::MenuItem("Create entity"))
                 {
-                    MELT::Entity _entity = Engine->ECSCoord.CreateEntity();
+                    Engine->CreateNode();
 
-                    Engine->ECSCoord.AddComponent<MELT::Transform>(_entity, {
-                        glm::vec3(0.0, 0.0, 0.0),
-                        glm::vec3(0.0, 0.0, 0.0),
-                        glm::vec3(0.0, 0.0, 0.0),
-                    });
-
-                    Engine->ECSCoord.AddComponent<MELT::SpriteRenderer>(_entity, {
-
-                    });
+//                    MELT::Entity _entity = Engine->ECSCoord.CreateEntity();
+//
+//                    Engine->ECSCoord.AddComponent<MELT::Transform>(_entity, {
+//                        glm::vec3(0.0, 0.0, 0.0),
+//                        glm::vec3(0.0, 0.0, 0.0),
+//                        glm::vec3(0.0, 0.0, 0.0),
+//                    });
+//
+//                    Engine->ECSCoord.AddComponent<MELT::SpriteRenderer>(_entity, {
+//
+//                    });
                 }
 
                 if (ImGui::MenuItem("Create scene")) {
@@ -356,14 +366,26 @@ namespace MELT_EDITOR
 
             if (ImGui::CollapsingHeader("Scene 1"))
             {
-                for(int _i = 0; _i < Engine->ECSCoord.m_EntityManager->ActiveEntities.size(); _i++)
+//                for(int _i = 0; _i < Engine->ECSCoord.m_EntityManager->ActiveEntities.size(); _i++)
+//                {
+//                    auto _entity = Engine->ECSCoord.m_EntityManager->ActiveEntities[_i];
+//                    std::string _e = "Entity_" + std::to_string(_entity);
+//                    if(ImGui::Selectable(_e.c_str(), _i == _selectedItem))
+//                    {
+//                        _selectedItem = _i;
+//                        Engine->ECSCoord.SelectedEntity = _entity;
+//                    }
+//                }
+
+                for(std::size_t _i = 0; _i < Engine->NodeMng.SceneNodes.size(); ++_i)
                 {
-                    auto _entity = Engine->ECSCoord.m_EntityManager->ActiveEntities[_i];
-                    std::string _e = "Entity_" + std::to_string(_entity);
+                    std::string _e = "Entity_" + std::to_string(Engine->NodeMng.SceneNodes[_i].entityRef);
                     if(ImGui::Selectable(_e.c_str(), _i == _selectedItem))
                     {
                         _selectedItem = _i;
-                        Engine->ECSCoord.SelectedEntity = _entity;
+                        //Engine->ECSCoord.SelectedEntity = _entity;
+                        Engine->NodeMng.CurrentSelectedNode = &Engine->NodeMng.SceneNodes[_i];
+                        Engine->NodeMng.CurrentSelectedNode->isSelected = true;
                     }
                 }
             }
@@ -388,16 +410,21 @@ namespace MELT_EDITOR
 
             ImGui::Text(ICON_KI_ARROW_TOP_LEFT "  Hello with an icon!");
 
-            glm::vec3 _position(0.0f);
-            MELT::Entity _e = Engine->ECSCoord.SelectedEntity;
+            //glm::vec3 _position(0.0f);
 
-            if(_e < 100)
+            if(Engine->NodeMng.CurrentSelectedNode && Engine->NodeMng.CurrentSelectedNode->isSelected)
             {
-                MELT::Transform&      _transform      = Engine->ECSCoord.GetComponent<MELT::Transform>     (_e);
-                MELT::SpriteRenderer& _spriteRenderer = Engine->ECSCoord.GetComponent<MELT::SpriteRenderer>(_e);
-                DrawTransformComponentPanel     (_transform);
-                DrawSpriteRendererComponentPanel(_spriteRenderer);
+                MELT::Entity _e = Engine->NodeMng.CurrentSelectedNode->entityRef;
+
+                if(_e < 100)
+                {
+                    MELT::Transform&      _transform      = Engine->ECSCoord.GetComponent<MELT::Transform>     (_e);
+                    MELT::SpriteRenderer& _spriteRenderer = Engine->ECSCoord.GetComponent<MELT::SpriteRenderer>(_e);
+                    DrawTransformComponentPanel     (_transform);
+                    DrawSpriteRendererComponentPanel(_spriteRenderer);
+                }
             }
+
 
             ImVec2 _contentRegionAvail = ImGui::GetContentRegionAvail();
 

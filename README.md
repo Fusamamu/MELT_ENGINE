@@ -69,7 +69,7 @@ int main() {
     MELT::Engine engine;
     engine.init("My MELT Game", 800, 600);
 
-    // Load your game assets, create entities, etc.
+    // LoadModel your game assets, create entities, etc.
 
     engine.run();
     engine.cleanup();

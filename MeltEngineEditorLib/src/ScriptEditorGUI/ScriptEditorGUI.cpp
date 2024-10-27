@@ -15,7 +15,7 @@ namespace MELT_EDITOR
             if (ImGui::BeginMenu("File")) {
                 if (ImGui::MenuItem("Save")) {
                 }
-                if (ImGui::MenuItem("Load")) {
+                if (ImGui::MenuItem("LoadModel")) {
                 }
                 ImGui::EndMenu();
             }

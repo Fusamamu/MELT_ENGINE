@@ -811,6 +811,54 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ConsoleGUI.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/recursive_directory_iterator.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__filesystem/u8path.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/sstream \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/random \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/bernoulli_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/uniform_real_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/generate_canonical.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/binomial_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/cauchy_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/chi_squared_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/gamma_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/exponential_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/clamp_to_integral.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/default_random_engine.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/linear_congruential_engine.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/is_seed_sequence.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/discard_block_engine.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/discrete_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/numeric \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__numeric/accumulate.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__numeric/adjacent_difference.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__numeric/exclusive_scan.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__numeric/gcd_lcm.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__numeric/inclusive_scan.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__numeric/inner_product.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__numeric/iota.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__numeric/midpoint.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__numeric/partial_sum.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__numeric/reduce.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__numeric/transform_exclusive_scan.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__numeric/transform_inclusive_scan.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__numeric/transform_reduce.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/extreme_value_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/fisher_f_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/geometric_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/negative_binomial_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/poisson_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/normal_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/independent_bits_engine.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/knuth_b.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/shuffle_order_engine.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/lognormal_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/mersenne_twister_engine.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/piecewise_constant_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/piecewise_linear_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/random_device.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/ranlux.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/subtract_with_carry_engine.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/seed_seq.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/student_t_distribution.h \
+  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/usr/include/c++/v1/__random/weibull_distribution.h \
   /usr/local/include/glm/glm.hpp \
   /usr/local/include/glm/detail/_fixes.hpp \
   /usr/local/include/glm/detail/setup.hpp \
@@ -1150,6 +1198,10 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ConsoleGUI.cpp.o: \
   /usr/local/include/SDL2/SDL_locale.h \
   /usr/local/include/SDL2/SDL_misc.h \
   /usr/local/include/SDL2/SDL_opengl.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/NodeManager.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Node.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/MathLib/Vector.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Type.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/TextureManager.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/yaml.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/parser.h \
@@ -1190,7 +1242,6 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ConsoleGUI.cpp.o: \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer/Shader.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Primitive/Quad.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Vertex.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Type.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components/Camera.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components/Transform.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components/Renderer.h \
@@ -1210,6 +1261,7 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ConsoleGUI.cpp.o: \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer/Line.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/GizmosTransform.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer/FrameBuffer.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Renderer/RenderPipeline.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/EventSystem/EventManager.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/EventSystem/EventHandler.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/EventSystem/EventHandlerWrapper.h \

@@ -8,6 +8,7 @@ add_library(${PROJECT_NAME} STATIC
         src/Core.cpp
         src/MeltEngine.cpp
         src/Vertex.cpp
+        src/Mesh.cpp
         src/Renderer/Shader.cpp
 
         src/ECS/EntityManager.cpp
@@ -34,7 +35,13 @@ add_library(${PROJECT_NAME} STATIC
 
         src/InputSystem.cpp
         src/Primitive/Cube.cpp
-        src/Primitive/Quad.cpp)
+        src/Primitive/Quad.cpp
+        src/Resources/MeshImporter.cpp
+        src/Node.cpp
+        src/NodeManager.cpp
+        src/MathLib/Vector.cpp
+        src/Renderer/RendererAPI.cpp
+        src/Renderer/RenderPipeline.cpp)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC ./include/Core.h)
 
@@ -46,8 +53,11 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ./include/ECS
         ./include/ECS/Components
         ./include/ECS/Systems
+        ./include/Resources
+        ./include/MathLib
         ./vendors/stb
-        ./vendors/yaml-cpp/include)
+        ./vendors/yaml-cpp/include
+        ./vendors/assimp)
 
 find_package(SDL2   REQUIRED COMPONENTS SDL2)
 find_package(GLEW   REQUIRED)
@@ -58,6 +68,9 @@ if (APPLE)
 find_library(COCOA_FRAMEWORK Cocoa)
 find_library(IOKIT_FRAMEWORK IOKit)
 find_library(COREVIDEO_FRAMEWORK CoreVideo)
+
+find_library(ASSIMP_PATH assimp PATHS vendors/assimp/lib)
+target_link_libraries(${PROJECT_NAME} PUBLIC ${ASSIMP_PATH})
 endif()
 
 target_link_libraries(${PROJECT_NAME} PUBLIC SDL2::SDL2)

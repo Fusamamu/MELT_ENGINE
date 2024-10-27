@@ -5,6 +5,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_opengl.h>
 
+#include "NodeManager.h"
 #include "TextureManager.h"
 
 #include "Shader.h"
@@ -20,6 +21,7 @@
 #include "Coordinator.h"
 #include "CameraControlSystem.h"
 #include "RenderSystem.h"
+#include "RenderPipeline.h"
 
 #include "EventManager.h"
 #include "InputSystem.h"
@@ -37,10 +39,12 @@ namespace MELT
         const int WINDOW_WIDTH  = 1600;
         const int WINDOW_HEIGHT = 800;
 
-        Camera MainCamera;
-        Coordinator ECSCoord;
+        Camera         MainCamera;
+        Coordinator    ECSCoord;
+        NodeManager    NodeMng;
         TextureManager TextureMng;
 
+        RenderPipeline* TargetRenderPipeline;
         std::shared_ptr<RenderSystem> m_RenderSystem;
 
         std::function<void(void)>      UpdateEngine;
@@ -48,7 +52,15 @@ namespace MELT
         std::function<void(void)>      UpdateEditor;
 
         Engine();
+        Engine(const Engine& _other) = delete;
+        Engine& operator=(const Engine& _other) = delete;
         ~Engine();
+
+//        static Engine& Instance()
+//        {
+//            static Engine _instance;
+//            return _instance;
+//        }
 
         void Init();
         void Update();
@@ -57,9 +69,13 @@ namespace MELT
         void UpdateRender();
         void Quit();
 
+        void CreateNode();
+
         SDL_Window* GetWindow();
         SDL_GLContext& GetGLContext();
     private:
+        //Engine();
+
         bool m_IsRunning;
 
         SDL_Window*   m_Window;

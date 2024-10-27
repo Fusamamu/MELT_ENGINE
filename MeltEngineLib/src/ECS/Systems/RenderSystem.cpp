@@ -93,6 +93,7 @@ namespace MELT
 
     void RenderSystem::Update(float _dt)
     {
+        //Sprite sheet editor gui
         glEnable(GL_DEPTH_TEST);
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -104,6 +105,7 @@ namespace MELT
         aQuad->Draw();
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
+        //-----------------------------------//
         glBindFramebuffer(GL_FRAMEBUFFER, EditorSceneFrameBuffer->FBO);
         glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

@@ -33,8 +33,11 @@
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/Resources"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/MathLib"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/stb"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/assimp"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/Cocoa.framework"/>
@@ -71,8 +74,11 @@
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Systems"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/Resources"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./include/MathLib"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/stb"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/./vendors/assimp"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/Cocoa.framework"/>
@@ -364,7 +370,19 @@
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/InputSystem.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/MathLib/Vector.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/MeltEngine.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Mesh.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Node.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/NodeManager.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Primitive/Cube.cpp">
@@ -379,7 +397,16 @@
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/Line.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/RenderPipeline.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/RendererAPI.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/Shader.cpp">
+			<Option target="MeltEngineLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Resources/MeshImporter.cpp">
 			<Option target="MeltEngineLib"/>
 		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/TextureManager.cpp">

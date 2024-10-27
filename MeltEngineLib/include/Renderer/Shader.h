@@ -22,17 +22,17 @@ namespace MELT
 
         void Use();
 
-        void SetMat4UniformModel              (glm::mat4 _model);
-        void SetMat4UniformView               (glm::mat4 _view);
-        void SetMat4UniformProjection         (glm::mat4 _projection);
-        void SetVec2UniformScreenSize         (glm::vec2 _screenSize);
-        void SetVec2UniformOrigin             (glm::vec2 _origin);
-        void SetVec3UniformColor              (glm::vec3 _color);
-        void SetVec3UniformObjectColor        (glm::vec3 _objectColor);
-        void SetFloatUniformObjectShininess   (float _shininess);
-        void SetVec3UniformLightColor         (glm::vec3 _lightColor);
-        void SetVec3UniformLightWorldPosition (glm::vec3 _lightWorldPos);
-        void SetVec3UniformCameraWorldPosition(glm::vec3 _cameraWorldPos);
+        void SetMat4UniformModel              (glm::mat4 _model) const;
+        void SetMat4UniformView               (glm::mat4 _view) const;
+        void SetMat4UniformProjection         (glm::mat4 _projection) const;
+        void SetVec2UniformScreenSize         (glm::vec2 _screenSize) const;
+        void SetVec2UniformOrigin             (glm::vec2 _origin) const;
+        void SetVec3UniformColor              (glm::vec3 _color) const;
+        void SetVec3UniformObjectColor        (glm::vec3 _objectColor) const;
+        void SetFloatUniformObjectShininess   (float _shininess) const;
+        void SetVec3UniformLightColor         (glm::vec3 _lightColor) const;
+        void SetVec3UniformLightWorldPosition (glm::vec3 _lightWorldPos) const;
+        void SetVec3UniformCameraWorldPosition(glm::vec3 _cameraWorldPos) const;
 
         friend std::ostream& operator<<(std::ostream& _os, Shader& _shader)
         {

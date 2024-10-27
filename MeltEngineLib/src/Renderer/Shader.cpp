@@ -89,57 +89,57 @@ namespace MELT
         glUseProgram(ID);
     }
 
-    void Shader::SetMat4UniformModel(glm::mat4 _model)
+    void Shader::SetMat4UniformModel(glm::mat4 _model) const
     {
         glUniformMatrix4fv(m_UniformLoc_Model, 1, GL_FALSE, glm::value_ptr(_model));
     }
 
-    void Shader::SetMat4UniformView(glm::mat4 _view)
+    void Shader::SetMat4UniformView(glm::mat4 _view) const
     {
         glUniformMatrix4fv(m_UniformLoc_View, 1, GL_FALSE, glm::value_ptr(_view));
     }
 
-    void Shader::SetMat4UniformProjection(glm::mat4 _projection)
+    void Shader::SetMat4UniformProjection(glm::mat4 _projection) const
     {
         glUniformMatrix4fv(m_UniformLoc_Projection, 1, GL_FALSE, glm::value_ptr(_projection));
     }
 
-    void Shader::SetVec2UniformScreenSize(glm::vec2 _screenSize)
+    void Shader::SetVec2UniformScreenSize(glm::vec2 _screenSize) const
     {
         glUniform2f(m_UniformLoc_ScreenSize, _screenSize.x, _screenSize.y);
     }
 
-    void Shader::SetVec2UniformOrigin(glm::vec2 _origin)
+    void Shader::SetVec2UniformOrigin(glm::vec2 _origin) const
     {
         glUniform2f(m_UniformLoc_Origin, _origin.x, _origin.y);
     }
 
-    void Shader::SetVec3UniformColor(glm::vec3 _color)
+    void Shader::SetVec3UniformColor(glm::vec3 _color) const
     {
         glUniform3f(m_UniformLoc_Color, _color.r, _color.g, _color.b);
     }
 
-    void Shader::SetVec3UniformObjectColor(glm::vec3 _objectColor)
+    void Shader::SetVec3UniformObjectColor(glm::vec3 _objectColor) const
     {
         glUniform3f(m_UniformLoc_ObjectColor, _objectColor.r, _objectColor.g, _objectColor.b);
     }
 
-    void Shader::SetFloatUniformObjectShininess(float _shininess)
+    void Shader::SetFloatUniformObjectShininess(float _shininess) const
     {
         glUniform1f(m_UniformLoc_ObjectShininess, _shininess);
     }
 
-    void Shader::SetVec3UniformLightColor(glm::vec3 _lightColor)
+    void Shader::SetVec3UniformLightColor(glm::vec3 _lightColor) const
     {
         glUniform3f(m_UniformLoc_LightColor, _lightColor.r, _lightColor.g, _lightColor.b);
     }
 
-    void Shader::SetVec3UniformLightWorldPosition(glm::vec3 _lightWorldPos)
+    void Shader::SetVec3UniformLightWorldPosition(glm::vec3 _lightWorldPos) const
     {
         glUniform3f(m_UniformLoc_LightWorldPosition, _lightWorldPos.x, _lightWorldPos.y, _lightWorldPos.z);
     }
 
-    void Shader::SetVec3UniformCameraWorldPosition(glm::vec3 _cameraWorldPos)
+    void Shader::SetVec3UniformCameraWorldPosition(glm::vec3 _cameraWorldPos) const
     {
         glUniform3f(m_UniformLoc_Color, _cameraWorldPos.x, _cameraWorldPos.y, _cameraWorldPos.x);
     }
