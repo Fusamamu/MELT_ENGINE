@@ -22,7 +22,6 @@ namespace MELT
 
         std::unique_ptr<ComponentManager> m_ComponentManager;
         std::unique_ptr<EntityManager>    m_EntityManager;
-        //std::unique_ptr<EventManager>     m_EventManager;
         std::unique_ptr<SystemManager>    m_SystemManager;
 
         void Init();
@@ -51,11 +50,6 @@ namespace MELT
 
         template<typename T>
         void SetSystemSignature(Signature _signature);
-
-//        void AddEventListener(EventId _eventID, const std::function<void(Event&)>& _listener);
-//        void SendEvent(Event& _event);
-//        void SendEvent(EventId _eventID);
-
     };
 
     template<typename T>

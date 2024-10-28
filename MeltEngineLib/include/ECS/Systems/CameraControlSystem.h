@@ -3,10 +3,9 @@
 
 namespace MELT
 {
-    class CameraControlSystem : public System
+    class CameraControlSystem : public INativeSystem
     {
     public:
-        void Init();
-        void Update(float _dt);
+        NATIVE_SYSTEM_OVERRIDE;
     };
 }

@@ -7,6 +7,8 @@ add_definitions(-DM_EDITOR)
 
 add_subdirectory(MeltEngineLib)
 add_subdirectory(MeltEngineEditorLib)
+add_subdirectory(Project/Scripts)
 
 add_executable(MELT_ENGINE main.cpp)
+
 target_link_libraries(MELT_ENGINE PUBLIC MeltEngineLib MeltEngineEditorLib)

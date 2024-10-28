@@ -64,7 +64,7 @@ namespace MELT
 
         glm::mat4 _view  = glm::lookAt(
                 m_Engine->MainCamera.Position,
-                glm::vec3(0.0),
+                m_Engine->MainCamera.Target,
                 m_Engine->MainCamera.Up
         );
 

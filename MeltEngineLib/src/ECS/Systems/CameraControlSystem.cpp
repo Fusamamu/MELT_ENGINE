@@ -2,12 +2,27 @@
 
 namespace MELT
 {
-    void CameraControlSystem::Init()
+    void CameraControlSystem::OnStart()
     {
 
     }
 
-    void CameraControlSystem::Update(float _dt)
+    void CameraControlSystem::OnInputUpdate(float _dt)
+    {
+
+    }
+
+    void CameraControlSystem::OnUpdate(float _dt)
+    {
+
+    }
+
+    void CameraControlSystem::OnRender(float _dt)
+    {
+
+    }
+
+    void CameraControlSystem::OnEnd()
     {
 
     }

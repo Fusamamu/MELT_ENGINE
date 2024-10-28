@@ -30,9 +30,17 @@
 
 namespace MELT
 {
+    enum class EngineMode
+    {
+        EDIT_MODE,
+        PLAY_MODE
+    };
+
     class Engine
     {
     public:
+        EngineMode CurrentMode = EngineMode::EDIT_MODE;
+
         static float ScreenWidth;
         static float ScreenHeight;
 
@@ -56,12 +64,6 @@ namespace MELT
         Engine& operator=(const Engine& _other) = delete;
         ~Engine();
 
-//        static Engine& Instance()
-//        {
-//            static Engine _instance;
-//            return _instance;
-//        }
-
         void Init();
         void Update();
         void UpdateInput();
@@ -74,8 +76,6 @@ namespace MELT
         SDL_Window* GetWindow();
         SDL_GLContext& GetGLContext();
     private:
-        //Engine();
-
         bool m_IsRunning;
 
         SDL_Window*   m_Window;

@@ -572,6 +572,19 @@ MeltEngineEditorLib/fast:
 	$(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build
 .PHONY : MeltEngineEditorLib/fast
 
+#=============================================================================
+# Target rules for targets named NativeScript
+
+# Build rule for target.
+NativeScript: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 NativeScript
+.PHONY : NativeScript
+
+# fast build rule for target.
+NativeScript/fast:
+	$(MAKE) $(MAKESILENT) -f Project/Scripts/CMakeFiles/NativeScript.dir/build.make Project/Scripts/CMakeFiles/NativeScript.dir/build
+.PHONY : NativeScript/fast
+
 # target to build an object file
 cmake_pch.hxx.pch:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MELT_ENGINE.dir/build.make CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch
@@ -650,6 +663,7 @@ help:
 	@echo "... MELT_ENGINE"
 	@echo "... MeltEngineEditorLib"
 	@echo "... MeltEngineLib"
+	@echo "... NativeScript"
 	@echo "... yaml-cpp"
 	@echo "... yaml-cpp-parse"
 	@echo "... yaml-cpp-read"

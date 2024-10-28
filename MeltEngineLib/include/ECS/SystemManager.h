@@ -8,15 +8,32 @@
 
 namespace MELT
 {
-    class System
+#define NATIVE_SYSTEM_OVERRIDE \
+    void OnStart() override; \
+    void OnInputUpdate(float _dt) override; \
+    void OnUpdate(float _dt) override; \
+    void OnRender(float _dt) override; \
+    void OnEnd() override
+
+    class INativeSystem
     {
     public:
         std::set<Entity> Entities;
+        virtual void OnStart() = 0;
+        virtual void OnInputUpdate(float _dt) = 0;
+        virtual void OnUpdate(float _dt) = 0;
+        virtual void OnRender(float _dt) = 0;
+        virtual void OnEnd() = 0;
+        virtual ~INativeSystem() = default;
     };
 
     class SystemManager
     {
     public:
+        void UpdateInput();
+        void Update();
+        void UpdateRender();
+
         template<typename T>
         std::shared_ptr<T> RegisterSystem();
 
@@ -27,7 +44,7 @@ namespace MELT
         void EntitySignatureChanged(Entity _entity, Signature _signature);
     private:
         std::unordered_map<const char*, Signature> m_Signatures;
-        std::unordered_map<const char*, std::shared_ptr<System>> m_Systems;
+        std::unordered_map<const char*, std::shared_ptr<INativeSystem>> m_Systems;
     };
 
     template<typename T>

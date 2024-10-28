@@ -3,7 +3,7 @@
 
 namespace MELT
 {
-    void RenderSystem::Init()
+    void RenderSystem::OnStart()
     {
         aQuad      = new Quad();
         aCube      = new Cube();
@@ -91,7 +91,14 @@ namespace MELT
         aQuad->SetTexCoords(_texCoords);
     }
 
-    void RenderSystem::Update(float _dt)
+    void RenderSystem::OnInputUpdate(float _dt){
+
+    };
+    void RenderSystem::OnUpdate(float _dt) {
+
+    };
+
+    void RenderSystem::OnRender(float _dt)
     {
         //Sprite sheet editor gui
         glEnable(GL_DEPTH_TEST);
@@ -186,5 +193,10 @@ namespace MELT
         GizmosAxis->Draw();
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    }
+
+    void RenderSystem::OnEnd()
+    {
+
     }
 }

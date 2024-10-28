@@ -43,3 +43,6 @@
 /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir
 /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/CMakeFiles/edit_cache.dir
 /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/CMakeFiles/rebuild_cache.dir
+/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/Project/Scripts/CMakeFiles/NativeScript.dir
+/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/Project/Scripts/CMakeFiles/edit_cache.dir
+/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/Project/Scripts/CMakeFiles/rebuild_cache.dir

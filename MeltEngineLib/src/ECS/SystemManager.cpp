@@ -2,23 +2,23 @@
 
 namespace MELT
 {
-//    template<typename T>
-//    std::shared_ptr<T> SystemManager::RegisterSystem()
-//    {
-//        const char* _typeName = typeid(T).name();
-//        assert(m_Systems.find(_typeName) == m_Systems.end() && "Registering system more than once.");
-//        auto _system = std::make_shared<T>();
-//        m_Systems.emplace(_typeName, _system);
-//        return _system;
-//    }
-//
-//    template<typename T>
-//    void SystemManager::SetSignature(Signature _signature)
-//    {
-//        const char* _typeName = typeid(T).name();
-//        assert(m_Systems.find(_typeName) != m_Systems.end() && "System used before registered.");
-//        m_Signatures.emplace(_typeName, _signature);
-//    }
+    void SystemManager::UpdateInput()
+    {
+        for (auto const& [_systemName, _system] : m_Systems)
+           _system->OnInputUpdate(0);
+    }
+
+    void SystemManager::Update()
+    {
+        for (auto const& [_systemName, _system] : m_Systems)
+            _system->OnUpdate(0);
+    }
+
+    void SystemManager::UpdateRender()
+    {
+        for (auto const& [_systemName, _system] : m_Systems)
+            _system->OnRender(0);
+    }
 
     void SystemManager::EntityDestroyed(Entity _entity)
     {

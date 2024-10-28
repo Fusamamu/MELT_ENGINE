@@ -330,6 +330,9 @@
 		},
 		{
 			"path" : "MeltEngineEditorLib/CMakeLists.txt"
+		},
+		{
+			"path" : "Project/Scripts/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

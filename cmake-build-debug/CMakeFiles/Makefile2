@@ -66,17 +66,20 @@ CMAKE_BINARY_DIR = "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-d
 all: CMakeFiles/MELT_ENGINE.dir/all
 all: MeltEngineLib/all
 all: MeltEngineEditorLib/all
+all: Project/Scripts/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: MeltEngineLib/preinstall
 preinstall: MeltEngineEditorLib/preinstall
+preinstall: Project/Scripts/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/MELT_ENGINE.dir/clean
 clean: MeltEngineLib/clean
 clean: MeltEngineEditorLib/clean
+clean: Project/Scripts/clean
 .PHONY : clean
 
 #=============================================================================
@@ -174,6 +177,21 @@ MeltEngineLib/vendors/yaml-cpp/util/clean: MeltEngineLib/vendors/yaml-cpp/util/C
 MeltEngineLib/vendors/yaml-cpp/util/clean: MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/clean
 MeltEngineLib/vendors/yaml-cpp/util/clean: MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-read.dir/clean
 .PHONY : MeltEngineLib/vendors/yaml-cpp/util/clean
+
+#=============================================================================
+# Directory level rules for directory Project/Scripts
+
+# Recursive "all" directory target.
+Project/Scripts/all: Project/Scripts/CMakeFiles/NativeScript.dir/all
+.PHONY : Project/Scripts/all
+
+# Recursive "preinstall" directory target.
+Project/Scripts/preinstall:
+.PHONY : Project/Scripts/preinstall
+
+# Recursive "clean" directory target.
+Project/Scripts/clean: Project/Scripts/CMakeFiles/NativeScript.dir/clean
+.PHONY : Project/Scripts/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/MELT_ENGINE.dir
@@ -964,7 +982,7 @@ MeltEngineLib/vendors/yaml-cpp/CMakeFiles/ContinuousSubmit.dir/clean:
 MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/all:
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/build.make MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/depend
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/build.make MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83 "Built target yaml-cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85 "Built target yaml-cpp"
 .PHONY : MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -990,7 +1008,7 @@ MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/clean:
 MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-sandbox.dir/all: MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/all
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-sandbox.dir/build.make MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-sandbox.dir/depend
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-sandbox.dir/build.make MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-sandbox.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=88,89 "Built target yaml-cpp-sandbox"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=90,91 "Built target yaml-cpp-sandbox"
 .PHONY : MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-sandbox.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1016,7 +1034,7 @@ MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-sandbox.dir/clean:
 MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/all: MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/all
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/build.make MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/depend
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/build.make MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=84,85 "Built target yaml-cpp-parse"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=86,87 "Built target yaml-cpp-parse"
 .PHONY : MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1042,7 +1060,7 @@ MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/clean:
 MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-read.dir/all: MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/all
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-read.dir/build.make MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-read.dir/depend
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-read.dir/build.make MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-read.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=86,87 "Built target yaml-cpp-read"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=88,89 "Built target yaml-cpp-read"
 .PHONY : MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-read.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1087,6 +1105,32 @@ MeltEngineEditorLib: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/rule
 MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/clean:
 	$(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/clean
 .PHONY : MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/clean
+
+#=============================================================================
+# Target rules for target Project/Scripts/CMakeFiles/NativeScript.dir
+
+# All Build rule for target.
+Project/Scripts/CMakeFiles/NativeScript.dir/all:
+	$(MAKE) $(MAKESILENT) -f Project/Scripts/CMakeFiles/NativeScript.dir/build.make Project/Scripts/CMakeFiles/NativeScript.dir/depend
+	$(MAKE) $(MAKESILENT) -f Project/Scripts/CMakeFiles/NativeScript.dir/build.make Project/Scripts/CMakeFiles/NativeScript.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=52,53 "Built target NativeScript"
+.PHONY : Project/Scripts/CMakeFiles/NativeScript.dir/all
+
+# Build rule for subdir invocation for target.
+Project/Scripts/CMakeFiles/NativeScript.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Project/Scripts/CMakeFiles/NativeScript.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" 0
+.PHONY : Project/Scripts/CMakeFiles/NativeScript.dir/rule
+
+# Convenience name for target.
+NativeScript: Project/Scripts/CMakeFiles/NativeScript.dir/rule
+.PHONY : NativeScript
+
+# clean rule for target.
+Project/Scripts/CMakeFiles/NativeScript.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Project/Scripts/CMakeFiles/NativeScript.dir/build.make Project/Scripts/CMakeFiles/NativeScript.dir/clean
+.PHONY : Project/Scripts/CMakeFiles/NativeScript.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

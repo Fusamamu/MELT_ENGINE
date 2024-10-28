@@ -312,6 +312,15 @@ CTEST_SUBMIT_RETRY_COUNT:STRING=3
 //How long to wait between timed-out CTest submissions.
 CTEST_SUBMIT_RETRY_DELAY:STRING=5
 
+//Value Computed by CMake
+CustomNativeScript_BINARY_DIR:STATIC=/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/Project/Scripts
+
+//Value Computed by CMake
+CustomNativeScript_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+CustomNativeScript_SOURCE_DIR:STATIC=/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/Project/Scripts
+
 //Maximum time allowed before CTest will kill the test.
 DART_TESTING_TIMEOUT:STRING=1500
 
@@ -560,7 +569,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
