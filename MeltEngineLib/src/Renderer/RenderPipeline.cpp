@@ -12,10 +12,12 @@ namespace MELT
     {
         m_Engine = _engine;
 
-        aCube      = new Cube();
+        aQuad = new Quad();
+        aCube = new Cube();
 
         m_TargetShader      = new Shader("../MeltEngineLib/res/shaders/Phong.shader");
         m_MeshOutlineShader = new Shader("../MeltEngineLib/res/shaders/MeshOutline.shader");
+        m_GridShader        = new Shader("../MeltEngineLib/res/shaders/3DGrid.shader");
 
         glm::mat4 _model      = glm::translate(glm::mat4(1.0f), glm::vec3 (0.0f, 0.0f, 0.0f));
         glm::mat4 _view       = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -34,6 +36,11 @@ namespace MELT
         m_MeshOutlineShader->SetMat4UniformModel     (_model);
         m_MeshOutlineShader->SetMat4UniformView      (_view);
         m_MeshOutlineShader->SetMat4UniformProjection(_projection);
+
+        m_GridShader->Use();
+        m_GridShader->SetMat4UniformModel     (_model);
+        m_GridShader->SetMat4UniformView      (_view);
+        m_GridShader->SetMat4UniformProjection(_projection);
 
         EditorSceneFrameBuffer = new FrameBuffer();
 
@@ -69,14 +76,22 @@ namespace MELT
                 0.1f, 100.0f);
 
 
+        m_GridShader->Use();
+        m_GridShader->SetMat4UniformModel(glm::translate(glm::mat4(1.0f), glm::vec3 (0.0, 0.0, 0.0)));
+        m_GridShader->SetMat4UniformView(_view);
+        m_GridShader->SetMat4UniformProjection(_projection);
+        aQuad->Draw();
+
+
         for(const Node& _node : m_Engine->NodeMng.SceneNodes)
         {
             const Transform& _transform = m_Engine->ECSCoord.GetComponent<Transform>(_node.entityRef);
 
             float _xPos = _transform.Position.x;
             float _yPos = _transform.Position.y;
+            float _zPos = _transform.Position.z;
 
-            glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (_xPos, _yPos, 0.0f));
+            glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (_xPos, _yPos, _zPos));
 
 
             if(_node.isSelected)
@@ -115,6 +130,10 @@ namespace MELT
                 m_TargetShader->SetMat4UniformProjection(_projection);
                 m_TargetShader->SetVec3UniformCameraWorldPosition(m_Engine->MainCamera.Position);
                 aCube->Draw();
+
+                glStencilMask(0xFF);
+                glStencilFunc(GL_ALWAYS, 0, 0xFF);
+                glEnable(GL_DEPTH_TEST);
             }
         }
 

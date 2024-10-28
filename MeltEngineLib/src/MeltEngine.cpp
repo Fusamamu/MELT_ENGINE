@@ -170,47 +170,15 @@ namespace MELT
 
                 if(_dist < 1.0f)
                 {
-                    _node.isSelected = true;
-
                     NodeMng.CurrentSelectedNode = &_node;
-
-                    //NodeMng.SelectNode(&_node);
+                    NodeMng.CurrentSelectedNode->isSelected = true;
                     break;
                 }
             }
-
-
-
-
-//            for(int _i = 0; _i < ECSCoord.m_EntityManager->ActiveEntities.size(); _i++)
-//            {
-//                auto _entity = ECSCoord.m_EntityManager->ActiveEntities[_i];
-//
-//                Transform& _transform = ECSCoord.GetComponent<Transform>(_entity);
-//
-//                auto _dist = glm::distance(Input.MouseScreenWorldPosition, _transform.Position);
-//
-//                if(_dist < 1.0f)
-//                {
-//                    ECSCoord.SelectedEntity = _entity;
-//                    _entitySelected = true;
-//                    break;
-//                }
-//            }
-
-//            if(!_entitySelected)
-//                ECSCoord.SelectedEntity = -1;
         }
 
         if(Input.IsMouseButtonHeld(SDL_BUTTON_LEFT))
         {
-//            if(ECSCoord.SelectedEntity != -1)
-//            {
-//                Transform& _transform = ECSCoord.GetComponent<Transform>(ECSCoord.SelectedEntity);
-//                _transform.Position.x = Input.MouseScreenWorldPosition.x;
-//                _transform.Position.y = Input.MouseScreenWorldPosition.y;
-//            }
-
             if(NodeMng.CurrentSelectedNode != nullptr && NodeMng.CurrentSelectedNode->isSelected)
             {
                 Transform& _transform = ECSCoord.GetComponent<Transform>(NodeMng.CurrentSelectedNode->entityRef);

@@ -366,24 +366,12 @@ namespace MELT_EDITOR
 
             if (ImGui::CollapsingHeader("Scene 1"))
             {
-//                for(int _i = 0; _i < Engine->ECSCoord.m_EntityManager->ActiveEntities.size(); _i++)
-//                {
-//                    auto _entity = Engine->ECSCoord.m_EntityManager->ActiveEntities[_i];
-//                    std::string _e = "Entity_" + std::to_string(_entity);
-//                    if(ImGui::Selectable(_e.c_str(), _i == _selectedItem))
-//                    {
-//                        _selectedItem = _i;
-//                        Engine->ECSCoord.SelectedEntity = _entity;
-//                    }
-//                }
-
                 for(std::size_t _i = 0; _i < Engine->NodeMng.SceneNodes.size(); ++_i)
                 {
                     std::string _e = "Entity_" + std::to_string(Engine->NodeMng.SceneNodes[_i].entityRef);
                     if(ImGui::Selectable(_e.c_str(), _i == _selectedItem))
                     {
                         _selectedItem = _i;
-                        //Engine->ECSCoord.SelectedEntity = _entity;
                         Engine->NodeMng.CurrentSelectedNode = &Engine->NodeMng.SceneNodes[_i];
                         Engine->NodeMng.CurrentSelectedNode->isSelected = true;
                     }
@@ -401,6 +389,8 @@ namespace MELT_EDITOR
         ImGui::PopStyleColor();
     }
 
+    MELT::Node* currentNodeRef;
+
     void Editor::DrawInspectorGUI()
     {
         if (ImGui::Begin("Inspector"))
@@ -410,10 +400,10 @@ namespace MELT_EDITOR
 
             ImGui::Text(ICON_KI_ARROW_TOP_LEFT "  Hello with an icon!");
 
-            //glm::vec3 _position(0.0f);
-
             if(Engine->NodeMng.CurrentSelectedNode && Engine->NodeMng.CurrentSelectedNode->isSelected)
             {
+                currentNodeRef = Engine->NodeMng.CurrentSelectedNode;
+
                 MELT::Entity _e = Engine->NodeMng.CurrentSelectedNode->entityRef;
 
                 if(_e < 100)
@@ -424,7 +414,21 @@ namespace MELT_EDITOR
                     DrawSpriteRendererComponentPanel(_spriteRenderer);
                 }
             }
+            else
+            {
+                if(currentNodeRef != nullptr)
+                {
+                    MELT::Entity _e = currentNodeRef->entityRef;
 
+                    if(_e < 100)
+                    {
+                        MELT::Transform&      _transform      = Engine->ECSCoord.GetComponent<MELT::Transform>     (_e);
+                        MELT::SpriteRenderer& _spriteRenderer = Engine->ECSCoord.GetComponent<MELT::SpriteRenderer>(_e);
+                        DrawTransformComponentPanel     (_transform);
+                        DrawSpriteRendererComponentPanel(_spriteRenderer);
+                    }
+                }
+            }
 
             ImVec2 _contentRegionAvail = ImGui::GetContentRegionAvail();
 
