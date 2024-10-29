@@ -65,6 +65,8 @@ namespace MELT_EDITOR
         ConsoleGUI     .EditorOwner = this;
         SpriteEditorGUI.EditorOwner = this;
         SpriteEditorGUI.Init();
+
+        NFD_Init();
     }
 
     Editor::~Editor()
@@ -72,6 +74,8 @@ namespace MELT_EDITOR
         ImGui_ImplOpenGL3_Shutdown();
         ImGui_ImplSDL2_Shutdown();
         ImGui::DestroyContext();
+
+        NFD_Quit();
     }
 
     void Editor::UpdateInput(SDL_Event _event)
@@ -128,14 +132,82 @@ namespace MELT_EDITOR
 
     }
 
+    bool CompileScript(const std::string& scriptPath, std::string& output) {
+        std::string command = "g++ -dynamiclib -o libscript.dylib " + scriptPath + " 2>&1"; // Redirect stderr to stdout
+        FILE* pipe = popen(command.c_str(), "r"); // Open a pipe to capture output
+        if (!pipe)
+            return false;
+
+        char buffer[128];
+        output.clear();
+        while (fgets(buffer, sizeof(buffer), pipe) != nullptr) {
+            output += buffer;
+        }
+        return pclose(pipe) == 0;
+    }
+
     void Editor::DrawMainMenubar()
     {
         if (ImGui::BeginMainMenuBar())
         {
             if (ImGui::BeginMenu("File"))
             {
+                if (ImGui::MenuItem("Test compile"))
+                {
+
+                }
+
+
+
+
+
+                if (ImGui::MenuItem("New project"))
+                {
+                    nfdu8char_t *outPath;
+                    nfdpickfolderu8args_t _args { 0 };
+                    nfdresult_t result = NFD_PickFolderU8_With(&outPath, &_args);
+
+                    if (result == NFD_OKAY)
+                    {
+                        puts("Success!");
+                        puts(outPath);
+                        NFD_FreePathU8(outPath);
+                    }
+                    else if (result == NFD_CANCEL)
+                    {
+                        puts("User pressed cancel.");
+                    }
+                    else
+                    {
+                        printf("Error: %s\n", NFD_GetError());
+                    }
+                }
+
                 if (ImGui::MenuItem("Open", "Ctrl+O"))
                 {
+                    nfdu8char_t *outPath;
+                    nfdpickfolderu8args_t _args { 0 };
+                    nfdresult_t result = NFD_PickFolderU8_With(&outPath, &_args);
+
+                    if (result == NFD_OKAY)
+                    {
+                        puts("Success!");
+                        puts(outPath);
+
+
+                        CurrentWorkingProjectRootPath = outPath;
+
+
+                        NFD_FreePathU8(outPath);
+                    }
+                    else if (result == NFD_CANCEL)
+                    {
+                        puts("User pressed cancel.");
+                    }
+                    else
+                    {
+                        printf("Error: %s\n", NFD_GetError());
+                    }
                 }
                 if (ImGui::MenuItem("Save", "Ctrl+S"))
                     TestSave();
@@ -525,7 +597,10 @@ namespace MELT_EDITOR
 
         ImGui::BeginChild("##Scrollable List", ImVec2(0, ImGui::GetContentRegionAvail().y), true);
 
-        DisplayFileBrowser("../Project");
+        if(std::filesystem::exists(CurrentWorkingProjectRootPath) && std::filesystem::is_directory(CurrentWorkingProjectRootPath))
+        {
+            DisplayFileBrowser(CurrentWorkingProjectRootPath);
+        }
 
         ImGui::EndChild();
         ImGui::EndChild();

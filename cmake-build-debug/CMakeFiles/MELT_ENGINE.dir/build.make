@@ -117,6 +117,7 @@ MELT_ENGINE: /usr/local/lib/libassimp.dylib
 MELT_ENGINE: /Library/Frameworks/SDL2.framework/Versions/A/SDL2
 MELT_ENGINE: /usr/local/lib/libGLEW.2.2.0.dylib
 MELT_ENGINE: MeltEngineLib/vendors/yaml-cpp/libyaml-cppd.a
+MELT_ENGINE: MeltEngineEditorLib/vendors/nativefiledialog-extended/src/libnfd.a
 MELT_ENGINE: CMakeFiles/MELT_ENGINE.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable MELT_ENGINE"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MELT_ENGINE.dir/link.txt --verbose=$(VERBOSE)

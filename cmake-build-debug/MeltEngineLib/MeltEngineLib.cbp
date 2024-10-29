@@ -5,7 +5,7 @@
 		<Option title="MeltEngineLib"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\Project\;CMake Files\Project\Scripts\;CMake Files\MeltEngineLib\;CMake Files\MeltEngineLib\vendors\;CMake Files\MeltEngineLib\vendors\yaml-cpp\;CMake Files\MeltEngineLib\vendors\yaml-cpp\util\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\Library\;CMake Files\..\..\..\..\..\Library\Frameworks\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\CMake\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glew\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glm\;CMake Files\MeltEngineEditorLib\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Project\;CMake Files\MeltEngineLib\;CMake Files\MeltEngineLib\vendors\;CMake Files\MeltEngineLib\vendors\yaml-cpp\;CMake Files\MeltEngineLib\vendors\yaml-cpp\util\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\Library\;CMake Files\..\..\..\..\..\Library\Frameworks\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\CMake\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glew\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glm\;CMake Files\MeltEngineEditorLib\;CMake Files\MeltEngineEditorLib\vendors\;CMake Files\MeltEngineEditorLib\vendors\nativefiledialog-extended\;CMake Files\MeltEngineEditorLib\vendors\nativefiledialog-extended\src\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib"/>
@@ -568,8 +568,8 @@
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/Project/Scripts/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\Project\Scripts\"/>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/Project/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Project\"/>
 		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\MeltEngineLib\"/>
@@ -612,6 +612,12 @@
 		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\MeltEngineEditorLib\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/nativefiledialog-extended/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\MeltEngineEditorLib\vendors\nativefiledialog-extended\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\MeltEngineEditorLib\vendors\nativefiledialog-extended\src\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

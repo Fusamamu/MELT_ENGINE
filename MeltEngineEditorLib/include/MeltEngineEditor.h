@@ -24,6 +24,8 @@
 #include "ScriptEditorGUI.h"
 #include "ConsoleGUI.h"
 
+#include "nfd.h"
+
 namespace MELT_EDITOR
 {
     class Editor
@@ -32,6 +34,8 @@ namespace MELT_EDITOR
         MELT::Engine* Engine;
 
         std::vector<std::string> fileNames;
+
+        std::filesystem::path CurrentWorkingProjectRootPath;
 
         SpriteEditorGUI SpriteEditorGUI;
         ScriptEditorGUI ScriptEditorGUI;

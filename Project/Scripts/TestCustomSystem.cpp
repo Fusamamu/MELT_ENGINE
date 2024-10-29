@@ -1,5 +1,10 @@
 #include "TestCustomSystem.h"
 
+TestCustomSystem* CreateCustomSystem()
+{
+    return new TestCustomSystem();
+}
+
 void TestCustomSystem::OnStart()
 {
 

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="nativefiledialog-extended"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Project\;CMake Files\MeltEngineLib\;CMake Files\MeltEngineLib\vendors\;CMake Files\MeltEngineLib\vendors\yaml-cpp\;CMake Files\MeltEngineLib\vendors\yaml-cpp\util\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\Library\;CMake Files\..\..\..\..\..\Library\Frameworks\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\CMake\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glew\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glm\;CMake Files\MeltEngineEditorLib\;CMake Files\MeltEngineEditorLib\vendors\;CMake Files\MeltEngineEditorLib\vendors\nativefiledialog-extended\;CMake Files\MeltEngineEditorLib\vendors\nativefiledialog-extended\src\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nfd">
+				<Option output="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/libnfd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DNFD_MACOS_ALLOWEDCONTENTTYPES=1"/>
+					<Add option="-DM_EDITOR"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/AppKit.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/UniformTypeIdentifiers.framework"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/Makefile&quot;  VERBOSE=1 nfd"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="nfd/fast">
+				<Option output="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/libnfd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DNFD_MACOS_ALLOWEDCONTENTTYPES=1"/>
+					<Add option="-DM_EDITOR"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/AppKit.framework"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/UniformTypeIdentifiers.framework"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/Makefile&quot;  VERBOSE=1 nfd/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/include/nfd.h">
+			<Option target="nfd"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/include/nfd.hpp">
+			<Option target="nfd"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/include/nfd_glfw3.h">
+			<Option target="nfd"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/include/nfd_sdl2.h">
+			<Option target="nfd"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/nfd_cocoa.m">
+			<Option target="nfd"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/Project/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Project\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\MeltEngineLib\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\MeltEngineLib\vendors\yaml-cpp\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/yaml-cpp-config.cmake.in">
+			<Option virtualFolder="CMake Files\MeltEngineLib\vendors\yaml-cpp\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/yaml-cpp.pc.in">
+			<Option virtualFolder="CMake Files\MeltEngineLib\vendors\yaml-cpp\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/util/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\MeltEngineLib\vendors\yaml-cpp\util\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/../../../../../Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/../../../../../Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\CMake\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/../../../../../usr/local/lib/cmake/glew/CopyImportedTargetProperties.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glew\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/../../../../../usr/local/lib/cmake/glew/glew-config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glew\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/../../../../../usr/local/lib/cmake/glew/glew-targets-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glew\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/../../../../../usr/local/lib/cmake/glew/glew-targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glew\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/../../../../../usr/local/lib/cmake/glm/glmConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glm\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/../../../../../usr/local/lib/cmake/glm/glmConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\local\lib\cmake\glm\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\MeltEngineEditorLib\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/nativefiledialog-extended/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\MeltEngineEditorLib\vendors\nativefiledialog-extended\"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\MeltEngineEditorLib\vendors\nativefiledialog-extended\src\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

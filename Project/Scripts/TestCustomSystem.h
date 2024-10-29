@@ -1,8 +1,10 @@
 #pragma once
 #include "MeltEngine.h"
 
-class TestCustomSystem : MELT::INativeSystem
+class TestCustomSystem : public MELT::INativeSystem
 {
 public:
     NATIVE_SYSTEM_OVERRIDE;
 };
+
+extern "C" TestCustomSystem* CreateCustomSystem();

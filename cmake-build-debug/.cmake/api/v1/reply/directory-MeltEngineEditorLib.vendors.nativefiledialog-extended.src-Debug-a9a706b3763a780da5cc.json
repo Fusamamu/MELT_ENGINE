@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "MeltEngineEditorLib/vendors/nativefiledialog-extended/src",
+		"source" : "MeltEngineEditorLib/vendors/nativefiledialog-extended/src"
+	}
+}

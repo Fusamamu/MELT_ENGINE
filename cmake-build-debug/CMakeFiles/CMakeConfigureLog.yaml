@@ -290,3 +290,40 @@ events:
       
       
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/Applications/CLion.app/Contents/bin/cmake/mac/x64/share/cmake-3.27/Modules/CheckCXXSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeLists.txt:41 (check_cxx_source_compiles)"
+    checks:
+      - "Performing Test NFD_USE_ALLOWEDCONTENTTYPES"
+    directories:
+      source: "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-AGz8zx"
+      binary: "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-AGz8zx"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_OSX_ARCHITECTURES: ""
+      CMAKE_OSX_DEPLOYMENT_TARGET: "13.6"
+      CMAKE_OSX_SYSROOT: "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk"
+    buildResult:
+      variable: "NFD_USE_ALLOWEDCONTENTTYPES"
+      cached: true
+      stdout: |
+        Change Dir: '/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-AGz8zx'
+        
+        Run Build Command(s): /Applications/CLion.app/Contents/bin/cmake/mac/x64/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_5127d/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_5127d.dir/build.make CMakeFiles/cmTC_5127d.dir/build
+        Building CXX object CMakeFiles/cmTC_5127d.dir/src.cxx.o
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -DNFD_USE_ALLOWEDCONTENTTYPES  -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -MD -MT CMakeFiles/cmTC_5127d.dir/src.cxx.o -MF CMakeFiles/cmTC_5127d.dir/src.cxx.o.d -o CMakeFiles/cmTC_5127d.dir/src.cxx.o -c "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles/CMakeScratch/TryCompile-AGz8zx/src.cxx"
+        Linking CXX executable cmTC_5127d
+        /Applications/CLion.app/Contents/bin/cmake/mac/x64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5127d.dir/link.txt --verbose=1
+        /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk -mmacosx-version-min=13.6 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/cmTC_5127d.dir/src.cxx.o -o cmTC_5127d 
+        
+      exitCode: 0
+...

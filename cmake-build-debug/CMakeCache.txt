@@ -15,7 +15,13 @@
 ########################
 
 //Path to a library.
+APPKIT_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/AppKit.framework
+
+//Path to a library.
 ASSIMP_PATH:FILEPATH=/usr/local/lib/libassimp.dylib
+
+//Build a shared library instead of static
+BUILD_SHARED_LIBS:BOOL=OFF
 
 //Build the testing tree.
 BUILD_TESTING:BOOL=ON
@@ -313,13 +319,16 @@ CTEST_SUBMIT_RETRY_COUNT:STRING=3
 CTEST_SUBMIT_RETRY_DELAY:STRING=5
 
 //Value Computed by CMake
-CustomNativeScript_BINARY_DIR:STATIC=/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/Project/Scripts
+CustomNativeScript_BINARY_DIR:STATIC=/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/Project
 
 //Value Computed by CMake
 CustomNativeScript_IS_TOP_LEVEL:STATIC=OFF
 
+//Dependencies for the target
+CustomNativeScript_LIB_DEPENDS:STATIC=general;MeltEngineLib;
+
 //Value Computed by CMake
-CustomNativeScript_SOURCE_DIR:STATIC=/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/Project/Scripts
+CustomNativeScript_SOURCE_DIR:STATIC=/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/Project
 
 //Maximum time allowed before CTest will kill the test.
 DART_TESTING_TIMEOUT:STRING=1500
@@ -375,6 +384,21 @@ MeltEngineLib_IS_TOP_LEVEL:STATIC=OFF
 //Value Computed by CMake
 MeltEngineLib_SOURCE_DIR:STATIC=/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib
 
+//Build SDL2 tests for nfd
+NFD_BUILD_SDL2_TESTS:BOOL=OFF
+
+//Build tests for nfd
+NFD_BUILD_TESTS:BOOL=OFF
+
+//Generate install target for nfd
+NFD_INSTALL:BOOL=OFF
+
+//Use defaultPath instead of recent folder on Windows
+NFD_OVERRIDE_RECENT_WITH_DEFAULT:BOOL=OFF
+
+//Use allowedContentTypes for filter lists on macOS >= 11.0
+NFD_USE_ALLOWEDCONTENTTYPES_IF_AVAILABLE:BOOL=ON
+
 //Include for OpenGL on OS X
 OPENGL_INCLUDE_DIR:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/OpenGL.framework
 
@@ -392,6 +416,9 @@ SDL2_DIR:PATH=/Library/Frameworks/SDL2.framework/Resources/CMake
 
 //Name of the computer/site where compile is being run
 SITE:STRING=Sukums-iMac.local
+
+//Path to a library.
+UNIFORMTYPEIDENTIFIERS_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/UniformTypeIdentifiers.framework
 
 //Build yaml-cpp shared library
 YAML_BUILD_SHARED_LIBS:BOOL=OFF
@@ -431,6 +458,18 @@ YAML_USE_SYSTEM_GTEST:BOOL=OFF
 
 //The directory containing a CMake configuration file for glm.
 glm_DIR:PATH=/usr/local/lib/cmake/glm
+
+//Value Computed by CMake
+nativefiledialog-extended_BINARY_DIR:STATIC=/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended
+
+//Value Computed by CMake
+nativefiledialog-extended_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+nativefiledialog-extended_SOURCE_DIR:STATIC=/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/nativefiledialog-extended
+
+//Dependencies for the target
+nfd_LIB_DEPENDS:STATIC=general;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/AppKit.framework;general;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk/System/Library/Frameworks/UniformTypeIdentifiers.framework;
 
 
 ########################
@@ -569,7 +608,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -640,6 +679,8 @@ MAKECOMMAND-ADVANCED:INTERNAL=1
 MEMORYCHECK_COMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MEMORYCHECK_SUPPRESSIONS_FILE
 MEMORYCHECK_SUPPRESSIONS_FILE-ADVANCED:INTERNAL=1
+//Test NFD_USE_ALLOWEDCONTENTTYPES
+NFD_USE_ALLOWEDCONTENTTYPES:INTERNAL=1
 //ADVANCED property for variable: OPENGL_INCLUDE_DIR
 OPENGL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_gl_LIBRARY

@@ -10,3 +10,6 @@
 [submodule "MeltEngineLib/vendors/yaml-cpp"]
 	path = MeltEngineLib/vendors/yaml-cpp
 	url = https://github.com/jbeder/yaml-cpp.git
+[submodule "MeltEngineEditorLib/vendors/nativefiledialog-extended"]
+	path = MeltEngineEditorLib/vendors/nativefiledialog-extended
+	url = https://github.com/btzy/nativefiledialog-extended.git
