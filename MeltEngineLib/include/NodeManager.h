@@ -2,6 +2,7 @@
 #include "Core.h"
 #include "Node.h"
 #include "Vector.h"
+#include "InputSystem.h"
 
 namespace MELT
 {
@@ -13,7 +14,7 @@ namespace MELT
 
         std::vector<Node> SceneNodes;
 
-        Node& CreateNode(MELT::vec2<float> _atPosition);
+        Node& CreateNode(M_MATH::vec2<float> _atPosition);
 
         //void SelectNode(Node* _node);
     };

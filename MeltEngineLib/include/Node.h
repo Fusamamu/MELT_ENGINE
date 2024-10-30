@@ -12,11 +12,11 @@ namespace MELT
         NodeID id;
         std::string name;
         bool isSelected;
-        MELT::vec2<float> position;
+        M_MATH::vec2<float> position;
 
         MELT::Entity entityRef;
 
-        Node(std::string _name, MELT::vec2<float> _position);
+        Node(std::string _name, M_MATH::vec2<float> _position);
         ~Node();
     };
 }

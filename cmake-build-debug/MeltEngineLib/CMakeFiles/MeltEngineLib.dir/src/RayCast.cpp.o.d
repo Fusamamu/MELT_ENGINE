@@ -1049,4 +1049,5 @@ MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/RayCast.cpp.o: \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/RayCast.cpp \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/RayCast.h \
   /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/Core.h \
-  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components/Camera.h
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/ECS/Components/Camera.h \
+  /Users/pengaki/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./include/MathLib/Vector.h

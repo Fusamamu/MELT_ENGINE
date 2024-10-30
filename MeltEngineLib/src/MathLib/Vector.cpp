@@ -1,5 +1,5 @@
 #include "Vector.h"
 
-namespace MELT
+namespace M_MATH
 {
 }

@@ -8,6 +8,8 @@ namespace MELT
 {
     struct Camera
     {
+        bool UseOrthographic;
+
         glm::vec3 Position;
         glm::vec3 Target;
         glm::vec3 Up;
@@ -17,6 +19,7 @@ namespace MELT
 
         /** @brief Screen size of a window used to calculate projection matrix*/
         glm::vec2 ScreenSize;
+        glm::vec2 WindowSize;
 
         float Zoom;
         float ScreenRatio;

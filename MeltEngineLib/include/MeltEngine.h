@@ -81,6 +81,12 @@ namespace MELT
         void SelectObject(int cursorX, int cursorY, int screenWidth, int screenHeight,
                           const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix,
                           const glm::vec3& cameraPosition);
+
+
+        void SelectObject(int cursorX, int cursorY, const Camera& _camera);
+
+        void SelectObject(glm::vec2 _mouseScreenPos, const Camera& _camera);
+
     private:
         bool m_IsRunning;
 

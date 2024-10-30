@@ -14,7 +14,8 @@ namespace MELT
 
         glm::vec2 MouseDelta { 0, 0 };
 
-        glm::vec3 MouseScreenWorldPosition { };
+        glm::vec3 MouseScreenWorldPosition      { };
+        glm::vec2 MouseScreenNormalizedPosition { };
         /** @brief Mouse position of application window. Coord(0,0) starts from top left corner of the window application*/
         glm::vec2 MouseWindowPosition      { };
         /** @brief Mouse screen position of a camera window.(Scene editor window)*/
