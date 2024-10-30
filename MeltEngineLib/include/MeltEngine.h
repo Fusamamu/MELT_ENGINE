@@ -25,6 +25,7 @@
 
 #include "EventManager.h"
 #include "InputSystem.h"
+#include "RayCast.h"
 
 #include "yaml-cpp/yaml.h"
 
@@ -75,6 +76,11 @@ namespace MELT
 
         SDL_Window* GetWindow();
         SDL_GLContext& GetGLContext();
+
+
+        void SelectObject(int cursorX, int cursorY, int screenWidth, int screenHeight,
+                          const glm::mat4& viewMatrix, const glm::mat4& projectionMatrix,
+                          const glm::vec3& cameraPosition);
     private:
         bool m_IsRunning;
 

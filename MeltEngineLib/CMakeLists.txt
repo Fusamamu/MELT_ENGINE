@@ -41,7 +41,8 @@ add_library(${PROJECT_NAME} STATIC
         src/NodeManager.cpp
         src/MathLib/Vector.cpp
         src/Renderer/RendererAPI.cpp
-        src/Renderer/RenderPipeline.cpp)
+        src/Renderer/RenderPipeline.cpp
+        src/RayCast.cpp)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC ./include/Core.h)
 

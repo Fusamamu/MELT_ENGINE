@@ -62,26 +62,14 @@ namespace MELT
         glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
-        glm::mat4 _view  = glm::lookAt(
-                m_Engine->MainCamera.Position,
-                m_Engine->MainCamera.Target,
-                m_Engine->MainCamera.Up
-        );
-
-        glm::mat4 _projection = glm::ortho(
-                -(Engine::ScreenWidth  / 2),
-                (Engine::ScreenWidth  / 2),
-                -(Engine::ScreenHeight / 2),
-                (Engine::ScreenHeight / 2),
-                0.1f, 100.0f);
-
+        glm::mat4 _view       = m_Engine->MainCamera.GetViewMatrix();
+        glm::mat4 _projection = m_Engine->MainCamera.GetOrthographicProjectionMatrix();
 
         m_GridShader->Use();
         m_GridShader->SetMat4UniformModel(glm::translate(glm::mat4(1.0f), glm::vec3 (0.0, 0.0, 0.0)));
         m_GridShader->SetMat4UniformView(_view);
         m_GridShader->SetMat4UniformProjection(_projection);
         aQuad->Draw();
-
 
         for(const Node& _node : m_Engine->NodeMng.SceneNodes)
         {

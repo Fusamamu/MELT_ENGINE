@@ -154,7 +154,8 @@ namespace MELT_EDITOR
             {
                 if (ImGui::MenuItem("Test compile"))
                 {
-
+                    std::string _output;
+                    CompileScript("/Users/pengaki/Desktop/MeltSampleProject/Assets/Scripts/TestCustomSystem.cpp", _output);
                 }
 
 
@@ -293,28 +294,17 @@ namespace MELT_EDITOR
     {
         if (ImGui::Begin("Scene view"))
         {
-            const float _contentWidth  = ImGui::GetContentRegionAvail().x;
-            const float _contentHeight = ImGui::GetContentRegionAvail().y;
+            const float _sceneEditorWindowWidth  = ImGui::GetContentRegionAvail().x;
+            const float _sceneEditorWindowHeight = ImGui::GetContentRegionAvail().y;
 
-            const float WINDOW_RATIO  = _contentWidth / _contentHeight;
-
-            MELT::Engine::ScreenHeight = Engine->MainCamera.OrthographicSize * 2;
-            MELT::Engine::ScreenWidth  = WINDOW_RATIO * MELT::Engine::ScreenHeight;
+            Engine->MainCamera.UpdateScreenSizeWithOrthographicSize(_sceneEditorWindowWidth / _sceneEditorWindowHeight);
 
             ImVec2 pos = ImGui::GetCursorScreenPos();
-
-//            ImGui::GetWindowDrawList()->AddImage(
-//                    (void*)(intptr_t)Engine->m_RenderSystem->EditorSceneFrameBuffer->TextureID,
-//                    ImVec2(pos.x, pos.y),
-//                    ImVec2(pos.x + _contentWidth, pos.y + _contentHeight),
-//                    ImVec2(0, 1),
-//                    ImVec2(1, 0)
-//            );
 
             ImGui::GetWindowDrawList()->AddImage(
                     (void*)(intptr_t)Engine->TargetRenderPipeline->EditorSceneFrameBuffer->TextureID,
                     ImVec2(pos.x, pos.y),
-                    ImVec2(pos.x + _contentWidth, pos.y + _contentHeight),
+                    ImVec2(pos.x + _sceneEditorWindowWidth, pos.y + _sceneEditorWindowHeight),
                     ImVec2(0, 1),
                     ImVec2(1, 0)
             );
@@ -322,24 +312,28 @@ namespace MELT_EDITOR
             glm::vec3 _cameraPos = Engine->MainCamera.Position;
 
             ImVec2 _cursorScreenPos = ImGui::GetCursorScreenPos();
-            ImVec2 _mousePos        = ImGui::GetMousePos();
-            ImVec2 _screenPos       = ImVec2(_mousePos.x - _cursorScreenPos.x, _mousePos.y - _cursorScreenPos.y);
 
-            ImVec2 _mousePosRelativeToScreenCenter = ImVec2(
-                      _screenPos.x - _contentWidth  / 2 + _cameraPos.x,
-                    -(_screenPos.y - _contentHeight / 2 - _cameraPos.y ));
+            MELT::Input.MouseWindowPosition.x = ImGui::GetMousePos().x;
+            MELT::Input.MouseWindowPosition.y = ImGui::GetMousePos().y;
+            MELT::Input.MouseScreenPosition.x = ImVec2(MELT::Input.MouseWindowPosition.x - _cursorScreenPos.x, MELT::Input.MouseWindowPosition.y - _cursorScreenPos.y).x;
+            MELT::Input.MouseScreenPosition.y = ImVec2(MELT::Input.MouseWindowPosition.x - _cursorScreenPos.x, MELT::Input.MouseWindowPosition.y - _cursorScreenPos.y).y;
 
-            ImGui::Text("Mouse window position      : (%.1f, %.1f)"     , _mousePos .x  , _mousePos .y  );
-            ImGui::Text("Mouse screen position      : (%.1f, %.1f)"     , _screenPos.x  , _screenPos.y  );
+            ImVec2 _screenPos = ImVec2(MELT::Input.MouseWindowPosition.x - _cursorScreenPos.x, MELT::Input.MouseWindowPosition.y - _cursorScreenPos.y);
+
+            ImVec2 _mousePosRelativeToScreenCenter = ImVec2(MELT::Input.MouseScreenPosition.x - _sceneEditorWindowWidth / 2 + _cameraPos.x, -(MELT::Input.MouseScreenPosition.y - _sceneEditorWindowHeight / 2 - _cameraPos.y ));
             ImGui::Text("Mouse relative position    : (%.1f, %.1f)"     , _mousePosRelativeToScreenCenter .x  , _mousePosRelativeToScreenCenter .y  );
-            ImGui::Text("Window content W H         : (%.1f, %.1f)"     , _contentWidth , _contentHeight);
+
+            ImGui::Text("Mouse window position      : (%.1f, %.1f)"     , MELT::Input.MouseWindowPosition .x  , MELT::Input.MouseWindowPosition .y  );
+            ImGui::Text("Mouse screen position      : (%.1f, %.1f)"     , MELT::Input.MouseScreenPosition.x  , MELT::Input.MouseScreenPosition.y  );
+            ImGui::Text("Window content W H         : (%.1f, %.1f)"     , _sceneEditorWindowWidth , _sceneEditorWindowHeight);
             ImGui::Text("Orthographic projection W H: (%.1f, %.1f)"     , MELT::Engine::ScreenWidth, MELT::Engine::ScreenHeight);
 
-            float originalMinX = 0.0f, originalMaxX = _contentWidth;
-            float originalMinY = 0.0f, originalMaxY = _contentHeight;
+            float originalMinX = 0.0f, originalMaxX = _sceneEditorWindowWidth;
+            float originalMinY = 0.0f, originalMaxY = _sceneEditorWindowHeight;
 
             float targetMinX = 0.0f, targetMaxX = 1.0f;
             float targetMinY = 0.0f, targetMaxY = 1.0f;
+
 
             ImVec2 normalizedPos = RemapImVec2(_screenPos,
                                                originalMinX, originalMaxX, targetMinX, targetMaxX,
@@ -349,9 +343,8 @@ namespace MELT_EDITOR
             ImGui::Text("Normalized position : (%.1f, %.1f)", normalizedPos.x, normalizedPos.y);
 
             ImVec2 _mouseWorldPos = RemapImVec2(_screenPos,
-                                                originalMinX, originalMaxX, -MELT::Engine::ScreenWidth /2, MELT::Engine::ScreenWidth /2,
-                                                originalMinY, originalMaxY,  MELT::Engine::ScreenHeight/2, -MELT::Engine::ScreenHeight/2);
-
+                                                originalMinX, originalMaxX, -Engine->MainCamera.HalfScreenWidht(),  Engine->MainCamera.HalfScreenWidht(),
+                                                originalMinY, originalMaxY,  Engine->MainCamera.HalfScreenHeight(), -Engine->MainCamera.HalfScreenHeight());
             _mouseWorldPos.x += _cameraPos.x;
             _mouseWorldPos.y += _cameraPos.y;
 
@@ -359,13 +352,18 @@ namespace MELT_EDITOR
             MELT::Input.MouseScreenWorldPosition.y = _mouseWorldPos.y;
 
             ImGui::Text("Mouse world position : (%.1f, %.1f)", _mouseWorldPos.x, _mouseWorldPos.y);
+
+
+
+
+
+
             ImGui::InputFloat3("Camera position", glm::value_ptr(Engine->MainCamera.Position));
-            ImGui::SliderFloat("Zoom", &Engine->MainCamera.OrthographicSize, 1.0f, 200.f);
+            ImGui::SliderFloat("Orthographic size", &Engine->MainCamera.OrthographicSize, 1.0f, 200.f);
         }
         ImGui::End();
     }
 
-    //static bool isSelected = false;
 
     int _selectedItem = -1;
 

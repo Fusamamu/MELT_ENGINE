@@ -746,6 +746,30 @@ src/Primitive/Quad.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Primitive/Quad.cpp.s
 .PHONY : src/Primitive/Quad.cpp.s
 
+src/RayCast.o: src/RayCast.cpp.o
+.PHONY : src/RayCast.o
+
+# target to build an object file
+src/RayCast.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/RayCast.cpp.o
+.PHONY : src/RayCast.cpp.o
+
+src/RayCast.i: src/RayCast.cpp.i
+.PHONY : src/RayCast.i
+
+# target to preprocess a source file
+src/RayCast.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/RayCast.cpp.i
+.PHONY : src/RayCast.cpp.i
+
+src/RayCast.s: src/RayCast.cpp.s
+.PHONY : src/RayCast.s
+
+# target to generate assembly for a file
+src/RayCast.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/RayCast.cpp.s
+.PHONY : src/RayCast.cpp.s
+
 src/Renderer/FrameBuffer.o: src/Renderer/FrameBuffer.cpp.o
 .PHONY : src/Renderer/FrameBuffer.o
 
@@ -1025,6 +1049,9 @@ help:
 	@echo "... src/Primitive/Quad.o"
 	@echo "... src/Primitive/Quad.i"
 	@echo "... src/Primitive/Quad.s"
+	@echo "... src/RayCast.o"
+	@echo "... src/RayCast.i"
+	@echo "... src/RayCast.s"
 	@echo "... src/Renderer/FrameBuffer.o"
 	@echo "... src/Renderer/FrameBuffer.i"
 	@echo "... src/Renderer/FrameBuffer.s"

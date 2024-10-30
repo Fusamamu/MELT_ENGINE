@@ -1,9 +1,9 @@
 #include "MeltEngineEditor.h"
-//#include <dlfcn.h>
 
-//#include "Project/Scripts/TestCustomSystem.h"
-//
-//typedef TestCustomSystem* (*CreateMyClassFunc)();
+#include <dlfcn.h>
+#include "Project/Scripts/TestCustomSystem.h"
+
+typedef TestCustomSystem* (*CreateMyClassFunc)();
 
 int main()
 {
@@ -15,16 +15,13 @@ int main()
 
 
 
-//    std::cout << "Hello, World!" << std::endl;
-//
+
+
 //    void* _handle = dlopen("./Project/libCustomNativeScript.dylib", RTLD_LAZY);
-//
 //    if (!_handle) {
 //        std::cerr << "Failed to load library: " << dlerror() << std::endl;
 //        return 1;
 //    }
-//
-//
 //
 //    CreateMyClassFunc createMyClass = (CreateMyClassFunc)dlsym(_handle, "CreateCustomSystem");
 //    if (!createMyClass) {
@@ -33,19 +30,18 @@ int main()
 //        return 1;
 //    }
 //
-//    // Create the object
-//    TestCustomSystem* obj = createMyClass();
-//    obj->OnStart();
-//    obj->OnInputUpdate(0.0f);
-
-
-
-    // Clean up
-//    delete obj;
+////    TestCustomSystem* obj = createMyClass();
+////    obj->OnStart();
+////    obj->OnInputUpdate(0.0f);
 //
-//    dlclose(_handle);
-
-
+//
+//    auto _cameraControlSystem = _engine.ECSCoord.RegisterSystem<TestCustomSystem>();
+//    {
+//        MELT::Signature _signature;
+//        _signature.set(_engine.ECSCoord.GetComponentType<MELT::Transform>());
+//        _engine.ECSCoord.SetSystemSignature<TestCustomSystem>(_signature);
+//    }
+//    _cameraControlSystem->OnStart();
 
 
 
@@ -53,5 +49,9 @@ int main()
 
     _engine.Update();
     _engine.Quit();
+
+//    delete obj;
+//    dlclose(_handle);
+
     return 0;
 }

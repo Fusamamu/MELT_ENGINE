@@ -146,7 +146,47 @@ namespace MELT
         Input.CheckMouseHoldStates();
     }
 
-    glm::vec2 offset{};
+    //glm::vec2 offset{};
+
+    void Engine::SelectObject(int cursorX, int cursorY, int screenWidth, int screenHeight,
+                      const glm::mat4& viewMatrix,
+                      const glm::mat4& projectionMatrix,
+                      const glm::vec3& cameraPosition)
+    {
+        glm::vec3 rayDir = RayCast::ScreenToWorldRay(cursorX, cursorY, screenWidth, screenHeight, viewMatrix, projectionMatrix);
+
+        float closestDistance = FLT_MAX;
+        Node* selectedObject = nullptr;
+
+        for (auto& _node : NodeMng.SceneNodes)
+        {
+            Transform& _transform = ECSCoord.GetComponent<Transform>(_node.entityRef);
+
+            auto _minBounds = glm::vec3(0.0, 0.0, 0.0);
+            auto _maxBounds = glm::vec3(1.0, 1.0, 1.0);
+
+            if (RayCast::RayIntersectsAABB(cameraPosition, rayDir, _minBounds, _maxBounds))
+            {
+                float distance = glm::distance(cameraPosition, _transform.Position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+
+                    NodeMng.CurrentSelectedNode = &_node;
+                    NodeMng.CurrentSelectedNode->isSelected = true;
+                    break;
+
+                    //selectedObject = const_cast<Object*>(&object);  // Avoid using `const_cast` if possible in production
+                }
+            }
+        }
+
+//        if (selectedObject) {
+//            // Handle the selected object
+//            NodeMng.CurrentSelectedNode = &_node;
+//            NodeMng.CurrentSelectedNode->isSelected = true;
+//        }
+    }
 
     void Engine::UpdateLogic()
     {
@@ -165,8 +205,6 @@ namespace MELT
 
                     for(Node& _node : NodeMng.SceneNodes)
                     {
-                        MELT::Entity  _entity = _node.entityRef;
-
                         Transform& _transform = ECSCoord.GetComponent<Transform>(_node.entityRef);
 
                         auto _dist = glm::distance(Input.MouseScreenWorldPosition, _transform.Position);

@@ -51,6 +51,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MeltEngineLib.dir/src/Primitive/Cube.cpp.o.d"
   "CMakeFiles/MeltEngineLib.dir/src/Primitive/Quad.cpp.o"
   "CMakeFiles/MeltEngineLib.dir/src/Primitive/Quad.cpp.o.d"
+  "CMakeFiles/MeltEngineLib.dir/src/RayCast.cpp.o"
+  "CMakeFiles/MeltEngineLib.dir/src/RayCast.cpp.o.d"
   "CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.o"
   "CMakeFiles/MeltEngineLib.dir/src/Renderer/FrameBuffer.cpp.o.d"
   "CMakeFiles/MeltEngineLib.dir/src/Renderer/Line.cpp.o"
