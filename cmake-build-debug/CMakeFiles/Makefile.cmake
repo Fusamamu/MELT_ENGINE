@@ -63,7 +63,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/util/CMakeLists.txt"
   "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/yaml-cpp-config.cmake.in"
   "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/yaml-cpp.pc.in"
-  "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/Project/CMakeLists.txt"
   "CMakeFiles/3.27.8/CMakeCCompiler.cmake"
   "CMakeFiles/3.27.8/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.27.8/CMakeSystem.cmake"
@@ -96,7 +95,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "MeltEngineEditorLib/CMakeFiles/CMakeDirectoryInformation.cmake"
   "MeltEngineEditorLib/vendors/nativefiledialog-extended/CMakeFiles/CMakeDirectoryInformation.cmake"
   "MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "Project/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -137,5 +135,4 @@ set(CMAKE_DEPEND_INFO_FILES
   "MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-read.dir/DependInfo.cmake"
   "MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/DependInfo.cmake"
   "MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/DependInfo.cmake"
-  "Project/CMakeFiles/CustomNativeScript.dir/DependInfo.cmake"
   )

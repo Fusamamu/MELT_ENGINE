@@ -2,6 +2,16 @@
 
 namespace MELT
 {
+    NodeManager::NodeManager(): LoclSelectedNode(false)
+    {
+
+    }
+
+    NodeManager::~NodeManager()
+    {
+
+    }
+
     Node& NodeManager::CreateNode(M_MATH::vec2<float> _atPosition)
     {
         Node _newNode ("new node", _atPosition);

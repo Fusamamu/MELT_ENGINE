@@ -12,7 +12,12 @@ namespace MELT
 
         Node* CurrentSelectedNode;
 
+        bool LoclSelectedNode;
+
         std::vector<Node> SceneNodes;
+
+        NodeManager();
+        ~NodeManager();
 
         Node& CreateNode(M_MATH::vec2<float> _atPosition);
 

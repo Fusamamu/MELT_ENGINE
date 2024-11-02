@@ -585,19 +585,6 @@ nfd/fast:
 	$(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/build.make MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/build
 .PHONY : nfd/fast
 
-#=============================================================================
-# Target rules for targets named CustomNativeScript
-
-# Build rule for target.
-CustomNativeScript: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CustomNativeScript
-.PHONY : CustomNativeScript
-
-# fast build rule for target.
-CustomNativeScript/fast:
-	$(MAKE) $(MAKESILENT) -f Project/CMakeFiles/CustomNativeScript.dir/build.make Project/CMakeFiles/CustomNativeScript.dir/build
-.PHONY : CustomNativeScript/fast
-
 # target to build an object file
 cmake_pch.hxx.pch:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MELT_ENGINE.dir/build.make CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch
@@ -673,7 +660,6 @@ help:
 	@echo "... NightlySubmit"
 	@echo "... NightlyTest"
 	@echo "... NightlyUpdate"
-	@echo "... CustomNativeScript"
 	@echo "... MELT_ENGINE"
 	@echo "... MeltEngineEditorLib"
 	@echo "... MeltEngineLib"

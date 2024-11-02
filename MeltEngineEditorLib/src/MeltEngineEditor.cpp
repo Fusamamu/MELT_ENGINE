@@ -3,6 +3,10 @@
 
 namespace MELT_EDITOR
 {
+    unsigned int WindowBackground_Color = IM_COL32(33, 36, 35, 255);
+    unsigned int ChildBackground_Color  = IM_COL32(26, 28, 27, 255);
+
+
     Editor::Editor(MELT::Engine* _engine):
         Engine(_engine),
         BackgroundColor(IM_COL32(8, 14, 15, 255))
@@ -27,14 +31,25 @@ namespace MELT_EDITOR
 
         ImGuiStyle& _style = ImGui::GetStyle();
 
-        _style.Colors[ImGuiCol_WindowBg]             = ImVec4(8.0f / 255.0f, 14.0f / 255.0f, 15.0f / 255.0f, 1.0f);  // Set to a custom color (RGBA)
-        _style.Colors[ImGuiCol_TitleBg]              = ImVec4(33.0f / 255.0f, 36.0f / 255.0f, 35.0f / 255.0f, 1.0f);
-        _style.Colors[ImGuiCol_TitleBgActive]        = ImVec4(61.0f / 255.0f, 53.0f / 255.0f, 40.0f / 255.0f, 1.0f);
+        _style.Colors[ImGuiCol_WindowBg]             = ImVec4(8.0f / 255.0f, 14.0f / 255.0f, 15.0f / 255.0f, 1.0f);
+
+        //_style.Colors[ImGuiCol_TitleBg]              = ImVec4(33.0f / 255.0f, 36.0f / 255.0f, 35.0f / 255.0f, 1.0f);
+
+        _style.Colors[ImGuiCol_TitleBg]              = ImColor(33, 36, 35);
+        //_style.Colors[ImGuiCol_TitleBg]              = ImColor(28, 31, 30);
+        //_style.Colors[ImGuiCol_TitleBgActive]        = ImVec4(61.0f / 255.0f, 53.0f / 255.0f, 40.0f / 255.0f, 1.0f);
+        _style.Colors[ImGuiCol_TitleBgActive]        = ImColor(33, 36, 35);
+
+
         _style.Colors[ImGuiCol_Border]               = ImVec4(33.0f / 255.0f, 36.0f / 255.0f, 35.0f / 255.0f, 1.0f);
         _style.Colors[ImGuiCol_BorderShadow]         = ImVec4(33.0f / 255.0f, 36.0f / 255.0f, 35.0f / 255.0f, 1.0f);
+
         _style.Colors[ImGuiCol_Header]               = ImVec4(33.0f / 255.0f, 36.0f / 255.0f, 35.0f / 255.0f, 1.0f);
         _style.Colors[ImGuiCol_HeaderHovered]        = ImVec4(172.0f / 255.0f, 184.0f / 255.0f, 39.0f / 255.0f, 1.0f);
         _style.Colors[ImGuiCol_HeaderActive]         = ImVec4(172.0f / 255.0f, 184.0f / 255.0f, 39.0f / 255.0f, 1.0f);
+
+        //_style.Colors[ImGuiCol_HeaderActive]         = ImColor(33, 36, 35);
+
         _style.Colors[ImGuiCol_Separator]            = ImVec4(33.0f / 255.0f, 36.0f / 255.0f, 35.0f / 255.0f, 1.0f);
         _style.Colors[ImGuiCol_FrameBgActive]        = ImVec4(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f, 1.0f);
         _style.Colors[ImGuiCol_Tab]                  = ImVec4(59.0f / 255.0f, 53.0f / 255.0f, 51.0f / 255.0f, 1.0f);
@@ -102,6 +117,7 @@ namespace MELT_EDITOR
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplSDL2_NewFrame();
         ImGui::NewFrame();
+        ImGuizmo::BeginFrame();
 
         DrawMainMenubar();
         ImGui::DockSpaceOverViewport(0, ImGui::GetMainViewport());
@@ -115,6 +131,31 @@ namespace MELT_EDITOR
         SpriteEditorGUI.DrawGUI();
         ScriptEditorGUI.DrawGUI();
         ConsoleGUI     .DrawGUI();
+
+
+//        // Activate ImGuizmo (keeps it in sync with ImGui)
+//        ImGuizmo::BeginFrame();
+//
+//        // Set up ImGuizmo
+//        ImGuizmo::SetOrthographic(false);  // Set to true if using orthographic projection
+//        ImGuizmo::SetDrawlist();
+//
+//        // Set the ImGuizmo workspace size to match your viewport
+//        ImGuizmo::SetRect(0, 0, ImGui::GetIO().DisplaySize.x, ImGui::GetIO().DisplaySize.y);
+//
+//        // Define the transformation matrix of the object you want to manipulate
+//        static glm::mat4 objectMatrix = glm::mat4(1.0f);  // Identity matrix initially
+//
+//        // Choose operation (translate, rotate, scale)
+//        ImGuizmo::OPERATION operation = ImGuizmo::TRANSLATE;  // Set based on current tool mode
+//        ImGuizmo::MODE mode = ImGuizmo::WORLD;                // World or local space
+//
+//        // Check if a gizmo is active to prevent other interactions
+//        if (ImGuizmo::IsUsing()) {
+//            // Lock other controls or update your application state here if needed
+//        }
+
+
 
         //ImGui::ShowDemoWindow();
         ImGui::Render();
@@ -307,6 +348,41 @@ namespace MELT_EDITOR
                     ImVec2(1, 0)
             );
 
+            if(Engine->NodeMng.CurrentSelectedNode != nullptr && Engine->NodeMng.CurrentSelectedNode->isSelected)
+            {
+                ImGuizmo::SetOrthographic(true);
+                ImGuizmo::SetDrawlist();
+                ImGuizmo::SetRect(_cursorScreenPos.x, _cursorScreenPos.y, _sceneEditorWindowWidth, _sceneEditorWindowHeight);
+
+                // Define the transformation matrix of the object you want to manipulate
+                static glm::mat4 objectMatrix = glm::mat4(1.0f);
+
+                ImGuizmo::OPERATION operation = ImGuizmo::TRANSLATE;
+                ImGuizmo::MODE      mode      = ImGuizmo::WORLD;
+
+                ImGuizmo::Manipulate(
+                        glm::value_ptr(Engine->MainCamera.GetViewMatrix()),
+                        glm::value_ptr(Engine->MainCamera.GetOrthographicProjectionMatrix()),
+                        operation, mode,
+                        glm::value_ptr(objectMatrix));
+                
+                if (ImGuizmo::IsUsing())
+                {
+
+
+        //            ImGuizmo::DecomposeMatrixToComponents(glm::value_ptr(objectMatrix),
+        //                                                  glm::value_ptr(position),
+        //                                                  glm::value_ptr(rotation),
+        //                                                  glm::value_ptr(scale));
+                }
+
+            }
+
+
+
+
+
+
             Engine->MainCamera.WindowSize.x = _sceneEditorWindowWidth;
             Engine->MainCamera.WindowSize.y = _sceneEditorWindowHeight;
             Engine->MainCamera.UpdateScreenSizeWithOrthographicSize(_sceneEditorWindowWidth / _sceneEditorWindowHeight);
@@ -345,6 +421,8 @@ namespace MELT_EDITOR
             ImGui::Text("Normalized position         : (%.1f, %.1f)"     , MELT::Input.MouseScreenNormalizedPosition.x, MELT::Input.MouseScreenNormalizedPosition.y);
             ImGui::Text("Mouse world position        : (%.1f, %.1f)"     , MELT::Input.MouseScreenWorldPosition.x     , MELT::Input.MouseScreenWorldPosition.y     );
             ImGui::InputFloat3("Camera position", glm::value_ptr(Engine->MainCamera.Position));
+            ImGui::SliderFloat("Near plane"       , &Engine->MainCamera.NearPlane, -100.0f, 0.0f);
+            ImGui::SliderFloat("Far plane"        , &Engine->MainCamera.FarPlane, 0.0, 1000.0f);
             ImGui::SliderFloat("Orthographic size", &Engine->MainCamera.OrthographicSize, 1.0f, 200.f);
         }
         ImGui::End();
@@ -449,12 +527,91 @@ namespace MELT_EDITOR
 
     void Editor::DrawInspectorGUI()
     {
+        //ImGui::PushStyleColor(ImGuiCol_WindowBg, WindowBackground_Color);
+        ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
         if (ImGui::Begin("Inspector"))
         {
-            if(!CurrentTextDisplay.empty())
-                ImGui::TextUnformatted(CurrentTextDisplay.c_str());
+            ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
-            ImGui::Text(ICON_KI_ARROW_TOP_LEFT "  Hello with an icon!");
+            ImVec2 _startCursor = ImGui::GetCursorScreenPos();
+
+            ImVec2 rect_min = ImGui::GetCursorScreenPos();
+
+
+            ImVec2 padding = ImGui::GetStyle().WindowPadding;
+            rect_min.x -= padding.x;
+            rect_min.y -= padding.y;
+
+
+
+            ImVec2 rect_max = ImVec2(
+                    rect_min.x + ImGui::GetWindowWidth(),
+                    rect_min.y + 100);
+
+
+//            draw_list->AddRectFilled(
+//                    rect_min,
+//                    rect_max,
+//                    IM_COL32(61, 63, 66, 255));
+            draw_list->AddRectFilled(
+                    rect_min,
+                    rect_max,
+                    ChildBackground_Color);
+
+
+
+            rect_min.y += 100.0f;
+
+            rect_max.x = rect_min.x + ImGui::GetWindowWidth();
+            rect_max.y = rect_min.y + 400.0f;
+
+
+            draw_list->AddRectFilled(
+                    rect_min,
+                    rect_max,
+                    IM_COL32(0, 0, 0, 255));
+
+            rect_min.x += ImGui::GetStyle().WindowBorderSize + 1.0f;
+            rect_max.x -= ImGui::GetStyle().WindowBorderSize + 1.0f;
+
+            float outline_thickness = 3.0f;
+            draw_list->AddRect(
+                    rect_min,
+                    rect_max,
+                    IM_COL32(61, 63, 66, 255),
+                    0.0f, ImDrawFlags_None, outline_thickness);
+
+
+
+            //ImVec2 image_pos = ImVec2(pos.x + (button_size.x - image_size.x) * 0.5f, pos.y + (button_size.y - image_size.y) * 0.5f);
+
+            ImTextureID texture_id = (void*)(intptr_t)Engine->TextureMng.TextureDataTable["MeltIcon"].TextureID;
+            draw_list->AddImage(
+                    texture_id,
+                    _startCursor,
+                    ImVec2(_startCursor.x + 16, _startCursor.y + 16),
+                    ImVec2(0, 0),
+                    ImVec2(0.2, 0.2));
+
+            draw_list->AddText(ImVec2(_startCursor.x + 20, _startCursor.y)     , ImColor(255, 255, 255), "Entity name : ");
+            draw_list->AddText(ImVec2(_startCursor.x + 20, _startCursor.y + 20), ImColor(255, 255, 255), "UUID        : ");
+
+
+
+
+            //DrawSprite(Engine->TextureMng.TextureDataTable["MeltIcon"], ImVec2(0, 0), ImVec2(100, 100), ImVec2(0,0));
+
+
+
+            ImGui::SetCursorScreenPos(rect_min);
+
+
+
+//            if(!CurrentTextDisplay.empty())
+//                ImGui::TextUnformatted(CurrentTextDisplay.c_str());
+//
+//            ImGui::Text(ICON_KI_ARROW_TOP_LEFT "  Hello with an icon!");
+            ImGui::NewLine();
 
             if(Engine->NodeMng.CurrentSelectedNode && Engine->NodeMng.CurrentSelectedNode->isSelected)
             {
@@ -486,29 +643,69 @@ namespace MELT_EDITOR
                 }
             }
 
+            rect_min.y += 400.0f;
+            ImGui::SetCursorScreenPos(rect_min);
+
+
+
+            ImVec2 button_size = ImVec2(20, 20);
+            float rounding = 4.0f;
+            ImU32 button_color = IM_COL32(0, 128, 255, 255);
+            ImU32 hover_color = IM_COL32(0, 150, 255, 255);
+            ImU32 active_color = IM_COL32(0, 100, 200, 255);
+
+            ImVec2 pos = ImGui::GetCursorScreenPos();
+            pos.x += 4.0f;
+            pos.y += 4.0f;
+
+            ImGui::PushID("RoundedButton");
+            if (ImGui::InvisibleButton("##rounded_button", button_size)) {
+
+            }
+            ImU32 color = button_color;
+            if (ImGui::IsItemActive())
+                color = active_color;
+            else if (ImGui::IsItemHovered())
+                color = hover_color;
+
+            draw_list->AddRectFilled(pos, ImVec2(pos.x + button_size.x, pos.y + button_size.y), color, rounding);
+            ImGui::PopID();
+
+            ImGui::PushID("RoundedButton");
+            if (ImGui::InvisibleButton("##other button", button_size)) {
+
+            }
+
+            pos.x += 30.0f;
+            draw_list->AddRectFilled(pos, ImVec2(pos.x + button_size.x, pos.y + button_size.y), color, rounding);
+            ImGui::PopID();
+
+
+
+
             ImVec2 _contentRegionAvail = ImGui::GetContentRegionAvail();
 
-            auto& _textureData = Engine->TextureMng.TextureDataTable["blacknwhite"];
+            MELT::TextureData& _textureData = Engine->TextureMng.TextureDataTable["blacknwhite"];
 
             float _contentWidth = _contentRegionAvail.x;
             float _contentHeight = 500.0f;
 
-            ImGui::BeginChild("TextureDisplay", ImVec2(_contentWidth, _contentHeight), true);
-            ImGui::Text("Texture Detail");
-            ImGui::Text("W : %d, H : %d", _textureData.Width, _textureData.Height);
-            ImGui::Text("Size: %.2f MB", _textureData.TextureSizeMb);
-
-            ImGui::SliderFloat("Float Slider", &_textureData.DisplayScale, 1.0f, 5.0);
-
-            float _width  = (float)_textureData.Width  * _textureData.DisplayScale;
-            float _height = (float)_textureData.Height * _textureData.DisplayScale;
-
-            ImGui::SetCursorPosX(_contentWidth /2.0f - _width/2.0f);
-            ImGui::SetCursorPosY(_contentHeight/2.0f - _height/2.0f);
-
-            ImVec2 imageSize(_width, _height); // Set this to your texture's dimensions
-            ImGui::Image((void*)(intptr_t)_textureData.TextureID, imageSize);
-            ImGui::EndChild();
+//            ImGui::BeginChild("TextureDisplay", ImVec2(_contentWidth, _contentHeight), true);
+//            ImGui::Text("Texture Detail");
+//            ImGui::Text("W : %d, H : %d", _textureData.Width, _textureData.Height);
+//            ImGui::Text("Size: %.2f MB", _textureData.TextureSizeMb);
+//
+//            ImGui::SliderFloat("Float Slider", &_textureData.DisplayScale, 1.0f, 5.0);
+//
+//            float _width  = (float)_textureData.Width  * _textureData.DisplayScale;
+//            float _height = (float)_textureData.Height * _textureData.DisplayScale;
+//
+//            ImGui::SetCursorPosX(_contentWidth /2.0f - _width/2.0f);
+//            ImGui::SetCursorPosY(_contentHeight/2.0f - _height/2.0f);
+//
+//            ImVec2 imageSize(_width, _height); // Set this to your texture's dimensions
+//            ImGui::Image((void*)(intptr_t)_textureData.TextureID, imageSize);
+//            ImGui::EndChild();
 
             //Add components button
             ImVec2 buttonSize = ImVec2(120, 30);
@@ -520,6 +717,7 @@ namespace MELT_EDITOR
                 Components.emplace_back("Transform");
         }
         ImGui::End();
+        ImGui::PopStyleColor();
     }
 
     void Editor::DrawContentGUI()
@@ -574,29 +772,56 @@ namespace MELT_EDITOR
 
     void Editor::DrawAssetsGUI()
     {
+        ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
+        ImVec2 windowPadding(4.0f, 4.0f); // Adjust values as needed
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, windowPadding);
         ImGui::Begin("Project");
 
-        ImGui::BeginChild("Files", ImVec2(200, ImGui::GetContentRegionAvail().y), true);
-        ImGui::Text("Files :");
+//        ImGui::PushStyleColor(ImGuiCol_WindowBg, WindowBackground_Color);
+//        ImGui::Begin("Project");
 
-        ImGui::BeginChild("##Scrollable List", ImVec2(0, ImGui::GetContentRegionAvail().y), true);
 
-        if(std::filesystem::exists(CurrentWorkingProjectRootPath) && std::filesystem::is_directory(CurrentWorkingProjectRootPath))
-        {
-            DisplayFileBrowser(CurrentWorkingProjectRootPath);
-        }
+            ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(4.0f, 0));
+            ImGui::PushStyleColor(ImGuiCol_ChildBg, WindowBackground_Color);
 
-        ImGui::EndChild();
-        ImGui::EndChild();
+            ImGui::BeginChild("Files", ImVec2(200, ImGui::GetContentRegionAvail().y), true);
+            ImGui::Text("Files :");
 
-        ImGui::SameLine();
+            ImGui::BeginChild("##Scrollable List", ImVec2(0, ImGui::GetContentRegionAvail().y), true);
 
-        ImGui::BeginChild("Child Window 2", ImVec2(ImGui::GetContentRegionAvail().x, ImGui::GetContentRegionAvail().y), true);
-        ImGui::Text("This is Child Window 2");
-        ImGui::Button("Button 2");
-        ImGui::EndChild();
-        ImGui::NewLine();
+            if(std::filesystem::exists(CurrentWorkingProjectRootPath) && std::filesystem::is_directory(CurrentWorkingProjectRootPath))
+            {
+                DisplayFileBrowser(CurrentWorkingProjectRootPath);
+            }
+
+            ImGui::EndChild();
+            ImGui::EndChild();
+            ImGui::PopStyleColor();
+
+            ImGui::SameLine();
+
+            ImGui::PushStyleColor(ImGuiCol_ChildBg, WindowBackground_Color);
+            ImGui::BeginChild("Child Window 2", ImVec2(ImGui::GetContentRegionAvail().x, ImGui::GetContentRegionAvail().y), true);
+
+
+
+            ImGui::Text("This is Child Window 2");
+            ImGui::Button("Button 2");
+
+
+
+
+
+
+            ImGui::EndChild();
+            ImGui::NewLine();
+            ImGui::PopStyleColor();
+            ImGui::PopStyleVar();
+
+
         ImGui::End();
+        ImGui::PopStyleColor();
+        ImGui::PopStyleVar();
     }
 
     void Editor::DrawTransformComponentPanel(MELT::Transform& _transform)
@@ -770,4 +995,42 @@ namespace MELT_EDITOR
         _file << _root;
         _file.close();
     }
+
+
+    void Editor::DrawSprite(const MELT::TextureData& _textureData, ImVec2 _position, ImVec2 _spriteSize, ImVec2 _spritePosition)
+    {
+        float texture_width  = static_cast<float>(_textureData.Width);
+        float texture_height = static_cast<float>(_textureData.Height);
+
+        ImVec2 uv0 = ImVec2(_spritePosition.x / texture_width, _spritePosition.y / texture_height);
+
+        ImVec2 uv1 = ImVec2((_spritePosition.x + _spriteSize.x) / texture_width,
+                            (_spritePosition.y + _spriteSize.y) / texture_height);
+
+        ImTextureID textureID = (void*)(intptr_t)_textureData.TextureID;
+
+        ImGui::GetWindowDrawList()->AddImage(textureID,
+                                             _position,
+                                             ImVec2(_position.x + _spriteSize.x, _position.y + _spriteSize.y),
+                                             uv0, uv1);
+    }
+
+
+//    void Editor::DrawSpriteWithDrawList(const MELT::TextureData& _textureData, ImVec2 position, ImVec2 sprite_size, ImVec2 sprite_position)
+//    {
+//        // Texture dimensions (e.g., the full texture size, such as the sprite sheet dimensions)
+//        float texture_width = 1024.0f; // replace with your texture width
+//        float texture_height = 1024.0f; // replace with your texture height
+//
+//        // Calculate UV coordinates for the portion of the texture
+//        ImVec2 uv0 = ImVec2(sprite_position.x / texture_width, sprite_position.y / texture_height);
+//        ImVec2 uv1 = ImVec2((sprite_position.x + sprite_size.x) / texture_width,
+//                            (sprite_position.y + sprite_size.y) / texture_height);
+//
+//        // Get the current ImGui window's draw list
+//        ImDrawList* draw_list = ImGui::GetWindowDrawList();
+//
+//        // Draw the specified part of the texture at the given position
+//        draw_list->AddImage(texture_id, position, ImVec2(position.x + sprite_size.x, position.y + sprite_size.y), uv0, uv1);
+//    }
 }

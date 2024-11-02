@@ -7,7 +7,7 @@ add_definitions(-DM_EDITOR)
 
 add_subdirectory(MeltEngineLib)
 add_subdirectory(MeltEngineEditorLib)
-add_subdirectory(Project)
+#add_subdirectory(Project)
 
 add_executable(MELT_ENGINE main.cpp)
 

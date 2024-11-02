@@ -44,5 +44,6 @@ namespace MELT
 
         TextureManager();
         void Init();
+        void LoadTexture(std::filesystem::path _path, GLint _filter);
     };
 }

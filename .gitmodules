@@ -13,3 +13,6 @@
 [submodule "MeltEngineEditorLib/vendors/nativefiledialog-extended"]
 	path = MeltEngineEditorLib/vendors/nativefiledialog-extended
 	url = https://github.com/btzy/nativefiledialog-extended.git
+[submodule "MeltEngineEditorLib/vendors/ImGuizmo"]
+	path = MeltEngineEditorLib/vendors/ImGuizmo
+	url = https://github.com/CedricGuillemet/ImGuizmo.git

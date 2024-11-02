@@ -10,48 +10,42 @@ namespace MELT
 
     void TextureManager::Init()
     {
+        LoadTexture("../Project/Resources/Textures/blacknwhite.png", GL_NEAREST);
+        LoadTexture("/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/res/icons/MeltIcon.png", GL_LINEAR);
+    }
+
+    void TextureManager::LoadTexture(std::filesystem::path _path, GLint _filter)
+    {
         TextureData _textureData;
 
-        _textureData.TextureFileName     = "blacknwhite";
-        _textureData.FileExtension       = ".png";
-        _textureData.TextureFileLocation = "../Project/Resources/Textures/";
-        _textureData.SpriteSheetPath     = _textureData.TextureFileLocation + _textureData.TextureFileName + ".yaml";
+        _textureData.TextureFileName     = _path.stem();
+        _textureData.FileExtension       = _path.extension();
+        _textureData.TextureFileLocation = _path.parent_path();
+        _textureData.SpriteSheetPath     = _path.parent_path() / (_path.stem().string() + ".yaml");
 
-
-        YAML::Node _root = YAML::LoadFile(_textureData.SpriteSheetPath);
-
-        const YAML::Node _spriteNode = _root["Sprites"];
-
-        for(std::size_t _i = 0; _i < _spriteNode.size(); ++_i)
+        if(std::filesystem::exists(_textureData.SpriteSheetPath))
         {
-            SpriteData _spriteData;
-
-            YAML::Node _spriteChild = _spriteNode[_i];
-
-            _spriteData.Name = _spriteChild["Name"].as<std::string>();
-
-            std::cout << _spriteData.Name << std::endl;
-
-            _textureData.SpriteDataMap.emplace(_spriteData.Name, _spriteData);
+            YAML::Node _root = YAML::LoadFile(_textureData.SpriteSheetPath);
+            const YAML::Node _spriteNode = _root["Sprites"];
+            for(std::size_t _i = 0; _i < _spriteNode.size(); ++_i)
+            {
+                SpriteData _spriteData;
+                YAML::Node _spriteChild = _spriteNode[_i];
+                _spriteData.Name = _spriteChild["Name"].as<std::string>();
+                _textureData.SpriteDataMap.emplace(_spriteData.Name, _spriteData);
+            }
         }
-
-
 
         glGenTextures(1, &_textureData.TextureID);
         glBindTexture(GL_TEXTURE_2D, _textureData.TextureID);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S    , GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T    , GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, _filter);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, _filter);
 
+        //stbi_set_flip_vertically_on_load(true);
         int _nrChannels;
-        stbi_set_flip_vertically_on_load(true);
-
-        unsigned char* data = stbi_load(
-                "../Project/Resources/Textures/blacknwhite.png",
-                &_textureData.Width,
-                &_textureData.Height,
-                &_nrChannels, 0);
+        unsigned char* data = stbi_load(_path.c_str(), &_textureData.Width, &_textureData.Height, &_nrChannels, 0);
 
         if (data)
         {
@@ -68,14 +62,14 @@ namespace MELT
             std::cout << "Channels: " << _nrChannels << std::endl;
             std::cout << "Size in MB: " << sizeInMB << " MB" << std::endl;
 
-//            GLint format = GL_RGB;
-//            if (_nrChannels == 4)
-            GLint   format = GL_RGBA;
+            GLint format = GL_RGB;
+            if (_nrChannels == 4)
+               format = GL_RGBA;
 
             glTexImage2D(GL_TEXTURE_2D, 0, format, _textureData.Width, _textureData.Height, 0, format, GL_UNSIGNED_BYTE, data);
             glGenerateMipmap(GL_TEXTURE_2D);
 
-            TextureDataTable.emplace("blacknwhite", _textureData);
+            TextureDataTable.emplace(_textureData.TextureFileName, _textureData);
         }
         else
         {

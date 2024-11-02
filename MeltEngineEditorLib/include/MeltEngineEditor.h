@@ -12,6 +12,7 @@
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_opengl3.h"
+#include "ImGuizmo.h"
 
 //not good
 #include "glm/gtc/type_ptr.hpp"
@@ -76,5 +77,8 @@ namespace MELT_EDITOR
         void TestSave();
 
         const ImU32 BackgroundColor;
+
+        void DrawSprite(const MELT::TextureData& _textureData, ImVec2 _position, ImVec2 _spriteSize, ImVec2 _spritePosition);
+        void DrawSpriteWithDrawList(ImTextureID texture_id, ImVec2 position, ImVec2 sprite_size, ImVec2 sprite_position);
     };
 }

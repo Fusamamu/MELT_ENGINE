@@ -5,7 +5,7 @@
 		<Option title="MeltEngineEditorLib"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\Project\;CMake Files\MeltEngineLib\;CMake Files\MeltEngineLib\vendors\;CMake Files\MeltEngineLib\vendors\yaml-cpp\;CMake Files\MeltEngineLib\vendors\yaml-cpp\util\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\Library\;CMake Files\..\..\..\..\..\Library\Frameworks\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\CMake\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glew\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glm\;CMake Files\MeltEngineEditorLib\;CMake Files\MeltEngineEditorLib\vendors\;CMake Files\MeltEngineEditorLib\vendors\nativefiledialog-extended\;CMake Files\MeltEngineEditorLib\vendors\nativefiledialog-extended\src\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\MeltEngineLib\;CMake Files\MeltEngineLib\vendors\;CMake Files\MeltEngineLib\vendors\yaml-cpp\;CMake Files\MeltEngineLib\vendors\yaml-cpp\util\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\Library\;CMake Files\..\..\..\..\..\Library\Frameworks\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\;CMake Files\..\..\..\..\..\Library\Frameworks\SDL2.framework\Resources\CMake\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\usr\local\lib\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glew\;CMake Files\..\..\..\..\..\usr\local\lib\cmake\glm\;CMake Files\MeltEngineEditorLib\;CMake Files\MeltEngineEditorLib\vendors\;CMake Files\MeltEngineEditorLib\vendors\nativefiledialog-extended\;CMake Files\MeltEngineEditorLib\vendors\nativefiledialog-extended\src\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib"/>
@@ -30,6 +30,7 @@
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./include/ScriptEditor"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/backends"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/ImGuizmo"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/IconFontCppHeaders"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/x86_64-w64-mingw32/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/nativefiledialog-extended/src/include"/>
@@ -75,6 +76,7 @@
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./include/ScriptEditor"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/imgui/backends"/>
+					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/ImGuizmo"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/IconFontCppHeaders"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/x86_64-w64-mingw32/include"/>
 					<Add directory="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/nativefiledialog-extended/src/include"/>
@@ -170,6 +172,36 @@
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/src/SpriteEditorGUI.cpp">
 			<Option target="MeltEngineEditorLib"/>
 		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/ImGuizmo/GraphEditor.cpp">
+			<Option target="MeltEngineEditorLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/ImGuizmo/GraphEditor.h">
+			<Option target="MeltEngineEditorLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/ImGuizmo/ImCurveEdit.cpp">
+			<Option target="MeltEngineEditorLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/ImGuizmo/ImCurveEdit.h">
+			<Option target="MeltEngineEditorLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/ImGuizmo/ImGradient.cpp">
+			<Option target="MeltEngineEditorLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/ImGuizmo/ImGradient.h">
+			<Option target="MeltEngineEditorLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/ImGuizmo/ImGuizmo.cpp">
+			<Option target="MeltEngineEditorLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/ImGuizmo/ImGuizmo.h">
+			<Option target="MeltEngineEditorLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/ImGuizmo/ImSequencer.cpp">
+			<Option target="MeltEngineEditorLib"/>
+		</Unit>
+		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/ImGuizmo/ImSequencer.h">
+			<Option target="MeltEngineEditorLib"/>
+		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineEditorLib/vendors/imgui/backends/imgui_impl_opengl3.cpp">
 			<Option target="MeltEngineEditorLib"/>
 		</Unit>
@@ -223,9 +255,6 @@
 		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
-		</Unit>
-		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/Project/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\Project\"/>
 		</Unit>
 		<Unit filename="/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\MeltEngineLib\"/>

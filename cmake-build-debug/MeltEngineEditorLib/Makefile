@@ -242,6 +242,126 @@ src/SpriteEditorGUI.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.s
 .PHONY : src/SpriteEditorGUI.cpp.s
 
+vendors/ImGuizmo/GraphEditor.o: vendors/ImGuizmo/GraphEditor.cpp.o
+.PHONY : vendors/ImGuizmo/GraphEditor.o
+
+# target to build an object file
+vendors/ImGuizmo/GraphEditor.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/ImGuizmo/GraphEditor.cpp.o
+.PHONY : vendors/ImGuizmo/GraphEditor.cpp.o
+
+vendors/ImGuizmo/GraphEditor.i: vendors/ImGuizmo/GraphEditor.cpp.i
+.PHONY : vendors/ImGuizmo/GraphEditor.i
+
+# target to preprocess a source file
+vendors/ImGuizmo/GraphEditor.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/ImGuizmo/GraphEditor.cpp.i
+.PHONY : vendors/ImGuizmo/GraphEditor.cpp.i
+
+vendors/ImGuizmo/GraphEditor.s: vendors/ImGuizmo/GraphEditor.cpp.s
+.PHONY : vendors/ImGuizmo/GraphEditor.s
+
+# target to generate assembly for a file
+vendors/ImGuizmo/GraphEditor.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/ImGuizmo/GraphEditor.cpp.s
+.PHONY : vendors/ImGuizmo/GraphEditor.cpp.s
+
+vendors/ImGuizmo/ImCurveEdit.o: vendors/ImGuizmo/ImCurveEdit.cpp.o
+.PHONY : vendors/ImGuizmo/ImCurveEdit.o
+
+# target to build an object file
+vendors/ImGuizmo/ImCurveEdit.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/ImGuizmo/ImCurveEdit.cpp.o
+.PHONY : vendors/ImGuizmo/ImCurveEdit.cpp.o
+
+vendors/ImGuizmo/ImCurveEdit.i: vendors/ImGuizmo/ImCurveEdit.cpp.i
+.PHONY : vendors/ImGuizmo/ImCurveEdit.i
+
+# target to preprocess a source file
+vendors/ImGuizmo/ImCurveEdit.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/ImGuizmo/ImCurveEdit.cpp.i
+.PHONY : vendors/ImGuizmo/ImCurveEdit.cpp.i
+
+vendors/ImGuizmo/ImCurveEdit.s: vendors/ImGuizmo/ImCurveEdit.cpp.s
+.PHONY : vendors/ImGuizmo/ImCurveEdit.s
+
+# target to generate assembly for a file
+vendors/ImGuizmo/ImCurveEdit.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/ImGuizmo/ImCurveEdit.cpp.s
+.PHONY : vendors/ImGuizmo/ImCurveEdit.cpp.s
+
+vendors/ImGuizmo/ImGradient.o: vendors/ImGuizmo/ImGradient.cpp.o
+.PHONY : vendors/ImGuizmo/ImGradient.o
+
+# target to build an object file
+vendors/ImGuizmo/ImGradient.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/ImGuizmo/ImGradient.cpp.o
+.PHONY : vendors/ImGuizmo/ImGradient.cpp.o
+
+vendors/ImGuizmo/ImGradient.i: vendors/ImGuizmo/ImGradient.cpp.i
+.PHONY : vendors/ImGuizmo/ImGradient.i
+
+# target to preprocess a source file
+vendors/ImGuizmo/ImGradient.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/ImGuizmo/ImGradient.cpp.i
+.PHONY : vendors/ImGuizmo/ImGradient.cpp.i
+
+vendors/ImGuizmo/ImGradient.s: vendors/ImGuizmo/ImGradient.cpp.s
+.PHONY : vendors/ImGuizmo/ImGradient.s
+
+# target to generate assembly for a file
+vendors/ImGuizmo/ImGradient.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/ImGuizmo/ImGradient.cpp.s
+.PHONY : vendors/ImGuizmo/ImGradient.cpp.s
+
+vendors/ImGuizmo/ImGuizmo.o: vendors/ImGuizmo/ImGuizmo.cpp.o
+.PHONY : vendors/ImGuizmo/ImGuizmo.o
+
+# target to build an object file
+vendors/ImGuizmo/ImGuizmo.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/ImGuizmo/ImGuizmo.cpp.o
+.PHONY : vendors/ImGuizmo/ImGuizmo.cpp.o
+
+vendors/ImGuizmo/ImGuizmo.i: vendors/ImGuizmo/ImGuizmo.cpp.i
+.PHONY : vendors/ImGuizmo/ImGuizmo.i
+
+# target to preprocess a source file
+vendors/ImGuizmo/ImGuizmo.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/ImGuizmo/ImGuizmo.cpp.i
+.PHONY : vendors/ImGuizmo/ImGuizmo.cpp.i
+
+vendors/ImGuizmo/ImGuizmo.s: vendors/ImGuizmo/ImGuizmo.cpp.s
+.PHONY : vendors/ImGuizmo/ImGuizmo.s
+
+# target to generate assembly for a file
+vendors/ImGuizmo/ImGuizmo.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/ImGuizmo/ImGuizmo.cpp.s
+.PHONY : vendors/ImGuizmo/ImGuizmo.cpp.s
+
+vendors/ImGuizmo/ImSequencer.o: vendors/ImGuizmo/ImSequencer.cpp.o
+.PHONY : vendors/ImGuizmo/ImSequencer.o
+
+# target to build an object file
+vendors/ImGuizmo/ImSequencer.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/ImGuizmo/ImSequencer.cpp.o
+.PHONY : vendors/ImGuizmo/ImSequencer.cpp.o
+
+vendors/ImGuizmo/ImSequencer.i: vendors/ImGuizmo/ImSequencer.cpp.i
+.PHONY : vendors/ImGuizmo/ImSequencer.i
+
+# target to preprocess a source file
+vendors/ImGuizmo/ImSequencer.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/ImGuizmo/ImSequencer.cpp.i
+.PHONY : vendors/ImGuizmo/ImSequencer.cpp.i
+
+vendors/ImGuizmo/ImSequencer.s: vendors/ImGuizmo/ImSequencer.cpp.s
+.PHONY : vendors/ImGuizmo/ImSequencer.s
+
+# target to generate assembly for a file
+vendors/ImGuizmo/ImSequencer.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/vendors/ImGuizmo/ImSequencer.cpp.s
+.PHONY : vendors/ImGuizmo/ImSequencer.cpp.s
+
 vendors/imgui/backends/imgui_impl_opengl3.o: vendors/imgui/backends/imgui_impl_opengl3.cpp.o
 .PHONY : vendors/imgui/backends/imgui_impl_opengl3.o
 
@@ -434,6 +554,21 @@ help:
 	@echo "... src/SpriteEditorGUI.o"
 	@echo "... src/SpriteEditorGUI.i"
 	@echo "... src/SpriteEditorGUI.s"
+	@echo "... vendors/ImGuizmo/GraphEditor.o"
+	@echo "... vendors/ImGuizmo/GraphEditor.i"
+	@echo "... vendors/ImGuizmo/GraphEditor.s"
+	@echo "... vendors/ImGuizmo/ImCurveEdit.o"
+	@echo "... vendors/ImGuizmo/ImCurveEdit.i"
+	@echo "... vendors/ImGuizmo/ImCurveEdit.s"
+	@echo "... vendors/ImGuizmo/ImGradient.o"
+	@echo "... vendors/ImGuizmo/ImGradient.i"
+	@echo "... vendors/ImGuizmo/ImGradient.s"
+	@echo "... vendors/ImGuizmo/ImGuizmo.o"
+	@echo "... vendors/ImGuizmo/ImGuizmo.i"
+	@echo "... vendors/ImGuizmo/ImGuizmo.s"
+	@echo "... vendors/ImGuizmo/ImSequencer.o"
+	@echo "... vendors/ImGuizmo/ImSequencer.i"
+	@echo "... vendors/ImGuizmo/ImSequencer.s"
 	@echo "... vendors/imgui/backends/imgui_impl_opengl3.o"
 	@echo "... vendors/imgui/backends/imgui_impl_opengl3.i"
 	@echo "... vendors/imgui/backends/imgui_impl_opengl3.s"

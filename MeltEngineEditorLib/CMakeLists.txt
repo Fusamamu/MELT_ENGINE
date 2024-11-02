@@ -6,6 +6,7 @@ set(IMGUI_INCLUDE  ./vendors/imgui)
 set(IMGUI_BACKENDS ./vendors/imgui/backends)
 
 file(GLOB IMGUI_SRCS ${IMGUI_INCLUDE}/*.cpp)
+file(GLOB IMGUIZMOS_SRCS ./vendors/ImGuizmo/*.cpp)
 
 add_subdirectory(vendors/nativefiledialog-extended)
 
@@ -16,12 +17,14 @@ add_library(${PROJECT_NAME} STATIC
             ./src/SpriteEditorGUI.cpp
             ${IMGUI_SRCS}
             ${IMGUI_BACKENDS}/imgui_impl_sdl2.cpp
-            ${IMGUI_BACKENDS}/imgui_impl_opengl3.cpp)
+            ${IMGUI_BACKENDS}/imgui_impl_opengl3.cpp
+            ${IMGUIZMOS_SRCS})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
 target_include_directories(${PROJECT_NAME} PUBLIC ./include/ScriptEditor)
 target_include_directories(${PROJECT_NAME} PUBLIC ./vendors/imgui)
 target_include_directories(${PROJECT_NAME} PUBLIC ./vendors/imgui/backends)
+target_include_directories(${PROJECT_NAME} PUBLIC ./vendors/ImGuizmo)
 target_include_directories(${PROJECT_NAME} PUBLIC ./vendors/IconFontCppHeaders)
 target_include_directories(${PROJECT_NAME} PUBLIC ./vendors/x86_64-w64-mingw32/include)
 target_include_directories(${PROJECT_NAME} PUBLIC ./vendors/nativefiledialog-extended/src/include)

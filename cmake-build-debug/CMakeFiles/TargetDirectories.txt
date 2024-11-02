@@ -48,6 +48,3 @@
 /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir
 /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/edit_cache.dir
 /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/rebuild_cache.dir
-/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/Project/CMakeFiles/CustomNativeScript.dir
-/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/Project/CMakeFiles/edit_cache.dir
-/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/Project/CMakeFiles/rebuild_cache.dir

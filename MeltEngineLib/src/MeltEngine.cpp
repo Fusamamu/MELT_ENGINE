@@ -146,143 +146,6 @@ namespace MELT
         Input.CheckMouseHoldStates();
     }
 
-    //glm::vec2 offset{};
-
-    void Engine::SelectObject(int cursorX, int cursorY, int screenWidth, int screenHeight,
-                      const glm::mat4& viewMatrix,
-                      const glm::mat4& projectionMatrix,
-                      const glm::vec3& cameraPosition)
-    {
-        glm::vec3 rayDir = RayCast::ScreenToWorldRay(cursorX, cursorY, screenWidth, screenHeight, viewMatrix, projectionMatrix);
-
-        float closestDistance = FLT_MAX;
-        Node* selectedObject = nullptr;
-
-        for (auto& _node : NodeMng.SceneNodes)
-        {
-            Transform& _transform = ECSCoord.GetComponent<Transform>(_node.entityRef);
-
-            auto _minBounds = glm::vec3(0.0, 0.0, 0.0);
-            auto _maxBounds = glm::vec3(1.0, 1.0, 1.0);
-
-            if (RayCast::RayIntersectsAABB(cameraPosition, rayDir, _minBounds, _maxBounds))
-            {
-                float distance = glm::distance(cameraPosition, _transform.Position);
-                if (distance < closestDistance)
-                {
-                    closestDistance = distance;
-
-                    NodeMng.CurrentSelectedNode = &_node;
-                    NodeMng.CurrentSelectedNode->isSelected = true;
-                    break;
-
-                    //selectedObject = const_cast<Object*>(&object);  // Avoid using `const_cast` if possible in production
-                }
-            }
-        }
-
-//        if (selectedObject) {
-//            // Handle the selected object
-//            NodeMng.CurrentSelectedNode = &_node;
-//            NodeMng.CurrentSelectedNode->isSelected = true;
-//        }
-    }
-
-
-    void Engine::SelectObject(int cursorX, int cursorY, const Camera& _camera)
-    {
-        glm::vec3 rayDir = RayCast::ScreenToWorldRay(cursorX, cursorY, _camera);
-
-
-        std::cout << "Ray direction" << rayDir.x << "," << rayDir.y << "," << rayDir.z << std::endl;
-
-        float closestDistance = FLT_MAX;
-        //Node* selectedObject = nullptr;
-
-        for (auto& _node : NodeMng.SceneNodes)
-        {
-            Transform& _transform = ECSCoord.GetComponent<Transform>(_node.entityRef);
-
-            auto _minBounds = glm::vec3(-1.0, -1.0, -1.0);
-            auto _maxBounds = glm::vec3(1.0, 1.0, 1.0);
-
-            if (RayCast::RayIntersectsAABB(_camera.Position, rayDir, _minBounds, _maxBounds))
-            {
-                float distance = glm::distance(_camera.Position, _transform.Position);
-                if (distance < closestDistance)
-                {
-                    closestDistance = distance;
-
-                    NodeMng.CurrentSelectedNode = &_node;
-                    NodeMng.CurrentSelectedNode->isSelected = true;
-                    break;
-                }
-            }
-        }
-    }
-
-    void Engine::SelectObject(glm::vec2 _mouseScreenPos, const MELT::Camera &_camera)
-    {
-        glm::vec3 rayDir = RayCast::ScreenToWorldRay(_mouseScreenPos, _camera);
-
-        std::cout << "Ray direction" << rayDir.x << "," << rayDir.y << "," << rayDir.z << std::endl;
-
-        //rayDir = glm::vec3(0.0, 0.0, -1.0);
-
-        float closestDistance = FLT_MAX;
-
-        for (auto& _node : NodeMng.SceneNodes)
-        {
-            Transform& _transform = ECSCoord.GetComponent<Transform>(_node.entityRef);
-
-            auto _minBounds = _transform.Position + glm::vec3(-0.5, -0.5, -0.5);
-            auto _maxBounds = _transform.Position + glm::vec3( 0.5,  0.5,  0.5);
-
-
-
-
-            float _ndcX = (2.0f * _mouseScreenPos.x) / _camera.WindowSize.x - 1.0f;
-            float _ndcY = 1.0f - (2.0f * _mouseScreenPos.y) / _camera.WindowSize.y;
-
-            std::cout << "NDC : " << _ndcX << ", " << _ndcY << std::endl;
-
-            // Define near and far clip points in clip space
-            glm::vec4 _nearClip = glm::vec4(_ndcX, _ndcY, 0.0f, 1.0f); // near plane in clip space
-            glm::vec4 _farClip  = glm::vec4(_ndcX, _ndcY, 1.0f, 1.0f); // far plane in clip space
-
-            // Inverse the projection and view matrices to go from clip space back to world space
-            glm::mat4 _projInv = glm::inverse(_camera.GetOrthographicProjectionMatrix());
-            glm::mat4 _viewInv = glm::inverse(_camera.GetViewMatrix());
-
-            // Transform clip space coordinates into world space
-            glm::vec4 _nearPoint = _viewInv * _projInv * _nearClip; // World space near point
-
-            glm::vec3 _rayOrigin = glm::vec3(_nearPoint.x, _nearPoint.y, _nearPoint.z);
-
-
-
-
-
-
-
-
-
-
-            if (RayCast::RayIntersectsAABB(_rayOrigin, rayDir, _minBounds, _maxBounds))
-            {
-                float distance = glm::distance(_rayOrigin, _transform.Position);
-                if (distance < closestDistance)
-                {
-                    closestDistance = distance;
-
-                    NodeMng.CurrentSelectedNode = &_node;
-                    NodeMng.CurrentSelectedNode->isSelected = true;
-                    break;
-                }
-            }
-        }
-    }
-
     void Engine::UpdateLogic()
     {
         switch(CurrentMode)
@@ -295,29 +158,9 @@ namespace MELT
 
                 if(Input.IsMouseButtonPressed(SDL_BUTTON_LEFT))
                 {
-//                    for(Node& _node : NodeMng.SceneNodes)
-//                        _node.isSelected = false;
-//
-//                    for(Node& _node : NodeMng.SceneNodes)
-//                    {
-//                        Transform& _transform = ECSCoord.GetComponent<Transform>(_node.entityRef);
-//
-//                        auto _dist = glm::distance(Input.MouseScreenWorldPosition, _transform.Position);
-//
-//                        if(_dist < 1.0f)
-//                        {
-//                            NodeMng.CurrentSelectedNode = &_node;
-//                            NodeMng.CurrentSelectedNode->isSelected = true;
-//                            break;
-//                        }
-//                    }
-
-
                     for(Node& _node : NodeMng.SceneNodes)
                         _node.isSelected = false;
-
                     SelectObject(Input.MouseScreenPosition, MainCamera);
-
                 }
 
                 if(Input.IsMouseButtonHeld(SDL_BUTTON_LEFT))
@@ -443,5 +286,48 @@ namespace MELT
     SDL_GLContext& Engine::GetGLContext()
     {
         return m_GLContext;
+    }
+
+    void Engine::SelectObject(glm::vec2 _mouseScreenPos, const MELT::Camera &_camera)
+    {
+        glm::vec3 rayDir = RayCast::ScreenToWorldRay(_mouseScreenPos, _camera);
+
+        float _closestDistance = FLT_MAX;
+
+        for (auto& _node : NodeMng.SceneNodes)
+        {
+            Transform& _transform = ECSCoord.GetComponent<Transform>(_node.entityRef);
+
+            auto _minBounds = _transform.Position + glm::vec3(-0.5, -0.5, -0.5);
+            auto _maxBounds = _transform.Position + glm::vec3( 0.5,  0.5,  0.5);
+
+            float _ndcX = (2.0f * _mouseScreenPos.x) / _camera.WindowSize.x - 1.0f;
+            float _ndcY = 1.0f - (2.0f * _mouseScreenPos.y) / _camera.WindowSize.y;
+
+            // Define near and far clip points in clip space
+            glm::vec4 _nearClip = glm::vec4(_ndcX, _ndcY, 0.0f, 1.0f); // near plane in clip space
+            glm::vec4 _farClip  = glm::vec4(_ndcX, _ndcY, 1.0f, 1.0f); // far plane in clip space
+
+            // Inverse the projection and view matrices to go from clip space back to world space
+            glm::mat4 _projInv = glm::inverse(_camera.GetOrthographicProjectionMatrix());
+            glm::mat4 _viewInv = glm::inverse(_camera.GetViewMatrix());
+
+            // Transform clip space coordinates into world space
+            glm::vec4 _nearPoint = _viewInv * _projInv * _nearClip; // World space near point
+            glm::vec3 _rayOrigin = glm::vec3(_nearPoint.x, _nearPoint.y, _nearPoint.z);
+
+            if (RayCast::RayIntersectsAABB(_rayOrigin, rayDir, _minBounds, _maxBounds))
+            {
+                float _distance = glm::distance(_rayOrigin, _transform.Position);
+                if (_distance < _closestDistance)
+                {
+                    _closestDistance = _distance;
+
+                    NodeMng.CurrentSelectedNode = &_node;
+                    NodeMng.CurrentSelectedNode->isSelected = true;
+                    break;
+                }
+            }
+        }
     }
 }

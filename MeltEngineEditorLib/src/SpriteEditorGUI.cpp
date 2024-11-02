@@ -10,23 +10,17 @@ namespace MELT_EDITOR
 
     void SpriteEditorGUI::Init()
     {
-        auto& _textureData = EditorOwner->Engine->TextureMng.TextureDataTable["blacknwhite"];
+        EditTextureData = &EditorOwner->Engine->TextureMng.TextureDataTable["blacknwhite"];
 
-        //std::string _path = _textureData.TextureFileLocation + _textureData.TextureFileName + ".yaml";
+        if(std::filesystem::exists(EditTextureData->SpriteSheetPath))
+        {
+            YAML::Node node = YAML::LoadFile(EditTextureData->SpriteSheetPath);
 
-        //Temp
-        //_textureData.SpriteSheetPath = _path;
+            GridSize.x = node["Grid size"][0].as<float>();
+            GridSize.y = node["Grid size"][1].as<float>();
 
-        //std::cout << _path << std::endl;
-
-        YAML::Node node = YAML::LoadFile(_textureData.SpriteSheetPath);
-
-        //std::cout << node["Sprite sheet name"] << std::endl;
-
-        GridSize.x = node["Grid size"][0].as<float>();
-        GridSize.y = node["Grid size"][1].as<float>();
-
-        GenerateSpriteByGridSetting();
+            GenerateSpriteByGridSetting();
+        }
     }
 
     void SpriteEditorGUI::GenerateSpriteByGridSetting()
@@ -91,10 +85,11 @@ namespace MELT_EDITOR
         if(!IsOpened)
             return;
 
-        auto& _textureData = EditorOwner->Engine->TextureMng.TextureDataTable["blacknwhite"];
+        if(!EditTextureData)
+            return;
 
-        float _textureWidth  = static_cast<float>(_textureData.Width ) * 4.0f;
-        float _textureHeight = static_cast<float>(_textureData.Height) * 4.0f;
+        float _textureWidth  = static_cast<float>(EditTextureData->Width ) * 4.0f;
+        float _textureHeight = static_cast<float>(EditTextureData->Height) * 4.0f;
 
         ImVec2 _textureSize(_textureWidth, _textureHeight); // Set this to your texture's dimensions
 
@@ -113,7 +108,7 @@ namespace MELT_EDITOR
         {
             YAML::Node _root;
 
-            _root["Sprite sheet name"] = _textureData.TextureFileName;
+            _root["Sprite sheet name"] = EditTextureData->TextureFileName;
 
             _root["Grid size"].push_back(GridSize.x);
             _root["Grid size"].push_back(GridSize.y);
@@ -145,12 +140,12 @@ namespace MELT_EDITOR
             }
 
             std::ofstream _file;
-            std::filesystem::path _path = _textureData.TextureFileLocation + "/" + _textureData.TextureFileName + ".yaml";
+            std::filesystem::path _path = EditTextureData->TextureFileLocation + "/" + EditTextureData->TextureFileName + ".yaml";
             _file.open(_path);
             _file << _root;
             _file.close();
 
-            _textureData.SpriteSheetPath = _path;
+            EditTextureData->SpriteSheetPath = _path;
         }
 
         ImGui::SameLine();
@@ -174,7 +169,7 @@ namespace MELT_EDITOR
         ImGui::SetCursorPos(ImVec2(_cursorPosX, _cursorPosY));
         ImGui::Image((void*)(intptr_t)EditorOwner->Engine->m_RenderSystem->EditorGUIFrameBuffer->TextureID,_textureSize);
         ImGui::SetCursorPos(ImVec2(_cursorPosX, _cursorPosY));
-        ImGui::Image((void*)(intptr_t)_textureData.TextureID, _textureSize);
+        ImGui::Image((void*)(intptr_t)EditTextureData->TextureID, _textureSize);
 
         ImGui::SetCursorPos(ImVec2(_cursorPosX, _cursorPosY));
 
