@@ -42,7 +42,8 @@ add_library(${PROJECT_NAME} STATIC
         src/MathLib/Vector.cpp
         src/Renderer/RendererAPI.cpp
         src/Renderer/RenderPipeline.cpp
-        src/RayCast.cpp)
+        src/RayCast.cpp
+        src/Reflection.cpp)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC ./include/Core.h)
 
@@ -65,26 +66,21 @@ find_package(GLEW   REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(glm    REQUIRED)
 
+find_library(ASSIMP_PATH assimp PATHS vendors/assimp/lib)
 if (APPLE)
 find_library(COCOA_FRAMEWORK Cocoa)
 find_library(IOKIT_FRAMEWORK IOKit)
 find_library(COREVIDEO_FRAMEWORK CoreVideo)
-
-find_library(ASSIMP_PATH assimp PATHS vendors/assimp/lib)
-target_link_libraries(${PROJECT_NAME} PUBLIC ${ASSIMP_PATH})
 endif()
 
 target_link_libraries(${PROJECT_NAME} PUBLIC SDL2::SDL2)
 target_link_libraries(${PROJECT_NAME} PUBLIC GLEW::glew)
+target_link_libraries(${PROJECT_NAME} PUBLIC yaml-cpp::yaml-cpp)
 target_link_libraries(${PROJECT_NAME} PUBLIC ${OPENGL_gl_LIBRARY})
+target_link_libraries(${PROJECT_NAME} PUBLIC ${ASSIMP_PATH})
 if (APPLE)
 target_link_libraries(${PROJECT_NAME} PUBLIC ${COCOA_FRAMEWORK})
 target_link_libraries(${PROJECT_NAME} PUBLIC ${IOKIT_FRAMEWORK})
 target_link_libraries(${PROJECT_NAME} PUBLIC ${COREVIDEO_FRAMEWORK})
 endif()
-target_link_libraries(${PROJECT_NAME} PUBLIC yaml-cpp::yaml-cpp)
-
-## Include the installation script
-#include(CMakePackageConfigHelpers)
-#include(MeltEngine_install.cmake)
 

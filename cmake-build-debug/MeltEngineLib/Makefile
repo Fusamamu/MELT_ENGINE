@@ -770,6 +770,30 @@ src/RayCast.cpp.s:
 	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/RayCast.cpp.s
 .PHONY : src/RayCast.cpp.s
 
+src/Reflection.o: src/Reflection.cpp.o
+.PHONY : src/Reflection.o
+
+# target to build an object file
+src/Reflection.cpp.o:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Reflection.cpp.o
+.PHONY : src/Reflection.cpp.o
+
+src/Reflection.i: src/Reflection.cpp.i
+.PHONY : src/Reflection.i
+
+# target to preprocess a source file
+src/Reflection.cpp.i:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Reflection.cpp.i
+.PHONY : src/Reflection.cpp.i
+
+src/Reflection.s: src/Reflection.cpp.s
+.PHONY : src/Reflection.s
+
+# target to generate assembly for a file
+src/Reflection.cpp.s:
+	cd "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Reflection.cpp.s
+.PHONY : src/Reflection.cpp.s
+
 src/Renderer/FrameBuffer.o: src/Renderer/FrameBuffer.cpp.o
 .PHONY : src/Renderer/FrameBuffer.o
 
@@ -1052,6 +1076,9 @@ help:
 	@echo "... src/RayCast.o"
 	@echo "... src/RayCast.i"
 	@echo "... src/RayCast.s"
+	@echo "... src/Reflection.o"
+	@echo "... src/Reflection.i"
+	@echo "... src/Reflection.s"
 	@echo "... src/Renderer/FrameBuffer.o"
 	@echo "... src/Renderer/FrameBuffer.i"
 	@echo "... src/Renderer/FrameBuffer.s"

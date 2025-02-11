@@ -98,6 +98,37 @@ namespace MELT
 
         TargetRenderPipeline = new RenderPipeline();
         TargetRenderPipeline->Init(this);
+
+
+        // Load the dynamic library
+        void* _handle = dlopen("/Users/pengaki/Desktop/MeltSampleProject/build/libCustomNativeScript.dylib", RTLD_LAZY);
+        if (!_handle) {
+            std::cerr << "Cannot open library: " << dlerror() << std::endl;
+            return;
+        }
+        else
+        {
+            std::cout << "Success dll" << std::endl;
+        }
+
+        void* func = dlsym(_handle, "CreateCustomSystem");
+        const char* _error = dlerror();
+        if (_error)
+            std::cerr << "Failed to find function: " << _error << std::endl;
+
+        using CreateScriptInstanceFn = INativeSystem* (*)();
+
+        auto createInstance = reinterpret_cast<CreateScriptInstanceFn>(func);
+        if (createInstance) {
+            // Create and use the script instance
+            INativeSystem* script = createInstance();
+            script->OnStart();
+            script->OnInputUpdate(0.0);
+
+            delete script;  // Clean up the instance after use
+        }
+
+        dlclose(_handle);
     }
 
     void Engine::Update()

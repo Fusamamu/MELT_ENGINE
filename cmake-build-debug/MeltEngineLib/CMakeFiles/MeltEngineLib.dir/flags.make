@@ -78,3 +78,5 @@ CXX_FLAGS = -g -std=gnu++17 -isysroot /Applications/Xcode.app/Contents/Developer
 
 # PCH options: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/RayCast.cpp.o_OPTIONS = -Winvalid-pch;-Xclang;-include-pch;-Xclang;/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch;-Xclang;-include;-Xclang;/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx
 
+# PCH options: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Reflection.cpp.o_OPTIONS = -Winvalid-pch;-Xclang;-include-pch;-Xclang;/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch;-Xclang;-include;-Xclang;/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx
+
