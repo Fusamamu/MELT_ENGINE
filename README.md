@@ -2,6 +2,8 @@
 
 MELT is a 3D game engine designed for entity management. It leverages SDL, OpenGL, GLEW, GLM, and an Entity-Component-System (ECS) architecture for performance and flexibility.
 
+![Alt text](Images/EngineEditor.png)
+
 ## Features
 
 - **Entity-Component-System (ECS)**: Decouples data and logic for scalable and maintainable game code.
