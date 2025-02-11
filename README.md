@@ -1,14 +1,9 @@
-Here's a sample `README.md` for your GitHub repository for the MELT game engine:
+# MELT - 3D Game Engine
 
----
-
-# MELT - 2D Tile-Based Game Engine
-
-MELT is a 2D tile-based game engine designed for creating tile-based games with efficient rendering and entity management. It leverages SDL, OpenGL, GLEW, GLM, and an Entity-Component-System (ECS) architecture for performance and flexibility.
+MELT is a 3D game engine designed for entity management. It leverages SDL, OpenGL, GLEW, GLM, and an Entity-Component-System (ECS) architecture for performance and flexibility.
 
 ## Features
 
-- **2D Tile-Based Rendering**: Optimized for rendering large tile maps with minimal overhead.
 - **Entity-Component-System (ECS)**: Decouples data and logic for scalable and maintainable game code.
 - **OpenGL Rendering**: Utilizes OpenGL for high-performance graphics rendering.
 - **SDL Integration**: Handles window management, input, and other system-level operations.
@@ -31,8 +26,8 @@ To build and run MELT, you'll need the following:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/yourusername/MELT.git
-   cd MELT
+   git clone https://github.com/Fusamamu/MELT_ENGINE.git
+   cd MELT_ENGINE
    ```
 
 2. **Install Dependencies:**
@@ -54,54 +49,11 @@ To build and run MELT, you'll need the following:
    ./MELT
    ```
 
-### Usage
-
-MELT is designed to be highly customizable. You can start by creating your own game scenes, entities, and components.
-
-#### Example Code
-
-Here's a simple example to get you started:
-
-```cpp
-#include "MELT.h"
-
-int main() {
-    MELT::Engine engine;
-    engine.init("My MELT Game", 800, 600);
-
-    // LoadModel your game assets, create entities, etc.
-
-    engine.run();
-    engine.cleanup();
-
-    return 0;
-}
-```
-
-## Documentation
-
-- **API Reference**: Detailed documentation of MELT's API can be found [here](link-to-api-docs).
-- **Tutorials**: Step-by-step guides on using MELT for your game projects are available [here](link-to-tutorials).
-
-## Contributing
-
-We welcome contributions from the community! Please fork the repository and submit a pull request.
-
-### To Do
-
-- Implement a physics system.
-- Add sound support.
-- Expand the ECS system with more components and systems.
-- Optimize rendering for large maps.
-
 ## License
 
 MELT is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
 
 ## Contact
 
-For any questions or feedback, please reach out via [email@example.com](mailto:email@example.com).
+For any questions or feedback, please reach out via [sukumDuangpattra@gmail.com](mailto:email@example.com).
 
----
-
-Feel free to customize this template based on your project's specific needs and status.
