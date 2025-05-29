@@ -464,21 +464,8 @@ namespace MELT_EDITOR
                 ImGui::Text("Object creation");
                 ImGui::Separator(); // Add a separator
 
-                if (ImGui::MenuItem("Create entity"))
-                {
+                if (ImGui::MenuItem("Create entity")){
                     Engine->CreateNode();
-
-//                    MELT::Entity _entity = Engine->ECSCoord.CreateEntity();
-//
-//                    Engine->ECSCoord.AddComponent<MELT::Transform>(_entity, {
-//                        glm::vec3(0.0, 0.0, 0.0),
-//                        glm::vec3(0.0, 0.0, 0.0),
-//                        glm::vec3(0.0, 0.0, 0.0),
-//                    });
-//
-//                    Engine->ECSCoord.AddComponent<MELT::SpriteRenderer>(_entity, {
-//
-//                    });
                 }
 
                 if (ImGui::MenuItem("Create scene")) {

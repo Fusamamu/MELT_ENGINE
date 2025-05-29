@@ -9,7 +9,7 @@
 					"childIndexes" : 
 					[
 						1,
-						4
+						5
 					],
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
@@ -27,7 +27,8 @@
 					"build" : "MeltEngineLib",
 					"childIndexes" : 
 					[
-						2
+						2,
+						4
 					],
 					"jsonFile" : "directory-MeltEngineLib-Debug-99bbe2475dc4ac907d04.json",
 					"minimumCMakeVersion" : 
@@ -107,10 +108,21 @@
 					]
 				},
 				{
+					"build" : "MeltEngineLib/vendors/entt",
+					"jsonFile" : "directory-MeltEngineLib.vendors.entt-Debug-f31250d8f5bcd02959fb.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15.7"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 3,
+					"source" : "MeltEngineLib/vendors/entt"
+				},
+				{
 					"build" : "MeltEngineEditorLib",
 					"childIndexes" : 
 					[
-						5
+						6
 					],
 					"jsonFile" : "directory-MeltEngineEditorLib-Debug-9ab0a0c4e27c501f5f9a.json",
 					"minimumCMakeVersion" : 
@@ -118,7 +130,7 @@
 						"string" : "3.27"
 					},
 					"parentIndex" : 0,
-					"projectIndex" : 3,
+					"projectIndex" : 4,
 					"source" : "MeltEngineEditorLib",
 					"targetIndexes" : 
 					[
@@ -129,15 +141,15 @@
 					"build" : "MeltEngineEditorLib/vendors/nativefiledialog-extended",
 					"childIndexes" : 
 					[
-						6
+						7
 					],
 					"jsonFile" : "directory-MeltEngineEditorLib.vendors.nativefiledialog-extended-Debug-6f91ae6904c5b5a60415.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.5"
 					},
-					"parentIndex" : 4,
-					"projectIndex" : 4,
+					"parentIndex" : 5,
+					"projectIndex" : 5,
 					"source" : "MeltEngineEditorLib/vendors/nativefiledialog-extended"
 				},
 				{
@@ -147,8 +159,8 @@
 					{
 						"string" : "3.5"
 					},
-					"parentIndex" : 5,
-					"projectIndex" : 4,
+					"parentIndex" : 6,
+					"projectIndex" : 5,
 					"source" : "MeltEngineEditorLib/vendors/nativefiledialog-extended/src",
 					"targetIndexes" : 
 					[
@@ -163,7 +175,7 @@
 					"childIndexes" : 
 					[
 						1,
-						3
+						4
 					],
 					"directoryIndexes" : 
 					[
@@ -178,7 +190,8 @@
 				{
 					"childIndexes" : 
 					[
-						2
+						2,
+						3
 					],
 					"directoryIndexes" : 
 					[
@@ -236,13 +249,21 @@
 					]
 				},
 				{
-					"childIndexes" : 
-					[
-						4
-					],
 					"directoryIndexes" : 
 					[
 						4
+					],
+					"name" : "EnTT",
+					"parentIndex" : 1
+				},
+				{
+					"childIndexes" : 
+					[
+						5
+					],
+					"directoryIndexes" : 
+					[
+						5
 					],
 					"name" : "MeltEngineEditorLib",
 					"parentIndex" : 0,
@@ -254,11 +275,11 @@
 				{
 					"directoryIndexes" : 
 					[
-						5,
-						6
+						6,
+						7
 					],
 					"name" : "nativefiledialog-extended",
-					"parentIndex" : 3,
+					"parentIndex" : 4,
 					"targetIndexes" : 
 					[
 						31
@@ -396,21 +417,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "MELT_ENGINE::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-MELT_ENGINE-Debug-d0f86d603d69b0aaaf35.json",
+					"jsonFile" : "target-MELT_ENGINE-Debug-482ecc7fc7ac816818a7.json",
 					"name" : "MELT_ENGINE",
 					"projectIndex" : 0
 				},
 				{
-					"directoryIndex" : 4,
+					"directoryIndex" : 5,
 					"id" : "MeltEngineEditorLib::@9246d5d2345499881ca5",
-					"jsonFile" : "target-MeltEngineEditorLib-Debug-5101daaae34581f5927a.json",
+					"jsonFile" : "target-MeltEngineEditorLib-Debug-814e3cfec1786394e7ef.json",
 					"name" : "MeltEngineEditorLib",
-					"projectIndex" : 3
+					"projectIndex" : 4
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "MeltEngineLib::@078894b7bdc11508b9bc",
-					"jsonFile" : "target-MeltEngineLib-Debug-d1f5ee426dbd278e4cc5.json",
+					"jsonFile" : "target-MeltEngineLib-Debug-30e8a22428f50995952f.json",
 					"name" : "MeltEngineLib",
 					"projectIndex" : 1
 				},
@@ -485,11 +506,11 @@
 					"projectIndex" : 2
 				},
 				{
-					"directoryIndex" : 6,
+					"directoryIndex" : 7,
 					"id" : "nfd::@87169f9798ecfed4ba6e",
 					"jsonFile" : "target-nfd-Debug-d293cc4fdcf11ff7d09d.json",
 					"name" : "nfd",
-					"projectIndex" : 4
+					"projectIndex" : 5
 				},
 				{
 					"directoryIndex" : 2,

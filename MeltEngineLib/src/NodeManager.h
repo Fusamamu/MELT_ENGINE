@@ -1,8 +1,6 @@
 #pragma once
 #include "Core.h"
 #include "Node.h"
-#include "Vector.h"
-#include "InputSystem.h"
 
 namespace MELT
 {
@@ -16,6 +14,6 @@ namespace MELT
         NodeManager();
         ~NodeManager();
 
-        Node& CreateNode(M_MATH::vec2<float> _at_position);
+        Node& create_node(glm::vec3 _at_position);
     };
 }

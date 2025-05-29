@@ -70,6 +70,13 @@ namespace MELT
     {
         TextureMng.Init();
 
+
+
+        auto entity1 = ecs_registry.create();
+        ecs_registry.emplace<Transform>(entity1);
+
+
+
         ECSCoord.Init();
         ECSCoord.RegisterComponent<Camera>   ();
         ECSCoord.RegisterComponent<Transform>();
@@ -84,6 +91,7 @@ namespace MELT
             ECSCoord.SetSystemSignature<CameraControlSystem>(_signature);
         }
         _cameraControlSystem->OnStart();
+
 
         m_RenderSystem = ECSCoord.RegisterSystem<RenderSystem>();
         {
@@ -290,9 +298,34 @@ namespace MELT
         SDL_Quit();
     }
 
+    Scene* Engine::create_scene(const std::string& name)
+    {
+        auto [it, inserted] = scene_table.try_emplace(name, std::make_unique<Scene>());
+        return it->second.get();
+    }
+
+    Scene* Engine::get_scene(const std::string& name)
+    {
+        auto it = scene_table.find(name);
+        if (it != scene_table.end()) {
+            return it->second.get();
+        }
+        return nullptr;
+    }
+
+    bool Engine::set_active_scene(const std::string& name)
+    {
+        auto it = scene_table.find(name);
+        if (it != scene_table.end()) {
+            working_scene = it->second.get();
+            return true;
+        }
+        return false;
+    }
+
     void Engine::CreateNode()
     {
-        Node& _node = NodeMng.CreateNode(M_MATH::vec2<float>(0.0f));
+        Node& _node = NodeMng.create_node({});
 
         MELT::Entity _entity = ECSCoord.CreateEntity();
 

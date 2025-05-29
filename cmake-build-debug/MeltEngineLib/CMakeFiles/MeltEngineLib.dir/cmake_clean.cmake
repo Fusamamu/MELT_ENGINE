@@ -67,6 +67,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MeltEngineLib.dir/src/Renderer/Shader.cpp.o.d"
   "CMakeFiles/MeltEngineLib.dir/src/Resources/MeshImporter.cpp.o"
   "CMakeFiles/MeltEngineLib.dir/src/Resources/MeshImporter.cpp.o.d"
+  "CMakeFiles/MeltEngineLib.dir/src/Scene.cpp.o"
+  "CMakeFiles/MeltEngineLib.dir/src/Scene.cpp.o.d"
   "CMakeFiles/MeltEngineLib.dir/src/TextureManager.cpp.o"
   "CMakeFiles/MeltEngineLib.dir/src/TextureManager.cpp.o.d"
   "CMakeFiles/MeltEngineLib.dir/src/Vertex.cpp.o"

@@ -3,6 +3,10 @@ project(MeltEngineLib VERSION 1.0.0)
 set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(./vendors/yaml-cpp)
+add_subdirectory(./vendors/entt)
+
+get_target_property(_aliased EnTT::EnTT ALIASED_TARGET)
+message(STATUS "EnTT target found as: ${_aliased}")
 
 add_library(${PROJECT_NAME} STATIC
         src/Core.cpp
@@ -43,7 +47,8 @@ add_library(${PROJECT_NAME} STATIC
         src/Renderer/RendererAPI.cpp
         src/Renderer/RenderPipeline.cpp
         src/RayCast.cpp
-        src/Reflection.cpp)
+        src/Reflection.cpp
+        src/Scene.cpp)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
 
@@ -88,6 +93,7 @@ endif()
 target_link_libraries(${PROJECT_NAME} PUBLIC SDL2::SDL2)
 target_link_libraries(${PROJECT_NAME} PUBLIC GLEW::glew)
 target_link_libraries(${PROJECT_NAME} PUBLIC yaml-cpp::yaml-cpp)
+target_link_libraries(${PROJECT_NAME} PUBLIC EnTT)
 target_link_libraries(${PROJECT_NAME} PUBLIC ${OPENGL_gl_LIBRARY})
 target_link_libraries(${PROJECT_NAME} PUBLIC ${ASSIMP_PATH})
 if (APPLE)

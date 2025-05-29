@@ -30,13 +30,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 7,
+				"line" : 11,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 90,
+				"line" : 95,
 				"parent" : 0
 			},
 			{
@@ -51,25 +51,31 @@
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 50,
+				"line" : 55,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 88,
+				"line" : 96,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 89,
+				"line" : 93,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 94,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 48,
+				"line" : 53,
 				"parent" : 0
 			}
 		]
@@ -112,7 +118,7 @@
 					"path" : "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/System/Library/Frameworks/CoreVideo.framework"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 7,
 					"isSystem" : true,
 					"path" : "/Library/Frameworks/SDL2.framework"
 				}
@@ -209,11 +215,19 @@
 				},
 				{
 					"backtrace" : 6,
+					"path" : "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/entt/src"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/entt/tools"
+				},
+				{
+					"backtrace" : 7,
 					"isSystem" : true,
 					"path" : "/Library/Frameworks/SDL2.framework/Headers"
 				},
 				{
-					"backtrace" : 7,
+					"backtrace" : 8,
 					"isSystem" : true,
 					"path" : "/opt/homebrew/include"
 				}
@@ -223,14 +237,14 @@
 			{
 				"backtraces" : 
 				[
-					1
+					6
 				],
 				"standard" : "17"
 			},
 			"precompileHeaders" : 
 			[
 				{
-					"backtrace" : 8,
+					"backtrace" : 9,
 					"header" : "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Core.h"
 				}
 			],
@@ -275,7 +289,7 @@
 					"path" : "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/System/Library/Frameworks/CoreVideo.framework"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 7,
 					"isSystem" : true,
 					"path" : "/Library/Frameworks/SDL2.framework"
 				}
@@ -372,11 +386,19 @@
 				},
 				{
 					"backtrace" : 6,
+					"path" : "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/entt/src"
+				},
+				{
+					"backtrace" : 6,
+					"path" : "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/entt/tools"
+				},
+				{
+					"backtrace" : 7,
 					"isSystem" : true,
 					"path" : "/Library/Frameworks/SDL2.framework/Headers"
 				},
 				{
-					"backtrace" : 7,
+					"backtrace" : 8,
 					"isSystem" : true,
 					"path" : "/opt/homebrew/include"
 				}
@@ -386,14 +408,14 @@
 			{
 				"backtraces" : 
 				[
-					1
+					6
 				],
 				"standard" : "17"
 			},
 			"precompileHeaders" : 
 			[
 				{
-					"backtrace" : 8,
+					"backtrace" : 9,
 					"header" : "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Core.h"
 				}
 			],
@@ -433,7 +455,8 @@
 				32,
 				33,
 				34,
-				35
+				35,
+				36
 			]
 		}
 	],
@@ -493,14 +516,15 @@
 				32,
 				33,
 				34,
-				35
+				35,
+				36
 			]
 		},
 		{
 			"name" : "Precompile Header File",
 			"sourceIndexes" : 
 			[
-				36
+				37
 			]
 		}
 	],
@@ -720,6 +744,12 @@
 			"backtrace" : 1,
 			"compileGroupIndex" : 1,
 			"path" : "MeltEngineLib/src/Reflection.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "MeltEngineLib/src/Scene.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

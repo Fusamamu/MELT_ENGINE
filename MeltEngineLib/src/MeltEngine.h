@@ -1,32 +1,20 @@
 #include "Core.h"
-
-// #include <GL/glew.h>
-//
-// #include <SDL2/SDL.h>
-// #include <SDL2/SDL_opengl.h>
-
 #include "NodeManager.h"
 #include "TextureManager.h"
-
 #include "Shader.h"
 #include "Quad.h"
-
 #include "Type.h"
-
 #include "Camera.h"
 #include "Transform.h"
 #include "Renderer.h"
 #include "SpriteRenderer.h"
-
 #include "Coordinator.h"
 #include "CameraControlSystem.h"
 #include "RenderSystem.h"
 #include "RenderPipeline.h"
-
 #include "EventManager.h"
 #include "InputSystem.h"
 #include "RayCast.h"
-
 #include "yaml-cpp/yaml.h"
 
 namespace MELT
@@ -51,6 +39,8 @@ namespace MELT
         const int WINDOW_WIDTH  = 1600;
         const int WINDOW_HEIGHT = 800;
 
+        entt::registry ecs_registry;
+
         Camera         MainCamera;
         Coordinator    ECSCoord;
         NodeManager    NodeMng;
@@ -74,6 +64,13 @@ namespace MELT
         void UpdateLogic();
         void UpdateRender();
         void Quit();
+
+        Scene* working_scene;
+        std::unordered_map<std::string, std::unique_ptr<Scene>> scene_table;
+
+        Scene* create_scene(const std::string& _scene_name);
+        Scene* get_scene(const std::string& name);
+        bool set_active_scene(const std::string& name);
 
         void CreateNode();
         void SelectObject(glm::vec2 _mouseScreenPos, const Camera& _camera);

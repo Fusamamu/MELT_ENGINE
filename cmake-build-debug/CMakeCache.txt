@@ -310,6 +310,46 @@ CTEST_SUBMIT_RETRY_DELAY:STRING=5
 //Maximum time allowed before CTest will kill the test.
 DART_TESTING_TIMEOUT:STRING=1500
 
+//Enable building with documentation.
+ENTT_BUILD_DOCS:BOOL=OFF
+
+//Enable building testbed.
+ENTT_BUILD_TESTBED:BOOL=OFF
+
+//Enable building tests.
+ENTT_BUILD_TESTING:BOOL=OFF
+
+//Add all EnTT headers to the EnTT target.
+ENTT_INCLUDE_HEADERS:BOOL=OFF
+
+//Add EnTT natvis files to the EnTT target.
+ENTT_INCLUDE_NATVIS:BOOL=OFF
+
+//Add EnTT tools files to the EnTT target.
+ENTT_INCLUDE_TOOLS:BOOL=OFF
+
+//Install EnTT and all related files.
+ENTT_INSTALL:BOOL=OFF
+
+//Enable static analysis with clang-tidy
+ENTT_USE_CLANG_TIDY:BOOL=OFF
+
+//Use libc++ by adding -stdlib=libc++ flag if available.
+ENTT_USE_LIBCPP:BOOL=OFF
+
+//Enable sanitizers by adding -fsanitize=address -fno-omit-frame-pointer
+// -fsanitize=undefined flags if available.
+ENTT_USE_SANITIZER:BOOL=OFF
+
+//Value Computed by CMake
+EnTT_BINARY_DIR:STATIC=/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/entt
+
+//Value Computed by CMake
+EnTT_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+EnTT_SOURCE_DIR:STATIC=/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/entt
+
 //Path to a program.
 GITCOMMAND:FILEPATH=/usr/bin/git
 
@@ -577,7 +617,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

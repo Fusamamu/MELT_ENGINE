@@ -23,6 +23,12 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include <entt/entt.hpp>
+
+
+#define M_VEC3 glm::vec3
+
+
 namespace MELT
 {
     std::string GenerateUUID(uintptr_t _id);

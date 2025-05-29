@@ -366,6 +366,14 @@
 			"path" : "MeltEngineLib/vendors/yaml-cpp/util/CMakeLists.txt"
 		},
 		{
+			"path" : "MeltEngineLib/vendors/entt/CMakeLists.txt"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/GNUInstallDirs.cmake"
+		},
+		{
 			"path" : "MeltEngineEditorLib/CMakeLists.txt"
 		},
 		{
