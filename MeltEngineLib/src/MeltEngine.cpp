@@ -6,8 +6,8 @@ namespace MELT
     float Engine::ScreenHeight = 30.0f;
 
     Engine::Engine():
-        m_IsRunning(true),
-        m_Window(nullptr)
+        m_is_running(true),
+        sdl_window(nullptr)
     {
         if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER | SDL_INIT_GAMECONTROLLER) != 0)
         {
@@ -28,7 +28,7 @@ namespace MELT
         SDL_GL_SetAttribute(SDL_GL_STENCIL_SIZE, 8);
 
         auto window_flags = (SDL_WindowFlags)(SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_ALLOW_HIGHDPI);
-        m_Window = SDL_CreateWindow(
+        sdl_window = SDL_CreateWindow(
                 "MELT (V1.1)",
                 SDL_WINDOWPOS_CENTERED,
                 SDL_WINDOWPOS_CENTERED,
@@ -36,18 +36,18 @@ namespace MELT
                 WINDOW_HEIGHT,
                 window_flags);
 
-        if(!m_Window)
+        if(!sdl_window)
         {
             SDL_Quit();
             return;
         }
 
-        m_GLContext = SDL_GL_CreateContext(m_Window);
+        gl_context = SDL_GL_CreateContext(sdl_window);
 
-        if (!m_GLContext)
+        if (!gl_context)
         {
             std::cerr << "Failed to create OpenGL context: " << SDL_GetError() << std::endl;
-            SDL_DestroyWindow(m_Window);
+            SDL_DestroyWindow(sdl_window);
             SDL_Quit();
             return;
         }
@@ -57,8 +57,8 @@ namespace MELT
         if (glewInit() != GLEW_OK)
         {
             std::cerr << "Failed to initialize GLEW" << std::endl;
-            SDL_GL_DeleteContext(m_GLContext);
-            SDL_DestroyWindow(m_Window);
+            SDL_GL_DeleteContext(gl_context);
+            SDL_DestroyWindow(sdl_window);
             SDL_Quit();
             return;
         }
@@ -66,7 +66,7 @@ namespace MELT
 
     Engine::~Engine() = default;
 
-    void Engine::Init()
+    void Engine::init()
     {
         TextureMng.Init();
 
@@ -135,7 +135,7 @@ namespace MELT
     {
         glEnable(GL_DEPTH_TEST);
 
-        while(m_IsRunning)
+        while(m_is_running)
         {
             UpdateInput ();
             UpdateLogic ();
@@ -149,21 +149,21 @@ namespace MELT
     void Engine::UpdateInput()
     {
         Input.ClearInput();
-        while(SDL_PollEvent(&m_Event))
+        while(SDL_PollEvent(&m_event))
         {
-            Input.Update(m_Event);
-            UpdateEditorInput(m_Event);
+            Input.Update(m_event);
+            UpdateEditorInput(m_event);
 
-            switch(m_Event.type)
+            switch(m_event.type)
             {
                 case SDL_QUIT:
-                    m_IsRunning = false;
+                    m_is_running = false;
                     break;
                 case SDL_WINDOWEVENT:
-                    if(m_Event.window.event == SDL_WINDOWEVENT_RESIZED)
+                    if(m_event.window.event == SDL_WINDOWEVENT_RESIZED)
                     {
-                        GLsizei _width  = m_Event.window.data1;
-                        GLsizei _height = m_Event.window.data2;
+                        GLsizei _width  = m_event.window.data1;
+                        GLsizei _height = m_event.window.data2;
 
                         TargetRenderPipeline->EditorSceneFrameBuffer->RescaleFrameBuffer(2 * _width, 2 * _height);
 
@@ -184,7 +184,7 @@ namespace MELT
             case EngineMode::EDIT_MODE:
                 if(Input.IsKeyPressed(SDL_SCANCODE_ESCAPE))
                 {
-                    m_IsRunning = false;
+                    m_is_running = false;
                 }
 
                 if(Input.IsMouseButtonPressed(SDL_BUTTON_LEFT))
@@ -210,12 +210,12 @@ namespace MELT
 
                 if(Input.IsMouseButtonPressed(SDL_BUTTON_RIGHT))
                 {
-                    isDragging = true;
+                    m_is_dragging = true;
                 }
 
                 if(Input.IsMouseButtonHeld(SDL_BUTTON_RIGHT))
                 {
-                    if (isDragging)
+                    if (m_is_dragging)
                     {
                         auto _delta = Input.MouseDelta;
                         auto screenToWorldScale = ScreenHeight / 2 * MainCamera.OrthographicSize;
@@ -226,7 +226,7 @@ namespace MELT
 
                 if(Input.IsMouseButtonReleased(SDL_BUTTON_RIGHT))
                 {
-                    isDragging = false;
+                    m_is_dragging = false;
                 }
 
                 if(Input.IsKeyHeld(SDL_SCANCODE_A))
@@ -280,13 +280,13 @@ namespace MELT
 
         UpdateEditor();
 #endif
-        SDL_GL_SwapWindow(m_Window);
+        SDL_GL_SwapWindow(sdl_window);
     }
 
     void Engine::Quit()
     {
-        SDL_GL_DeleteContext(m_GLContext);
-        SDL_DestroyWindow(m_Window);
+        SDL_GL_DeleteContext(gl_context);
+        SDL_DestroyWindow(sdl_window);
         SDL_Quit();
     }
 
@@ -307,16 +307,6 @@ namespace MELT
         });
 
         _node.entityRef = _entity;
-    }
-
-    SDL_Window* Engine::GetWindow()
-    {
-        return m_Window;
-    }
-
-    SDL_GLContext& Engine::GetGLContext()
-    {
-        return m_GLContext;
     }
 
     void Engine::SelectObject(glm::vec2 _mouseScreenPos, const MELT::Camera &_camera)

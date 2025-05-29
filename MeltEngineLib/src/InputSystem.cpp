@@ -2,9 +2,7 @@
 
 namespace MELT
 {
-    InputSystem::InputSystem()
-    {
-    }
+    InputSystem::InputSystem() = default;
 
     void InputSystem::Update(SDL_Event _event)
     {

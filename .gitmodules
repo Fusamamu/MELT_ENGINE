@@ -16,3 +16,6 @@
 [submodule "MeltEngineEditorLib/vendors/ImGuizmo"]
 	path = MeltEngineEditorLib/vendors/ImGuizmo
 	url = https://github.com/CedricGuillemet/ImGuizmo.git
+[submodule "MeltEngineLib/vendors/entt"]
+	path = MeltEngineLib/vendors/entt
+	url = https://github.com/skypjack/entt.git

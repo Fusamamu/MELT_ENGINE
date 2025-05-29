@@ -10,7 +10,7 @@ int main()
 
 
     MELT::Engine _engine;
-    _engine.Init();
+    _engine.init();
     MELT_EDITOR::Editor _editor (&_engine);
 
 

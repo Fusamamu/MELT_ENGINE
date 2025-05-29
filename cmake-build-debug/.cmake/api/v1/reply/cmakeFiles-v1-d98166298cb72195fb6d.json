@@ -1,0 +1,394 @@
+{
+	"globsDependent" : 
+	[
+		{
+			"expression" : "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/*.cpp",
+			"listDirectories" : true,
+			"paths" : 
+			[
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/binary.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/convert.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/depthguard.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/directives.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/emit.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/emitfromevents.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/emitter.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/emitterstate.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/emitterutils.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/exceptions.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/exp.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/memory.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/node.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/node_data.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/nodebuilder.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/nodeevents.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/null.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/ostream_wrapper.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/parse.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/parser.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/regex_yaml.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/scanner.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/scanscalar.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/scantag.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/scantoken.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/simplekey.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/singledocparser.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/stream.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/tag.cpp"
+			]
+		},
+		{
+			"expression" : "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/contrib/*.cpp",
+			"listDirectories" : true,
+			"paths" : 
+			[
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/contrib/graphbuilder.cpp",
+				"/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/src/contrib/graphbuilderadapter.cpp"
+			]
+		}
+	],
+	"inputs" : 
+	[
+		{
+			"path" : "CMakeLists.txt"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/CMakeFiles/3.30.5/CMakeSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Darwin-Initialize.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/CMakeFiles/3.30.5/CMakeCCompiler.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Darwin.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/UnixPaths.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/AppleClang-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-AppleClang-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCXXInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/AppleClang-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Compiler/Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-AppleClang-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Platform/Apple-Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"path" : "MeltEngineLib/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Library/Frameworks/SDL2.framework/Resources/CMake/sdl2-config.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FeatureSummary.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindGLEW.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/SelectLibraryConfigurations.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/glew/glew-config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/glew/glew-targets.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/glew/glew-targets-release.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/glew/CopyImportedTargetProperties.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindOpenGL.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/glm/glmConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/glm/glmConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/share/glm/glmConfig-release.cmake"
+		},
+		{
+			"path" : "MeltEngineLib/vendors/yaml-cpp/CMakeLists.txt"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakePackageConfigHelpers.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/WriteBasicConfigVersionFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeDependentOption.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CheckCXXCompilerFlag.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Internal/CheckCompilerFlag.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Internal/CheckFlagCommonConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Internal/CheckSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CheckCXXSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/Internal/CheckSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/GNUInstallDirs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CTest.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CTestUseLaunchers.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CTestTargets.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/DartConfiguration.tcl.in"
+		},
+		{
+			"path" : "MeltEngineLib/vendors/yaml-cpp/yaml-cpp-config.cmake.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in"
+		},
+		{
+			"path" : "MeltEngineLib/vendors/yaml-cpp/yaml-cpp.pc.in"
+		},
+		{
+			"path" : "MeltEngineLib/vendors/yaml-cpp/util/CMakeLists.txt"
+		},
+		{
+			"path" : "MeltEngineEditorLib/CMakeLists.txt"
+		},
+		{
+			"path" : "MeltEngineEditorLib/vendors/nativefiledialog-extended/CMakeLists.txt"
+		},
+		{
+			"path" : "MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeLists.txt"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/share/cmake-3.30/Modules/CheckCXXSourceCompiles.cmake"
+		}
+	],
+	"kind" : "cmakeFiles",
+	"paths" : 
+	{
+		"build" : "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug",
+		"source" : "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE"
+	},
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 1
+	}
+}

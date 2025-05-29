@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp
-BuildDirectory: /Users/pengaki/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp
+SourceDirectory: /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp
+BuildDirectory: /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/vendors/yaml-cpp
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: Sukums-iMac.local
+Site: Sukums-Mac-mini.local
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Darwin-c++
@@ -27,8 +27,8 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/Applications/CLion.app/Contents/bin/cmake/mac/x64/bin/cmake" "/Users/pengaki/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp"
-MakeCommand: /Applications/CLion.app/Contents/bin/cmake/mac/x64/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
+ConfigureCommand: "/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake" "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp"
+MakeCommand: /Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
 # version control
@@ -45,7 +45,7 @@ SVNOptions:
 SVNUpdateOptions: 
 
 # Git options
-GITCommand: /usr/local/bin/git
+GITCommand: /usr/bin/git
 GITInitSubmodules: 
 GITUpdateOptions: 
 GITUpdateCustom: 
@@ -58,13 +58,13 @@ P4UpdateOptions:
 P4UpdateCustom: 
 
 # Generic update command
-UpdateCommand: /usr/local/bin/git
+UpdateCommand: /usr/bin/git
 UpdateOptions: 
 UpdateType: git
 
 # Compiler info
 Compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
-CompilerVersion: 15.0.0.15000100
+CompilerVersion: 17.0.0.17000013
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 
@@ -94,6 +94,9 @@ TimeOut: 1500
 # During parallel testing CTest will not start a new test if doing
 # so would cause the system load to exceed this value.
 TestLoad: 
+
+TLSVerify: 
+TLSVersion: 
 
 UseLaunchers: 
 CurlOptions: 

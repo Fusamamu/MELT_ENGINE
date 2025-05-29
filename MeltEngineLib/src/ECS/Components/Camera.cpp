@@ -19,7 +19,7 @@ namespace MELT
 
     }
 
-    float Camera::HalfScreenWidht() const
+    float Camera::HalfScreenWidth() const
     {
         return ScreenSize.x / 2.0f;
     }

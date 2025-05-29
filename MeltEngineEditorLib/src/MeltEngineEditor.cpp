@@ -61,7 +61,7 @@ namespace MELT_EDITOR
 
         const char* glsl_version = "#version 150";
 
-        ImGui_ImplSDL2_InitForOpenGL(_engine->GetWindow(), _engine->GetGLContext());
+        ImGui_ImplSDL2_InitForOpenGL(_engine->sdl_window, _engine->gl_context);
         ImGui_ImplOpenGL3_Init(glsl_version);
 
         Engine->UpdateEditorInput = std::bind(&Editor::UpdateInput, this, std::placeholders::_1);
@@ -399,7 +399,7 @@ namespace MELT_EDITOR
                                                 0.0f, _sceneEditorWindowHeight, 0.0f, 1.0f);
 
             ImVec2 _mouseWorldPos = RemapImVec2(_screenPos,
-                                                0.0f, _sceneEditorWindowWidth , -Engine->MainCamera.HalfScreenWidht(),  Engine->MainCamera.HalfScreenWidht(),
+                                                0.0f, _sceneEditorWindowWidth , -Engine->MainCamera.HalfScreenWidth(),  Engine->MainCamera.HalfScreenWidth(),
                                                 0.0f, _sceneEditorWindowHeight,  Engine->MainCamera.HalfScreenHeight(), -Engine->MainCamera.HalfScreenHeight());
 
             _mouseWorldPos.x += Engine->MainCamera.Position.x;

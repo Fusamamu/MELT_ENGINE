@@ -20,6 +20,8 @@ add_library(${PROJECT_NAME} STATIC
             ${IMGUI_BACKENDS}/imgui_impl_opengl3.cpp
             ${IMGUIZMOS_SRCS})
 
+target_include_directories(${PROJECT_NAME} PUBLIC ./src)
+
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
 target_include_directories(${PROJECT_NAME} PUBLIC ./include/ScriptEditor)
 target_include_directories(${PROJECT_NAME} PUBLIC ./vendors/imgui)

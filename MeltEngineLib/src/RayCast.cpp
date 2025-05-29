@@ -9,25 +9,6 @@ namespace MELT
 
     glm::vec3 RayCast::ScreenToWorldRay(glm::vec2 _mouseScreenPos, const Camera& _camera)
     {
-//        float _ndcX =        (2.0f * _mouseScreenPos.x) / _camera.WindowSize.x - 1.0f;
-//        float _ndcY = 1.0f - (2.0f * _mouseScreenPos.y) / _camera.WindowSize.y;
-//
-//        std::cout << "NDC : " << _ndcX << ", " << _ndcY << std::endl;
-//
-//        glm::vec4 _nearClip = glm::vec4(_ndcX, _ndcY, 0.0f, 1.0f);
-//        glm::vec4 _farClip  = glm::vec4(_ndcX, _ndcY, 1.0f, 1.0f);
-//
-//        glm::mat4 _projInv = glm::inverse(_camera.GetOrthographicProjectionMatrix());
-//        glm::mat4 _viewInv = glm::inverse(_camera.GetViewMatrix());
-//
-//        glm::vec4 _nearPoint = _viewInv * _projInv * _nearClip;
-//        glm::vec4 _farPoint  = _viewInv * _projInv * _farClip;
-//
-//        glm::vec4 _ray = _farPoint - _nearPoint;
-//
-//        glm::vec3 _normalizedRay = glm::normalize(glm::vec3(_ray.x, _ray.y, _ray.z));
-
-
         // Convert screen space to NDC (Normalized Device Coordinates)
         float _ndcX = (2.0f * _mouseScreenPos.x) / _camera.WindowSize.x - 1.0f;
         float _ndcY = 1.0f - (2.0f * _mouseScreenPos.y) / _camera.WindowSize.y;
@@ -55,7 +36,6 @@ namespace MELT
 
         return _rayDirection;
     }
-
 
     static glm::vec3 ScreenToWorldRay(
             int cursorX, int cursorY,

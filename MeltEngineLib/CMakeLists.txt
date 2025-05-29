@@ -45,9 +45,20 @@ add_library(${PROJECT_NAME} STATIC
         src/RayCast.cpp
         src/Reflection.cpp)
 
-target_precompile_headers(${PROJECT_NAME} PUBLIC ./include/Core.h)
+target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
+        ./src
+
+        ./src/EventSystem
+        ./src/Renderer
+        ./src/Primitive
+        ./src/ECS
+        ./src/ECS/Components
+        ./src/ECS/Systems
+        ./src/Resources
+        ./src/MathLib
+
         ./include
         ./include/EventSystem
         ./include/Renderer
@@ -57,9 +68,10 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ./include/ECS/Systems
         ./include/Resources
         ./include/MathLib
+        
         ./vendors/stb
         ./vendors/yaml-cpp/include
-        ./vendors/assimp)
+        ./vendors/assimp/include)
 
 find_package(SDL2   REQUIRED COMPONENTS SDL2)
 find_package(GLEW   REQUIRED)
