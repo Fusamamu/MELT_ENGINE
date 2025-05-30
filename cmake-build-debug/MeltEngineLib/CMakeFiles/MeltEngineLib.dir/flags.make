@@ -84,3 +84,5 @@ CXX_FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Conten
 
 # PCH options: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Scene.cpp.o_OPTIONS = -Winvalid-pch;-Xclang;-include-pch;-Xclang;/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch;-Xclang;-include;-Xclang;/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx
 
+# PCH options: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.o_OPTIONS = -Winvalid-pch;-Xclang;-include-pch;-Xclang;/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch;-Xclang;-include;-Xclang;/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx
+

@@ -1217,9 +1217,10 @@ MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Systems/RenderSystem.cpp.o: \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/GizmosTransform.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/Renderer/FrameBuffer.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/MeltEngine.h \
-  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/NodeManager.h \
-  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/Node.h \
+  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/SceneManager.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/Scene.h \
+  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/Node.h \
+  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/NodeManager.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/TextureManager.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/yaml.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./vendors/yaml-cpp/include/yaml-cpp/parser.h \

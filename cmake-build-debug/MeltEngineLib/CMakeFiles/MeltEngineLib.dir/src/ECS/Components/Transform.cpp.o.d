@@ -1205,4 +1205,5 @@ MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/ECS/Components/Transform.cpp.o: \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/entt/src/entt/signal/dispatcher.hpp \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/entt/src/entt/signal/emitter.hpp \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/ECS/Components/Transform.cpp \
-  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/ECS/Components/Transform.h
+  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/ECS/Components/Transform.h \
+  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/Core.h

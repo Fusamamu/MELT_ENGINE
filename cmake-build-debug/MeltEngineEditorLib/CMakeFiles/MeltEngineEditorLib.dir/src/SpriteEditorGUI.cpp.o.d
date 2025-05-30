@@ -1249,10 +1249,11 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineEditorLib/./vendors/IconFontCppHeaders/IconsKenney.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/MeltEngine.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/Core.h \
-  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/NodeManager.h \
+  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/SceneManager.h \
+  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/Scene.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/Node.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/ECS/Type.h \
-  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/Scene.h \
+  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/NodeManager.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/Renderer/Shader.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/Primitive/Quad.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/Vertex.h \

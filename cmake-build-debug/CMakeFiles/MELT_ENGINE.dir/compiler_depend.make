@@ -2381,6 +2381,7 @@ CMakeFiles/MELT_ENGINE.dir/main.cpp.o: CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx 
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/RenderPipeline.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/Shader.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/Scene.h \
+  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/SceneManager.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/TextureManager.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/Vertex.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/binary.h \
@@ -3829,6 +3830,8 @@ CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.cxx:
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__ranges/size.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__ranges/from_range.h:
+
+/Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/SceneManager.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__ranges/enable_borrowed_range.h:
 

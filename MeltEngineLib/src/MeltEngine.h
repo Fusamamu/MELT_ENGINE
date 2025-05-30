@@ -1,4 +1,5 @@
 #include "Core.h"
+#include "SceneManager.h"
 #include "NodeManager.h"
 #include "TextureManager.h"
 #include "Shader.h"
@@ -39,15 +40,15 @@ namespace MELT
         const int WINDOW_WIDTH  = 1600;
         const int WINDOW_HEIGHT = 800;
 
-        entt::registry ecs_registry;
+        SceneManager scene_manager;
 
-        Camera         MainCamera;
-        Coordinator    ECSCoord;
-        NodeManager    NodeMng;
-        TextureManager TextureMng;
+        Camera         MainCamera;//will remove
+        Coordinator    ECSCoord; //will remove
+        NodeManager    NodeMng;//will remove
+        TextureManager TextureMng;//will remove
 
         RenderPipeline* TargetRenderPipeline;
-        std::shared_ptr<RenderSystem> m_RenderSystem;
+        std::shared_ptr<RenderSystem> m_RenderSystem; //will remove
 
         std::function<void(void)>      UpdateEngine;
         std::function<void(SDL_Event)> UpdateEditorInput;
@@ -64,13 +65,6 @@ namespace MELT
         void UpdateLogic();
         void UpdateRender();
         void Quit();
-
-        Scene* working_scene;
-        std::unordered_map<std::string, std::unique_ptr<Scene>> scene_table;
-
-        Scene* create_scene(const std::string& _scene_name);
-        Scene* get_scene(const std::string& name);
-        bool set_active_scene(const std::string& name);
 
         void CreateNode();
         void SelectObject(glm::vec2 _mouseScreenPos, const Camera& _camera);

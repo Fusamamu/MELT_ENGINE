@@ -42,15 +42,6 @@ namespace MELT
         Engine* Engine;
         Coordinator* ECSCoord;
 
-//        void Init();
-//        void Update(float _dt);
-
         NATIVE_SYSTEM_OVERRIDE;
-
-//        void OnStart() override;
-//        void OnInputUpdate(float _dt) override;
-//        void OnUpdate(float _dt) override;
-//        void OnRender(float _dt) override;
-//        void OnEnd() override;
     };
 }

@@ -2384,6 +2384,7 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/ConsoleGUI.cpp.o
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/RenderPipeline.h
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/Shader.h
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Scene.h
+ /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/SceneManager.h
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/TextureManager.h
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Vertex.h
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/binary.h
@@ -3672,6 +3673,7 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/MeltEngineEditor.cpp.
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/RenderPipeline.h
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/Shader.h
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Scene.h
+ /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/SceneManager.h
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/TextureManager.h
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Vertex.h
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/binary.h
@@ -6175,6 +6177,7 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/src/SpriteEditorGUI.cpp.o
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/RenderPipeline.h
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Renderer/Shader.h
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Scene.h
+ /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/SceneManager.h
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/TextureManager.h
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Vertex.h
  /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/yaml-cpp/include/yaml-cpp/binary.h

@@ -68,30 +68,15 @@ namespace MELT
 
     void Engine::init()
     {
+        scene_manager.init();
+
         TextureMng.Init();
-
-
-
-        auto entity1 = ecs_registry.create();
-        ecs_registry.emplace<Transform>(entity1);
-
-
 
         ECSCoord.Init();
         ECSCoord.RegisterComponent<Camera>   ();
         ECSCoord.RegisterComponent<Transform>();
         ECSCoord.RegisterComponent<Renderer> ();
         ECSCoord.RegisterComponent<SpriteRenderer>();
-
-        auto _cameraControlSystem = ECSCoord.RegisterSystem<CameraControlSystem>();
-        {
-            Signature _signature;
-            _signature.set(ECSCoord.GetComponentType<Transform>());
-            _signature.set(ECSCoord.GetComponentType<Camera>());
-            ECSCoord.SetSystemSignature<CameraControlSystem>(_signature);
-        }
-        _cameraControlSystem->OnStart();
-
 
         m_RenderSystem = ECSCoord.RegisterSystem<RenderSystem>();
         {
@@ -283,9 +268,6 @@ namespace MELT
         if(TargetRenderPipeline)
             TargetRenderPipeline->Render(0.0f);
 
-        if(CurrentMode == EngineMode::PLAY_MODE)
-            ECSCoord.m_SystemManager->UpdateRender();
-
         UpdateEditor();
 #endif
         SDL_GL_SwapWindow(sdl_window);
@@ -298,48 +280,27 @@ namespace MELT
         SDL_Quit();
     }
 
-    Scene* Engine::create_scene(const std::string& name)
-    {
-        auto [it, inserted] = scene_table.try_emplace(name, std::make_unique<Scene>());
-        return it->second.get();
-    }
-
-    Scene* Engine::get_scene(const std::string& name)
-    {
-        auto it = scene_table.find(name);
-        if (it != scene_table.end()) {
-            return it->second.get();
-        }
-        return nullptr;
-    }
-
-    bool Engine::set_active_scene(const std::string& name)
-    {
-        auto it = scene_table.find(name);
-        if (it != scene_table.end()) {
-            working_scene = it->second.get();
-            return true;
-        }
-        return false;
-    }
-
+    //Use scene manager instead
     void Engine::CreateNode()
     {
-        Node& _node = NodeMng.create_node({});
+        Node& _node = scene_manager.working_scene->create_node_with_type<Transform>("Entity");
 
-        MELT::Entity _entity = ECSCoord.CreateEntity();
 
-        ECSCoord.AddComponent<MELT::Transform>(_entity, {
-                glm::vec3(0.0, 0.0, 0.0),
-                glm::vec3(0.0, 0.0, 0.0),
-                glm::vec3(0.0, 0.0, 0.0),
-        });
-
-        ECSCoord.AddComponent<MELT::SpriteRenderer>(_entity, {
-
-        });
-
-        _node.entityRef = _entity;
+        // Node& _node = NodeMng.create_node({});
+        //
+        // MELT::Entity _entity = ECSCoord.CreateEntity();
+        //
+        // ECSCoord.AddComponent<MELT::Transform>(_entity, {
+        //         glm::vec3(0.0, 0.0, 0.0),
+        //         glm::vec3(0.0, 0.0, 0.0),
+        //         glm::vec3(0.0, 0.0, 0.0),
+        // });
+        //
+        // ECSCoord.AddComponent<MELT::SpriteRenderer>(_entity, {
+        //
+        // });
+        //
+        // _node.entityRef = _entity;
     }
 
     void Engine::SelectObject(glm::vec2 _mouseScreenPos, const MELT::Camera &_camera)
@@ -352,8 +313,8 @@ namespace MELT
         {
             Transform& _transform = ECSCoord.GetComponent<Transform>(_node.entityRef);
 
-            auto _minBounds = _transform.Position + glm::vec3(-0.5, -0.5, -0.5);
-            auto _maxBounds = _transform.Position + glm::vec3( 0.5,  0.5,  0.5);
+            auto _minBounds = _transform.position + glm::vec3(-0.5, -0.5, -0.5);
+            auto _maxBounds = _transform.position + glm::vec3( 0.5,  0.5,  0.5);
 
             float _ndcX = (2.0f * _mouseScreenPos.x) / _camera.WindowSize.x - 1.0f;
             float _ndcY = 1.0f - (2.0f * _mouseScreenPos.y) / _camera.WindowSize.y;
@@ -372,7 +333,7 @@ namespace MELT
 
             if (RayCast::RayIntersectsAABB(_rayOrigin, rayDir, _minBounds, _maxBounds))
             {
-                float _distance = glm::distance(_rayOrigin, _transform.Position);
+                float _distance = glm::distance(_rayOrigin, _transform.position);
                 if (_distance < _closestDistance)
                 {
                     _closestDistance = _distance;

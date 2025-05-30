@@ -1206,5 +1206,4 @@ MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Node.cpp.o: \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/entt/src/entt/signal/emitter.hpp \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/Node.cpp \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/Node.h \
-  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/ECS/Type.h \
-  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/Scene.h
+  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/ECS/Type.h

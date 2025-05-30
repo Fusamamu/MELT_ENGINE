@@ -855,15 +855,15 @@ namespace MELT_EDITOR
         ImGui::Indent();
         ImGui::Text("Position");
         ImGui::SameLine(120.0f);
-        ImGui::InputFloat3("##Position", glm::value_ptr(_transform.Position));
+        ImGui::InputFloat3("##Position", glm::value_ptr(_transform.position));
 
         ImGui::Text("Rotation");
         ImGui::SameLine(120.0f);
-        ImGui::InputFloat3("##Rotation", glm::value_ptr(_transform.Rotation));
+        ImGui::InputFloat3("##Rotation", glm::value_ptr(_transform.rotation));
 
         ImGui::Text("Scale");
         ImGui::SameLine(120.0f);
-        ImGui::InputFloat3("##Scale", glm::value_ptr(_transform.Scale));
+        ImGui::InputFloat3("##Scale", glm::value_ptr(_transform.scale));
         ImGui::Unindent();
         ImGui::PopStyleColor();
 

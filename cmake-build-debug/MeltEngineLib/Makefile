@@ -962,6 +962,30 @@ src/Scene.cpp.s:
 	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Scene.cpp.s
 .PHONY : src/Scene.cpp.s
 
+src/SceneManager.o: src/SceneManager.cpp.o
+.PHONY : src/SceneManager.o
+
+# target to build an object file
+src/SceneManager.cpp.o:
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.o
+.PHONY : src/SceneManager.cpp.o
+
+src/SceneManager.i: src/SceneManager.cpp.i
+.PHONY : src/SceneManager.i
+
+# target to preprocess a source file
+src/SceneManager.cpp.i:
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.i
+.PHONY : src/SceneManager.cpp.i
+
+src/SceneManager.s: src/SceneManager.cpp.s
+.PHONY : src/SceneManager.s
+
+# target to generate assembly for a file
+src/SceneManager.cpp.s:
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.s
+.PHONY : src/SceneManager.cpp.s
+
 src/TextureManager.o: src/TextureManager.cpp.o
 .PHONY : src/TextureManager.o
 
@@ -1124,6 +1148,9 @@ help:
 	@echo "... src/Scene.o"
 	@echo "... src/Scene.i"
 	@echo "... src/Scene.s"
+	@echo "... src/SceneManager.o"
+	@echo "... src/SceneManager.i"
+	@echo "... src/SceneManager.s"
 	@echo "... src/TextureManager.o"
 	@echo "... src/TextureManager.i"
 	@echo "... src/TextureManager.s"

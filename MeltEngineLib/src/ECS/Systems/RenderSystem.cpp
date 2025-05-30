@@ -158,8 +158,8 @@ namespace MELT
         {
             Transform& _transform = ECSCoord->GetComponent<Transform>(_entity);
 
-            float _xPos = _transform.Position.x;
-            float _yPos = _transform.Position.y;
+            float _xPos = _transform.position.x;
+            float _yPos = _transform.position.y;
 
             glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (_xPos, _yPos, 0.0f));
 

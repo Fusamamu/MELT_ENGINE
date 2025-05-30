@@ -75,9 +75,9 @@ namespace MELT
         {
             const Transform& _transform = m_Engine->ECSCoord.GetComponent<Transform>(_node.entityRef);
 
-            float _xPos = _transform.Position.x;
-            float _yPos = _transform.Position.y;
-            float _zPos = _transform.Position.z;
+            float _xPos = _transform.position.x;
+            float _yPos = _transform.position.y;
+            float _zPos = _transform.position.z;
 
             glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (_xPos, _yPos, _zPos));
 

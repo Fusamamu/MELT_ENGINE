@@ -660,6 +660,22 @@ MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Scene.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineLib.dir/src/Scene.cpp.s"
 	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -S "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Scene.cpp" -o CMakeFiles/MeltEngineLib.dir/src/Scene.cpp.s
 
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/flags.make
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.o: /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/SceneManager.cpp
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.o"
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -MD -MT MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.o -MF CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.o.d -o CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.o -c "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/SceneManager.cpp"
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.i"
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -E "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/SceneManager.cpp" > CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.i
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.s"
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -S "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/SceneManager.cpp" -o CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.s
+
 # Object files for target MeltEngineLib
 MeltEngineLib_OBJECTS = \
 "CMakeFiles/MeltEngineLib.dir/src/Core.cpp.o" \
@@ -697,7 +713,8 @@ MeltEngineLib_OBJECTS = \
 "CMakeFiles/MeltEngineLib.dir/src/Renderer/RenderPipeline.cpp.o" \
 "CMakeFiles/MeltEngineLib.dir/src/RayCast.cpp.o" \
 "CMakeFiles/MeltEngineLib.dir/src/Reflection.cpp.o" \
-"CMakeFiles/MeltEngineLib.dir/src/Scene.cpp.o"
+"CMakeFiles/MeltEngineLib.dir/src/Scene.cpp.o" \
+"CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.o"
 
 # External object files for target MeltEngineLib
 MeltEngineLib_EXTERNAL_OBJECTS =
@@ -739,9 +756,10 @@ MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src
 MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/RayCast.cpp.o
 MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Reflection.cpp.o
 MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Scene.cpp.o
+MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/SceneManager.cpp.o
 MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make
 MeltEngineLib/libMeltEngineLib.a: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_38) "Linking CXX static library libMeltEngineLib.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_39) "Linking CXX static library libMeltEngineLib.a"
 	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && $(CMAKE_COMMAND) -P CMakeFiles/MeltEngineLib.dir/cmake_clean_target.cmake
 	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug/MeltEngineLib" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MeltEngineLib.dir/link.txt --verbose=$(VERBOSE)
 

@@ -1207,5 +1207,4 @@ MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/NodeManager.cpp.o: \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/NodeManager.cpp \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/NodeManager.h \
   /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/Node.h \
-  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/ECS/Type.h \
-  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/Scene.h
+  /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/./src/ECS/Type.h

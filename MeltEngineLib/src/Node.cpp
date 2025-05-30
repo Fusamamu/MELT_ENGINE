@@ -13,7 +13,6 @@ namespace MELT
 
     Node::Node(std::string _name, M_VEC3 _position):
         name(_name),
-        position(_position),
         isSelected(false),
         m_scene_owner(nullptr)
     {

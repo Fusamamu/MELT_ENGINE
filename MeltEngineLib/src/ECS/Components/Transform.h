@@ -1,16 +1,18 @@
-#pragma once
-#include <glm/glm.hpp>
-#include <glm/gtc/type_ptr.hpp>
-#include <glm/gtc/matrix_transform.hpp>
+#ifndef TRANSFORM_H
+#define TRANSFORM_H
+
+#include "Core.h"
 
 namespace MELT
 {
     struct Transform
     {
-        glm::vec3 Position;
-        glm::vec3 Rotation;
-        glm::vec3 Scale;
+        M_VEC3 position;
+        M_VEC3 rotation;
+        M_VEC3 scale;
 
-        glm::mat4 GetTransformMatrix() const;
+        [[nodiscard]] glm::mat4 get_transform_matrix() const;
     };
 }
+
+#endif

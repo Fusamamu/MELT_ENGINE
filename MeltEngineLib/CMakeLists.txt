@@ -48,7 +48,8 @@ add_library(${PROJECT_NAME} STATIC
         src/Renderer/RenderPipeline.cpp
         src/RayCast.cpp
         src/Reflection.cpp
-        src/Scene.cpp)
+        src/Scene.cpp
+        src/SceneManager.cpp)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
 

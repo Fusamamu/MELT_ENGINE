@@ -1,11 +1,12 @@
 #pragma once
 #include "Core.h"
 #include "Type.h"
-#include "Scene.h"
 
 namespace MELT
 {
     using NodeID = std::string;
+
+    class Scene;
 
     class Node
     {
@@ -14,7 +15,6 @@ namespace MELT
 
         NodeID id;
         std::string name;
-        glm::vec3 position;
 
         bool isSelected;
 
@@ -27,27 +27,24 @@ namespace MELT
         entt::entity get_entity() const {
             return m_entity_handle;
         }
+
         template<typename T, typename... Args>
-        T& add_component(Args&... _args){
-            return m_scene_owner->ecs_registry.emplace<T>(m_entity_handle, std::forward<Args>(_args)...);
-        }
+        T& add_component(Args&&... _args);
+
         template<typename T>
-        void remove_component() {
-            m_scene_owner->ecs_registry.remove<T>(m_entity_handle);
-        }
+        void remove_component();
+
         template<typename T>
-        T& get_component(){
-            return m_scene_owner->ecs_registry.get<T>(m_entity_handle);
-        }
+        T& get_component();
+
         template<typename T>
-        [[nodiscard]]
-        bool has_component() const{
-            return m_scene_owner->ecs_registry.all_of<T>(m_entity_handle);
-        }
+        bool has_component() const;
 
         explicit operator bool() const { return m_entity_handle != entt::null; }
     private:
         Scene* m_scene_owner;
         entt::entity m_entity_handle;
     };
+
+    //#include "Node.inl"
 }
