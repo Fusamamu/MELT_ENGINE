@@ -60,7 +60,11 @@ namespace MELT_EDITOR
         void DrawAssetsGUI();
         void DrawContentGUI();
 
+        void DrawLineSeparator();
+
+        void DrawComponent(MELT::Transform& _transform);
         void DrawTransformComponentPanel(MELT::Transform& _transform);
+        void DrawRendererComponentPanel(MELT::Renderer& _renderer);
         void DrawSpriteRendererComponentPanel(MELT::SpriteRenderer& _spriteRenderer);
 
         std::string CurrentTextDisplay;

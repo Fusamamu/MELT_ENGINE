@@ -186,9 +186,6 @@ namespace MELT
 
                 if(Input.IsMouseButtonPressed(SDL_BUTTON_LEFT))
                 {
-                    // for(Node& _node : NodeMng.SceneNodes)
-                    //     _node.is_selected = false;
-                    SelectObject(Input.MouseScreenPosition, MainCamera);
                 }
 
                 if(Input.IsMouseButtonHeld(SDL_BUTTON_LEFT))
@@ -309,6 +306,7 @@ namespace MELT
 
     void Engine::SelectObject(glm::vec2 _mouseScreenPos, const MELT::Camera &_camera)
     {
+        std::cout << "Select object" << std::endl;
         Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
 
         _working_scene->deselect_all_nodes();

@@ -36,6 +36,9 @@ namespace MELT
         T& get_component();
 
         template<typename T>
+        T* try_get_component();
+
+        template<typename T>
         bool has_component() const;
 
         explicit operator bool() const { return m_entity_handle != entt::null; }

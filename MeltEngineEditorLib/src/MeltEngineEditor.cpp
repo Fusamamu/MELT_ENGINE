@@ -305,6 +305,9 @@ namespace MELT_EDITOR
 
         if (ImGui::Begin("Scene view"))
         {
+            if (ImGui::IsWindowHovered() && ImGui::IsMouseClicked(ImGuiMouseButton_Left))
+                Engine->SelectObject(MELT::Input.MouseScreenPosition, Engine->MainCamera);
+
             ImVec2 _cursorScreenPos = ImGui::GetCursorScreenPos();
 
             const float _sceneEditorWindowWidth  = ImGui::GetContentRegionAvail().x;
@@ -442,6 +445,8 @@ namespace MELT_EDITOR
             ImGui::PushStyleColor(ImGuiCol_Header, IM_COL32(92, 97, 62, 255));
             ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 8.0f);
 
+            bool any_selected = false;
+
             if (ImGui::CollapsingHeader("Scene 1"))
             {
                 MELT::Scene* _working_scene = Engine->manager_registry.get<MELT::SceneManager>()->working_scene;
@@ -451,8 +456,10 @@ namespace MELT_EDITOR
 
                     std::string _name = _node.name + std::to_string(_i);
 
-                    if(ImGui::Selectable(_name.c_str(), _i == _selectedItem))
+                    if(ImGui::Selectable(_name.c_str(), _i == _selectedItem && _working_scene->selected_node_id.has_value()))
                     {
+                        any_selected = true;
+
                         _selectedItem = _i;
 
                         _working_scene->deselect_all_nodes();
@@ -460,6 +467,15 @@ namespace MELT_EDITOR
 
                         _node.is_selected = true;
                     }
+                }
+
+                if (!any_selected &&
+                   ImGui::IsWindowHovered() &&
+                   !ImGui::IsAnyItemHovered() &&
+                   ImGui::IsMouseClicked(ImGuiMouseButton_Left))
+                {
+                    _working_scene->deselect_all_nodes();
+                    _selectedItem = -1;
                 }
             }
 
@@ -478,6 +494,9 @@ namespace MELT_EDITOR
 
     void Editor::DrawInspectorGUI()
     {
+        MELT::Scene* _working_scene = Engine->manager_registry.get<MELT::SceneManager>()->working_scene;
+        MELT::Node * _selected_node = _working_scene->get_selected_node();
+
         ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
 
         if (ImGui::Begin("Inspector"))
@@ -505,44 +524,39 @@ namespace MELT_EDITOR
             rect_max.x = rect_min.x + ImGui::GetWindowWidth();
             rect_max.y = rect_min.y + 400.0f;
 
-            draw_list->AddRectFilled(
-                    rect_min,
-                    rect_max,
-                    IM_COL32(0, 0, 0, 255));
-
             rect_min.x += ImGui::GetStyle().WindowBorderSize + 1.0f;
             rect_max.x -= ImGui::GetStyle().WindowBorderSize + 1.0f;
 
-            float outline_thickness = 3.0f;
-            draw_list->AddRect(
-                    rect_min,
-                    rect_max,
-                    IM_COL32(61, 63, 66, 255),
-                    0.0f, ImDrawFlags_None, outline_thickness);
-
-            ImTextureID texture_id = (void*)(intptr_t)Engine->TextureMng.TextureDataTable["MeltIcon"].TextureID;
-            draw_list->AddImage(
-                    texture_id,
-                    _startCursor,
-                    ImVec2(_startCursor.x + 16, _startCursor.y + 16),
-                    ImVec2(0, 0),
-                    ImVec2(0.2, 0.2));
-
-            draw_list->AddText(ImVec2(_startCursor.x + 20, _startCursor.y)     , ImColor(255, 255, 255), "Entity name : ");
-            draw_list->AddText(ImVec2(_startCursor.x + 20, _startCursor.y + 20), ImColor(255, 255, 255), "UUID        : ");
+            if (_selected_node)
+            {
+                char buffer[128];
+                std::strncpy(buffer, _selected_node->name.c_str(), sizeof(buffer));
+                buffer[sizeof(buffer) - 1] = '\0'; // ensure null termination
+                if (ImGui::InputText("Name", buffer, IM_ARRAYSIZE(buffer)))
+                    _selected_node->name = std::string(buffer);
+                ImGui::Text(_selected_node->id.c_str());
+            }
 
             ImGui::SetCursorScreenPos(rect_min);
 
             ImGui::NewLine();
 
-            MELT::Scene* _working_scene = Engine->manager_registry.get<MELT::SceneManager>()->working_scene;
-            MELT::Node* _selected_node = _working_scene->get_selected_node();
-            if (_selected_node != nullptr)
+            DrawLineSeparator();
+
+            if (_selected_node && _selected_node->has_component<MELT::Transform>())
             {
-                if (_selected_node->has_component<MELT::Transform>())
+                MELT::Transform& _transform = _selected_node->get_component<MELT::Transform>();
+                DrawComponent(_transform);
+                DrawLineSeparator();
+            }
+
+            if (_selected_node)
+            {
+                if (_selected_node->has_component<MELT::Renderer>())
                 {
-                    MELT::Transform& _transform = _selected_node->get_component<MELT::Transform>();
-                    DrawTransformComponentPanel(_transform);
+                    //MELT::Renderer* _renderer = _selected_node->try_get_component<MELT::Renderer>();
+                    // DrawRendererComponentPanel(_renderer);
+                    // DrawLineSeparator();
                 }
             }
 
@@ -595,7 +609,49 @@ namespace MELT_EDITOR
             float buttonX = (windowSize.x - buttonSize.x) / 2.0f;
             ImGui::SetCursorPosX(buttonX);
             if (ImGui::Button("Add component", buttonSize))
-                Components.emplace_back("Transform");
+            {
+                ImGui::OpenPopup("AddComponentPopup");
+            }
+
+            // if (ImGui::BeginPopup("AddComponentPopup"))
+            // {
+            //     ImGui::Text("Add a component:");
+            //     ImGui::Separator();
+            //
+            //     if (ImGui::Selectable("Transform")) {
+            //         // Add Transform component logic here
+            //     }
+            //
+            //     if (ImGui::Selectable("SpriteRenderer")) {
+            //         // Add SpriteRenderer logic here
+            //     }
+            //
+            //     if (ImGui::Selectable("RigidBody")) {
+            //         // Add RigidBody logic here
+            //     }
+            //
+            //     ImGui::EndPopup();
+            // }
+
+            ImGui::PushStyleColor(ImGuiCol_PopupBg, IM_COL32(73, 74, 70, 255));
+            ImGui::PushStyleColor(ImGuiCol_Border , IM_COL32(73, 74, 70, 0));
+            ImGui::PushStyleVar(ImGuiStyleVar_PopupRounding, 10.0f);
+            if (ImGui::BeginPopup("AddComponentPopup"))
+            {
+                ImGui::Text("Components");
+                ImGui::Separator();
+                if (ImGui::MenuItem("Renderer"))
+                {
+                    // if (_selected_node && !_selected_node->has_component<MELT::Renderer>())
+                    //     _selected_node->add_component<MELT::Renderer>();
+                }
+                if (ImGui::MenuItem("Sprite Renderer"))
+                {
+                }
+                ImGui::EndPopup();
+            }
+            ImGui::PopStyleColor(2);
+            ImGui::PopStyleVar();
         }
         ImGui::End();
         ImGui::PopStyleColor();
@@ -705,6 +761,41 @@ namespace MELT_EDITOR
         ImGui::PopStyleVar();
     }
 
+    void Editor::DrawComponent(MELT::Transform& _transform)
+    {
+        ImGui::Text("Transform component");
+
+        ImGui::Dummy(ImVec2(0.0f, 4.0f));
+
+        ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
+        ImGui::Indent();
+
+        auto _font_color = ImVec4(0.5f, 0.5f, 0.5f, 1.0f);
+
+        ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+        ImGui::Text("Position");
+        ImGui::PopStyleColor();
+        ImGui::SameLine(120.0f);
+        ImGui::InputFloat3("##Position", glm::value_ptr(_transform.position));
+
+        ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+        ImGui::Text("Rotation");
+        ImGui::PopStyleColor();
+        ImGui::SameLine(120.0f);
+        ImGui::InputFloat3("##Rotation", glm::value_ptr(_transform.rotation));
+
+        ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+        ImGui::Text("Scale");
+        ImGui::PopStyleColor();
+        ImGui::SameLine(120.0f);
+        ImGui::InputFloat3("##Scale", glm::value_ptr(_transform.scale));
+
+        ImGui::Unindent();
+        ImGui::PopStyleColor();
+
+        ImGui::Dummy(ImVec2(0.0f, 4.0f));
+    }
+
     void Editor::DrawTransformComponentPanel(MELT::Transform& _transform)
     {
         const float _panelWidth  = ImGui::GetContentRegionAvail().x;
@@ -764,6 +855,41 @@ namespace MELT_EDITOR
         ImGui::SetCursorScreenPos(ImVec2(
                 _panelOriginPos.x,
                 _panelOriginPos.y + _panelHeight + _style.ItemSpacing.y));
+    }
+
+    void Editor::DrawRendererComponentPanel(MELT::Renderer& _renderer)
+    {
+        ImGui::Text("Renderer component");
+
+        ImGui::Dummy(ImVec2(0.0f, 4.0f));
+
+        ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
+        ImGui::Indent();
+
+        auto _font_color = ImVec4(0.5f, 0.5f, 0.5f, 1.0f);
+
+        ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+        ImGui::Text("Position");
+        ImGui::PopStyleColor();
+        ImGui::SameLine(120.0f);
+        //ImGui::InputFloat3("##Position", glm::value_ptr(_transform.position));
+
+        ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+        ImGui::Text("Rotation");
+        ImGui::PopStyleColor();
+        ImGui::SameLine(120.0f);
+        //ImGui::InputFloat3("##Rotation", glm::value_ptr(_transform.rotation));
+
+        ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+        ImGui::Text("Scale");
+        ImGui::PopStyleColor();
+        ImGui::SameLine(120.0f);
+        //ImGui::InputFloat3("##Scale", glm::value_ptr(_transform.scale));
+
+        ImGui::Unindent();
+        ImGui::PopStyleColor();
+
+        ImGui::Dummy(ImVec2(0.0f, 4.0f));
     }
 
     void Editor::DrawSpriteRendererComponentPanel(MELT::SpriteRenderer &_spriteRenderer)
@@ -893,5 +1019,23 @@ namespace MELT_EDITOR
                                              _position,
                                              ImVec2(_position.x + _spriteSize.x, _position.y + _spriteSize.y),
                                              uv0, uv1);
+    }
+
+    void Editor::DrawLineSeparator()
+    {
+        ImDrawList* draw_list = ImGui::GetWindowDrawList();
+        // Get full window boundaries
+        ImVec2 window_pos  = ImGui::GetWindowPos();
+        ImVec2 window_size = ImGui::GetWindowSize();
+
+        float line_y = ImGui::GetCursorScreenPos().y;
+        // Draw the full-width line
+        draw_list->AddLine(
+            ImVec2(window_pos.x, line_y),
+            ImVec2(window_pos.x + window_size.x, line_y),
+            IM_COL32(50, 50, 50, 255), // white
+            1.5f // thickness
+        );
+        ImGui::Dummy(ImVec2(0.0f, 5.0f)); // Optional: move cursor down after line so next element doesn't overlap
     }
 }

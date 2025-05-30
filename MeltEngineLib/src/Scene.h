@@ -52,6 +52,7 @@ namespace MELT
         {
             for (auto& _node : m_nodes)
                 _node.is_selected = false;
+            selected_node_id.reset();
         }
 
         void select_all_nodes()
@@ -75,6 +76,12 @@ namespace MELT
     T& Node::get_component(){
         return m_scene_owner->ecs_registry.get<T>(m_entity_handle);
     }
+
+    template<typename T>
+    T* Node::try_get_component() {
+        return m_scene_owner->ecs_registry.try_get<T>(m_entity_handle);
+    }
+
     template<typename T>
     bool Node::has_component() const {
         return m_scene_owner->ecs_registry.all_of<T>(m_entity_handle);
