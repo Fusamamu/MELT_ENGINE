@@ -11,12 +11,10 @@ namespace MELT
     class Node
     {
     public:
-        MELT::Entity entityRef;//will remove this
-
         NodeID id;
         std::string name;
 
-        bool isSelected;
+        bool is_selected;
 
         Node(const std::string& _name, Scene* _scene_owner, entt::entity _entity);
         Node(std::string _name, M_VEC3 _position);

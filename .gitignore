@@ -1,0 +1,16 @@
+# Ignore build directories
+cmake-build-debug/
+build/
+
+# Ignore user-specific IDE config
+
+# Ignore OS junk
+.DS_Store
+Thumbs.db
+
+# Ignore compiled files
+*.o
+*.obj
+*.exe
+*.log
+

@@ -13,7 +13,10 @@
 #include <chrono>
 #include <iomanip>
 #include <functional>
+#include <typeindex>
+#include <stdexcept>
 #include <dlfcn.h>
+#include <optional>
 
 #include <GL/glew.h>
 #include <SDL2/SDL.h>

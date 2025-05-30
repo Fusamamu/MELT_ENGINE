@@ -6,7 +6,6 @@ namespace MELT_EDITOR
     unsigned int WindowBackground_Color = IM_COL32(33, 36, 35, 255);
     unsigned int ChildBackground_Color  = IM_COL32(26, 28, 27, 255);
 
-
     Editor::Editor(MELT::Engine* _engine):
         Engine(_engine),
         BackgroundColor(IM_COL32(8, 14, 15, 255))
@@ -89,7 +88,6 @@ namespace MELT_EDITOR
         ImGui_ImplOpenGL3_Shutdown();
         ImGui_ImplSDL2_Shutdown();
         ImGui::DestroyContext();
-
         NFD_Quit();
     }
 
@@ -111,7 +109,6 @@ namespace MELT_EDITOR
                 IM_COL32(28, 31, 29, 255), 6.0f);
     }
 
-
     void Editor::Update()
     {
         ImGui_ImplOpenGL3_NewFrame();
@@ -132,32 +129,6 @@ namespace MELT_EDITOR
         ScriptEditorGUI.DrawGUI();
         ConsoleGUI     .DrawGUI();
 
-
-//        // Activate ImGuizmo (keeps it in sync with ImGui)
-//        ImGuizmo::BeginFrame();
-//
-//        // Set up ImGuizmo
-//        ImGuizmo::SetOrthographic(false);  // Set to true if using orthographic projection
-//        ImGuizmo::SetDrawlist();
-//
-//        // Set the ImGuizmo workspace size to match your viewport
-//        ImGuizmo::SetRect(0, 0, ImGui::GetIO().DisplaySize.x, ImGui::GetIO().DisplaySize.y);
-//
-//        // Define the transformation matrix of the object you want to manipulate
-//        static glm::mat4 objectMatrix = glm::mat4(1.0f);  // Identity matrix initially
-//
-//        // Choose operation (translate, rotate, scale)
-//        ImGuizmo::OPERATION operation = ImGuizmo::TRANSLATE;  // Set based on current tool mode
-//        ImGuizmo::MODE mode = ImGuizmo::WORLD;                // World or local space
-//
-//        // Check if a gizmo is active to prevent other interactions
-//        if (ImGuizmo::IsUsing()) {
-//            // Lock other controls or update your application state here if needed
-//        }
-
-
-
-        //ImGui::ShowDemoWindow();
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
         ImGuiIO& io = ImGui::GetIO(); (void)io;
@@ -321,18 +292,17 @@ namespace MELT_EDITOR
                        float targetMinY, float targetMaxY)
     {
         ImVec2 result;
-
         // Remap X component
         result.x = targetMinX + ((value.x - originalMinX) / (originalMaxX - originalMinX)) * (targetMaxX - targetMinX);
-
         // Remap Y component
         result.y = targetMinY + ((value.y - originalMinY) / (originalMaxY - originalMinY)) * (targetMaxY - targetMinY);
-
         return result;
     }
 
     void Editor::DrawSceneViewGUI()
     {
+        MELT::Scene* _working_scene = Engine->manager_registry.get<MELT::SceneManager>()->working_scene;
+
         if (ImGui::Begin("Scene view"))
         {
             ImVec2 _cursorScreenPos = ImGui::GetCursorScreenPos();
@@ -348,7 +318,7 @@ namespace MELT_EDITOR
                     ImVec2(1, 0)
             );
 
-            if(Engine->NodeMng.CurrentSelectedNode != nullptr && Engine->NodeMng.CurrentSelectedNode->isSelected)
+            if (_working_scene->selected_node_id.has_value())
             {
                 ImGuizmo::SetOrthographic(true);
                 ImGuizmo::SetDrawlist();
@@ -368,20 +338,12 @@ namespace MELT_EDITOR
                 
                 if (ImGuizmo::IsUsing())
                 {
-
-
         //            ImGuizmo::DecomposeMatrixToComponents(glm::value_ptr(objectMatrix),
         //                                                  glm::value_ptr(position),
         //                                                  glm::value_ptr(rotation),
         //                                                  glm::value_ptr(scale));
                 }
-
             }
-
-
-
-
-
 
             Engine->MainCamera.WindowSize.x = _sceneEditorWindowWidth;
             Engine->MainCamera.WindowSize.y = _sceneEditorWindowHeight;
@@ -411,9 +373,6 @@ namespace MELT_EDITOR
             MELT::Input.MouseScreenWorldPosition.x      = _mouseWorldPos.x;
             MELT::Input.MouseScreenWorldPosition.y      = _mouseWorldPos.y;
 
-
-
-
             ImGui::Text("Window content          W H : (%.1f, %.1f)"     , _sceneEditorWindowWidth                    , _sceneEditorWindowHeight                   );
             ImGui::Text("Orthographic projection W H : (%.1f, %.1f)"     , Engine->MainCamera.ScreenSize.x            , Engine->MainCamera.ScreenSize.y            );
             ImGui::Text("Mouse window position       : (%.1f, %.1f)"     , MELT::Input.MouseWindowPosition .x         , MELT::Input.MouseWindowPosition .y         );
@@ -427,7 +386,6 @@ namespace MELT_EDITOR
         }
         ImGui::End();
     }
-
 
     int _selectedItem = -1;
 
@@ -449,9 +407,7 @@ namespace MELT_EDITOR
             ImU32 fillColor = IM_COL32(8, 14, 15, 255);
             drawList->AddRectFilled(childPos, ImVec2(childPos.x + childSize.x, childPos.y + childSize.y), fillColor, rounding);
 
-            if (ImGui::IsMouseClicked(ImGuiMouseButton_Right) &&
-            !ImGui::IsAnyItemHovered() &&
-            ImGui::IsMouseHoveringRect(childPos, ImVec2(childPos.x + childSize.x, childPos.y + childSize.y)))
+            if (ImGui::IsMouseClicked(ImGuiMouseButton_Right) &&!ImGui::IsAnyItemHovered() && ImGui::IsMouseHoveringRect(childPos, ImVec2(childPos.x + childSize.x, childPos.y + childSize.y)))
                 ImGui::OpenPopup("CustomPopup");
 
             ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiCond_Always);
@@ -462,9 +418,10 @@ namespace MELT_EDITOR
             if (ImGui::BeginPopup("CustomPopup"))
             {
                 ImGui::Text("Object creation");
-                ImGui::Separator(); // Add a separator
+                ImGui::Separator();
 
-                if (ImGui::MenuItem("Create entity")){
+                if (ImGui::MenuItem("Create entity"))
+                {
                     Engine->CreateNode();
                 }
 
@@ -487,14 +444,21 @@ namespace MELT_EDITOR
 
             if (ImGui::CollapsingHeader("Scene 1"))
             {
-                for(std::size_t _i = 0; _i < Engine->NodeMng.SceneNodes.size(); ++_i)
+                MELT::Scene* _working_scene = Engine->manager_registry.get<MELT::SceneManager>()->working_scene;
+                for(std::size_t _i = 0; _i < _working_scene->get_all_nodes().size(); ++_i)
                 {
-                    std::string _e = "Entity_" + std::to_string(Engine->NodeMng.SceneNodes[_i].entityRef);
-                    if(ImGui::Selectable(_e.c_str(), _i == _selectedItem))
+                    auto& _node = _working_scene->get_all_nodes()[_i];
+
+                    std::string _name = _node.name + std::to_string(_i);
+
+                    if(ImGui::Selectable(_name.c_str(), _i == _selectedItem))
                     {
                         _selectedItem = _i;
-                        Engine->NodeMng.CurrentSelectedNode = &Engine->NodeMng.SceneNodes[_i];
-                        Engine->NodeMng.CurrentSelectedNode->isSelected = true;
+
+                        _working_scene->deselect_all_nodes();
+                        _working_scene->selected_node_id = _node.id;
+
+                        _node.is_selected = true;
                     }
                 }
             }
@@ -514,44 +478,32 @@ namespace MELT_EDITOR
 
     void Editor::DrawInspectorGUI()
     {
-        //ImGui::PushStyleColor(ImGuiCol_WindowBg, WindowBackground_Color);
         ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
+
         if (ImGui::Begin("Inspector"))
         {
             ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
             ImVec2 _startCursor = ImGui::GetCursorScreenPos();
-
-            ImVec2 rect_min = ImGui::GetCursorScreenPos();
-
+            ImVec2 rect_min     = ImGui::GetCursorScreenPos();
 
             ImVec2 padding = ImGui::GetStyle().WindowPadding;
             rect_min.x -= padding.x;
             rect_min.y -= padding.y;
 
-
-
             ImVec2 rect_max = ImVec2(
                     rect_min.x + ImGui::GetWindowWidth(),
                     rect_min.y + 100);
 
-
-//            draw_list->AddRectFilled(
-//                    rect_min,
-//                    rect_max,
-//                    IM_COL32(61, 63, 66, 255));
             draw_list->AddRectFilled(
                     rect_min,
                     rect_max,
                     ChildBackground_Color);
 
-
-
             rect_min.y += 100.0f;
 
             rect_max.x = rect_min.x + ImGui::GetWindowWidth();
             rect_max.y = rect_min.y + 400.0f;
-
 
             draw_list->AddRectFilled(
                     rect_min,
@@ -568,10 +520,6 @@ namespace MELT_EDITOR
                     IM_COL32(61, 63, 66, 255),
                     0.0f, ImDrawFlags_None, outline_thickness);
 
-
-
-            //ImVec2 image_pos = ImVec2(pos.x + (button_size.x - image_size.x) * 0.5f, pos.y + (button_size.y - image_size.y) * 0.5f);
-
             ImTextureID texture_id = (void*)(intptr_t)Engine->TextureMng.TextureDataTable["MeltIcon"].TextureID;
             draw_list->AddImage(
                     texture_id,
@@ -583,62 +531,28 @@ namespace MELT_EDITOR
             draw_list->AddText(ImVec2(_startCursor.x + 20, _startCursor.y)     , ImColor(255, 255, 255), "Entity name : ");
             draw_list->AddText(ImVec2(_startCursor.x + 20, _startCursor.y + 20), ImColor(255, 255, 255), "UUID        : ");
 
-
-
-
-            //DrawSprite(Engine->TextureMng.TextureDataTable["MeltIcon"], ImVec2(0, 0), ImVec2(100, 100), ImVec2(0,0));
-
-
-
             ImGui::SetCursorScreenPos(rect_min);
 
-
-
-//            if(!CurrentTextDisplay.empty())
-//                ImGui::TextUnformatted(CurrentTextDisplay.c_str());
-//
-//            ImGui::Text(ICON_KI_ARROW_TOP_LEFT "  Hello with an icon!");
             ImGui::NewLine();
 
-            if(Engine->NodeMng.CurrentSelectedNode && Engine->NodeMng.CurrentSelectedNode->isSelected)
+            MELT::Scene* _working_scene = Engine->manager_registry.get<MELT::SceneManager>()->working_scene;
+            MELT::Node* _selected_node = _working_scene->get_selected_node();
+            if (_selected_node != nullptr)
             {
-                currentNodeRef = Engine->NodeMng.CurrentSelectedNode;
-
-                MELT::Entity _e = Engine->NodeMng.CurrentSelectedNode->entityRef;
-
-                if(_e < 100)
+                if (_selected_node->has_component<MELT::Transform>())
                 {
-                    MELT::Transform&      _transform      = Engine->ECSCoord.GetComponent<MELT::Transform>     (_e);
-                    MELT::SpriteRenderer& _spriteRenderer = Engine->ECSCoord.GetComponent<MELT::SpriteRenderer>(_e);
-                    DrawTransformComponentPanel     (_transform);
-                    DrawSpriteRendererComponentPanel(_spriteRenderer);
-                }
-            }
-            else
-            {
-                if(currentNodeRef != nullptr)
-                {
-                    MELT::Entity _e = currentNodeRef->entityRef;
-
-                    if(_e < 100)
-                    {
-                        MELT::Transform&      _transform      = Engine->ECSCoord.GetComponent<MELT::Transform>     (_e);
-                        MELT::SpriteRenderer& _spriteRenderer = Engine->ECSCoord.GetComponent<MELT::SpriteRenderer>(_e);
-                        DrawTransformComponentPanel     (_transform);
-                        DrawSpriteRendererComponentPanel(_spriteRenderer);
-                    }
+                    MELT::Transform& _transform = _selected_node->get_component<MELT::Transform>();
+                    DrawTransformComponentPanel(_transform);
                 }
             }
 
             rect_min.y += 400.0f;
             ImGui::SetCursorScreenPos(rect_min);
 
-
-
             ImVec2 button_size = ImVec2(20, 20);
             float rounding = 4.0f;
             ImU32 button_color = IM_COL32(0, 128, 255, 255);
-            ImU32 hover_color = IM_COL32(0, 150, 255, 255);
+            ImU32 hover_color  = IM_COL32(0, 150, 255, 255);
             ImU32 active_color = IM_COL32(0, 100, 200, 255);
 
             ImVec2 pos = ImGui::GetCursorScreenPos();
@@ -667,32 +581,12 @@ namespace MELT_EDITOR
             draw_list->AddRectFilled(pos, ImVec2(pos.x + button_size.x, pos.y + button_size.y), color, rounding);
             ImGui::PopID();
 
-
-
-
             ImVec2 _contentRegionAvail = ImGui::GetContentRegionAvail();
 
             MELT::TextureData& _textureData = Engine->TextureMng.TextureDataTable["blacknwhite"];
 
             float _contentWidth = _contentRegionAvail.x;
             float _contentHeight = 500.0f;
-
-//            ImGui::BeginChild("TextureDisplay", ImVec2(_contentWidth, _contentHeight), true);
-//            ImGui::Text("Texture Detail");
-//            ImGui::Text("W : %d, H : %d", _textureData.Width, _textureData.Height);
-//            ImGui::Text("Size: %.2f MB", _textureData.TextureSizeMb);
-//
-//            ImGui::SliderFloat("Float Slider", &_textureData.DisplayScale, 1.0f, 5.0);
-//
-//            float _width  = (float)_textureData.Width  * _textureData.DisplayScale;
-//            float _height = (float)_textureData.Height * _textureData.DisplayScale;
-//
-//            ImGui::SetCursorPosX(_contentWidth /2.0f - _width/2.0f);
-//            ImGui::SetCursorPosY(_contentHeight/2.0f - _height/2.0f);
-//
-//            ImVec2 imageSize(_width, _height); // Set this to your texture's dimensions
-//            ImGui::Image((void*)(intptr_t)_textureData.TextureID, imageSize);
-//            ImGui::EndChild();
 
             //Add components button
             ImVec2 buttonSize = ImVec2(120, 30);
@@ -983,7 +877,6 @@ namespace MELT_EDITOR
         _file.close();
     }
 
-
     void Editor::DrawSprite(const MELT::TextureData& _textureData, ImVec2 _position, ImVec2 _spriteSize, ImVec2 _spritePosition)
     {
         float texture_width  = static_cast<float>(_textureData.Width);
@@ -1001,23 +894,4 @@ namespace MELT_EDITOR
                                              ImVec2(_position.x + _spriteSize.x, _position.y + _spriteSize.y),
                                              uv0, uv1);
     }
-
-
-//    void Editor::DrawSpriteWithDrawList(const MELT::TextureData& _textureData, ImVec2 position, ImVec2 sprite_size, ImVec2 sprite_position)
-//    {
-//        // Texture dimensions (e.g., the full texture size, such as the sprite sheet dimensions)
-//        float texture_width = 1024.0f; // replace with your texture width
-//        float texture_height = 1024.0f; // replace with your texture height
-//
-//        // Calculate UV coordinates for the portion of the texture
-//        ImVec2 uv0 = ImVec2(sprite_position.x / texture_width, sprite_position.y / texture_height);
-//        ImVec2 uv1 = ImVec2((sprite_position.x + sprite_size.x) / texture_width,
-//                            (sprite_position.y + sprite_size.y) / texture_height);
-//
-//        // Get the current ImGui window's draw list
-//        ImDrawList* draw_list = ImGui::GetWindowDrawList();
-//
-//        // Draw the specified part of the texture at the given position
-//        draw_list->AddImage(texture_id, position, ImVec2(position.x + sprite_size.x, position.y + sprite_size.y), uv0, uv1);
-//    }
 }

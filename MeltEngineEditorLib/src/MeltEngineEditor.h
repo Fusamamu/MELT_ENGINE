@@ -41,7 +41,7 @@ namespace MELT_EDITOR
 
         SpriteEditorGUI SpriteEditorGUI;
         ScriptEditorGUI ScriptEditorGUI;
-        ConsoleGUI ConsoleGUI;
+        ConsoleGUI      ConsoleGUI;
 
         bool SpriteEditorDisplayed;
 
@@ -65,7 +65,6 @@ namespace MELT_EDITOR
 
         std::string CurrentTextDisplay;
         std::string LoadTextFile(const std::string& _filePath);
-
 
         std::unordered_map<MELT::Entity, bool> Entities;
 

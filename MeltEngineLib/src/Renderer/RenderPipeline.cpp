@@ -71,9 +71,9 @@ namespace MELT
         m_GridShader->SetMat4UniformProjection(_projection);
         aQuad->Draw();
 
-        for(const Node& _node : m_Engine->NodeMng.SceneNodes)
+        for (Node& _node : m_Engine->manager_registry.get<SceneManager>()->working_scene->get_all_nodes())
         {
-            const Transform& _transform = m_Engine->ECSCoord.GetComponent<Transform>(_node.entityRef);
+            const Transform& _transform = _node.get_component<Transform>();
 
             float _xPos = _transform.position.x;
             float _yPos = _transform.position.y;
@@ -81,8 +81,7 @@ namespace MELT
 
             glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (_xPos, _yPos, _zPos));
 
-
-            if(_node.isSelected)
+            if(_node.is_selected)
             {
                 // 1st. render pass, draw objects as normal, writing to the stencil buffer
                 glStencilFunc(GL_ALWAYS, 1, 0xFF);

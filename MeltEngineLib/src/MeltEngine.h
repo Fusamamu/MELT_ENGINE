@@ -1,7 +1,11 @@
 #include "Core.h"
+#include "ManagerRegistry.h"
+#include "ResourceManager.h"
 #include "SceneManager.h"
+
 #include "NodeManager.h"
 #include "TextureManager.h"
+
 #include "Shader.h"
 #include "Quad.h"
 #include "Type.h"
@@ -40,11 +44,11 @@ namespace MELT
         const int WINDOW_WIDTH  = 1600;
         const int WINDOW_HEIGHT = 800;
 
-        SceneManager scene_manager;
+        ManagerRegistry manager_registry;
 
         Camera         MainCamera;//will remove
         Coordinator    ECSCoord; //will remove
-        NodeManager    NodeMng;//will remove
+        //NodeManager    NodeMng;//will remove
         TextureManager TextureMng;//will remove
 
         RenderPipeline* TargetRenderPipeline;

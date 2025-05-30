@@ -6,14 +6,14 @@ namespace MELT
         name(_name),
         m_scene_owner(_scene_owner),
         m_entity_handle(_entity),
-        isSelected(false)
+        is_selected(false)
     {
         id = GenerateUUID(reinterpret_cast<uintptr_t>(this));
     }
 
     Node::Node(std::string _name, M_VEC3 _position):
         name(_name),
-        isSelected(false),
+        is_selected(false),
         m_scene_owner(nullptr)
     {
         id = GenerateUUID(reinterpret_cast<uintptr_t>(this));

@@ -49,7 +49,9 @@ add_library(${PROJECT_NAME} STATIC
         src/RayCast.cpp
         src/Reflection.cpp
         src/Scene.cpp
-        src/SceneManager.cpp)
+        src/SceneManager.cpp
+        src/ManagerRegistry.cpp
+        src/ResourceManager.cpp)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
 

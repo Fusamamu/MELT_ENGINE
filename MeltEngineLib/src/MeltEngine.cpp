@@ -1,5 +1,7 @@
 #include "MeltEngine.h"
 
+#include "ResourceManager.h"
+
 namespace MELT
 {
     float Engine::ScreenWidth  = 30.0f;
@@ -68,7 +70,10 @@ namespace MELT
 
     void Engine::init()
     {
-        scene_manager.init();
+        manager_registry.Register<ResourceManager>(std::make_shared<ResourceManager>());
+        manager_registry.Register<SceneManager>   (std::make_shared<SceneManager>());
+
+        manager_registry.get<SceneManager>()->init();
 
         TextureMng.Init();
 
@@ -91,7 +96,6 @@ namespace MELT
 
         TargetRenderPipeline = new RenderPipeline();
         TargetRenderPipeline->Init(this);
-
 
         // Load the dynamic library
         void* _handle = dlopen("/Users/pengaki/Desktop/MeltSampleProject/build/libCustomNativeScript.dylib", RTLD_LAZY);
@@ -182,19 +186,19 @@ namespace MELT
 
                 if(Input.IsMouseButtonPressed(SDL_BUTTON_LEFT))
                 {
-                    for(Node& _node : NodeMng.SceneNodes)
-                        _node.isSelected = false;
+                    // for(Node& _node : NodeMng.SceneNodes)
+                    //     _node.is_selected = false;
                     SelectObject(Input.MouseScreenPosition, MainCamera);
                 }
 
                 if(Input.IsMouseButtonHeld(SDL_BUTTON_LEFT))
                 {
-                    if(NodeMng.CurrentSelectedNode != nullptr && NodeMng.CurrentSelectedNode->isSelected)
-                    {
-                        Transform& _transform = ECSCoord.GetComponent<Transform>(NodeMng.CurrentSelectedNode->entityRef);
-//                        _transform.Position.x = Input.MouseScreenWorldPosition.x;
-//                        _transform.Position.y = Input.MouseScreenWorldPosition.y;
-                    }
+//                     if(NodeMng.CurrentSelectedNode != nullptr && NodeMng.CurrentSelectedNode->is_selected)
+//                     {
+//                         //Transform& _transform = ECSCoord.GetComponent<Transform>(NodeMng.CurrentSelectedNode->entityRef);
+// //                        _transform.Position.x = Input.MouseScreenWorldPosition.x;
+// //                        _transform.Position.y = Input.MouseScreenWorldPosition.y;
+//                     }
                 }
 
                 if(Input.IsMouseButtonReleased(SDL_BUTTON_LEFT))
@@ -283,7 +287,7 @@ namespace MELT
     //Use scene manager instead
     void Engine::CreateNode()
     {
-        Node& _node = scene_manager.working_scene->create_node_with_type<Transform>("Entity");
+        Node& _node = manager_registry.get<SceneManager>()->working_scene->create_node_with_type<Transform>("Entity");
 
 
         // Node& _node = NodeMng.create_node({});
@@ -305,13 +309,20 @@ namespace MELT
 
     void Engine::SelectObject(glm::vec2 _mouseScreenPos, const MELT::Camera &_camera)
     {
+        Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
+
+        _working_scene->deselect_all_nodes();
+
         glm::vec3 rayDir = RayCast::ScreenToWorldRay(_mouseScreenPos, _camera);
 
         float _closestDistance = FLT_MAX;
 
-        for (auto& _node : NodeMng.SceneNodes)
+        for (auto& _node : _working_scene->get_all_nodes())
         {
-            Transform& _transform = ECSCoord.GetComponent<Transform>(_node.entityRef);
+            if (!_node.has_component<Transform>())
+                continue;
+
+            Transform& _transform = _node.get_component<Transform>();
 
             auto _minBounds = _transform.position + glm::vec3(-0.5, -0.5, -0.5);
             auto _maxBounds = _transform.position + glm::vec3( 0.5,  0.5,  0.5);
@@ -338,8 +349,8 @@ namespace MELT
                 {
                     _closestDistance = _distance;
 
-                    NodeMng.CurrentSelectedNode = &_node;
-                    NodeMng.CurrentSelectedNode->isSelected = true;
+                    _node.is_selected = true;
+                    _working_scene->selected_node_id = _node.id;
                     break;
                 }
             }

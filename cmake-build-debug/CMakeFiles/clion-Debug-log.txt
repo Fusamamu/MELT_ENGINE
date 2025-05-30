@@ -1,7 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "Unix Makefiles" -S "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE" -B "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug"
--- EnTT target found as: EnTT
-nfd Platform: PLATFORM_MACOS
-nfd Compiler: COMPILER_GNU
--- Configuring done (0.1s)
--- Generating done (0.1s)
--- Build files have been written to: /Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/cmake-build-debug
