@@ -27,6 +27,7 @@
 #include "ConsoleGUI.h"
 
 #include "nfd.h"
+#include "Components/BoxCollider.h"
 
 namespace MELT_EDITOR
 {
@@ -63,8 +64,10 @@ namespace MELT_EDITOR
         void DrawLineSeparator();
 
         void DrawComponent(MELT::Transform& _transform);
-        void DrawTransformComponentPanel(MELT::Transform& _transform);
-        void DrawRendererComponentPanel(MELT::Renderer& _renderer);
+        void DrawTransformComponentPanel  (MELT::Transform  & _transform  );
+        void DrawRendererComponentPanel   (MELT::Renderer   & _renderer   );
+        void DrawBoxColliderComponentPanel(MELT::BoxCollider& _boxCollider);
+
         void DrawSpriteRendererComponentPanel(MELT::SpriteRenderer& _spriteRenderer);
 
         std::string CurrentTextDisplay;

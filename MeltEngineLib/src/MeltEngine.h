@@ -12,6 +12,8 @@
 #include "Camera.h"
 #include "Transform.h"
 #include "Renderer.h"
+#include "BoxCollider.h"
+
 #include "SpriteRenderer.h"
 #include "Coordinator.h"
 #include "CameraControlSystem.h"

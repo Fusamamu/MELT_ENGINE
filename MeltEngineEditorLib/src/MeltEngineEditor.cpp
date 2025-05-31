@@ -1,6 +1,8 @@
 #include <iostream>
 #include "MeltEngineEditor.h"
 
+#include "Components/BoxCollider.h"
+
 namespace MELT_EDITOR
 {
     unsigned int WindowBackground_Color = IM_COL32(33, 36, 35, 255);
@@ -546,18 +548,22 @@ namespace MELT_EDITOR
             if (_selected_node && _selected_node->has_component<MELT::Transform>())
             {
                 MELT::Transform& _transform = _selected_node->get_component<MELT::Transform>();
-                DrawComponent(_transform);
+                DrawTransformComponentPanel(_transform);
                 DrawLineSeparator();
             }
 
-            if (_selected_node)
+            if (_selected_node && _selected_node->has_component<MELT::Renderer>())
             {
-                if (_selected_node->has_component<MELT::Renderer>())
-                {
-                    //MELT::Renderer* _renderer = _selected_node->try_get_component<MELT::Renderer>();
-                    // DrawRendererComponentPanel(_renderer);
-                    // DrawLineSeparator();
-                }
+                MELT::Renderer& _renderer = _selected_node->get_component<MELT::Renderer>();
+                DrawRendererComponentPanel(_renderer);
+                DrawLineSeparator();
+            }
+
+            if (_selected_node && _selected_node->has_component<MELT::BoxCollider>())
+            {
+                MELT::BoxCollider& _box_collider = _selected_node->get_component<MELT::BoxCollider>();
+                DrawBoxColliderComponentPanel(_box_collider);
+                DrawLineSeparator();
             }
 
             rect_min.y += 400.0f;
@@ -613,26 +619,6 @@ namespace MELT_EDITOR
                 ImGui::OpenPopup("AddComponentPopup");
             }
 
-            // if (ImGui::BeginPopup("AddComponentPopup"))
-            // {
-            //     ImGui::Text("Add a component:");
-            //     ImGui::Separator();
-            //
-            //     if (ImGui::Selectable("Transform")) {
-            //         // Add Transform component logic here
-            //     }
-            //
-            //     if (ImGui::Selectable("SpriteRenderer")) {
-            //         // Add SpriteRenderer logic here
-            //     }
-            //
-            //     if (ImGui::Selectable("RigidBody")) {
-            //         // Add RigidBody logic here
-            //     }
-            //
-            //     ImGui::EndPopup();
-            // }
-
             ImGui::PushStyleColor(ImGuiCol_PopupBg, IM_COL32(73, 74, 70, 255));
             ImGui::PushStyleColor(ImGuiCol_Border , IM_COL32(73, 74, 70, 0));
             ImGui::PushStyleVar(ImGuiStyleVar_PopupRounding, 10.0f);
@@ -642,11 +628,17 @@ namespace MELT_EDITOR
                 ImGui::Separator();
                 if (ImGui::MenuItem("Renderer"))
                 {
-                    // if (_selected_node && !_selected_node->has_component<MELT::Renderer>())
-                    //     _selected_node->add_component<MELT::Renderer>();
+                    if (_selected_node && !_selected_node->has_component<MELT::Renderer>())
+                        _selected_node->add_component<MELT::Renderer>();
                 }
                 if (ImGui::MenuItem("Sprite Renderer"))
                 {
+                }
+
+                if (ImGui::MenuItem("Box Collider"))
+                {
+                    if (_selected_node && !_selected_node->has_component<MELT::BoxCollider>())
+                        _selected_node->add_component<MELT::BoxCollider>();
                 }
                 ImGui::EndPopup();
             }
@@ -761,42 +753,73 @@ namespace MELT_EDITOR
         ImGui::PopStyleVar();
     }
 
-    void Editor::DrawComponent(MELT::Transform& _transform)
+    void Editor::DrawTransformComponentPanel(MELT::Transform& _transform)
     {
-        ImGui::Text("Transform component");
+        if (ImGui::CollapsingHeader("Transform Component", ImGuiTreeNodeFlags_DefaultOpen))
+        {
+            ImGui::Text("Global");
 
-        ImGui::Dummy(ImVec2(0.0f, 4.0f));
+            ImGui::Dummy(ImVec2(0.0f, 4.0f));
 
-        ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
-        ImGui::Indent();
+            ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
+            ImGui::Indent();
 
-        auto _font_color = ImVec4(0.5f, 0.5f, 0.5f, 1.0f);
+            auto _font_color = ImVec4(0.5f, 0.5f, 0.5f, 1.0f);
 
-        ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-        ImGui::Text("Position");
-        ImGui::PopStyleColor();
-        ImGui::SameLine(120.0f);
-        ImGui::InputFloat3("##Position", glm::value_ptr(_transform.position));
+            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            ImGui::Text("Position");
+            ImGui::PopStyleColor();
+            ImGui::SameLine(120.0f);
+            ImGui::InputFloat3("##Position", glm::value_ptr(_transform.position));
 
-        ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-        ImGui::Text("Rotation");
-        ImGui::PopStyleColor();
-        ImGui::SameLine(120.0f);
-        ImGui::InputFloat3("##Rotation", glm::value_ptr(_transform.rotation));
+            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            ImGui::Text("Rotation");
+            ImGui::PopStyleColor();
+            ImGui::SameLine(120.0f);
+            ImGui::InputFloat3("##Rotation", glm::value_ptr(_transform.rotation));
 
-        ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-        ImGui::Text("Scale");
-        ImGui::PopStyleColor();
-        ImGui::SameLine(120.0f);
-        ImGui::InputFloat3("##Scale", glm::value_ptr(_transform.scale));
+            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            ImGui::Text("Scale");
+            ImGui::PopStyleColor();
+            ImGui::SameLine(120.0f);
+            ImGui::InputFloat3("##Scale", glm::value_ptr(_transform.scale));
 
-        ImGui::Unindent();
-        ImGui::PopStyleColor();
+            ImGui::Unindent();
+            ImGui::PopStyleColor();
 
-        ImGui::Dummy(ImVec2(0.0f, 4.0f));
+            ImGui::Text("Local");
+
+            ImGui::Dummy(ImVec2(0.0f, 4.0f));
+
+            ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
+            ImGui::Indent();
+
+            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            ImGui::Text("Position");
+            ImGui::PopStyleColor();
+            ImGui::SameLine(120.0f);
+            ImGui::InputFloat3("##Position", glm::value_ptr(_transform.position));
+
+            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            ImGui::Text("Rotation");
+            ImGui::PopStyleColor();
+            ImGui::SameLine(120.0f);
+            ImGui::InputFloat3("##Rotation", glm::value_ptr(_transform.rotation));
+
+            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            ImGui::Text("Scale");
+            ImGui::PopStyleColor();
+            ImGui::SameLine(120.0f);
+            ImGui::InputFloat3("##Scale", glm::value_ptr(_transform.scale));
+
+            ImGui::Unindent();
+            ImGui::PopStyleColor();
+
+            ImGui::Dummy(ImVec2(0.0f, 4.0f));
+        }
     }
 
-    void Editor::DrawTransformComponentPanel(MELT::Transform& _transform)
+    void Editor::DrawComponent(MELT::Transform& _transform)
     {
         const float _panelWidth  = ImGui::GetContentRegionAvail().x;
         const float _panelHeight = 100.0f;
@@ -859,37 +882,100 @@ namespace MELT_EDITOR
 
     void Editor::DrawRendererComponentPanel(MELT::Renderer& _renderer)
     {
-        ImGui::Text("Renderer component");
+        MELT::Scene* _working_scene = Engine->manager_registry.get<MELT::SceneManager>()->working_scene;
+        MELT::Node * _selected_node = _working_scene->get_selected_node();
 
-        ImGui::Dummy(ImVec2(0.0f, 4.0f));
+        if (ImGui::CollapsingHeader("Renderer Component", ImGuiTreeNodeFlags_DefaultOpen))
+        {
+            ImGui::Dummy(ImVec2(0.0f, 4.0f));
 
-        ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
-        ImGui::Indent();
+            ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
+            ImGui::Indent();
 
-        auto _font_color = ImVec4(0.5f, 0.5f, 0.5f, 1.0f);
+            auto _font_color = ImVec4(0.5f, 0.5f, 0.5f, 1.0f);
 
-        ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-        ImGui::Text("Position");
-        ImGui::PopStyleColor();
-        ImGui::SameLine(120.0f);
-        //ImGui::InputFloat3("##Position", glm::value_ptr(_transform.position));
+            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            ImGui::Text("Mesh");
+            ImGui::PopStyleColor();
 
-        ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-        ImGui::Text("Rotation");
-        ImGui::PopStyleColor();
-        ImGui::SameLine(120.0f);
-        //ImGui::InputFloat3("##Rotation", glm::value_ptr(_transform.rotation));
+            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            ImGui::Text("Material");
+            ImGui::PopStyleColor();
 
-        ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-        ImGui::Text("Scale");
-        ImGui::PopStyleColor();
-        ImGui::SameLine(120.0f);
-        //ImGui::InputFloat3("##Scale", glm::value_ptr(_transform.scale));
+            ImGui::Unindent();
+            ImGui::PopStyleColor();
 
-        ImGui::Unindent();
-        ImGui::PopStyleColor();
 
-        ImGui::Dummy(ImVec2(0.0f, 4.0f));
+            // Push custom colors for button
+            ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 6.0f);
+            ImGui::PushStyleColor(ImGuiCol_Button,        IM_COL32(40, 40, 40, 255));  // Default
+            ImGui::PushStyleColor(ImGuiCol_ButtonHovered, IM_COL32(100, 100, 100, 255));  // Hover
+            ImGui::PushStyleColor(ImGuiCol_ButtonActive,  IM_COL32(200, 200, 200, 255));    // Pressed
+
+            ImGui::NewLine();
+            ImGui::SameLine(ImGui::GetContentRegionAvail().x - ImGui::CalcTextSize("Delete").x - ImGui::GetStyle().FramePadding.x * 2);
+            ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.5f, 0.5f, 0.5f, 1.0f));
+            if (ImGui::Button("Delete")) {
+                if (_selected_node && _selected_node->has_component<MELT::Renderer>())
+                    _selected_node->remove_component<MELT::Renderer>();
+            }
+            ImGui::PopStyleColor();
+
+            // Pop them in reverse order
+            ImGui::PopStyleColor(3);
+            ImGui::PopStyleVar();
+
+            ImGui::Dummy(ImVec2(0.0f, 4.0f));
+        }
+    }
+
+    void Editor::DrawBoxColliderComponentPanel(MELT::BoxCollider& _box_collider)
+    {
+        MELT::Scene* _working_scene = Engine->manager_registry.get<MELT::SceneManager>()->working_scene;
+        MELT::Node * _selected_node = _working_scene->get_selected_node();
+
+        if (ImGui::CollapsingHeader("Box Collider 3D Component", ImGuiTreeNodeFlags_DefaultOpen))
+        {
+            ImGui::Dummy(ImVec2(0.0f, 4.0f));
+
+            ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
+            ImGui::Indent();
+
+            auto _font_color = ImVec4(0.5f, 0.5f, 0.5f, 1.0f);
+
+            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            ImGui::Text("Mesh");
+            ImGui::PopStyleColor();
+
+            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            ImGui::Text("Material");
+            ImGui::PopStyleColor();
+
+            ImGui::Unindent();
+            ImGui::PopStyleColor();
+
+
+            // Push custom colors for button
+            ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 6.0f);
+            ImGui::PushStyleColor(ImGuiCol_Button,        IM_COL32(40, 40, 40, 255));  // Default
+            ImGui::PushStyleColor(ImGuiCol_ButtonHovered, IM_COL32(100, 100, 100, 255));  // Hover
+            ImGui::PushStyleColor(ImGuiCol_ButtonActive,  IM_COL32(200, 200, 200, 255));    // Pressed
+
+            ImGui::NewLine();
+            ImGui::SameLine(ImGui::GetContentRegionAvail().x - ImGui::CalcTextSize("Delete").x - ImGui::GetStyle().FramePadding.x * 2);
+            ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.5f, 0.5f, 0.5f, 1.0f));
+            if (ImGui::Button("Delete")) {
+                if (_selected_node && _selected_node->has_component<MELT::Renderer>())
+                    _selected_node->remove_component<MELT::Renderer>();
+            }
+            ImGui::PopStyleColor();
+
+            // Pop them in reverse order
+            ImGui::PopStyleColor(3);
+            ImGui::PopStyleVar();
+
+            ImGui::Dummy(ImVec2(0.0f, 4.0f));
+        }
     }
 
     void Editor::DrawSpriteRendererComponentPanel(MELT::SpriteRenderer &_spriteRenderer)

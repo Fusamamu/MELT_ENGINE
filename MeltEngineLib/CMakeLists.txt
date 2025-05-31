@@ -51,12 +51,15 @@ add_library(${PROJECT_NAME} STATIC
         src/Scene.cpp
         src/SceneManager.cpp
         src/ManagerRegistry.cpp
-        src/ResourceManager.cpp)
+        src/ResourceManager.cpp
+        src/Components/BoxCollider.cpp
+        src/Components/BoxCollider.h)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
         ./src
+        ./src/Components
 
         ./src/EventSystem
         ./src/Renderer

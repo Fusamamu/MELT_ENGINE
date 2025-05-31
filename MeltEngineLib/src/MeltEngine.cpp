@@ -1,6 +1,6 @@
 #include "MeltEngine.h"
 
-#include "ResourceManager.h"
+// #include "ResourceManager.h"
 
 namespace MELT
 {
@@ -284,24 +284,8 @@ namespace MELT
     //Use scene manager instead
     void Engine::CreateNode()
     {
-        Node& _node = manager_registry.get<SceneManager>()->working_scene->create_node_with_type<Transform>("Entity");
-
-
-        // Node& _node = NodeMng.create_node({});
-        //
-        // MELT::Entity _entity = ECSCoord.CreateEntity();
-        //
-        // ECSCoord.AddComponent<MELT::Transform>(_entity, {
-        //         glm::vec3(0.0, 0.0, 0.0),
-        //         glm::vec3(0.0, 0.0, 0.0),
-        //         glm::vec3(0.0, 0.0, 0.0),
-        // });
-        //
-        // ECSCoord.AddComponent<MELT::SpriteRenderer>(_entity, {
-        //
-        // });
-        //
-        // _node.entityRef = _entity;
+        Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
+        Node& _node = _working_scene->create_node_with_type<Transform>("Entity");
     }
 
     void Engine::SelectObject(glm::vec2 _mouseScreenPos, const MELT::Camera &_camera)
