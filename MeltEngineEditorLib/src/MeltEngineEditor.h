@@ -63,7 +63,6 @@ namespace MELT_EDITOR
 
         void DrawLineSeparator();
 
-        void DrawComponent(MELT::Transform& _transform);
         void DrawTransformComponentPanel  (MELT::Transform  & _transform  );
         void DrawRendererComponentPanel   (MELT::Renderer   & _renderer   );
         void DrawBoxColliderComponentPanel(MELT::BoxCollider& _boxCollider);

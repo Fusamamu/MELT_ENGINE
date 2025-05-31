@@ -73,6 +73,8 @@ namespace MELT
         void Quit();
 
         void CreateNode();
+
+        void deselect_all_nodes();
         void SelectObject(glm::vec2 _mouseScreenPos, const Camera& _camera);
 
     private:

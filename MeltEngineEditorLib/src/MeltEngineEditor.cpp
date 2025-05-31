@@ -307,13 +307,25 @@ namespace MELT_EDITOR
 
         if (ImGui::Begin("Scene view"))
         {
-            if (ImGui::IsWindowHovered() && ImGui::IsMouseClicked(ImGuiMouseButton_Left))
-                Engine->SelectObject(MELT::Input.MouseScreenPosition, Engine->MainCamera);
-
             ImVec2 _cursorScreenPos = ImGui::GetCursorScreenPos();
-
             const float _sceneEditorWindowWidth  = ImGui::GetContentRegionAvail().x;
             const float _sceneEditorWindowHeight = ImGui::GetContentRegionAvail().y;
+
+            ImGuizmo::SetOrthographic(true); // or true if using orthographic
+            ImGuizmo::SetDrawlist();
+            ImGuizmo::SetRect(_cursorScreenPos.x, _cursorScreenPos.y, _sceneEditorWindowWidth, _sceneEditorWindowHeight);
+
+            if (ImGui::IsWindowHovered())
+            {
+                if (ImGui::IsMouseClicked(ImGuiMouseButton_Left))
+                {
+                    if (!ImGuizmo::IsOver() && !ImGuizmo::IsUsing() || !_working_scene->selected_node_id.has_value())
+                    {
+                        Engine->deselect_all_nodes();
+                        Engine->SelectObject(MELT::Input.MouseScreenPosition, Engine->MainCamera);
+                    }
+                }
+            }
 
             ImGui::GetWindowDrawList()->AddImage(
                     (void*)(intptr_t)Engine->TargetRenderPipeline->EditorSceneFrameBuffer->TextureID,
@@ -325,28 +337,26 @@ namespace MELT_EDITOR
 
             if (_working_scene->selected_node_id.has_value())
             {
-                ImGuizmo::SetOrthographic(true);
-                ImGuizmo::SetDrawlist();
-                ImGuizmo::SetRect(_cursorScreenPos.x, _cursorScreenPos.y, _sceneEditorWindowWidth, _sceneEditorWindowHeight);
+                MELT::Node* _node = _working_scene->get_selected_node();
 
-                // Define the transformation matrix of the object you want to manipulate
-                static glm::mat4 objectMatrix = glm::mat4(1.0f);
+                auto& transform = _node->get_component<MELT::Transform>();
 
-                ImGuizmo::OPERATION operation = ImGuizmo::TRANSLATE;
-                ImGuizmo::MODE      mode      = ImGuizmo::WORLD;
+                glm::mat4 objectMatrix = transform.get_transform_matrix();
 
                 ImGuizmo::Manipulate(
-                        glm::value_ptr(Engine->MainCamera.GetViewMatrix()),
-                        glm::value_ptr(Engine->MainCamera.GetOrthographicProjectionMatrix()),
-                        operation, mode,
-                        glm::value_ptr(objectMatrix));
-                
+                    glm::value_ptr(Engine->MainCamera.GetViewMatrix()),
+                    glm::value_ptr(Engine->MainCamera.GetOrthographicProjectionMatrix()),
+                    ImGuizmo::TRANSLATE, ImGuizmo::WORLD,
+                    glm::value_ptr(objectMatrix)
+                );
+
                 if (ImGuizmo::IsUsing())
                 {
-        //            ImGuizmo::DecomposeMatrixToComponents(glm::value_ptr(objectMatrix),
-        //                                                  glm::value_ptr(position),
-        //                                                  glm::value_ptr(rotation),
-        //                                                  glm::value_ptr(scale));
+                    ImGuizmo::DecomposeMatrixToComponents(
+                        glm::value_ptr(objectMatrix),
+                        glm::value_ptr(transform.position),
+                        glm::value_ptr(transform.rotation),
+                        glm::value_ptr(transform.scale));
                 }
             }
 
@@ -566,48 +576,6 @@ namespace MELT_EDITOR
                 DrawLineSeparator();
             }
 
-            rect_min.y += 400.0f;
-            ImGui::SetCursorScreenPos(rect_min);
-
-            ImVec2 button_size = ImVec2(20, 20);
-            float rounding = 4.0f;
-            ImU32 button_color = IM_COL32(0, 128, 255, 255);
-            ImU32 hover_color  = IM_COL32(0, 150, 255, 255);
-            ImU32 active_color = IM_COL32(0, 100, 200, 255);
-
-            ImVec2 pos = ImGui::GetCursorScreenPos();
-            pos.x += 4.0f;
-            pos.y += 4.0f;
-
-            ImGui::PushID("RoundedButton");
-            if (ImGui::InvisibleButton("##rounded_button", button_size)) {
-
-            }
-            ImU32 color = button_color;
-            if (ImGui::IsItemActive())
-                color = active_color;
-            else if (ImGui::IsItemHovered())
-                color = hover_color;
-
-            draw_list->AddRectFilled(pos, ImVec2(pos.x + button_size.x, pos.y + button_size.y), color, rounding);
-            ImGui::PopID();
-
-            ImGui::PushID("RoundedButton");
-            if (ImGui::InvisibleButton("##other button", button_size)) {
-
-            }
-
-            pos.x += 30.0f;
-            draw_list->AddRectFilled(pos, ImVec2(pos.x + button_size.x, pos.y + button_size.y), color, rounding);
-            ImGui::PopID();
-
-            ImVec2 _contentRegionAvail = ImGui::GetContentRegionAvail();
-
-            MELT::TextureData& _textureData = Engine->TextureMng.TextureDataTable["blacknwhite"];
-
-            float _contentWidth = _contentRegionAvail.x;
-            float _contentHeight = 500.0f;
-
             //Add components button
             ImVec2 buttonSize = ImVec2(120, 30);
             ImVec2 windowSize = ImGui::GetWindowSize();
@@ -794,90 +762,29 @@ namespace MELT_EDITOR
             ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
             ImGui::Indent();
 
-            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-            ImGui::Text("Position");
-            ImGui::PopStyleColor();
-            ImGui::SameLine(120.0f);
-            ImGui::InputFloat3("##Position", glm::value_ptr(_transform.position));
-
-            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-            ImGui::Text("Rotation");
-            ImGui::PopStyleColor();
-            ImGui::SameLine(120.0f);
-            ImGui::InputFloat3("##Rotation", glm::value_ptr(_transform.rotation));
-
-            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-            ImGui::Text("Scale");
-            ImGui::PopStyleColor();
-            ImGui::SameLine(120.0f);
-            ImGui::InputFloat3("##Scale", glm::value_ptr(_transform.scale));
+            // ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            // ImGui::Text("Position");
+            // ImGui::PopStyleColor();
+            // ImGui::SameLine(120.0f);
+            // ImGui::InputFloat3("##Position", glm::value_ptr(_transform.position));
+            //
+            // ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            // ImGui::Text("Rotation");
+            // ImGui::PopStyleColor();
+            // ImGui::SameLine(120.0f);
+            // ImGui::InputFloat3("##Rotation", glm::value_ptr(_transform.rotation));
+            //
+            // ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            // ImGui::Text("Scale");
+            // ImGui::PopStyleColor();
+            // ImGui::SameLine(120.0f);
+            // ImGui::InputFloat3("##Scale", glm::value_ptr(_transform.scale));
 
             ImGui::Unindent();
             ImGui::PopStyleColor();
 
             ImGui::Dummy(ImVec2(0.0f, 4.0f));
         }
-    }
-
-    void Editor::DrawComponent(MELT::Transform& _transform)
-    {
-        const float _panelWidth  = ImGui::GetContentRegionAvail().x;
-        const float _panelHeight = 100.0f;
-
-        ImDrawList* _drawList = ImGui::GetWindowDrawList();
-        ImGuiStyle& _style    = ImGui::GetStyle();
-
-        ImVec2 _panelOriginPos = ImGui::GetCursorScreenPos();
-        ImVec2 _panelSize (_panelWidth, _panelHeight);
-
-        _drawList->AddRectFilled(
-                _panelOriginPos,
-                ImVec2(_panelOriginPos.x + _panelSize.x, _panelOriginPos.y + _panelSize.y),
-                IM_COL32(28, 31, 29, 255), 6.0f);
-
-        _drawList->AddRectFilled(
-                _panelOriginPos,
-                ImVec2(_panelOriginPos.x + _panelSize.x, _panelOriginPos.y + ImGui::GetFrameHeight()),
-                IM_COL32(61, 63, 66, 255), 0.0f);
-
-        ImGui::SetCursorScreenPos(ImVec2(_panelOriginPos.x + _style.FramePadding.x, _panelOriginPos.y + _style.FramePadding.y));
-
-        ImGui::SetWindowFontScale(0.75f);
-        ImGui::Text(ICON_KI_RADIO);
-        ImGui::SetWindowFontScale(1.0f);
-        ImGui::SameLine();
-        ImGui::Text("Transform component");
-
-        ImGui::SetCursorScreenPos(ImVec2(_panelOriginPos.x + _panelWidth - 40.0f, _panelOriginPos.y));
-
-        ImGui::PushStyleColor(ImGuiCol_Button       , IM_COL32(61, 63, 66, 255));
-        ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ImVec4(0.4f, 0.4f, 0.4f, 1.0f));
-        ImGui::PushStyleColor(ImGuiCol_ButtonActive , ImVec4(0.6f, 0.6f, 0.6f, 1.0f));
-
-        if(ImGui::Button(ICON_KI_MINUS, ImVec2(40, ImGui::GetFrameHeight())))
-        {
-        }
-        ImGui::PopStyleColor(3);
-
-        ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
-        ImGui::Indent();
-        ImGui::Text("Position");
-        ImGui::SameLine(120.0f);
-        ImGui::InputFloat3("##Position", glm::value_ptr(_transform.position));
-
-        ImGui::Text("Rotation");
-        ImGui::SameLine(120.0f);
-        ImGui::InputFloat3("##Rotation", glm::value_ptr(_transform.rotation));
-
-        ImGui::Text("Scale");
-        ImGui::SameLine(120.0f);
-        ImGui::InputFloat3("##Scale", glm::value_ptr(_transform.scale));
-        ImGui::Unindent();
-        ImGui::PopStyleColor();
-
-        ImGui::SetCursorScreenPos(ImVec2(
-                _panelOriginPos.x,
-                _panelOriginPos.y + _panelHeight + _style.ItemSpacing.y));
     }
 
     void Editor::DrawRendererComponentPanel(MELT::Renderer& _renderer)

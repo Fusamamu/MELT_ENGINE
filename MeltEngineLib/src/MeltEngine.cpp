@@ -1,5 +1,7 @@
 #include "MeltEngine.h"
 
+#include "Components/BoxCollider.h"
+
 // #include "ResourceManager.h"
 
 namespace MELT
@@ -285,15 +287,23 @@ namespace MELT
     void Engine::CreateNode()
     {
         Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
-        Node& _node = _working_scene->create_node_with_type<Transform>("Entity");
+        //Node& _node = _working_scene->create_node_with_type<Transform>("Entity");
+
+        Node& _node = _working_scene->create_node("Entity");
+        _node.add_component<Transform>();
+        _node.add_component<Renderer>();
+        _node.add_component<BoxCollider>();
+    }
+
+    void Engine::deselect_all_nodes()
+    {
+        Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
+        _working_scene->deselect_all_nodes();
     }
 
     void Engine::SelectObject(glm::vec2 _mouseScreenPos, const MELT::Camera &_camera)
     {
-        std::cout << "Select object" << std::endl;
         Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
-
-        _working_scene->deselect_all_nodes();
 
         glm::vec3 rayDir = RayCast::ScreenToWorldRay(_mouseScreenPos, _camera);
 
