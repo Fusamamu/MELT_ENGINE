@@ -1,7 +1,7 @@
 #include <iostream>
 #include "MeltEngineEditor.h"
-
-#include "Components/BoxCollider.h"
+// #include "MeshRenderer.h"
+// #include "Components/BoxCollider.h"
 
 namespace MELT_EDITOR
 {
@@ -121,11 +121,13 @@ namespace MELT_EDITOR
         DrawMainMenubar();
         ImGui::DockSpaceOverViewport(0, ImGui::GetMainViewport());
 
-        DrawSceneViewGUI();
-        DrawInspectorGUI();
-        DrawHierarchyGUI();
-        DrawAssetsGUI   ();
-        DrawContentGUI  ();
+        DrawSceneViewGUI     ();
+        DrawInspectorGUI     ();
+        DrawMaterialGUI      ();
+        DrawHierarchyGUI     ();
+        DrawAssetsGUI        ();
+        DrawContentGUI       ();
+        DrawRenderPipelineGUI();
 
         SpriteEditorGUI.DrawGUI();
         ScriptEditorGUI.DrawGUI();
@@ -328,7 +330,8 @@ namespace MELT_EDITOR
             }
 
             ImGui::GetWindowDrawList()->AddImage(
-                    (void*)(intptr_t)Engine->TargetRenderPipeline->EditorSceneFrameBuffer->TextureID,
+                    //(void*)(intptr_t)Engine->TargetRenderPipeline->EditorSceneFrameBuffer->TextureID,
+                    (void*)(intptr_t)Engine->manager_registry.get<MELT::RenderPipeline>()->EditorSceneFrameBuffer->TextureID,
                     ImVec2(_cursorScreenPos.x, _cursorScreenPos.y),
                     ImVec2(_cursorScreenPos.x + _sceneEditorWindowWidth, _cursorScreenPos.y + _sceneEditorWindowHeight),
                     ImVec2(0, 1),
@@ -406,7 +409,8 @@ namespace MELT_EDITOR
 
     void Editor::DrawHierarchyGUI()
     {
-        ImGui::PushStyleColor(ImGuiCol_WindowBg, IM_COL32(33, 36, 35, 255));
+        //ImGui::PushStyleColor(ImGuiCol_WindowBg, IM_COL32(33, 36, 35, 255));
+        ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(10.0f, 10.0f));
 
         if (ImGui::Begin("Hierarchy"))
@@ -510,7 +514,6 @@ namespace MELT_EDITOR
         MELT::Node * _selected_node = _working_scene->get_selected_node();
 
         ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
-
         if (ImGui::Begin("Inspector"))
         {
             ImDrawList* draw_list = ImGui::GetWindowDrawList();
@@ -562,9 +565,9 @@ namespace MELT_EDITOR
                 DrawLineSeparator();
             }
 
-            if (_selected_node && _selected_node->has_component<MELT::Renderer>())
+            if (_selected_node && _selected_node->has_component<MELT::MeshRenderer>())
             {
-                MELT::Renderer& _renderer = _selected_node->get_component<MELT::Renderer>();
+                MELT::MeshRenderer& _renderer = _selected_node->get_component<MELT::MeshRenderer>();
                 DrawRendererComponentPanel(_renderer);
                 DrawLineSeparator();
             }
@@ -617,8 +620,20 @@ namespace MELT_EDITOR
         ImGui::PopStyleColor();
     }
 
+    void Editor::DrawMaterialGUI()
+    {
+        ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
+        if (ImGui::Begin("Material Inspector"))
+        {
+
+        }
+        ImGui::End();
+        ImGui::PopStyleColor();
+    }
+
     void Editor::DrawContentGUI()
     {
+        ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
         if (ImGui::Begin("Content"))
         {
             static int _selected = -1;
@@ -632,6 +647,20 @@ namespace MELT_EDITOR
             }
         }
         ImGui::End();
+        ImGui::PopStyleColor();
+    }
+
+    void Editor::DrawRenderPipelineGUI()
+    {
+        ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
+        if (ImGui::Begin("Render Pipeline"))
+        {
+            std::shared_ptr<MELT::RenderPipeline> _render_pipeline = Engine->manager_registry.get<MELT::RenderPipeline>();
+
+            ImGui::ColorEdit4("Color with Alpha", &_render_pipeline->clear_color[0]);
+        }
+        ImGui::End();
+        ImGui::PopStyleColor();
     }
 
     std::vector<const char*> items = {
@@ -670,16 +699,15 @@ namespace MELT_EDITOR
     void Editor::DrawAssetsGUI()
     {
         ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
+
         ImVec2 windowPadding(4.0f, 4.0f); // Adjust values as needed
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, windowPadding);
         ImGui::Begin("Project");
 
-//        ImGui::PushStyleColor(ImGuiCol_WindowBg, WindowBackground_Color);
-//        ImGui::Begin("Project");
 
 
             ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(4.0f, 0));
-            ImGui::PushStyleColor(ImGuiCol_ChildBg, WindowBackground_Color);
+            ImGui::PushStyleColor(ImGuiCol_ChildBg, ChildBackground_Color);
 
             ImGui::BeginChild("Files", ImVec2(200, ImGui::GetContentRegionAvail().y), true);
             ImGui::Text("Files :");
@@ -697,21 +725,60 @@ namespace MELT_EDITOR
 
             ImGui::SameLine();
 
-            ImGui::PushStyleColor(ImGuiCol_ChildBg, WindowBackground_Color);
+            ImGui::PushStyleColor(ImGuiCol_ChildBg, ChildBackground_Color);
+
             ImGui::BeginChild("Child Window 2", ImVec2(ImGui::GetContentRegionAvail().x, ImGui::GetContentRegionAvail().y), true);
 
 
+            MELT::TextureData* _texture_data = Engine->manager_registry.get<MELT::ResourceManager>()->get_texture_data("open-file.png");
+            if (_texture_data)
+            {
+                ImTextureID folderIconTex = (ImTextureID)(intptr_t)_texture_data->p_texture->texture_id;
 
-            ImGui::Text("This is Child Window 2");
-            ImGui::Button("Button 2");
+                ImGui::BeginGroup();
+
+                    ImGui::PushStyleColor(ImGuiCol_Button,        ChildBackground_Color); // normal
+                    ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ChildBackground_Color); // hover
+                    ImGui::PushStyleColor(ImGuiCol_ButtonActive,  ImVec4(0.1f, 0.4f, 0.7f, 1.0f));
+
+                    ImVec2 iconSize(64, 64);
+                    ImVec2 uv0      = ImVec2(0.0f, 0.0f); // top-left
+                    ImVec2 uv1      = ImVec2(1.0f, 1.0f); // bottom-right
+                    ImVec4 bg_col   = ImVec4(0, 0, 0, 0); // transparent
+                    ImVec4 tint_color = ImGui::IsItemHovered() ?
+                        ImVec4(0.0f, 0.0f, 1.0f, 1.0f) :
+                        ImVec4(1, 1, 1, 1);
+
+                    if (ImGui::ImageButton(folderIconTex, iconSize, uv0, uv1, -1, bg_col, tint_color))
+                    {
+
+                    }
+                    if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0))
+                    {
+                    }
+
+                    const char* label = "My Folder";
+                    ImVec2 textSize = ImGui::CalcTextSize(label);
+                    float textOffset = (iconSize.x - textSize.x) * 0.5f;
+                    ImGui::SetCursorPosX(ImGui::GetCursorPosX() + textOffset);
+                    ImGui::TextUnformatted(label);
+
+                    ImGui::PopStyleColor(3); // Pop all 3 colors
+                ImGui::EndGroup();
 
 
 
+
+
+
+            }
 
 
 
             ImGui::EndChild();
             ImGui::NewLine();
+
+
             ImGui::PopStyleColor();
             ImGui::PopStyleVar();
 
@@ -787,7 +854,7 @@ namespace MELT_EDITOR
         }
     }
 
-    void Editor::DrawRendererComponentPanel(MELT::Renderer& _renderer)
+    void Editor::DrawRendererComponentPanel(MELT::MeshRenderer& _renderer)
     {
         MELT::Scene* _working_scene = Engine->manager_registry.get<MELT::SceneManager>()->working_scene;
         MELT::Node * _selected_node = _working_scene->get_selected_node();
@@ -797,19 +864,39 @@ namespace MELT_EDITOR
             ImGui::Dummy(ImVec2(0.0f, 4.0f));
 
             ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
-            ImGui::Indent();
 
-            auto _font_color = ImVec4(0.5f, 0.5f, 0.5f, 1.0f);
+                auto _font_color = ImVec4(0.5f, 0.5f, 0.5f, 1.0f);
 
-            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-            ImGui::Text("Mesh");
-            ImGui::PopStyleColor();
+                ImGui::Text("Mesh");
+                ImGui::SameLine(120.0f);
+                ImGui::Text("name : %s", _renderer.mesh_data->name.c_str());
+                ImGui::Text("");
+                ImGui::SameLine(120.0f);
+                ImGui::Text("uuid : %s", _renderer.mesh_data->uuid.c_str());
 
-            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-            ImGui::Text("Material");
-            ImGui::PopStyleColor();
+                ImGui::Indent();
+                ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
 
-            ImGui::Unindent();
+                    ImGui::Text("vertices");
+                    ImGui::SameLine(120.0f);
+                    //ImGui::Text(std::to_string(_renderer.get_mesh_ref().vertices.size()).c_str());
+                    ImGui::Text(std::to_string(_renderer.mesh_data->mesh->vertices.size()).c_str());
+
+                    ImGui::Text("indices");
+                    ImGui::SameLine(120.0f);
+                    ImGui::Text(std::to_string(_renderer.mesh_data->mesh->indices.size()).c_str());
+
+                ImGui::PopStyleColor();
+                ImGui::Unindent();
+
+                ImGui::Text("Material");
+
+                ImGui::Indent();
+                // ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+                // ImGui::PopStyleColor();
+
+                ImGui::Unindent();
+
             ImGui::PopStyleColor();
 
 
@@ -822,9 +909,9 @@ namespace MELT_EDITOR
             ImGui::NewLine();
             ImGui::SameLine(ImGui::GetContentRegionAvail().x - ImGui::CalcTextSize("Delete").x - ImGui::GetStyle().FramePadding.x * 2);
             ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.5f, 0.5f, 0.5f, 1.0f));
-            if (ImGui::Button("Delete")) {
-                if (_selected_node && _selected_node->has_component<MELT::Renderer>())
-                    _selected_node->remove_component<MELT::Renderer>();
+            if (ImGui::Button("Delete 0")) {
+                if (_selected_node && _selected_node->has_component<MELT::MeshRenderer>())
+                    _selected_node->remove_component<MELT::MeshRenderer>();
             }
             ImGui::PopStyleColor();
 
@@ -871,9 +958,9 @@ namespace MELT_EDITOR
             ImGui::NewLine();
             ImGui::SameLine(ImGui::GetContentRegionAvail().x - ImGui::CalcTextSize("Delete").x - ImGui::GetStyle().FramePadding.x * 2);
             ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.5f, 0.5f, 0.5f, 1.0f));
-            if (ImGui::Button("Delete")) {
-                if (_selected_node && _selected_node->has_component<MELT::Renderer>())
-                    _selected_node->remove_component<MELT::Renderer>();
+            if (ImGui::Button("Delete 1")) {
+                if (_selected_node && _selected_node->has_component<MELT::BoxCollider>())
+                    _selected_node->remove_component<MELT::BoxCollider>();
             }
             ImGui::PopStyleColor();
 
@@ -996,7 +1083,7 @@ namespace MELT_EDITOR
         _file.close();
     }
 
-    void Editor::DrawSprite(const MELT::TextureData& _textureData, ImVec2 _position, ImVec2 _spriteSize, ImVec2 _spritePosition)
+    void Editor::DrawSprite(const MELT::TextureData_old& _textureData, ImVec2 _position, ImVec2 _spriteSize, ImVec2 _spritePosition)
     {
         float texture_width  = static_cast<float>(_textureData.Width);
         float texture_height = static_cast<float>(_textureData.Height);

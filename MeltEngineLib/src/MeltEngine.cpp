@@ -1,9 +1,5 @@
 #include "MeltEngine.h"
 
-#include "Components/BoxCollider.h"
-
-// #include "ResourceManager.h"
-
 namespace MELT
 {
     float Engine::ScreenWidth  = 30.0f;
@@ -73,31 +69,14 @@ namespace MELT
     void Engine::init()
     {
         manager_registry.Register<ResourceManager>(std::make_shared<ResourceManager>());
-        manager_registry.Register<SceneManager>   (std::make_shared<SceneManager>());
+        manager_registry.Register<SceneManager>   (std::make_shared<SceneManager>   ());
+        manager_registry.Register<RenderPipeline> (std::make_shared<RenderPipeline> ());
 
-        manager_registry.get<SceneManager>()->init();
+        manager_registry.get<ResourceManager>()->init();
+        manager_registry.get<SceneManager>   ()->init();
+        manager_registry.get<RenderPipeline> ()->Init(this);
 
         TextureMng.Init();
-
-        ECSCoord.Init();
-        ECSCoord.RegisterComponent<Camera>   ();
-        ECSCoord.RegisterComponent<Transform>();
-        ECSCoord.RegisterComponent<Renderer> ();
-        ECSCoord.RegisterComponent<SpriteRenderer>();
-
-        m_RenderSystem = ECSCoord.RegisterSystem<RenderSystem>();
-        {
-            Signature signature;
-            signature.set(ECSCoord.GetComponentType<Transform>());
-            signature.set(ECSCoord.GetComponentType<SpriteRenderer>());
-            ECSCoord.SetSystemSignature<RenderSystem>(signature);
-        }
-        m_RenderSystem->OnStart();
-        m_RenderSystem->Engine   = this;
-        m_RenderSystem->ECSCoord = &ECSCoord;
-
-        TargetRenderPipeline = new RenderPipeline();
-        TargetRenderPipeline->Init(this);
 
         // Load the dynamic library
         void* _handle = dlopen("/Users/pengaki/Desktop/MeltSampleProject/build/libCustomNativeScript.dylib", RTLD_LAZY);
@@ -164,11 +143,11 @@ namespace MELT
                         GLsizei _width  = m_event.window.data1;
                         GLsizei _height = m_event.window.data2;
 
-                        TargetRenderPipeline->EditorSceneFrameBuffer->RescaleFrameBuffer(2 * _width, 2 * _height);
+                        manager_registry.get<RenderPipeline>()->EditorSceneFrameBuffer->RescaleFrameBuffer(2 * _width, 2 * _height);
 
-                        m_RenderSystem->EditorSceneFrameBuffer->RescaleFrameBuffer(2 * _width, 2 * _height);
-                        m_RenderSystem->GridShader2D->Use();
-                        m_RenderSystem->GridShader2D->SetVec2UniformScreenSize(glm::vec2(_width, _height));
+                        // m_RenderSystem->EditorSceneFrameBuffer->RescaleFrameBuffer(2 * _width, 2 * _height);
+                        // m_RenderSystem->GridShader2D->Use();
+                        // m_RenderSystem->GridShader2D->SetVec2UniformScreenSize(glm::vec2(_width, _height));
                     }
                     break;
             }
@@ -256,24 +235,17 @@ namespace MELT
                 }
                 break;
             case EngineMode::PLAY_MODE:
-                ECSCoord.m_SystemManager->UpdateInput();
-                ECSCoord.m_SystemManager->Update();
                 break;
         }
     }
 
     void Engine::UpdateRender()
     {
-        glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-#ifdef M_EDITOR
-        if(TargetRenderPipeline)
-            TargetRenderPipeline->Render(0.0f);
-
+        std::shared_ptr<RenderPipeline> _render_pipeline = manager_registry.get<RenderPipeline>();;
+        _render_pipeline->BeginFrame();
+        _render_pipeline->Render(0.0f);
         UpdateEditor();
-#endif
-        SDL_GL_SwapWindow(sdl_window);
+        _render_pipeline->EndFrame();
     }
 
     void Engine::Quit()
@@ -286,13 +258,18 @@ namespace MELT
     //Use scene manager instead
     void Engine::CreateNode()
     {
+        std::shared_ptr<ResourceManager> _resource_manager = manager_registry.get<ResourceManager>();
+
         Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
-        //Node& _node = _working_scene->create_node_with_type<Transform>("Entity");
 
         Node& _node = _working_scene->create_node("Entity");
         _node.add_component<Transform>();
-        _node.add_component<Renderer>();
+        _node.add_component<MeshRenderer>();
         _node.add_component<BoxCollider>();
+
+        MeshRenderer& _mesh_renderer = _node.get_component<MeshRenderer>();
+        _mesh_renderer.set_mesh_data(&_resource_manager->default_cube);
+        _mesh_renderer.set_buffer_data();
     }
 
     void Engine::deselect_all_nodes()

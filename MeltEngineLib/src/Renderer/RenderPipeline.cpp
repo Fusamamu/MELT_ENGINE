@@ -1,16 +1,21 @@
 #include "MeltEngine.h"
-#include "Coordinator.h"
+// #include "Coordinator.h"
 #include "RenderPipeline.h"
 
 namespace MELT
 {
-    RenderPipeline::RenderPipeline()
+    RenderPipeline::RenderPipeline():
+        mp_window(nullptr),
+        clear_color(222.0f/255.0f, 217.0f/255.0f, 226.0f/255.0f, 33.0f/255.0f),
+        m_clearBuffers(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT),
+        m_ubo(0)
     {
     }
 
     void RenderPipeline::Init(MELT::Engine *_engine)
     {
         m_Engine = _engine;
+        mp_window = m_Engine->sdl_window;
 
         aQuad = new Quad();
         aCube = new Cube();
@@ -44,7 +49,6 @@ namespace MELT
 
         EditorSceneFrameBuffer = new FrameBuffer();
 
-
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LESS);
 
@@ -59,8 +63,8 @@ namespace MELT
     void RenderPipeline::Render(float _dt)
     {
         glBindFramebuffer(GL_FRAMEBUFFER, EditorSceneFrameBuffer->FBO);
-        glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+
+        BeginFrame();
 
         glm::mat4 _view       = m_Engine->MainCamera.GetViewMatrix();
         glm::mat4 _projection = m_Engine->MainCamera.GetOrthographicProjectionMatrix();
@@ -73,7 +77,11 @@ namespace MELT
 
         for (Node& _node : m_Engine->manager_registry.get<SceneManager>()->working_scene->get_all_nodes())
         {
-            const Transform& _transform = _node.get_component<Transform>();
+            Transform& _transform        = _node.get_component<Transform>();
+
+            if (!_node.has_component<MeshRenderer>())
+                continue;
+            MeshRenderer& _mesh_renderer = _node.get_component<MeshRenderer>();
 
             float _xPos = _transform.position.x;
             float _yPos = _transform.position.y;
@@ -92,7 +100,8 @@ namespace MELT
                 m_TargetShader->SetMat4UniformView(_view);
                 m_TargetShader->SetMat4UniformProjection(_projection);
                 m_TargetShader->SetVec3UniformCameraWorldPosition(m_Engine->MainCamera.Position);
-                aCube->Draw();
+                //aCube->Draw();
+                _mesh_renderer.draw();
 
                 glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
                 glStencilMask(0x00);
@@ -103,7 +112,8 @@ namespace MELT
                 m_MeshOutlineShader->SetMat4UniformModel(_scaledModel);
                 m_MeshOutlineShader->SetMat4UniformView(_view);
                 m_MeshOutlineShader->SetMat4UniformProjection(_projection);
-                aCube->Draw();
+                //aCube->Draw();
+                _mesh_renderer.draw();
 
                 glStencilMask(0xFF);
                 glStencilFunc(GL_ALWAYS, 0, 0xFF);
@@ -116,7 +126,8 @@ namespace MELT
                 m_TargetShader->SetMat4UniformView(_view);
                 m_TargetShader->SetMat4UniformProjection(_projection);
                 m_TargetShader->SetVec3UniformCameraWorldPosition(m_Engine->MainCamera.Position);
-                aCube->Draw();
+                //aCube->Draw();
+                _mesh_renderer.draw();
 
                 glStencilMask(0xFF);
                 glStencilFunc(GL_ALWAYS, 0, 0xFF);

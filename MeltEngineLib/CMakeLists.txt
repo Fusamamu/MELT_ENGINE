@@ -53,7 +53,10 @@ add_library(${PROJECT_NAME} STATIC
         src/ManagerRegistry.cpp
         src/ResourceManager.cpp
         src/Components/BoxCollider.cpp
-        src/Components/BoxCollider.h)
+        src/Components/MeshRenderer.cpp
+        src/Components/MeshRenderer.h
+        src/Texture.cpp
+        src/Texture.h)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
 

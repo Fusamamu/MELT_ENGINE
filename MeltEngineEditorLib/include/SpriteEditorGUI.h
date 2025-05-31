@@ -20,7 +20,7 @@ namespace MELT_EDITOR
     public:
         bool IsOpened;
 
-        MELT::TextureData* EditTextureData;
+        MELT::TextureData_old* EditTextureData;
 
         ImVec2 GridSize;
         ImVec2 CellSize;

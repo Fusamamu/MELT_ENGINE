@@ -10,15 +10,15 @@ namespace MELT_EDITOR
 
     void ConsoleGUI::DrawGUI()
     {
-        ImGui::Begin("Console");
+        //ImGui::Begin("Console");
 
-        MELT::Entity _entity = EditorOwner->Engine->ECSCoord.SelectedEntity;
+        //MELT::Entity _entity = EditorOwner->Engine->ECSCoord.SelectedEntity;
 
-        const char* _selectedEntity = std::to_string(EditorOwner->Engine->ECSCoord.SelectedEntity).c_str();
-        ImGui::Text("Selected Entity : ");
-        ImGui::SameLine();
-        ImGui::Text("%s", _selectedEntity);
-        ImGui::End();
+        // const char* _selectedEntity = std::to_string(EditorOwner->Engine->ECSCoord.SelectedEntity).c_str();
+        // ImGui::Text("Selected Entity : ");
+        // ImGui::SameLine();
+        // ImGui::Text("%s", _selectedEntity);
+        // ImGui::End();
 
         //Temp
 //        if(_entity > 100)

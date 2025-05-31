@@ -141,7 +141,7 @@ namespace MELT
 
     void Shader::SetVec3UniformCameraWorldPosition(glm::vec3 _cameraWorldPos) const
     {
-        glUniform3f(m_UniformLoc_Color, _cameraWorldPos.x, _cameraWorldPos.y, _cameraWorldPos.x);
+        //glUniform3f(m_UniformLoc_Color, _cameraWorldPos.x, _cameraWorldPos.y, _cameraWorldPos.x);
     }
 
     GLuint Shader::CreateShader(const std::string& _vertexSrc, const std::string& _geometrySrc, const std::string& _fragmentSrc)

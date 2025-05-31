@@ -58,14 +58,16 @@ namespace MELT_EDITOR
         void DrawSceneViewGUI();
         void DrawHierarchyGUI();
         void DrawInspectorGUI();
+        void DrawMaterialGUI();
         void DrawAssetsGUI();
         void DrawContentGUI();
+        void DrawRenderPipelineGUI();
 
         void DrawLineSeparator();
 
-        void DrawTransformComponentPanel  (MELT::Transform  & _transform  );
-        void DrawRendererComponentPanel   (MELT::Renderer   & _renderer   );
-        void DrawBoxColliderComponentPanel(MELT::BoxCollider& _boxCollider);
+        void DrawTransformComponentPanel  (MELT::Transform   & _transform  );
+        void DrawRendererComponentPanel   (MELT::MeshRenderer& _renderer   );
+        void DrawBoxColliderComponentPanel(MELT::BoxCollider & _boxCollider);
 
         void DrawSpriteRendererComponentPanel(MELT::SpriteRenderer& _spriteRenderer);
 
@@ -84,7 +86,7 @@ namespace MELT_EDITOR
 
         const ImU32 BackgroundColor;
 
-        void DrawSprite(const MELT::TextureData& _textureData, ImVec2 _position, ImVec2 _spriteSize, ImVec2 _spritePosition);
+        void DrawSprite(const MELT::TextureData_old& _textureData, ImVec2 _position, ImVec2 _spriteSize, ImVec2 _spritePosition);
         void DrawSpriteWithDrawList(ImTextureID texture_id, ImVec2 position, ImVec2 sprite_size, ImVec2 sprite_position);
     };
 }

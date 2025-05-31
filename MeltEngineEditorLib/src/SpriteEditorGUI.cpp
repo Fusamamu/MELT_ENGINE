@@ -167,7 +167,7 @@ namespace MELT_EDITOR
         float _cursorPosY = (windowSize.y - _textureHeight) * 0.5f;
 
         ImGui::SetCursorPos(ImVec2(_cursorPosX, _cursorPosY));
-        ImGui::Image((void*)(intptr_t)EditorOwner->Engine->m_RenderSystem->EditorGUIFrameBuffer->TextureID,_textureSize);
+        //ImGui::Image((void*)(intptr_t)EditorOwner->Engine->m_RenderSystem->EditorGUIFrameBuffer->TextureID,_textureSize);
         ImGui::SetCursorPos(ImVec2(_cursorPosX, _cursorPosY));
         ImGui::Image((void*)(intptr_t)EditTextureData->TextureID, _textureSize);
 

@@ -19,7 +19,7 @@ namespace MELT
         std::array<glm::vec2, 4> TexCoords;
     };
 
-    struct TextureData
+    struct TextureData_old
     {
         std::string TextureFileName;
         std::string FileExtension;
@@ -40,7 +40,7 @@ namespace MELT
     class TextureManager
     {
     public:
-        std::unordered_map<std::string, TextureData> TextureDataTable;
+        std::unordered_map<std::string, TextureData_old> TextureDataTable;
 
         TextureManager();
         void Init();

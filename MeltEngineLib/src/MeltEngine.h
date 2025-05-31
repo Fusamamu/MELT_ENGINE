@@ -9,8 +9,10 @@
 #include "Shader.h"
 #include "Quad.h"
 #include "Type.h"
+
 #include "Camera.h"
 #include "Transform.h"
+#include "MeshRenderer.h"
 #include "Renderer.h"
 #include "BoxCollider.h"
 
@@ -48,13 +50,8 @@ namespace MELT
 
         ManagerRegistry manager_registry;
 
-        Camera         MainCamera;//will remove
-        Coordinator    ECSCoord; //will remove
-        //NodeManager    NodeMng;//will remove
+        Camera         MainCamera;//will remove //move to scene??
         TextureManager TextureMng;//will remove
-
-        RenderPipeline* TargetRenderPipeline;
-        std::shared_ptr<RenderSystem> m_RenderSystem; //will remove
 
         std::function<void(void)>      UpdateEngine;
         std::function<void(SDL_Event)> UpdateEditorInput;

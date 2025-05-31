@@ -28,6 +28,7 @@
 
 #include <entt/entt.hpp>
 
+#define UUID std::string
 #define M_VEC3 glm::vec3
 
 namespace MELT

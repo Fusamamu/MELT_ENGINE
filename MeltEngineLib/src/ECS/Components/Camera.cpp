@@ -4,12 +4,12 @@ namespace MELT
 {
     Camera::Camera():
     UseOrthographic(true),
-    Position(glm::vec3(0.0f, 0.0f, 3.0f)),
+    Position(glm::vec3(3.0f, 3.0f, 3.0f)),
     Target  (glm::vec3(0.0f, 0.0f, 0.0f)),
     Up      (glm::vec3(0.0f, 1.0f, 0.0f)),
-    NearPlane(0.1f),
-    FarPlane(100.0f),
-    OrthographicSize(20.0f)
+    NearPlane(-100.0f),
+    FarPlane(1000.0f),
+    OrthographicSize(10.0f)
     {
 
     }

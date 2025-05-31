@@ -1,6 +1,7 @@
-#pragma onec
+#pragma once
+
 #include "Core.h"
-// #include <GL/glew.h>
+#include "Mesh.h"
 #include "Vertex.h"
 
 namespace MELT
@@ -16,8 +17,10 @@ namespace MELT
         ~Cube();
 
         void Draw() const;
+
+        Mesh get_mesh() const;
     private:
-        std::array<Vertex_1P1C1T1N, 24> m_Vertices;
-        std::array<GLuint, 36> m_Indices;
+        std::array<Vertex_1P1C1T1N, 24> m_vertices;
+        std::array<GLuint, 36>          m_indices;
     };
 }
