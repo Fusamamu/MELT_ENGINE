@@ -15,26 +15,26 @@
 #include "imgui_impl_opengl3.h"
 #include "ImGuizmo.h"
 
-//not good
-#include "glm/gtc/type_ptr.hpp"
+// //not good
+// #include "glm/gtc/type_ptr.hpp"
 
 #include "IconsKenney.h"
 
 #include "MeltEngine.h"
 
+#include "ApplicationState.h"
 #include "SpriteEditorGUI.h"
 #include "ScriptEditorGUI.h"
 #include "ConsoleGUI.h"
 
 #include "nfd.h"
-#include "Components/BoxCollider.h"
 
 namespace MELT_EDITOR
 {
     class Editor
     {   
     public:
-        MELT::Engine* Engine;
+        MELT::Engine* engine;
 
         std::vector<std::string> fileNames;
 
@@ -46,23 +46,27 @@ namespace MELT_EDITOR
 
         bool SpriteEditorDisplayed;
 
-        explicit Editor(MELT::Engine* _engine);
+        ApplicationModeManager application_mode_manager;
+
+        explicit Editor();
         ~Editor();
 
-        void Update();
-        void UpdateInput(SDL_Event _event);
+        void init();
+        void update();
+        void update_input(SDL_Event _event);
         void update_gui();
+        void quit();
 
         void GetContent();
 
-        void DrawMainMenubar();
-        void DrawSceneViewGUI();
-        void DrawHierarchyGUI();
-        void DrawInspectorGUI();
-        void DrawMaterialGUI();
-        void DrawAssetsGUI();
-        void DrawContentGUI();
-        void DrawRenderPipelineGUI();
+        void draw_main_menubar       ();
+        void draw_scene_view_gui     ();
+        void draw_hierarchy_gui      ();
+        void draw_inspector_gui      ();
+        void draw_material_gui       ();
+        void draw_assets_gui         ();
+        void draw_content_gui        ();
+        void draw_render_pipeline_gui();
 
         void DrawLineSeparator();
 
@@ -92,5 +96,7 @@ namespace MELT_EDITOR
 
     private:
         bool m_is_running = true;
+
+
     };
 }

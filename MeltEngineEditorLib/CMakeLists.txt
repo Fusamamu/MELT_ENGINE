@@ -11,16 +11,20 @@ file(GLOB IMGUIZMOS_SRCS ./vendors/ImGuizmo/*.cpp)
 add_subdirectory(vendors/nativefiledialog-extended)
 
 add_library(${PROJECT_NAME} STATIC
-            ./src/MeltEngineEditor.cpp
-            ./src/ScriptEditorGUI/ScriptEditorGUI.cpp
-            ./src/ConsoleGUI.cpp
-            ./src/SpriteEditorGUI.cpp
-            ${IMGUI_SRCS}
-            ${IMGUI_BACKENDS}/imgui_impl_sdl2.cpp
-            ${IMGUI_BACKENDS}/imgui_impl_opengl3.cpp
-            ${IMGUIZMOS_SRCS})
+        ./src/MeltEngineEditor.cpp
+        ./src/ScriptEditorGUI/ScriptEditorGUI.cpp
+        ./src/ConsoleGUI.cpp
+        ./src/SpriteEditorGUI.cpp
+        ./src/ApplicationState.cpp
+        ${IMGUI_SRCS}
+        ${IMGUI_BACKENDS}/imgui_impl_sdl2.cpp
+        ${IMGUI_BACKENDS}/imgui_impl_opengl3.cpp
+        ${IMGUIZMOS_SRCS})
 
-target_include_directories(${PROJECT_NAME} PUBLIC ./src)
+target_include_directories(${PROJECT_NAME} PUBLIC
+        ./src
+        ./src/ScriptEditorGUI)
+
 
 target_include_directories(${PROJECT_NAME} PUBLIC ./include)
 target_include_directories(${PROJECT_NAME} PUBLIC ./include/ScriptEditor)

@@ -109,68 +109,45 @@ namespace MELT
         dlclose(_handle);
     }
 
-    void Engine::Update()
+    void Engine::update()
     {
         glEnable(GL_DEPTH_TEST);//Will remove this
-
         while(m_is_running)
         {
-            UpdateInput ();
-            UpdateLogic ();
-            UpdateRender();
+            update_input ();
+            update_logic ();
+            update_render();
             gEventManager.DispatchEvents();
             SDL_Delay(16);
         }
     }
 
-    void Engine::UpdateInput()
+    void Engine::update_input()
     {
         Input.ClearInput();
         while(SDL_PollEvent(&m_event))
         {
             Input.Update(m_event);
-            UpdateEditorInput(m_event);
-
             switch(m_event.type)
             {
                 case SDL_QUIT:
                     m_is_running = false;
-                    break;
-                case SDL_WINDOWEVENT:
-                    if(m_event.window.event == SDL_WINDOWEVENT_RESIZED)
-                    {
-                        GLsizei _width  = m_event.window.data1;
-                        GLsizei _height = m_event.window.data2;
-                        manager_registry.get<RenderPipeline>()->rescale_frame_buffers(2 * _width, 2 * _height);
-                    }
                     break;
             }
         }
         Input.CheckMouseHoldStates();
     }
 
-    void Engine::UpdateLogic()
+    void Engine::update_logic()
     {
         switch(CurrentMode)
         {
             case EngineMode::EDIT_MODE:
                 if(Input.IsKeyPressed(SDL_SCANCODE_ESCAPE))
-                {
                     m_is_running = false;
-                }
-
-                if(Input.IsMouseButtonPressed(SDL_BUTTON_LEFT))
-                {
-                }
-
-                if(Input.IsMouseButtonReleased(SDL_BUTTON_LEFT))
-                {
-                }
 
                 if(Input.IsMouseButtonPressed(SDL_BUTTON_RIGHT))
-                {
                     m_is_dragging = true;
-                }
 
                 if(Input.IsMouseButtonHeld(SDL_BUTTON_RIGHT))
                 {
@@ -223,16 +200,33 @@ namespace MELT
         }
     }
 
-    void Engine::UpdateRender()
+    void Engine::update_render()
     {
         std::shared_ptr<RenderPipeline> _render_pipeline = manager_registry.get<RenderPipeline>();;
         _render_pipeline->BeginFrame();
         _render_pipeline->Render(0.0f);
-        UpdateEditor();
         _render_pipeline->EndFrame();
     }
 
-    void Engine::Quit()
+    void Engine::begin_frame()
+    {
+        std::shared_ptr<RenderPipeline> _render_pipeline = manager_registry.get<RenderPipeline>();;
+        _render_pipeline->BeginFrame();
+    }
+
+    void Engine::render_frame()
+    {
+        std::shared_ptr<RenderPipeline> _render_pipeline = manager_registry.get<RenderPipeline>();
+        _render_pipeline->Render(0.0f);
+    }
+
+    void Engine::end_frame()
+    {
+        std::shared_ptr<RenderPipeline> _render_pipeline = manager_registry.get<RenderPipeline>();;
+        _render_pipeline->EndFrame();
+    }
+
+    void Engine::quit()
     {
         SDL_GL_DeleteContext(gl_context);
         SDL_DestroyWindow(sdl_window);
@@ -240,7 +234,7 @@ namespace MELT
     }
 
     //Use scene manager instead
-    void Engine::CreateNode()
+    void Engine::create_node()
     {
         std::shared_ptr<ResourceManager> _resource_manager = manager_registry.get<ResourceManager>();
 

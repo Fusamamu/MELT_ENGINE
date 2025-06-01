@@ -1,18 +1,24 @@
 #include <iostream>
 #include "MeltEngineEditor.h"
-// #include "MeshRenderer.h"
-// #include "Components/BoxCollider.h"
 
 namespace MELT_EDITOR
 {
     unsigned int WindowBackground_Color = IM_COL32(33, 36, 35, 255);
     unsigned int ChildBackground_Color  = IM_COL32(26, 28, 27, 255);
 
-    Editor::Editor(MELT::Engine* _engine):
-        Engine(_engine),
+    Editor::Editor():
+        engine(nullptr),
         BackgroundColor(IM_COL32(8, 14, 15, 255))
     {
-        std::cout << "Editor ctor" << std::endl;
+    }
+
+    Editor::~Editor() = default;
+
+    void Editor::init()
+    {
+        engine = new MELT::Engine();
+        engine->init();
+
         IMGUI_CHECKVERSION();
 
         ImGui::CreateContext();
@@ -33,24 +39,13 @@ namespace MELT_EDITOR
         ImGuiStyle& _style = ImGui::GetStyle();
 
         _style.Colors[ImGuiCol_WindowBg]             = ImVec4(8.0f / 255.0f, 14.0f / 255.0f, 15.0f / 255.0f, 1.0f);
-
-        //_style.Colors[ImGuiCol_TitleBg]              = ImVec4(33.0f / 255.0f, 36.0f / 255.0f, 35.0f / 255.0f, 1.0f);
-
         _style.Colors[ImGuiCol_TitleBg]              = ImColor(33, 36, 35);
-        //_style.Colors[ImGuiCol_TitleBg]              = ImColor(28, 31, 30);
-        //_style.Colors[ImGuiCol_TitleBgActive]        = ImVec4(61.0f / 255.0f, 53.0f / 255.0f, 40.0f / 255.0f, 1.0f);
         _style.Colors[ImGuiCol_TitleBgActive]        = ImColor(33, 36, 35);
-
-
         _style.Colors[ImGuiCol_Border]               = ImVec4(33.0f / 255.0f, 36.0f / 255.0f, 35.0f / 255.0f, 1.0f);
         _style.Colors[ImGuiCol_BorderShadow]         = ImVec4(33.0f / 255.0f, 36.0f / 255.0f, 35.0f / 255.0f, 1.0f);
-
         _style.Colors[ImGuiCol_Header]               = ImVec4(33.0f / 255.0f, 36.0f / 255.0f, 35.0f / 255.0f, 1.0f);
         _style.Colors[ImGuiCol_HeaderHovered]        = ImVec4(172.0f / 255.0f, 184.0f / 255.0f, 39.0f / 255.0f, 1.0f);
         _style.Colors[ImGuiCol_HeaderActive]         = ImVec4(172.0f / 255.0f, 184.0f / 255.0f, 39.0f / 255.0f, 1.0f);
-
-        //_style.Colors[ImGuiCol_HeaderActive]         = ImColor(33, 36, 35);
-
         _style.Colors[ImGuiCol_Separator]            = ImVec4(33.0f / 255.0f, 36.0f / 255.0f, 35.0f / 255.0f, 1.0f);
         _style.Colors[ImGuiCol_FrameBgActive]        = ImVec4(255.0f / 255.0f, 255.0f / 255.0f, 255.0f / 255.0f, 1.0f);
         _style.Colors[ImGuiCol_Tab]                  = ImVec4(59.0f / 255.0f, 53.0f / 255.0f, 51.0f / 255.0f, 1.0f);
@@ -62,11 +57,8 @@ namespace MELT_EDITOR
 
         const char* glsl_version = "#version 150";
 
-        ImGui_ImplSDL2_InitForOpenGL(_engine->sdl_window, _engine->gl_context);
+        ImGui_ImplSDL2_InitForOpenGL(engine->sdl_window, engine->gl_context);
         ImGui_ImplOpenGL3_Init(glsl_version);
-
-        Engine->UpdateEditorInput = std::bind(&Editor::UpdateInput, this, std::placeholders::_1);
-        Engine->UpdateEditor      = std::bind(&Editor::Update     , this);
 
         try
         {
@@ -85,62 +77,53 @@ namespace MELT_EDITOR
         NFD_Init();
     }
 
-    Editor::~Editor()
+    void Editor::update()
     {
-        ImGui_ImplOpenGL3_Shutdown();
-        ImGui_ImplSDL2_Shutdown();
-        ImGui::DestroyContext();
-        NFD_Quit();
+        SDL_Event m_event;
+
+        while (m_is_running)
+        {
+            MELT::Input.ClearInput();
+            while(SDL_PollEvent(&m_event))
+            {
+                MELT::Input.Update(m_event);
+
+                update_input(m_event);
+
+                switch(m_event.type)
+                {
+                    case SDL_QUIT:
+                        m_is_running = false;
+                    break;
+                    case SDL_WINDOWEVENT:
+                        if(m_event.window.event == SDL_WINDOWEVENT_RESIZED)
+                        {
+                            GLsizei _width  = m_event.window.data1;
+                            GLsizei _height = m_event.window.data2;
+                            engine->manager_registry.get<MELT::RenderPipeline>()->rescale_frame_buffers(2 * _width, 2 * _height);
+                        }
+                    break;
+                }
+            }
+            MELT::Input.CheckMouseHoldStates();
+
+            if(MELT::Input.IsKeyPressed(SDL_SCANCODE_ESCAPE))
+                m_is_running = false;
+
+            engine->update_logic();
+
+            engine->begin_frame();
+            engine->render_frame();
+            update_gui();
+            engine->end_frame();
+
+            SDL_Delay(16);
+        }
     }
 
-    void Editor::UpdateInput(SDL_Event _event)
+    void Editor::update_input(SDL_Event _event)
     {
         ImGui_ImplSDL2_ProcessEvent(&_event);
-    }
-
-    void DrawPanel()
-    {
-        ImDrawList* _drawList = ImGui::GetWindowDrawList();
-
-        ImVec2 _panelPos = ImGui::GetCursorScreenPos();
-        ImVec2 _panelSize (ImGui::GetWindowWidth() - 20.0f, 100.0f);
-
-        _drawList->AddRectFilled(
-                _panelPos,
-                ImVec2(_panelPos.x + _panelSize.x, _panelPos.y + _panelSize.y),
-                IM_COL32(28, 31, 29, 255), 6.0f);
-    }
-
-    void Editor::Update()
-    {
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplSDL2_NewFrame();
-        ImGui::NewFrame();
-        ImGuizmo::BeginFrame();
-
-        DrawMainMenubar();
-        ImGui::DockSpaceOverViewport(0, ImGui::GetMainViewport());
-
-        DrawSceneViewGUI     ();
-        DrawInspectorGUI     ();
-        DrawMaterialGUI      ();
-        DrawHierarchyGUI     ();
-        DrawAssetsGUI        ();
-        DrawContentGUI       ();
-        DrawRenderPipelineGUI();
-
-        SpriteEditorGUI.DrawGUI();
-        ScriptEditorGUI.DrawGUI();
-        ConsoleGUI     .DrawGUI();
-
-        ImGui::Render();
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-        ImGuiIO& io = ImGui::GetIO(); (void)io;
-        if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-        {
-            ImGui::UpdatePlatformWindows();
-            ImGui::RenderPlatformWindowsDefault();
-        }
     }
 
     void Editor::update_gui()
@@ -150,16 +133,16 @@ namespace MELT_EDITOR
         ImGui::NewFrame();
         ImGuizmo::BeginFrame();
 
-        DrawMainMenubar();
+        draw_main_menubar();
         ImGui::DockSpaceOverViewport(0, ImGui::GetMainViewport());
 
-        DrawSceneViewGUI     ();
-        DrawInspectorGUI     ();
-        DrawMaterialGUI      ();
-        DrawHierarchyGUI     ();
-        DrawAssetsGUI        ();
-        DrawContentGUI       ();
-        DrawRenderPipelineGUI();
+        draw_scene_view_gui     ();
+        draw_inspector_gui     ();
+        draw_material_gui      ();
+        draw_hierarchy_gui     ();
+        draw_assets_gui        ();
+        draw_content_gui       ();
+        draw_render_pipeline_gui();
 
         SpriteEditorGUI.DrawGUI();
         ScriptEditorGUI.DrawGUI();
@@ -173,6 +156,17 @@ namespace MELT_EDITOR
             ImGui::UpdatePlatformWindows();
             ImGui::RenderPlatformWindowsDefault();
         }
+    }
+
+    void Editor::quit()
+    {
+        ImGui_ImplOpenGL3_Shutdown();
+        ImGui_ImplSDL2_Shutdown();
+        ImGui::DestroyContext();
+        NFD_Quit();
+
+        engine->quit();
+        delete engine;
     }
 
     void Editor::GetContent()
@@ -194,7 +188,7 @@ namespace MELT_EDITOR
         return pclose(pipe) == 0;
     }
 
-    void Editor::DrawMainMenubar()
+    void Editor::draw_main_menubar()
     {
         if (ImGui::BeginMainMenuBar())
         {
@@ -335,9 +329,9 @@ namespace MELT_EDITOR
         return result;
     }
 
-    void Editor::DrawSceneViewGUI()
+    void Editor::draw_scene_view_gui()
     {
-        MELT::Scene* _working_scene = Engine->manager_registry.get<MELT::SceneManager>()->working_scene;
+        MELT::Scene* _working_scene = engine->manager_registry.get<MELT::SceneManager>()->working_scene;
 
         if (ImGui::Begin("Scene view"))
         {
@@ -355,14 +349,14 @@ namespace MELT_EDITOR
                 {
                     if (!ImGuizmo::IsOver() && !ImGuizmo::IsUsing() || !_working_scene->selected_node_id.has_value())
                     {
-                        Engine->deselect_all_nodes();
-                        Engine->SelectObject(MELT::Input.MouseScreenPosition, Engine->MainCamera);
+                        engine->deselect_all_nodes();
+                        engine->SelectObject(MELT::Input.MouseScreenPosition, engine->MainCamera);
                     }
                 }
             }
 
             ImGui::GetWindowDrawList()->AddImage(
-                    (void*)(intptr_t)Engine->manager_registry.get<MELT::RenderPipeline>()->editor_scene_frame_buffer->texture_id,
+                    (void*)(intptr_t)engine->manager_registry.get<MELT::RenderPipeline>()->editor_scene_frame_buffer->texture_id,
                     ImVec2(_cursorScreenPos.x, _cursorScreenPos.y),
                     ImVec2(_cursorScreenPos.x + _sceneEditorWindowWidth, _cursorScreenPos.y + _sceneEditorWindowHeight),
                     ImVec2(0, 1),
@@ -378,8 +372,8 @@ namespace MELT_EDITOR
                 glm::mat4 objectMatrix = transform.get_transform_matrix();
 
                 ImGuizmo::Manipulate(
-                    glm::value_ptr(Engine->MainCamera.GetViewMatrix()),
-                    glm::value_ptr(Engine->MainCamera.GetOrthographicProjectionMatrix()),
+                    glm::value_ptr(engine->MainCamera.GetViewMatrix()),
+                    glm::value_ptr(engine->MainCamera.GetOrthographicProjectionMatrix()),
                     ImGuizmo::TRANSLATE, ImGuizmo::WORLD,
                     glm::value_ptr(objectMatrix)
                 );
@@ -394,9 +388,9 @@ namespace MELT_EDITOR
                 }
             }
 
-            Engine->MainCamera.WindowSize.x = _sceneEditorWindowWidth;
-            Engine->MainCamera.WindowSize.y = _sceneEditorWindowHeight;
-            Engine->MainCamera.UpdateScreenSizeWithOrthographicSize(_sceneEditorWindowWidth / _sceneEditorWindowHeight);
+            engine->MainCamera.WindowSize.x = _sceneEditorWindowWidth;
+            engine->MainCamera.WindowSize.y = _sceneEditorWindowHeight;
+            engine->MainCamera.UpdateScreenSizeWithOrthographicSize(_sceneEditorWindowWidth / _sceneEditorWindowHeight);
 
             MELT::Input.MouseWindowPosition.x = ImGui::GetMousePos().x;
             MELT::Input.MouseWindowPosition.y = ImGui::GetMousePos().y;
@@ -410,11 +404,11 @@ namespace MELT_EDITOR
                                                 0.0f, _sceneEditorWindowHeight, 0.0f, 1.0f);
 
             ImVec2 _mouseWorldPos = RemapImVec2(_screenPos,
-                                                0.0f, _sceneEditorWindowWidth , -Engine->MainCamera.HalfScreenWidth(),  Engine->MainCamera.HalfScreenWidth(),
-                                                0.0f, _sceneEditorWindowHeight,  Engine->MainCamera.HalfScreenHeight(), -Engine->MainCamera.HalfScreenHeight());
+                                                0.0f, _sceneEditorWindowWidth , -engine->MainCamera.HalfScreenWidth(),  engine->MainCamera.HalfScreenWidth(),
+                                                0.0f, _sceneEditorWindowHeight,  engine->MainCamera.HalfScreenHeight(), -engine->MainCamera.HalfScreenHeight());
 
-            _mouseWorldPos.x += Engine->MainCamera.Position.x;
-            _mouseWorldPos.y += Engine->MainCamera.Position.y;
+            _mouseWorldPos.x += engine->MainCamera.Position.x;
+            _mouseWorldPos.y += engine->MainCamera.Position.y;
 
 
             MELT::Input.MouseScreenNormalizedPosition.x = _normalizedPos.x;
@@ -423,22 +417,22 @@ namespace MELT_EDITOR
             MELT::Input.MouseScreenWorldPosition.y      = _mouseWorldPos.y;
 
             ImGui::Text("Window content          W H : (%.1f, %.1f)"     , _sceneEditorWindowWidth                    , _sceneEditorWindowHeight                   );
-            ImGui::Text("Orthographic projection W H : (%.1f, %.1f)"     , Engine->MainCamera.ScreenSize.x            , Engine->MainCamera.ScreenSize.y            );
+            ImGui::Text("Orthographic projection W H : (%.1f, %.1f)"     , engine->MainCamera.ScreenSize.x            , engine->MainCamera.ScreenSize.y            );
             ImGui::Text("Mouse window position       : (%.1f, %.1f)"     , MELT::Input.MouseWindowPosition .x         , MELT::Input.MouseWindowPosition .y         );
             ImGui::Text("Mouse screen position       : (%.1f, %.1f)"     , MELT::Input.MouseScreenPosition.x          , MELT::Input.MouseScreenPosition.y          );
             ImGui::Text("Normalized position         : (%.1f, %.1f)"     , MELT::Input.MouseScreenNormalizedPosition.x, MELT::Input.MouseScreenNormalizedPosition.y);
             ImGui::Text("Mouse world position        : (%.1f, %.1f)"     , MELT::Input.MouseScreenWorldPosition.x     , MELT::Input.MouseScreenWorldPosition.y     );
-            ImGui::InputFloat3("Camera position", glm::value_ptr(Engine->MainCamera.Position));
-            ImGui::SliderFloat("Near plane"       , &Engine->MainCamera.NearPlane, -100.0f, 0.0f);
-            ImGui::SliderFloat("Far plane"        , &Engine->MainCamera.FarPlane, 0.0, 1000.0f);
-            ImGui::SliderFloat("Orthographic size", &Engine->MainCamera.OrthographicSize, 1.0f, 200.f);
+            ImGui::InputFloat3("Camera position", glm::value_ptr(engine->MainCamera.Position));
+            ImGui::SliderFloat("Near plane"       , &engine->MainCamera.NearPlane, -100.0f, 0.0f);
+            ImGui::SliderFloat("Far plane"        , &engine->MainCamera.FarPlane, 0.0, 1000.0f);
+            ImGui::SliderFloat("Orthographic size", &engine->MainCamera.OrthographicSize, 1.0f, 200.f);
         }
         ImGui::End();
     }
 
     int _selectedItem = -1;
 
-    void Editor::DrawHierarchyGUI()
+    void Editor::draw_hierarchy_gui()
     {
         //ImGui::PushStyleColor(ImGuiCol_WindowBg, IM_COL32(33, 36, 35, 255));
         ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
@@ -472,7 +466,7 @@ namespace MELT_EDITOR
 
                 if (ImGui::MenuItem("Create entity"))
                 {
-                    Engine->CreateNode();
+                    engine->create_node();
                 }
 
                 if (ImGui::MenuItem("Create scene")) {
@@ -496,7 +490,7 @@ namespace MELT_EDITOR
 
             if (ImGui::CollapsingHeader("Scene 1"))
             {
-                MELT::Scene* _working_scene = Engine->manager_registry.get<MELT::SceneManager>()->working_scene;
+                MELT::Scene* _working_scene = engine->manager_registry.get<MELT::SceneManager>()->working_scene;
                 for(std::size_t _i = 0; _i < _working_scene->get_all_nodes().size(); ++_i)
                 {
                     auto& _node = _working_scene->get_all_nodes()[_i];
@@ -539,9 +533,9 @@ namespace MELT_EDITOR
 
     MELT::Node* currentNodeRef;
 
-    void Editor::DrawInspectorGUI()
+    void Editor::draw_inspector_gui()
     {
-        MELT::Scene* _working_scene = Engine->manager_registry.get<MELT::SceneManager>()->working_scene;
+        MELT::Scene* _working_scene = engine->manager_registry.get<MELT::SceneManager>()->working_scene;
         MELT::Node * _selected_node = _working_scene->get_selected_node();
 
         ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
@@ -651,7 +645,7 @@ namespace MELT_EDITOR
         ImGui::PopStyleColor();
     }
 
-    void Editor::DrawMaterialGUI()
+    void Editor::draw_material_gui()
     {
         ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
         if (ImGui::Begin("Material Inspector"))
@@ -666,7 +660,7 @@ namespace MELT_EDITOR
 
 
 
-            std::shared_ptr<MELT::RenderPipeline> _render_pipeline = Engine->manager_registry.get<MELT::RenderPipeline>();
+            std::shared_ptr<MELT::RenderPipeline> _render_pipeline = engine->manager_registry.get<MELT::RenderPipeline>();
 
             if (ImGui::ColorEdit4("##picker", &_render_pipeline->shader_preview.clear_color[0], ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel)) {
                 // color changed!
@@ -680,13 +674,13 @@ namespace MELT_EDITOR
             ImVec2 imageSize(windowWidth, windowWidth); // Square: width == height
             //ImGui::Image((void*)(intptr_t)Engine->manager_registry.get<MELT::RenderPipeline>()->editor_scene_frame_buffer->texture_id, imageSize);
 
-            ImGui::Image(Engine->manager_registry.get<MELT::RenderPipeline>()->shader_preview_texture(), imageSize);
+            ImGui::Image(engine->manager_registry.get<MELT::RenderPipeline>()->shader_preview_texture(), imageSize);
         }
         ImGui::End();
         ImGui::PopStyleColor();
     }
 
-    void Editor::DrawContentGUI()
+    void Editor::draw_content_gui()
     {
         ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
         if (ImGui::Begin("Content"))
@@ -705,12 +699,12 @@ namespace MELT_EDITOR
         ImGui::PopStyleColor();
     }
 
-    void Editor::DrawRenderPipelineGUI()
+    void Editor::draw_render_pipeline_gui()
     {
         ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
         if (ImGui::Begin("Render Pipeline"))
         {
-            std::shared_ptr<MELT::RenderPipeline> _render_pipeline = Engine->manager_registry.get<MELT::RenderPipeline>();
+            std::shared_ptr<MELT::RenderPipeline> _render_pipeline = engine->manager_registry.get<MELT::RenderPipeline>();
 
             ImGui::ColorEdit4("Color with Alpha", &_render_pipeline->clear_color[0]);
         }
@@ -724,7 +718,7 @@ namespace MELT_EDITOR
             "Item 9", "Item 10", "Item 11", "Item 12"
     };
 
-    void DisplayFileBrowser(const std::filesystem::path& path)
+    void display_file_browser(const std::filesystem::path& path)
     {
         for (const auto& entry : std::filesystem::directory_iterator(path)) {
 
@@ -737,7 +731,7 @@ namespace MELT_EDITOR
             {
                 if (ImGui::TreeNode(entry.path().filename().string().c_str()))
                 {
-                    DisplayFileBrowser(entry.path());
+                    display_file_browser(entry.path());
                     ImGui::TreePop();
                 }
             }
@@ -751,7 +745,7 @@ namespace MELT_EDITOR
         }
     }
 
-    void Editor::DrawAssetsGUI()
+    void Editor::draw_assets_gui()
     {
         ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
 
@@ -807,7 +801,7 @@ namespace MELT_EDITOR
 
             if(std::filesystem::exists(CurrentWorkingProjectRootPath) && std::filesystem::is_directory(CurrentWorkingProjectRootPath))
             {
-                DisplayFileBrowser(CurrentWorkingProjectRootPath);
+                display_file_browser(CurrentWorkingProjectRootPath);
             }
 
 
@@ -827,7 +821,7 @@ namespace MELT_EDITOR
             ImGui::BeginChild("Child Window 2", ImVec2(ImGui::GetContentRegionAvail().x, ImGui::GetContentRegionAvail().y), true);
 
 
-            MELT::TextureData* _texture_data = Engine->manager_registry.get<MELT::ResourceManager>()->get_texture_data("open-file.png");
+            MELT::TextureData* _texture_data = engine->manager_registry.get<MELT::ResourceManager>()->get_texture_data("open-file.png");
             if (_texture_data)
             {
                 ImTextureID folderIconTex = (ImTextureID)(intptr_t)_texture_data->p_texture->texture_id;
@@ -865,7 +859,7 @@ namespace MELT_EDITOR
                 ImGui::EndGroup();
             }
 
-        _texture_data = Engine->manager_registry.get<MELT::ResourceManager>()->get_texture_data("material_icon.png");
+        _texture_data = engine->manager_registry.get<MELT::ResourceManager>()->get_texture_data("material_icon.png");
         if (_texture_data)
         {
             ImTextureID folderIconTex = (ImTextureID)(intptr_t)_texture_data->p_texture->texture_id;
@@ -986,7 +980,7 @@ namespace MELT_EDITOR
 
     void Editor::DrawRendererComponentPanel(MELT::MeshRenderer& _renderer)
     {
-        MELT::Scene* _working_scene = Engine->manager_registry.get<MELT::SceneManager>()->working_scene;
+        MELT::Scene* _working_scene = engine->manager_registry.get<MELT::SceneManager>()->working_scene;
         MELT::Node * _selected_node = _working_scene->get_selected_node();
 
         if (ImGui::CollapsingHeader("Renderer Component", ImGuiTreeNodeFlags_DefaultOpen))
@@ -1056,21 +1050,6 @@ namespace MELT_EDITOR
                             }
                             ImGui::EndListBox();
                         }
-
-
-
-                        //
-                        // ImGui::BeginChild("ScrollableRegion", ImVec2(0, 150), true); // fixed height, with border
-                        //
-                        //
-                        //     if (ImGui::Selectable("a"))
-                        //     {
-                        //
-                        //     }
-                        //
-                        // ImGui::EndChild();
-
-
 
                         ImGui::EndPopup();
                     }
@@ -1147,7 +1126,7 @@ namespace MELT_EDITOR
 
     void Editor::DrawBoxColliderComponentPanel(MELT::BoxCollider& _box_collider)
     {
-        MELT::Scene* _working_scene = Engine->manager_registry.get<MELT::SceneManager>()->working_scene;
+        MELT::Scene* _working_scene = engine->manager_registry.get<MELT::SceneManager>()->working_scene;
         MELT::Node * _selected_node = _working_scene->get_selected_node();
 
         if (ImGui::CollapsingHeader("Box Collider 3D Component", ImGuiTreeNodeFlags_DefaultOpen))
@@ -1238,7 +1217,7 @@ namespace MELT_EDITOR
         ImGui::Indent();
         ImGui::Text("Texture source");
 
-        auto& _textureData = Engine->TextureMng.TextureDataTable["blacknwhite"];
+        auto& _textureData = engine->TextureMng.TextureDataTable["blacknwhite"];
         std::vector<const char*> textureKeys;
         textureKeys.reserve(_textureData.SpriteDataMap.size());
         for (const auto& pair : _textureData.SpriteDataMap) {

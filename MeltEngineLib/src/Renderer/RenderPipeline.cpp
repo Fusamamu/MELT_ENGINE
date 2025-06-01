@@ -80,10 +80,7 @@ namespace MELT
 
     void RenderPipeline::Render(float _dt)
     {
-        // glBindFramebuffer(GL_FRAMEBUFFER, material_preview_frame_buffer.FBO);
-        // BeginFrame();
         shader_preview.Render();
-
 
         glBindFramebuffer(GL_FRAMEBUFFER, editor_scene_frame_buffer->FBO);
 

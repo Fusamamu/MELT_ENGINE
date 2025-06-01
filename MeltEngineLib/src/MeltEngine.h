@@ -63,14 +63,18 @@ namespace MELT
         ~Engine();
 
         void init();
-        void Update();
-        void UpdateInput();
-        void UpdateLogic();
-        void UpdateRender();
-        void Quit();
+        void update();
+        void update_input();
+        void update_render();
+        void update_logic();
 
-        void CreateNode();
+        void begin_frame();
+        void render_frame();
+        void end_frame();
 
+        void quit();
+
+        void create_node();
         void deselect_all_nodes();
         void SelectObject(glm::vec2 _mouseScreenPos, const Camera& _camera);
 
