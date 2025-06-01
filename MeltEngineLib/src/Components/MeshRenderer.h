@@ -15,11 +15,6 @@ namespace MELT
         MeshRenderer () = default;
         ~MeshRenderer() = default;
 
-        // [[nodiscard]]
-        // const Mesh& get_mesh_ref() const{
-        //     return *m_mesh;
-        // }
-
         void set_mesh_data(MeshData* _mesh_data){
            mesh_data = _mesh_data;
         }
@@ -53,11 +48,21 @@ namespace MELT
         void draw()
         {
             glBindVertexArray(m_vao);
-            glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, nullptr);
+            glDrawElements(GL_TRIANGLES, mesh_data->mesh->indices.size() * sizeof(unsigned int), GL_UNSIGNED_INT, nullptr);
+            glBindVertexArray(0);
+        }
+
+        void drawsds()
+        {
+            glBindVertexArray(m_vao);
+
+            glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+            glDrawElements(GL_TRIANGLES, mesh_data->mesh->indices.size(), GL_UNSIGNED_INT, nullptr);
+            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
             glBindVertexArray(0);
         }
     private:
-        //Mesh* m_mesh = nullptr;
         unsigned int m_vao, m_vbo, m_ebo;
     };
 }

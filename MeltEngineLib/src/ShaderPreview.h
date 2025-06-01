@@ -6,6 +6,7 @@
 #include "Shader.h"
 #include "FrameBuffer.h"
 #include "Cube.h"
+#include "MeshRenderer.h"
 
 namespace MELT
 {
@@ -18,13 +19,13 @@ namespace MELT
 
         glm::vec4 clear_color;
 
-        Cube cube;
+        MeshRenderer preview_renderer;
 
         ShaderPreview () = default;
         ~ShaderPreview() = default;
 
         void init();
-        void Render() const;
+        void Render();
     };
 }
 

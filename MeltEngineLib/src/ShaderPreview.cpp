@@ -8,7 +8,7 @@ namespace MELT
 
         glm::mat4 _model      = glm::translate(glm::mat4(1.0f), glm::vec3 (0.0f, 0.0f, 0.0f));
         glm::mat4 _view       = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-        glm::mat4 _projection = glm::ortho(-3.0f, 3.0f, -3.0f, 3.0f, -100.0f, 500.0f);
+        glm::mat4 _projection = glm::ortho(-0.7f, 0.7f, -0.7f, 0.7f, -100.0f, 500.0f);
 
         p_target_shader->Use();
         p_target_shader->SetMat4UniformModel     (_model);
@@ -18,7 +18,7 @@ namespace MELT
         clear_color = glm::vec4(0.25f, 0.20f, 0.23f, 0.13f);
     }
 
-    void ShaderPreview::Render() const
+    void ShaderPreview::Render()
     {
         glBindFramebuffer(GL_FRAMEBUFFER, preview_fbo.FBO);
         glEnable(GL_DEPTH_TEST);
@@ -28,7 +28,7 @@ namespace MELT
 
         p_target_shader->Use();
         p_target_shader->SetVec3UniformColor(glm::vec3(1.0f, 1.0f, 1.0f));
-        cube.Draw();
+        preview_renderer.draw();
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
     }

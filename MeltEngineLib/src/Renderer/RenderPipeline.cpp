@@ -23,6 +23,7 @@ namespace MELT
         m_TargetShader      = new Shader("../MeltEngineLib/res/shaders/Phong.shader");
         m_MeshOutlineShader = new Shader("../MeltEngineLib/res/shaders/MeshOutline.shader");
         m_GridShader        = new Shader("../MeltEngineLib/res/shaders/3DGrid.shader");
+        m_gizmos_shader     = new Shader("../MeltEngineLib/res/shaders/Gizmos.shader");
 
         glm::mat4 _model      = glm::translate(glm::mat4(1.0f), glm::vec3 (0.0f, 0.0f, 0.0f));
         glm::mat4 _view       = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -47,6 +48,15 @@ namespace MELT
         m_GridShader->SetMat4UniformView      (_view);
         m_GridShader->SetMat4UniformProjection(_projection);
 
+        m_gizmos_shader->Use();
+        m_gizmos_shader->SetMat4UniformModel     (_model);
+        m_gizmos_shader->SetMat4UniformView      (_view);
+        m_gizmos_shader->SetMat4UniformProjection(_projection);
+        m_gizmos_shader->SetVec3UniformColor(glm::vec3(1.0, 1.0, 1.0));
+
+
+
+
         editor_scene_frame_buffer = new FrameBuffer();
 
         glEnable(GL_DEPTH_TEST);
@@ -59,7 +69,13 @@ namespace MELT
         glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
         glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
 
+        MeshData* _sphere_mesh_data = _engine->manager_registry.get<ResourceManager>()->get_mesh_data("Sphere");
         shader_preview.init();
+        shader_preview.preview_renderer.set_mesh_data(_sphere_mesh_data);
+        shader_preview.preview_renderer.set_buffer_data();
+
+        gizmos_renderer.init();
+        gizmos_renderer.set_bounds(glm::vec3(-0.6f, -0.6f, -0.6f), glm::vec3(0.6f, 0.6f, 0.6f));
     }
 
     void RenderPipeline::Render(float _dt)
@@ -137,6 +153,12 @@ namespace MELT
                 glStencilFunc(GL_ALWAYS, 0, 0xFF);
                 glEnable(GL_DEPTH_TEST);
             }
+
+            m_gizmos_shader->Use();
+            m_gizmos_shader->SetMat4UniformModel(_model);
+            m_gizmos_shader->SetMat4UniformView(_view);
+            m_gizmos_shader->SetMat4UniformProjection(_projection);
+            gizmos_renderer.draw(5.0f);
         }
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);

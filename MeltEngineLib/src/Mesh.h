@@ -2,7 +2,6 @@
 #include "Core.h"
 #include "Vertex.h"
 
-
 namespace MELT
 {
     struct Mesh

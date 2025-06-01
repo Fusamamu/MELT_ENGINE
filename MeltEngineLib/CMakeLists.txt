@@ -54,11 +54,10 @@ add_library(${PROJECT_NAME} STATIC
         src/ResourceManager.cpp
         src/Components/BoxCollider.cpp
         src/Components/MeshRenderer.cpp
-        src/Components/MeshRenderer.h
         src/Texture.cpp
-        src/Texture.h
         src/ShaderPreview.cpp
-        src/ShaderPreview.h)
+        src/Renderer/GizmosRenderer.cpp
+        src/Renderer/GizmosRenderer.h)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
 
@@ -93,8 +92,10 @@ find_package(SDL2   REQUIRED COMPONENTS SDL2)
 find_package(GLEW   REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(glm    REQUIRED)
+find_package(ZLIB   REQUIRED)
 
 find_library(ASSIMP_PATH assimp PATHS vendors/assimp/lib)
+message(STATUS "ASSIMP found as: ${ASSIMP_PATH}")
 if (APPLE)
 find_library(COCOA_FRAMEWORK Cocoa)
 find_library(IOKIT_FRAMEWORK IOKit)
@@ -103,6 +104,7 @@ endif()
 
 target_link_libraries(${PROJECT_NAME} PUBLIC SDL2::SDL2)
 target_link_libraries(${PROJECT_NAME} PUBLIC GLEW::glew)
+target_link_libraries(${PROJECT_NAME} PUBLIC ZLIB::ZLIB)
 target_link_libraries(${PROJECT_NAME} PUBLIC yaml-cpp::yaml-cpp)
 target_link_libraries(${PROJECT_NAME} PUBLIC EnTT)
 target_link_libraries(${PROJECT_NAME} PUBLIC ${OPENGL_gl_LIBRARY})

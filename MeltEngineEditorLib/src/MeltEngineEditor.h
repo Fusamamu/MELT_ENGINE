@@ -49,8 +49,9 @@ namespace MELT_EDITOR
         explicit Editor(MELT::Engine* _engine);
         ~Editor();
 
-        void UpdateInput(SDL_Event _event);
         void Update();
+        void UpdateInput(SDL_Event _event);
+        void update_gui();
 
         void GetContent();
 
@@ -88,5 +89,8 @@ namespace MELT_EDITOR
 
         void DrawSprite(const MELT::TextureData_old& _textureData, ImVec2 _position, ImVec2 _spriteSize, ImVec2 _spritePosition);
         void DrawSpriteWithDrawList(ImTextureID texture_id, ImVec2 position, ImVec2 sprite_size, ImVec2 sprite_position);
+
+    private:
+        bool m_is_running = true;
     };
 }

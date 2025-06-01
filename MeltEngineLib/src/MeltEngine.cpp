@@ -111,7 +111,7 @@ namespace MELT
 
     void Engine::Update()
     {
-        glEnable(GL_DEPTH_TEST);
+        glEnable(GL_DEPTH_TEST);//Will remove this
 
         while(m_is_running)
         {
@@ -119,7 +119,6 @@ namespace MELT
             UpdateLogic ();
             UpdateRender();
             gEventManager.DispatchEvents();
-
             SDL_Delay(16);
         }
     }
@@ -142,14 +141,7 @@ namespace MELT
                     {
                         GLsizei _width  = m_event.window.data1;
                         GLsizei _height = m_event.window.data2;
-
-                        //manager_registry.get<RenderPipeline>()->editor_scene_frame_buffer->RescaleFrameBuffer(2 * _width, 2 * _height);
-
                         manager_registry.get<RenderPipeline>()->rescale_frame_buffers(2 * _width, 2 * _height);
-
-                        // m_RenderSystem->EditorSceneFrameBuffer->RescaleFrameBuffer(2 * _width, 2 * _height);
-                        // m_RenderSystem->GridShader2D->Use();
-                        // m_RenderSystem->GridShader2D->SetVec2UniformScreenSize(glm::vec2(_width, _height));
                     }
                     break;
             }
@@ -169,16 +161,6 @@ namespace MELT
 
                 if(Input.IsMouseButtonPressed(SDL_BUTTON_LEFT))
                 {
-                }
-
-                if(Input.IsMouseButtonHeld(SDL_BUTTON_LEFT))
-                {
-//                     if(NodeMng.CurrentSelectedNode != nullptr && NodeMng.CurrentSelectedNode->is_selected)
-//                     {
-//                         //Transform& _transform = ECSCoord.GetComponent<Transform>(NodeMng.CurrentSelectedNode->entityRef);
-// //                        _transform.Position.x = Input.MouseScreenWorldPosition.x;
-// //                        _transform.Position.y = Input.MouseScreenWorldPosition.y;
-//                     }
                 }
 
                 if(Input.IsMouseButtonReleased(SDL_BUTTON_LEFT))
@@ -262,6 +244,9 @@ namespace MELT
     {
         std::shared_ptr<ResourceManager> _resource_manager = manager_registry.get<ResourceManager>();
 
+        //MeshData* _mesh_data = _resource_manager->get_mesh_data("Sphere");
+        //MeshData* _mesh_data = &_resource_manager->default_cube;
+
         Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
 
         Node& _node = _working_scene->create_node("Entity");
@@ -270,6 +255,7 @@ namespace MELT
         _node.add_component<BoxCollider>();
 
         MeshRenderer& _mesh_renderer = _node.get_component<MeshRenderer>();
+        //_mesh_renderer.set_mesh_data(_mesh_data);
         _mesh_renderer.set_mesh_data(&_resource_manager->default_cube);
         _mesh_renderer.set_buffer_data();
     }

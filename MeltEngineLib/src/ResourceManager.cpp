@@ -8,6 +8,8 @@ namespace MELT
     {
         load_default_cube();
         load_texture("../MeltEngineLib/res/textures/open-file.png");
+        load_texture("../MeltEngineLib/res/textures/material_icon.png");
+        load_model  ("../MeltEngineLib/res/models/sphere.fbx");
     }
 
     void ResourceManager::load_default_cube()
@@ -70,10 +72,95 @@ namespace MELT
         texture_data_table.try_emplace(_texture_data.name, std::move(_texture_data));
     }
 
+    void ResourceManager::load_model(std::filesystem::path _path)
+    {
+        Assimp::Importer _import;
+
+        const aiScene* _scene = _import.ReadFile(_path, aiProcess_Triangulate | aiProcess_FlipUVs);
+
+        if(!_scene || _scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !_scene->mRootNode)
+        {
+            std::cout << "ERROR::ASSIMP::" << _import.GetErrorString() << std::endl;
+            return;
+        }
+        process_node(_scene->mRootNode, _scene);
+    }
+
+    void ResourceManager::process_node(aiNode* _node, const aiScene* _scene)
+    {
+        for(unsigned int i = 0; i < _node->mNumMeshes; i++)
+        {
+            aiMesh* _ai_mesh = _scene->mMeshes[_node->mMeshes[i]];
+            std::string _name = _ai_mesh->mName.C_Str();
+
+            Mesh _mesh = process_mesh(_scene->mMeshes[_node->mMeshes[i]], _scene);
+
+            MeshData _mesh_data;
+            _mesh_data.name = _name;
+            _mesh_data.mesh = new Mesh(_mesh);
+
+            mesh_data_table.try_emplace(_name, std::move(_mesh_data));
+
+            std::cout << "loading mesh : " << _name << "\n";
+        }
+
+        for(unsigned int i = 0; i < _node->mNumChildren; i++)
+            process_node(_node->mChildren[i], _scene);
+    }
+
+    Mesh ResourceManager::process_mesh(aiMesh* _mesh, const aiScene* _scene)
+    {
+        std::vector<Vertex_1P1C1T1N> _vertices;
+        std::vector<unsigned int> _indices;
+
+        for(unsigned int i = 0; i < _mesh->mNumVertices; i++)
+        {
+            Vertex_1P1C1T1N _vertex;
+
+            _vertex.position.x = _mesh->mVertices[i].x;
+            _vertex.position.y = _mesh->mVertices[i].y;
+            _vertex.position.z = _mesh->mVertices[i].z;
+
+            if (_mesh->HasNormals())
+            {
+                _vertex.normal.x = _mesh->mNormals[i].x;
+                _vertex.normal.y = _mesh->mNormals[i].y;
+                _vertex.normal.z = _mesh->mNormals[i].z;
+            }
+
+            if(_mesh->mTextureCoords[0])
+            {
+                _vertex.texCoord.x = _mesh->mTextureCoords[0][i].x;
+                _vertex.texCoord.y = _mesh->mTextureCoords[0][i].y;
+            }
+            else
+                _vertex.texCoord = glm::vec2(0.0f, 0.0f);
+
+            _vertices.push_back(_vertex);
+        }
+
+        for(unsigned int i = 0; i < _mesh->mNumFaces; i++)
+        {
+            aiFace _face = _mesh->mFaces[i];
+            for(unsigned int j = 0; j < _face.mNumIndices; j++)
+                _indices.push_back(_face.mIndices[j]);
+        }
+
+        return { _vertices, _indices };
+    }
+
     TextureData* ResourceManager::get_texture_data(const std::string& _texture_name)
     {
         auto _it = texture_data_table.find(_texture_name);
         if(_it != texture_data_table.end())
+            return &_it->second;
+        return nullptr;
+    }
+
+    MeshData* ResourceManager::get_mesh_data(const std::string& _mesh_name)
+    {
+        auto _it = mesh_data_table.find(_mesh_name);
+        if(_it != mesh_data_table.end())
             return &_it->second;
         return nullptr;
     }

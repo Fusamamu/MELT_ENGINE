@@ -143,6 +143,38 @@ namespace MELT_EDITOR
         }
     }
 
+    void Editor::update_gui()
+    {
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplSDL2_NewFrame();
+        ImGui::NewFrame();
+        ImGuizmo::BeginFrame();
+
+        DrawMainMenubar();
+        ImGui::DockSpaceOverViewport(0, ImGui::GetMainViewport());
+
+        DrawSceneViewGUI     ();
+        DrawInspectorGUI     ();
+        DrawMaterialGUI      ();
+        DrawHierarchyGUI     ();
+        DrawAssetsGUI        ();
+        DrawContentGUI       ();
+        DrawRenderPipelineGUI();
+
+        SpriteEditorGUI.DrawGUI();
+        ScriptEditorGUI.DrawGUI();
+        ConsoleGUI     .DrawGUI();
+
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        ImGuiIO& io = ImGui::GetIO(); (void)io;
+        if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+        {
+            ImGui::UpdatePlatformWindows();
+            ImGui::RenderPlatformWindowsDefault();
+        }
+    }
+
     void Editor::GetContent()
     {
 
@@ -732,8 +764,44 @@ namespace MELT_EDITOR
             ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(4.0f, 0));
             ImGui::PushStyleColor(ImGuiCol_ChildBg, ChildBackground_Color);
 
-            ImGui::BeginChild("Files", ImVec2(200, ImGui::GetContentRegionAvail().y), true);
+            ImGui::BeginChild("Files", ImVec2(300, ImGui::GetContentRegionAvail().y), true);
             ImGui::Text("Files :");
+
+            static int selected_id = -1;
+
+            for (int i = 0; i < 5; ++i)
+            {
+                std::string nodeLabel = "Node " + std::to_string(i);
+                bool nodeOpen = ImGui::TreeNode((void*)(intptr_t)i, nodeLabel.c_str());
+
+                // Selectable header
+                if (ImGui::IsItemClicked())
+                    selected_id = i;
+
+                // Highlight selected node
+                if (selected_id == i)
+                {
+                    ImGui::PushStyleColor(ImGuiCol_Header, ImVec4(0.3f, 0.6f, 1.0f, 1.0f));
+                    ImGui::PushStyleColor(ImGuiCol_HeaderHovered, ImVec4(0.4f, 0.7f, 1.0f, 1.0f));
+                    ImGui::PushStyleColor(ImGuiCol_HeaderActive, ImVec4(0.2f, 0.5f, 0.9f, 1.0f));
+                }
+
+                if (nodeOpen)
+                {
+                    for (int j = 0; j < 3; ++j)
+                    {
+                        std::string childLabel = "Child " + std::to_string(i) + "." + std::to_string(j);
+                        if (ImGui::Selectable(childLabel.c_str(), selected_id == 100 + i * 10 + j))
+                            selected_id = 100 + i * 10 + j;
+                    }
+                    ImGui::TreePop();
+                }
+
+                if (selected_id == i)
+                    ImGui::PopStyleColor(3);
+            }
+
+
 
             ImGui::BeginChild("##Scrollable List", ImVec2(0, ImGui::GetContentRegionAvail().y), true);
 
@@ -741,6 +809,12 @@ namespace MELT_EDITOR
             {
                 DisplayFileBrowser(CurrentWorkingProjectRootPath);
             }
+
+
+
+
+
+
 
             ImGui::EndChild();
             ImGui::EndChild();
@@ -787,14 +861,47 @@ namespace MELT_EDITOR
                     ImGui::TextUnformatted(label);
 
                     ImGui::PopStyleColor(3); // Pop all 3 colors
+
                 ImGui::EndGroup();
+            }
 
+        _texture_data = Engine->manager_registry.get<MELT::ResourceManager>()->get_texture_data("material_icon.png");
+        if (_texture_data)
+        {
+            ImTextureID folderIconTex = (ImTextureID)(intptr_t)_texture_data->p_texture->texture_id;
 
+            ImGui::BeginGroup();
 
+            ImGui::PushStyleColor(ImGuiCol_Button,        ChildBackground_Color); // normal
+            ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ChildBackground_Color); // hover
+            ImGui::PushStyleColor(ImGuiCol_ButtonActive,  ImVec4(0.1f, 0.4f, 0.7f, 1.0f));
 
+            ImVec2 iconSize(64, 64);
+            ImVec2 uv0      = ImVec2(0.0f, 0.0f); // top-left
+            ImVec2 uv1      = ImVec2(1.0f, 1.0f); // bottom-right
+            ImVec4 bg_col   = ImVec4(0, 0, 0, 0); // transparent
+            ImVec4 tint_color = ImGui::IsItemHovered() ?
+                ImVec4(0.0f, 0.0f, 1.0f, 1.0f) :
+                ImVec4(1, 1, 1, 1);
 
+            if (ImGui::ImageButton(folderIconTex, iconSize, uv0, uv1, -1, bg_col, tint_color))
+            {
 
             }
+            if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0))
+            {
+            }
+
+            const char* label = "My Folder";
+            ImVec2 textSize = ImGui::CalcTextSize(label);
+            float textOffset = (iconSize.x - textSize.x) * 0.5f;
+            ImGui::SetCursorPosX(ImGui::GetCursorPosX() + textOffset);
+            ImGui::TextUnformatted(label);
+
+            ImGui::PopStyleColor(3); // Pop all 3 colors
+
+            ImGui::EndGroup();
+        }
 
 
 
@@ -911,6 +1018,98 @@ namespace MELT_EDITOR
 
                 ImGui::PopStyleColor();
                 ImGui::Unindent();
+
+
+
+                ImGui::PushStyleColor(ImGuiCol_Button,        IM_COL32(40, 40, 40, 255));  // Default
+                ImGui::PushStyleColor(ImGuiCol_ButtonHovered, IM_COL32(100, 100, 100, 255));  // Hover
+                ImGui::PushStyleColor(ImGuiCol_ButtonActive,  IM_COL32(200, 200, 200, 255));    // Pressed
+
+                    ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 6.0f);
+                    ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.5f, 0.5f, 0.5f, 1.0f));
+                    if (ImGui::Button(" > ")) {
+                        ImGui::OpenPopup("Search mesh ref");
+                    }
+
+
+
+                    ImGui::PushStyleColor(ImGuiCol_PopupBg, IM_COL32(73, 74, 70, 255));
+                    ImGui::PushStyleColor(ImGuiCol_Border , IM_COL32(73, 74, 70, 0));
+                    ImGui::PushStyleVar(ImGuiStyleVar_PopupRounding, 10.0f);
+                    if (ImGui::BeginPopup("Search mesh ref"))
+                    {
+                        ImGui::Text("Mesh selection");
+                        ImGui::Separator();
+
+
+
+                        if (ImGui::BeginListBox("##listbox", ImVec2(200, 150)))
+                        {
+                            static int selected = -1;
+                            for (int i = 0; i < 20; i++)
+                            {
+                                char label[32];
+                                sprintf(label, "Item %d", i);
+                                bool is_selected = (selected == i);
+                                if (ImGui::Selectable(label, is_selected))
+                                    selected = i;
+                            }
+                            ImGui::EndListBox();
+                        }
+
+
+
+                        //
+                        // ImGui::BeginChild("ScrollableRegion", ImVec2(0, 150), true); // fixed height, with border
+                        //
+                        //
+                        //     if (ImGui::Selectable("a"))
+                        //     {
+                        //
+                        //     }
+                        //
+                        // ImGui::EndChild();
+
+
+
+                        ImGui::EndPopup();
+                    }
+                    ImGui::PopStyleColor(2);
+                    ImGui::PopStyleVar();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    ImGui::PopStyleColor();
+                    ImGui::PopStyleVar();
+
+                    ImGui::SameLine();
+
+                    ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 6.0f);
+                    ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.5f, 0.5f, 0.5f, 1.0f));
+                    if (ImGui::Button(" selected mesh ")) {
+
+                    }
+                    ImGui::PopStyleColor();
+                    ImGui::PopStyleVar();
+
+                ImGui::PopStyleColor(3);
+
+
+
+
+
 
                 ImGui::Text("Material");
 

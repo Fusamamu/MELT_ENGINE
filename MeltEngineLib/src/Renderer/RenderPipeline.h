@@ -3,6 +3,7 @@
 #include "Shader.h"
 #include "Quad.h"
 #include "ShaderPreview.h"
+#include "GizmosRenderer.h"
 
 namespace MELT
 {
@@ -19,6 +20,8 @@ namespace MELT
         };
 
         ShaderPreview shader_preview;
+
+        GizmosRenderer gizmos_renderer;
 
         glm::vec4 clear_color;
         FrameBuffer* editor_scene_frame_buffer;
@@ -97,6 +100,7 @@ namespace MELT
         Shader* m_TargetShader;
         Shader* m_MeshOutlineShader;
         Shader* m_GridShader;
+        Shader* m_gizmos_shader;
 
         SDL_Window* mp_window;
         GLbitfield m_clearBuffers;
