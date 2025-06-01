@@ -56,7 +56,9 @@ add_library(${PROJECT_NAME} STATIC
         src/Components/MeshRenderer.cpp
         src/Components/MeshRenderer.h
         src/Texture.cpp
-        src/Texture.h)
+        src/Texture.h
+        src/ShaderPreview.cpp
+        src/ShaderPreview.h)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
 

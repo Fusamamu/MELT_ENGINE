@@ -143,7 +143,9 @@ namespace MELT
                         GLsizei _width  = m_event.window.data1;
                         GLsizei _height = m_event.window.data2;
 
-                        manager_registry.get<RenderPipeline>()->EditorSceneFrameBuffer->RescaleFrameBuffer(2 * _width, 2 * _height);
+                        //manager_registry.get<RenderPipeline>()->editor_scene_frame_buffer->RescaleFrameBuffer(2 * _width, 2 * _height);
+
+                        manager_registry.get<RenderPipeline>()->rescale_frame_buffers(2 * _width, 2 * _height);
 
                         // m_RenderSystem->EditorSceneFrameBuffer->RescaleFrameBuffer(2 * _width, 2 * _height);
                         // m_RenderSystem->GridShader2D->Use();

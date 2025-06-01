@@ -330,8 +330,7 @@ namespace MELT_EDITOR
             }
 
             ImGui::GetWindowDrawList()->AddImage(
-                    //(void*)(intptr_t)Engine->TargetRenderPipeline->EditorSceneFrameBuffer->TextureID,
-                    (void*)(intptr_t)Engine->manager_registry.get<MELT::RenderPipeline>()->EditorSceneFrameBuffer->TextureID,
+                    (void*)(intptr_t)Engine->manager_registry.get<MELT::RenderPipeline>()->editor_scene_frame_buffer->texture_id,
                     ImVec2(_cursorScreenPos.x, _cursorScreenPos.y),
                     ImVec2(_cursorScreenPos.x + _sceneEditorWindowWidth, _cursorScreenPos.y + _sceneEditorWindowHeight),
                     ImVec2(0, 1),
@@ -626,6 +625,30 @@ namespace MELT_EDITOR
         if (ImGui::Begin("Material Inspector"))
         {
 
+            ImGui::Text("Mesh");
+            ImGui::SameLine(120.0f);
+            ImGui::Text("name :");
+            ImGui::Text("");
+            ImGui::SameLine(120.0f);
+            ImGui::Text("uuid : ");
+
+
+
+            std::shared_ptr<MELT::RenderPipeline> _render_pipeline = Engine->manager_registry.get<MELT::RenderPipeline>();
+
+            if (ImGui::ColorEdit4("##picker", &_render_pipeline->shader_preview.clear_color[0], ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel)) {
+                // color changed!
+            }
+
+            float availableHeight = ImGui::GetContentRegionAvail().y;
+            float windowWidth     = ImGui::GetContentRegionAvail().x;
+
+            ImGui::Dummy(ImVec2(0, availableHeight - windowWidth)); // Push everything down
+
+            ImVec2 imageSize(windowWidth, windowWidth); // Square: width == height
+            //ImGui::Image((void*)(intptr_t)Engine->manager_registry.get<MELT::RenderPipeline>()->editor_scene_frame_buffer->texture_id, imageSize);
+
+            ImGui::Image(Engine->manager_registry.get<MELT::RenderPipeline>()->shader_preview_texture(), imageSize);
         }
         ImGui::End();
         ImGui::PopStyleColor();

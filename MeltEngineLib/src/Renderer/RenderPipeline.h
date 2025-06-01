@@ -2,6 +2,7 @@
 #include "Core.h"
 #include "Shader.h"
 #include "Quad.h"
+#include "ShaderPreview.h"
 
 namespace MELT
 {
@@ -17,9 +18,11 @@ namespace MELT
             DISABLE
         };
 
-        FrameBuffer* EditorSceneFrameBuffer;
+        ShaderPreview shader_preview;
 
-        glm::vec4  clear_color;
+        glm::vec4 clear_color;
+        FrameBuffer* editor_scene_frame_buffer;
+        //FrameBuffer material_preview_frame_buffer;
 
         RenderPipeline();
 
@@ -74,6 +77,17 @@ namespace MELT
             SDL_GL_SwapWindow(mp_window);
         }
 
+        void* shader_preview_texture()
+        {
+            return (void*)(intptr_t)shader_preview.preview_fbo.texture_id;
+        }
+
+        void rescale_frame_buffers(const GLsizei& _w, const GLsizei& _h)
+        {
+            editor_scene_frame_buffer->RescaleFrameBuffer(_w, _h);
+            shader_preview.preview_fbo.RescaleFrameBuffer(_w, _h);
+        }
+
     private:
         Quad* aQuad;
         Cube* aCube;
@@ -86,6 +100,7 @@ namespace MELT
 
         SDL_Window* mp_window;
         GLbitfield m_clearBuffers;
+
 
         unsigned int m_ubo;
     };

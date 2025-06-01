@@ -1,21 +1,17 @@
 #pragma once
-#include <iostream>
-#include <array>
-#include <GL/glew.h>
-#include "FrameBuffer.h"
+#include "Core.h"
 
 namespace MELT
 {
     class FrameBuffer
     {
     public:
-
         GLuint FBO;
         GLuint RBO;
-        GLuint TextureID;
+        GLuint texture_id;
 
         FrameBuffer();
-        ~FrameBuffer();
+        ~FrameBuffer() = default;
 
         void RescaleFrameBuffer(const GLsizei& _w, const GLsizei& _h);
     };

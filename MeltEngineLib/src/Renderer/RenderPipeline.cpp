@@ -47,7 +47,7 @@ namespace MELT
         m_GridShader->SetMat4UniformView      (_view);
         m_GridShader->SetMat4UniformProjection(_projection);
 
-        EditorSceneFrameBuffer = new FrameBuffer();
+        editor_scene_frame_buffer = new FrameBuffer();
 
         glEnable(GL_DEPTH_TEST);
         glDepthFunc(GL_LESS);
@@ -58,11 +58,18 @@ namespace MELT
         glEnable(GL_STENCIL_TEST);
         glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
         glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+
+        shader_preview.init();
     }
 
     void RenderPipeline::Render(float _dt)
     {
-        glBindFramebuffer(GL_FRAMEBUFFER, EditorSceneFrameBuffer->FBO);
+        // glBindFramebuffer(GL_FRAMEBUFFER, material_preview_frame_buffer.FBO);
+        // BeginFrame();
+        shader_preview.Render();
+
+
+        glBindFramebuffer(GL_FRAMEBUFFER, editor_scene_frame_buffer->FBO);
 
         BeginFrame();
 
@@ -100,7 +107,6 @@ namespace MELT
                 m_TargetShader->SetMat4UniformView(_view);
                 m_TargetShader->SetMat4UniformProjection(_projection);
                 m_TargetShader->SetVec3UniformCameraWorldPosition(m_Engine->MainCamera.Position);
-                //aCube->Draw();
                 _mesh_renderer.draw();
 
                 glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
@@ -112,7 +118,6 @@ namespace MELT
                 m_MeshOutlineShader->SetMat4UniformModel(_scaledModel);
                 m_MeshOutlineShader->SetMat4UniformView(_view);
                 m_MeshOutlineShader->SetMat4UniformProjection(_projection);
-                //aCube->Draw();
                 _mesh_renderer.draw();
 
                 glStencilMask(0xFF);
@@ -126,7 +131,6 @@ namespace MELT
                 m_TargetShader->SetMat4UniformView(_view);
                 m_TargetShader->SetMat4UniformProjection(_projection);
                 m_TargetShader->SetVec3UniformCameraWorldPosition(m_Engine->MainCamera.Position);
-                //aCube->Draw();
                 _mesh_renderer.draw();
 
                 glStencilMask(0xFF);
