@@ -75,50 +75,15 @@ namespace MELT_EDITOR
         SpriteEditorGUI.Init();
 
         NFD_Init();
+
+        application_mode_manager.add_state<EditorMode>  (this);
+        application_mode_manager.add_state<GameplayMode>(this);
+        application_mode_manager.set_initial_state<EditorMode>();
     }
 
     void Editor::update()
     {
-        SDL_Event m_event;
-
-        while (m_is_running)
-        {
-            MELT::Input.ClearInput();
-            while(SDL_PollEvent(&m_event))
-            {
-                MELT::Input.Update(m_event);
-
-                update_input(m_event);
-
-                switch(m_event.type)
-                {
-                    case SDL_QUIT:
-                        m_is_running = false;
-                    break;
-                    case SDL_WINDOWEVENT:
-                        if(m_event.window.event == SDL_WINDOWEVENT_RESIZED)
-                        {
-                            GLsizei _width  = m_event.window.data1;
-                            GLsizei _height = m_event.window.data2;
-                            engine->manager_registry.get<MELT::RenderPipeline>()->rescale_frame_buffers(2 * _width, 2 * _height);
-                        }
-                    break;
-                }
-            }
-            MELT::Input.CheckMouseHoldStates();
-
-            if(MELT::Input.IsKeyPressed(SDL_SCANCODE_ESCAPE))
-                m_is_running = false;
-
-            engine->update_logic();
-
-            engine->begin_frame();
-            engine->render_frame();
-            update_gui();
-            engine->end_frame();
-
-            SDL_Delay(16);
-        }
+        application_mode_manager.update(0.0f);
     }
 
     void Editor::update_input(SDL_Event _event)
@@ -136,13 +101,22 @@ namespace MELT_EDITOR
         draw_main_menubar();
         ImGui::DockSpaceOverViewport(0, ImGui::GetMainViewport());
 
-        draw_scene_view_gui     ();
+        draw_scene_view_gui    ();
+        
+        bool _is_edit_mode = application_mode_manager.is_current_mode<EditorMode>();
+        if (!_is_edit_mode)
+            ImGui::BeginDisabled();
+
+        draw_gameplay_view_gui ();
         draw_inspector_gui     ();
         draw_material_gui      ();
         draw_hierarchy_gui     ();
         draw_assets_gui        ();
         draw_content_gui       ();
         draw_render_pipeline_gui();
+
+        if (!_is_edit_mode)
+            ImGui::EndDisabled();
 
         SpriteEditorGUI.DrawGUI();
         ScriptEditorGUI.DrawGUI();
@@ -426,6 +400,82 @@ namespace MELT_EDITOR
             ImGui::SliderFloat("Near plane"       , &engine->MainCamera.NearPlane, -100.0f, 0.0f);
             ImGui::SliderFloat("Far plane"        , &engine->MainCamera.FarPlane, 0.0, 1000.0f);
             ImGui::SliderFloat("Orthographic size", &engine->MainCamera.OrthographicSize, 1.0f, 200.f);
+
+            // Push to bottom
+            float padding = 10.0f; // Space from bottom edge
+            float button_width = 120.0f;
+            float button_height = 0.0f; // 0 = auto
+
+            ImVec2 window_size = ImGui::GetWindowSize();
+            ImVec2 cursor_pos = ImGui::GetCursorScreenPos();
+
+            // Move to bottom center
+            ImGui::SetCursorPosY(window_size.y - padding - ImGui::GetFrameHeight() * 4.0f); // Align bottom
+            ImGui::SetCursorPosX((window_size.x - button_width) * 0.5f);             // Align center
+
+            static int selected = 0;
+
+            auto ToggleButton = [](const char* label, int index, int& selected, std::function<void()> onClick = nullptr, ImVec2 size = ImVec2(100, 30))
+            {
+                float roundness = 10.0f;
+
+                ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, roundness);
+                if (selected == index)
+                    ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.6f, 1.0f, 1.0f));
+                else
+                    ImGui::PushStyleColor(ImGuiCol_Button, ImGui::GetStyle().Colors[ImGuiCol_Button]);
+
+                if (ImGui::Button(label, size)) {
+                    selected = index;
+                    if (onClick)
+                        onClick(); // Call the function!
+                }
+
+                ImGui::PopStyleColor();
+                ImGui::PopStyleVar();
+            };
+
+            ToggleButton("PLAY", 0, selected, [&]() {
+                application_mode_manager.change_state<GameplayMode>();
+            });
+            ImGui::SameLine();
+            ToggleButton("PAUSE", 1, selected, [&]() {
+                application_mode_manager.change_state<EditorMode>();
+            });
+            ImGui::SameLine();
+            ToggleButton("FORWARD", 2, selected, []() {
+                printf("Right selected!\n");
+            });
+        }
+        ImGui::End();
+    }
+
+    void Editor::draw_gameplay_view_gui()
+    {
+        MELT::Scene* _working_scene = engine->manager_registry.get<MELT::SceneManager>()->working_scene;
+
+        if (ImGui::Begin("Game"))
+        {
+            ImVec2 _cursorScreenPos = ImGui::GetCursorScreenPos();
+
+            const float _sceneEditorWindowWidth  = ImGui::GetContentRegionAvail().x;
+            const float _sceneEditorWindowHeight = ImGui::GetContentRegionAvail().y;
+
+            ImGuizmo::SetOrthographic(true);
+            ImGuizmo::SetDrawlist();
+            ImGuizmo::SetRect(_cursorScreenPos.x, _cursorScreenPos.y, _sceneEditorWindowWidth, _sceneEditorWindowHeight);
+
+            ImGui::GetWindowDrawList()->AddImage(
+                    (void*)(intptr_t)engine->manager_registry.get<MELT::RenderPipeline>()->editor_scene_frame_buffer->texture_id,
+                    ImVec2(_cursorScreenPos.x, _cursorScreenPos.y),
+                    ImVec2(_cursorScreenPos.x + _sceneEditorWindowWidth, _cursorScreenPos.y + _sceneEditorWindowHeight),
+                    ImVec2(0, 1),
+                    ImVec2(1, 0)
+            );
+
+            engine->MainCamera.WindowSize.x = _sceneEditorWindowWidth;
+            engine->MainCamera.WindowSize.y = _sceneEditorWindowHeight;
+            engine->MainCamera.UpdateScreenSizeWithOrthographicSize(_sceneEditorWindowWidth / _sceneEditorWindowHeight);
         }
         ImGui::End();
     }

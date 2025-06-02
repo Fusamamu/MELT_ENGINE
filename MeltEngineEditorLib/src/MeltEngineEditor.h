@@ -1,22 +1,19 @@
 #pragma once
 
-#include <cstdio>
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <sstream>
-#include <vector>
-#include <functional>
-#include <filesystem>
-#include <unordered_map>
+// #include <cstdio>
+// #include <iostream>
+// #include <string>
+// #include <fstream>
+// #include <sstream>
+// #include <vector>
+// #include <functional>
+// #include <filesystem>
+// #include <unordered_map>
 
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
 #include "imgui_impl_opengl3.h"
 #include "ImGuizmo.h"
-
-// //not good
-// #include "glm/gtc/type_ptr.hpp"
 
 #include "IconsKenney.h"
 
@@ -61,6 +58,7 @@ namespace MELT_EDITOR
 
         void draw_main_menubar       ();
         void draw_scene_view_gui     ();
+        void draw_gameplay_view_gui  ();
         void draw_hierarchy_gui      ();
         void draw_inspector_gui      ();
         void draw_material_gui       ();
