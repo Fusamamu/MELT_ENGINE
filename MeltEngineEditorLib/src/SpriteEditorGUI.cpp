@@ -80,7 +80,7 @@ namespace MELT_EDITOR
     static ImVec2 childPos  = ImVec2(50, 50);  // Starting position within the parent window
     static ImVec2 childSize = ImVec2(200, 150);
 
-    void SpriteEditorGUI::DrawGUI()
+    void SpriteEditorGUI::draw_gui()
     {
         if(!IsOpened)
             return;

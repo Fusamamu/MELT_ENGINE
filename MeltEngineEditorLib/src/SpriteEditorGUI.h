@@ -34,6 +34,6 @@ namespace MELT_EDITOR
         void GenerateSpriteByGridSetting();
         void Open();
         void Close();
-        void DrawGUI();
+        void draw_gui();
     };
 }

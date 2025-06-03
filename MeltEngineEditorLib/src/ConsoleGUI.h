@@ -1,8 +1,9 @@
 #pragma once
-#include <string>
-#include "imgui.h"
-#include "imgui_impl_sdl2.h"
-#include "imgui_impl_opengl3.h"
+
+// #include <string>
+// #include "imgui.h"
+// #include "imgui_impl_sdl2.h"
+// #include "imgui_impl_opengl3.h"
 
 namespace MELT_EDITOR
 {
@@ -13,6 +14,6 @@ namespace MELT_EDITOR
     public:
         Editor* EditorOwner;
         ConsoleGUI();
-        void DrawGUI();
+        void draw_gui();
     };
 }

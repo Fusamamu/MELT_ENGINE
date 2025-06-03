@@ -140,64 +140,64 @@ namespace MELT
 
     void Engine::update_logic()
     {
-        switch(CurrentMode)
+         if(Input.IsKeyPressed(SDL_SCANCODE_ESCAPE))
+             m_is_running = false;
+
+        if(Input.IsMouseButtonPressed(SDL_BUTTON_RIGHT))
+            m_is_dragging = true;
+
+        if(Input.IsMouseButtonHeld(SDL_BUTTON_RIGHT))
         {
-            case EngineMode::EDIT_MODE:
-                if(Input.IsKeyPressed(SDL_SCANCODE_ESCAPE))
-                    m_is_running = false;
-
-                if(Input.IsMouseButtonPressed(SDL_BUTTON_RIGHT))
-                    m_is_dragging = true;
-
-                if(Input.IsMouseButtonHeld(SDL_BUTTON_RIGHT))
-                {
-                    if (m_is_dragging)
-                    {
-                        auto _delta = Input.MouseDelta;
-                        auto screenToWorldScale = ScreenHeight / 2 * MainCamera.OrthographicSize;
-                        MainCamera.Position.x -= _delta.x * 2.0f/ screenToWorldScale;
-                        MainCamera.Position.y += _delta.y * 2.0f/ screenToWorldScale;
-                    }
-                }
-
-                if(Input.IsMouseButtonReleased(SDL_BUTTON_RIGHT))
-                {
-                    m_is_dragging = false;
-                }
-
-                if(Input.IsKeyHeld(SDL_SCANCODE_A))
-                {
-                    glm::vec3 _camDir     = glm::normalize(MainCamera.Target - MainCamera.Position);
-                    glm::vec3 _lateralDir = glm::cross(MainCamera.Up, _camDir);
-
-                    MainCamera.Position += _lateralDir * 0.5f;
-                    MainCamera.Target   += _lateralDir * 0.5f;
-                }
-
-                if(Input.IsKeyHeld(SDL_SCANCODE_D))
-                {
-                    glm::vec3 _camDir     = glm::normalize(MainCamera.Target - MainCamera.Position);
-                    glm::vec3 _lateralDir = glm::cross(MainCamera.Up, _camDir);
-
-                    MainCamera.Position -= _lateralDir * 0.5f;
-                    MainCamera.Target   -= _lateralDir * 0.5f;
-                }
-
-                if(Input.IsKeyHeld(SDL_SCANCODE_W))
-                {
-                    MainCamera.Position += MainCamera.Up * 0.5f;
-                    MainCamera.Target   += MainCamera.Up * 0.5f;
-                }
-
-                if(Input.IsKeyHeld(SDL_SCANCODE_S))
-                {
-                    MainCamera.Position -= MainCamera.Up * 0.5f;
-                    MainCamera.Target   -= MainCamera.Up * 0.5f;
-                }
-                break;
-            case EngineMode::PLAY_MODE:
-                break;
+            if (m_is_dragging)
+            {
+                auto _delta = Input.MouseDelta;
+                auto screenToWorldScale = ScreenHeight / 2 * MainCamera.OrthographicSize;
+                MainCamera.Position.x -= _delta.x * 2.0f/ screenToWorldScale;
+                MainCamera.Position.y += _delta.y * 2.0f/ screenToWorldScale;
+            }
         }
+
+        if(Input.IsMouseButtonReleased(SDL_BUTTON_RIGHT))
+        {
+            m_is_dragging = false;
+        }
+
+        if(Input.IsKeyHeld(SDL_SCANCODE_A))
+        {
+            glm::vec3 _camDir     = glm::normalize(MainCamera.Target - MainCamera.Position);
+            glm::vec3 _lateralDir = glm::cross(MainCamera.Up, _camDir);
+
+            MainCamera.Position += _lateralDir * 0.5f;
+            MainCamera.Target   += _lateralDir * 0.5f;
+        }
+
+        if(Input.IsKeyHeld(SDL_SCANCODE_D))
+        {
+            glm::vec3 _camDir     = glm::normalize(MainCamera.Target - MainCamera.Position);
+            glm::vec3 _lateralDir = glm::cross(MainCamera.Up, _camDir);
+
+            MainCamera.Position -= _lateralDir * 0.5f;
+            MainCamera.Target   -= _lateralDir * 0.5f;
+        }
+
+        if(Input.IsKeyHeld(SDL_SCANCODE_W))
+        {
+            MainCamera.Position += MainCamera.Up * 0.5f;
+            MainCamera.Target   += MainCamera.Up * 0.5f;
+        }
+
+        if(Input.IsKeyHeld(SDL_SCANCODE_S))
+        {
+            MainCamera.Position -= MainCamera.Up * 0.5f;
+            MainCamera.Target   -= MainCamera.Up * 0.5f;
+        }
+
+        // auto _view = manager_registry.get<SceneManager>()->working_scene->ecs_registry.view<Transform>();
+        // for (entt::entity _entity : _view)
+        // {
+        //     Transform& _transform = _view.get<Transform>(_entity);
+        //     _transform.position.x += 0.16f;
+        // }
     }
 
     void Engine::update_render()

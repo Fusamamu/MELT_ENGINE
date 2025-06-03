@@ -27,7 +27,7 @@ namespace MELT_EDITOR
         ImVec4 color_default = ImVec4(1.0f, 1.0f, 1.0f, 1.0f);
 
         ScriptEditorGUI();
-        void DrawGUI();
+        void draw_gui();
 
         void RenderSyntaxHighlightedText(const char* code, const ImVec2& start_pos, const ImVec2& size);
     };

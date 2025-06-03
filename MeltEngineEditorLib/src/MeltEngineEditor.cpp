@@ -102,7 +102,7 @@ namespace MELT_EDITOR
         ImGui::DockSpaceOverViewport(0, ImGui::GetMainViewport());
 
         draw_scene_view_gui    ();
-        
+
         bool _is_edit_mode = application_mode_manager.is_current_mode<EditorMode>();
         if (!_is_edit_mode)
             ImGui::BeginDisabled();
@@ -118,9 +118,9 @@ namespace MELT_EDITOR
         if (!_is_edit_mode)
             ImGui::EndDisabled();
 
-        SpriteEditorGUI.DrawGUI();
-        ScriptEditorGUI.DrawGUI();
-        ConsoleGUI     .DrawGUI();
+        SpriteEditorGUI.draw_gui();
+        ScriptEditorGUI.draw_gui();
+        ConsoleGUI     .draw_gui();
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());

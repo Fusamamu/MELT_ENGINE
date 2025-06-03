@@ -8,23 +8,45 @@ namespace MELT_EDITOR
 
     }
 
-    void ConsoleGUI::DrawGUI()
+    void ConsoleGUI::draw_gui()
     {
-        //ImGui::Begin("Console");
+        ImGui::PushStyleColor(ImGuiCol_WindowBg, IM_COL32(26, 28, 27, 255));
+        ImGui::Begin("Logger");
 
-        //MELT::Entity _entity = EditorOwner->Engine->ECSCoord.SelectedEntity;
+        MELT::TextureData* _caution_texture = EditorOwner->engine->manager_registry.get<MELT::ResourceManager>()->get_texture_data("caution.png");
+        MELT::TextureData* _warning_texture = EditorOwner->engine->manager_registry.get<MELT::ResourceManager>()->get_texture_data("exclamation.png");
 
-        // const char* _selectedEntity = std::to_string(EditorOwner->Engine->ECSCoord.SelectedEntity).c_str();
-        // ImGui::Text("Selected Entity : ");
-        // ImGui::SameLine();
-        // ImGui::Text("%s", _selectedEntity);
-        // ImGui::End();
+        if (_caution_texture)
+        {
+            ImTextureID folderIconTex = (ImTextureID)(intptr_t)_caution_texture->p_texture->texture_id;
 
-        //Temp
-//        if(_entity > 100)
-//            return;
-//
-//        MELT::Transform& _transform = EditorOwner->Engine->ECSCoord.GetComponent<MELT::Transform>(_entity);
-//        _transform.Position.x = 100.0f;
+            ImGui::Image(folderIconTex, ImVec2(25, 25));
+            ImGui::SameLine();
+            ImGui::Text("Logger : .........");
+            ImGui::Separator();
+
+            ImGui::Image(folderIconTex, ImVec2(25, 25));
+            ImGui::SameLine();
+            ImGui::Text("Logger : .........");
+            ImGui::Separator();
+        }
+
+        if (_warning_texture)
+        {
+            ImTextureID folderIconTex = (ImTextureID)(intptr_t)_warning_texture->p_texture->texture_id;
+
+            ImGui::Image(folderIconTex, ImVec2(25, 25));
+            ImGui::SameLine();
+            ImGui::Text("Logger : .........");
+            ImGui::Separator();
+
+            ImGui::Image(folderIconTex, ImVec2(25, 25));
+            ImGui::SameLine();
+            ImGui::Text("Logger : .........");
+            ImGui::Separator();
+        }
+
+        ImGui::End();
+        ImGui::PopStyleColor();
     }
 }

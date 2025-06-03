@@ -1,14 +1,6 @@
 #pragma once
 
-// #include <cstdio>
-// #include <iostream>
-// #include <string>
-// #include <fstream>
-// #include <sstream>
-// #include <vector>
-// #include <functional>
-// #include <filesystem>
-// #include <unordered_map>
+#include "MeltEngine.h"
 
 #include "imgui.h"
 #include "imgui_impl_sdl2.h"
@@ -16,15 +8,12 @@
 #include "ImGuizmo.h"
 
 #include "IconsKenney.h"
-
-#include "MeltEngine.h"
+#include "nfd.h"
 
 #include "ApplicationState.h"
 #include "SpriteEditorGUI.h"
 #include "ScriptEditorGUI.h"
 #include "ConsoleGUI.h"
-
-#include "nfd.h"
 
 namespace MELT_EDITOR
 {

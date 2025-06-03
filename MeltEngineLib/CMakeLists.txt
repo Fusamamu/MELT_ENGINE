@@ -23,7 +23,6 @@ add_library(${PROJECT_NAME} STATIC
         src/ECS/Systems/CameraControlSystem.cpp
         src/ECS/ComponentManager.cpp
         src/ECS/Components/Camera.cpp
-        src/ECS/Components/Transform.cpp
         src/ECS/Components/Renderer.cpp
         src/ECS/Components/SpriteRenderer.cpp
 
@@ -52,6 +51,7 @@ add_library(${PROJECT_NAME} STATIC
         src/SceneManager.cpp
         src/ManagerRegistry.cpp
         src/ResourceManager.cpp
+        src/Components/Transform.cpp
         src/Components/BoxCollider.cpp
         src/Components/MeshRenderer.cpp
         src/Texture.cpp

@@ -28,11 +28,11 @@
 
 namespace MELT
 {
-    enum class EngineMode
-    {
-        EDIT_MODE,
-        PLAY_MODE
-    };
+    // enum class EngineMode
+    // {
+    //     EDIT_MODE,
+    //     PLAY_MODE
+    // };
 
     class Engine
     {
@@ -40,7 +40,7 @@ namespace MELT
         SDL_Window*   sdl_window;
         SDL_GLContext gl_context;
 
-        EngineMode CurrentMode = EngineMode::EDIT_MODE;
+        //EngineMode CurrentMode = EngineMode::EDIT_MODE;
 
         static float ScreenWidth;
         static float ScreenHeight;

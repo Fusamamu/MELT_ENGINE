@@ -7,7 +7,7 @@ namespace MELT_EDITOR
         textBuffer = std::vector<char>(1024 * 16);
     }
 
-    void ScriptEditorGUI::DrawGUI()
+    void ScriptEditorGUI::draw_gui()
     {
         ImGui::Begin("Text Editor", &IsOpen, ImGuiWindowFlags_MenuBar);
 
