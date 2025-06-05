@@ -58,7 +58,8 @@ add_library(${PROJECT_NAME} SHARED
         src/Renderer/GizmosRenderer.cpp
         src/MELT.cpp
         src/MELT.inl
-        src/Reflection/Reflection.cpp)
+        src/Reflection/Reflection.cpp
+        src/Logger.cpp)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
 
@@ -88,7 +89,9 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         
         ./vendors/stb
         ./vendors/yaml-cpp/include
-        ./vendors/assimp/include)
+        ./vendors/assimp/include
+
+        ./vendors/spdlog/include)
 
 find_package(SDL2   REQUIRED COMPONENTS SDL2)
 find_package(GLEW   REQUIRED)
@@ -96,8 +99,12 @@ find_package(OpenGL REQUIRED)
 find_package(glm    REQUIRED)
 find_package(ZLIB   REQUIRED)
 
+find_library(SPDLOG_PATH spdlog PATHS vendors/spdlog/build)
+message(STATUS "SPDLOG found as: ${SPDLOG_PATH}")
+
 find_library(ASSIMP_PATH assimp PATHS vendors/assimp/lib)
 message(STATUS "ASSIMP found as: ${ASSIMP_PATH}")
+
 if (APPLE)
 find_library(COCOA_FRAMEWORK Cocoa)
 find_library(IOKIT_FRAMEWORK IOKit)
@@ -111,6 +118,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC yaml-cpp::yaml-cpp)
 target_link_libraries(${PROJECT_NAME} PUBLIC EnTT)
 target_link_libraries(${PROJECT_NAME} PUBLIC ${OPENGL_gl_LIBRARY})
 target_link_libraries(${PROJECT_NAME} PUBLIC ${ASSIMP_PATH})
+target_link_libraries(${PROJECT_NAME} PUBLIC ${SPDLOG_PATH})
 if (APPLE)
 target_link_libraries(${PROJECT_NAME} PUBLIC ${COCOA_FRAMEWORK})
 target_link_libraries(${PROJECT_NAME} PUBLIC ${IOKIT_FRAMEWORK})

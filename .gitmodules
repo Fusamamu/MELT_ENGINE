@@ -19,3 +19,6 @@
 [submodule "MeltEngineLib/vendors/entt"]
 	path = MeltEngineLib/vendors/entt
 	url = https://github.com/skypjack/entt.git
+[submodule "MeltEngineLib/vendors/spdlog"]
+	path = MeltEngineLib/vendors/spdlog
+	url = https://github.com/gabime/spdlog.git

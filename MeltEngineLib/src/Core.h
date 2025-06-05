@@ -17,6 +17,7 @@
 #include <typeindex>
 #include <typeinfo>
 #include <optional>
+#include <mutex>
 
 #include <dlfcn.h>
 #include <cstdlib>
@@ -34,6 +35,9 @@
 #include <assimp/postprocess.h>
 
 #include <entt/entt.hpp>
+#include <spdlog/spdlog.h>
+#include <spdlog/sinks/base_sink.h>
+#include <spdlog/sinks/stdout_color_sinks.h>
 
 #define UUID std::string
 #define M_VEC3 glm::vec3

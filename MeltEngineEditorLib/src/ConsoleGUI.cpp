@@ -16,35 +16,54 @@ namespace MELT_EDITOR
         MELT::TextureData* _caution_texture = EditorOwner->engine->manager_registry.get<MELT::ResourceManager>()->get_texture_data("caution.png");
         MELT::TextureData* _warning_texture = EditorOwner->engine->manager_registry.get<MELT::ResourceManager>()->get_texture_data("exclamation.png");
 
-        if (_caution_texture)
+        if (ImGui::Button("CLEAR"))
         {
-            ImTextureID folderIconTex = (ImTextureID)(intptr_t)_caution_texture->p_texture->texture_id;
-
-            ImGui::Image(folderIconTex, ImVec2(25, 25));
-            ImGui::SameLine();
-            ImGui::Text("Logger : .........");
-            ImGui::Separator();
-
-            ImGui::Image(folderIconTex, ImVec2(25, 25));
-            ImGui::SameLine();
-            ImGui::Text("Logger : .........");
-            ImGui::Separator();
+            EditorOwner->engine->Logger.clear();
         }
 
-        if (_warning_texture)
+        for (const auto& _log_entry : EditorOwner->engine->Logger.log_sink().get_entries())
         {
-            ImTextureID folderIconTex = (ImTextureID)(intptr_t)_warning_texture->p_texture->texture_id;
+            if (_caution_texture)
+            {
+                ImTextureID folderIconTex = (ImTextureID)(intptr_t)_caution_texture->p_texture->texture_id;
 
-            ImGui::Image(folderIconTex, ImVec2(25, 25));
-            ImGui::SameLine();
-            ImGui::Text("Logger : .........");
-            ImGui::Separator();
-
-            ImGui::Image(folderIconTex, ImVec2(25, 25));
-            ImGui::SameLine();
-            ImGui::Text("Logger : .........");
-            ImGui::Separator();
+                ImGui::Image(folderIconTex, ImVec2(25, 25));
+                ImGui::SameLine();
+                ImGui::Text(_log_entry.message.c_str());
+                ImGui::Separator();
+            }
         }
+
+
+        // if (_caution_texture)
+        // {
+        //     ImTextureID folderIconTex = (ImTextureID)(intptr_t)_caution_texture->p_texture->texture_id;
+        //
+        //     ImGui::Image(folderIconTex, ImVec2(25, 25));
+        //     ImGui::SameLine();
+        //     ImGui::Text("Logger : .........");
+        //     ImGui::Separator();
+        //
+        //     ImGui::Image(folderIconTex, ImVec2(25, 25));
+        //     ImGui::SameLine();
+        //     ImGui::Text("Logger : .........");
+        //     ImGui::Separator();
+        // }
+        //
+        // if (_warning_texture)
+        // {
+        //     ImTextureID folderIconTex = (ImTextureID)(intptr_t)_warning_texture->p_texture->texture_id;
+        //
+        //     ImGui::Image(folderIconTex, ImVec2(25, 25));
+        //     ImGui::SameLine();
+        //     ImGui::Text("Logger : .........");
+        //     ImGui::Separator();
+        //
+        //     ImGui::Image(folderIconTex, ImVec2(25, 25));
+        //     ImGui::SameLine();
+        //     ImGui::Text("Logger : .........");
+        //     ImGui::Separator();
+        // }
 
         ImGui::End();
         ImGui::PopStyleColor();

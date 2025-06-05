@@ -8,6 +8,7 @@
     <mapping directory="$PROJECT_DIR$/MeltEngineEditorLib/vendors/nativefiledialog-extended" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/MeltEngineLib/vendors/entt" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/MeltEngineLib/vendors/imgui" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/MeltEngineLib/vendors/spdlog" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/MeltEngineLib/vendors/yaml-cpp" vcs="Git" />
   </component>
 </project>

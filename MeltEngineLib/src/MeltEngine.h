@@ -1,4 +1,5 @@
 #include "Core.h"
+#include "Logger.h"
 #include "ManagerRegistry.h"
 #include "ResourceManager.h"
 #include "SceneManager.h"
@@ -46,6 +47,8 @@ namespace MELT
 
         Camera         MainCamera;//will remove //move to scene??
         TextureManager TextureMng;//will remove
+
+        Logger Logger;
 
         std::function<void(void)>      UpdateEngine;
         std::function<void(SDL_Event)> UpdateEditorInput;

@@ -70,6 +70,12 @@ namespace MELT
 
     void Engine::init()
     {
+        Logger.init();
+
+        spdlog::info("Hello, ImGui!");
+        spdlog::warn("This is a warning!");
+        spdlog::error("Something went wrong!");
+
         manager_registry.Register<ResourceManager>(std::make_shared<ResourceManager>());
         manager_registry.Register<SceneManager>   (std::make_shared<SceneManager>   ());
         manager_registry.Register<RenderPipeline> (std::make_shared<RenderPipeline> ());
@@ -80,46 +86,13 @@ namespace MELT
 
         TextureMng.Init();
 
-        // Load the dynamic library
-        // void* _handle = dlopen("/Users/pengaki/Desktop/MeltSampleProject/build/libCustomNativeScript.dylib", RTLD_LAZY);
-        // if (!_handle) {
-        //     std::cerr << "Cannot open library: " << dlerror() << std::endl;
-        //     return;
-        // }
-        // else
-        // {
-        //     std::cout << "Success dll" << std::endl;
-        // }
-        //
-        // void* func = dlsym(_handle, "CreateCustomSystem");
-        // const char* _error = dlerror();
-        // if (_error)
-        //     std::cerr << "Failed to find function: " << _error << std::endl;
-        //
-        // using CreateScriptInstanceFn = INativeSystem* (*)();
-        //
-        // auto createInstance = reinterpret_cast<CreateScriptInstanceFn>(func);
-        // if (createInstance) {
-        //     // Create and use the script instance
-        //     INativeSystem* script = createInstance();
-        //     script->OnStart();
-        //     script->OnInputUpdate(0.0);
-        //
-        //     delete script;  // Clean up the instance after use
-        // }
-        //
-        // dlclose(_handle);
-
-
         void* _handle = dlopen("../Project/build/libCustomNativeScript.dylib", RTLD_LAZY);
         if (!_handle)
         {
             std::cerr << "Failed to load dylib: " << dlerror() << std::endl;
             return;
         }
-
         dlerror();
-
         HelloFunc _hello = (HelloFunc)dlsym(_handle, "hello_from_dylib");
 
         if (const char* error = dlerror())
@@ -130,17 +103,7 @@ namespace MELT
         }
 
         _hello();
-
         dlclose(_handle);
-
-
-        int x = 10;
-        const std::type_info& _type_info = typeid(decltype(x));
-
-        std::cout << _type_info.name() << std::endl;
-
-
-
     }
 
     void Engine::update()
@@ -286,6 +249,8 @@ namespace MELT
         //_mesh_renderer.set_mesh_data(_mesh_data);
         _mesh_renderer.set_mesh_data(&_resource_manager->default_cube);
         _mesh_renderer.set_buffer_data();
+
+        Logger.log("Create new node");
     }
 
     void Engine::deselect_all_nodes()
