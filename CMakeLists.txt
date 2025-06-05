@@ -9,6 +9,8 @@ add_subdirectory(MeltEngineLib)
 add_subdirectory(MeltEngineEditorLib)
 #add_subdirectory(Project)
 
-add_executable(MELT_ENGINE main.cpp)
+add_executable(MELT_ENGINE main.cpp
+        Project/Scripts/HelloWorld.cpp
+        Project/Scripts/HelloWorld.h)
 
 target_link_libraries(MELT_ENGINE PUBLIC MeltEngineLib MeltEngineEditorLib)

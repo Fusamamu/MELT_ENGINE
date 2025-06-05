@@ -8,7 +8,7 @@ add_subdirectory(./vendors/entt)
 get_target_property(_aliased EnTT::EnTT ALIASED_TARGET)
 message(STATUS "EnTT target found as: ${_aliased}")
 
-add_library(${PROJECT_NAME} STATIC
+add_library(${PROJECT_NAME} SHARED
         src/Core.cpp
         src/MeltEngine.cpp
         src/Vertex.cpp
@@ -46,7 +46,6 @@ add_library(${PROJECT_NAME} STATIC
         src/Renderer/RendererAPI.cpp
         src/Renderer/RenderPipeline.cpp
         src/RayCast.cpp
-        src/Reflection.cpp
         src/Scene.cpp
         src/SceneManager.cpp
         src/ManagerRegistry.cpp
@@ -57,7 +56,9 @@ add_library(${PROJECT_NAME} STATIC
         src/Texture.cpp
         src/ShaderPreview.cpp
         src/Renderer/GizmosRenderer.cpp
-        src/Renderer/GizmosRenderer.h)
+        src/MELT.cpp
+        src/MELT.inl
+        src/Reflection/Reflection.cpp)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
 
@@ -73,6 +74,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ./src/ECS/Systems
         ./src/Resources
         ./src/MathLib
+        ./src/Reflection
 
         ./include
         ./include/EventSystem

@@ -162,6 +162,8 @@ namespace MELT_EDITOR
         return pclose(pipe) == 0;
     }
 
+    typedef void (*HelloFunc)();
+
     void Editor::draw_main_menubar()
     {
         if (ImGui::BeginMainMenuBar())
@@ -170,8 +172,50 @@ namespace MELT_EDITOR
             {
                 if (ImGui::MenuItem("Test compile"))
                 {
-                    std::string _output;
-                    CompileScript("/Users/pengaki/Desktop/MeltSampleProject/Assets/Scripts/TestCustomSystem.cpp", _output);
+                    // std::string _output;
+                    // CompileScript("/Users/pengaki/Desktop/MeltSampleProject/Assets/Scripts/TestCustomSystem.cpp", _output);
+
+
+
+
+                    // int result = std::system("cmake -S . -B build");
+                    //
+                    // if (result != 0) {
+                    //     std::cerr << "CMake configuration failed!\n";
+                    //     return 1;
+                    // }
+
+                    // Then build it
+                    int result = std::system("cmake --build ../Project/build");
+
+                    if (result != 0) {
+                        std::cerr << "CMake build failed!\n";
+                        return;
+                    }
+
+
+                    void* _handle = dlopen("../Project/build/libCustomNativeScript.dylib", RTLD_LAZY);
+                    if (!_handle)
+                    {
+                        std::cerr << "Failed to load dylib: " << dlerror() << std::endl;
+                        return;
+                    }
+
+                    dlerror();
+
+                    HelloFunc _hello = (HelloFunc)dlsym(_handle, "hello_from_dylib");
+
+                    if (const char* error = dlerror())
+                    {
+                        std::cerr << "Failed to load symbol: " << error << std::endl;
+                        dlclose(_handle);
+                        return;
+                    }
+
+                    _hello();
+
+                    dlclose(_handle);
+
                 }
 
 

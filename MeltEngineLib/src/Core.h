@@ -9,14 +9,17 @@
 #include <unordered_map>
 #include <memory>
 #include <filesystem>
+#include <stdexcept>
 #include <random>
 #include <chrono>
 #include <iomanip>
 #include <functional>
 #include <typeindex>
-#include <stdexcept>
-#include <dlfcn.h>
+#include <typeinfo>
 #include <optional>
+
+#include <dlfcn.h>
+#include <cstdlib>
 
 #include <GL/glew.h>
 #include <SDL2/SDL.h>

@@ -1,11 +1,18 @@
 cmake_minimum_required(VERSION 3.5)
 project(CustomNativeScript VERSION 1.0.1 DESCRIPTION "Native scripts")
-#set(CMAKE_BUILD_TYPE Release)
 
-add_library(${PROJECT_NAME} SHARED Scripts/TestCustomSystem.cpp)
+add_library(${PROJECT_NAME} SHARED Scripts/HelloWorld.cpp)
 
-#set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${PROJECT_VERSION})
+find_library(MELT_ENGINE_PATH
+        NAMES MeltEngineLib
+        PATHS ../cmake-build-debug/MeltEngineLib # or wherever the dylib is
+        NO_DEFAULT_PATH
+)
+message(STATUS "MeltEngineLib found as: ${MELT_ENGINE_PATH}")
 
-target_include_directories(${PROJECT_NAME} PUBLIC Scripts)
+target_include_directories(${PROJECT_NAME} PUBLIC
+        ./Scripts
+        ../MeltEngineLib/src
+        ../MeltEngineLib/src/Reflection)
 
-target_link_libraries(${PROJECT_NAME} PUBLIC MeltEngineLib)
+target_link_libraries(${PROJECT_NAME} PUBLIC ${MELT_ENGINE_PATH})

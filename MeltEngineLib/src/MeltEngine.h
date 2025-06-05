@@ -28,12 +28,6 @@
 
 namespace MELT
 {
-    // enum class EngineMode
-    // {
-    //     EDIT_MODE,
-    //     PLAY_MODE
-    // };
-
     class Engine
     {
     public:
