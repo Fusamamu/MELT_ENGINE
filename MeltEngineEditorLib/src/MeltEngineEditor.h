@@ -1,19 +1,12 @@
 #pragma once
 
-#include "MeltEngine.h"
-
-#include "imgui.h"
-#include "imgui_impl_sdl2.h"
-#include "imgui_impl_opengl3.h"
-#include "ImGuizmo.h"
-
-#include "IconsKenney.h"
-#include "nfd.h"
+#include "EditorCore.h"
 
 #include "ApplicationState.h"
 #include "SpriteEditorGUI.h"
 #include "ScriptEditorGUI.h"
 #include "ConsoleGUI.h"
+#include "ProjectGUI.h"
 
 namespace MELT_EDITOR
 {
@@ -24,11 +17,12 @@ namespace MELT_EDITOR
 
         std::vector<std::string> fileNames;
 
-        std::filesystem::path CurrentWorkingProjectRootPath;
+        std::filesystem::path working_project_directory = "../Project";
 
         SpriteEditorGUI SpriteEditorGUI;
         ScriptEditorGUI ScriptEditorGUI;
         ConsoleGUI      ConsoleGUI;
+        ProjectGUI      project_gui;
 
         bool SpriteEditorDisplayed;
 
@@ -51,7 +45,7 @@ namespace MELT_EDITOR
         void draw_hierarchy_gui      ();
         void draw_inspector_gui      ();
         void draw_material_gui       ();
-        void draw_assets_gui         ();
+        //void draw_assets_gui         ();
         void draw_content_gui        ();
         void draw_render_pipeline_gui();
 
@@ -60,6 +54,8 @@ namespace MELT_EDITOR
         void DrawTransformComponentPanel  (MELT::Transform   & _transform  );
         void DrawRendererComponentPanel   (MELT::MeshRenderer& _renderer   );
         void DrawBoxColliderComponentPanel(MELT::BoxCollider & _boxCollider);
+
+        //void display_file_browser(const std::filesystem::path& _file_path);
 
         void DrawSpriteRendererComponentPanel(MELT::SpriteRenderer& _spriteRenderer);
 
@@ -71,7 +67,7 @@ namespace MELT_EDITOR
         std::vector<std::string> Components;
 
         const char* PROJECT_SETTING_PATH = "../Project/ProjectSettings.yaml";
-        const char* SCENE_PATH           = "../Project/Scene.yaml";
+        const char* SCENE_PATH           = "../Project/Assets/Scenes/Scene.yaml";
 
         void SaveScene();
         void TestSave();

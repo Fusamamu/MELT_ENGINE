@@ -9,6 +9,7 @@ namespace MELT
         load_default_cube();
         load_texture("../MeltEngineLib/res/textures/open-file.png");
         load_texture("../MeltEngineLib/res/textures/material_icon.png");
+        load_texture("../MeltEngineLib/res/textures/scene_icon.png");
         load_texture("../MeltEngineLib/res/textures/exclamation.png");
         load_texture("../MeltEngineLib/res/textures/caution.png");
         load_model  ("../MeltEngineLib/res/models/sphere.fbx");

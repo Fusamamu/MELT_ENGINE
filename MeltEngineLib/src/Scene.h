@@ -9,6 +9,9 @@ namespace MELT
     class Scene
     {
     public:
+        std::string name = "new scene";
+        std::string uuid;
+
         bool is_active = false;
 
         Node* selected_node;
@@ -16,10 +19,14 @@ namespace MELT
 
         entt::registry ecs_registry;
 
-        Scene()  = default;
+        Scene()
+        {
+            uuid = GenerateUUID(reinterpret_cast<uintptr_t>(this));
+        }
         ~Scene() = default;
 
         std::vector<Node>& get_all_nodes(){ return m_nodes; }
+        [[nodiscard]] const std::vector<Node>& get_all_nodes() const { return m_nodes; }
 
         Node& create_node(const std::string& _name);
         void destroy_node(const Node& _node);

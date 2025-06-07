@@ -27,6 +27,8 @@
 #include "RayCast.h"
 #include "yaml-cpp/yaml.h"
 
+#include "Serializer.h"
+
 namespace MELT
 {
     class Engine
@@ -34,8 +36,6 @@ namespace MELT
     public:
         SDL_Window*   sdl_window;
         SDL_GLContext gl_context;
-
-        //EngineMode CurrentMode = EngineMode::EDIT_MODE;
 
         static float ScreenWidth;
         static float ScreenHeight;

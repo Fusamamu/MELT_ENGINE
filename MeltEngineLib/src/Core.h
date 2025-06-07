@@ -39,6 +39,8 @@
 #include <spdlog/sinks/base_sink.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
 
+#include <yaml-cpp/yaml.h>
+
 #define UUID std::string
 #define M_VEC3 glm::vec3
 #define IM_TEXTURE_ID_FROM_GL(t) reinterpret_cast<void*>((uintptr_t)(t))

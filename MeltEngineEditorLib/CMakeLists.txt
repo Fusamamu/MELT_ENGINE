@@ -16,10 +16,13 @@ add_library(${PROJECT_NAME} STATIC
         ./src/ConsoleGUI.cpp
         ./src/SpriteEditorGUI.cpp
         ./src/ApplicationState.cpp
+        ./src/ProjectGUI.cpp
         ${IMGUI_SRCS}
         ${IMGUI_BACKENDS}/imgui_impl_sdl2.cpp
         ${IMGUI_BACKENDS}/imgui_impl_opengl3.cpp
         ${IMGUIZMOS_SRCS})
+
+target_precompile_headers(${PROJECT_NAME} PUBLIC ./src/EditorCore.h)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
         ./src

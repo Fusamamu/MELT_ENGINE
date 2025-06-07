@@ -59,7 +59,8 @@ add_library(${PROJECT_NAME} SHARED
         src/MELT.cpp
         src/MELT.inl
         src/Reflection/Reflection.cpp
-        src/Logger.cpp)
+        src/Logger.cpp
+        src/Serializer.cpp)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
 
