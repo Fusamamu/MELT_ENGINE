@@ -20,6 +20,7 @@ namespace MELT
         Cube _cube;
         default_cube.name = "default_cube";
         default_cube.mesh = new Mesh(_cube.get_mesh());
+        mesh_data_table.try_emplace(default_cube.name, default_cube);
     }
 
     void ResourceManager::load_texture(std::filesystem::path _path)

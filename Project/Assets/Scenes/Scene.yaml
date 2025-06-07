@@ -1,80 +1,21 @@
 scene info:
   - name: new scene
-    uuid: a5af1630-f4fa-4c03-a5af-1630f4fa4c03
----
+    uuid: 92d86985-3296-2355-92d8-698532962355
 nodes:
-  -
-    - name: Entity
-    - transform:
-        position:
-          - 2.75628662
-          - 0
-          - 4.05041456
-        rotation:
-          - 0
-          - -0
-          - 0
-        scale:
-          - 1
-          - 1
-          - 1
-  -
-    - name: Entity
-    - transform:
-        position:
-          - -3.88903761
-          - 0
-          - 5.25500488
-        rotation:
-          - 0
-          - -0
-          - 0
-        scale:
-          - 1
-          - 1
-          - 1
-  -
-    - name: Entity
-    - transform:
-        position:
-          - -2.95098877
-          - 0
-          - -0.509216309
-        rotation:
-          - 0
-          - -0
-          - 0
-        scale:
-          - 1
-          - 1
-          - 1
-  -
-    - name: Entity
-    - transform:
-        position:
-          - 3.31735229
-          - 0
-          - -2.23937988
-        rotation:
-          - 0
-          - -0
-          - 0
-        scale:
-          - 1
-          - 1
-          - 1
-  -
-    - name: Entity
-    - transform:
-        position:
-          - -1.27362061
-          - 0
-          - -2.9420166
-        rotation:
-          - 0
-          - -0
-          - 0
-        scale:
-          - 1
-          - 1
-          - 1
+  - name: Entity
+    uuid: 4e6fa4f9-1b62-cb8c-4e6f-a4f91b62cb8c
+    transform:
+      position:
+        - 0
+        - 0
+        - 0
+      rotation:
+        - 0
+        - 0
+        - 0
+      scale:
+        - 0
+        - 0
+        - 0
+    mesh_renderer:
+      mesh data name: default_cube

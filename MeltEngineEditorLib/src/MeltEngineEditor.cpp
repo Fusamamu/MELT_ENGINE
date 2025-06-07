@@ -253,6 +253,54 @@ namespace MELT_EDITOR
                     TestSave();
                 if (ImGui::MenuItem("Save scene"))
                     SaveScene();
+                if (ImGui::MenuItem("Load scene"))
+                {
+                    nfdu8char_t* outPath = nullptr;
+                    nfdu8filteritem_t filterItem[1] =
+                    {
+                        { "YAML Scene", "yaml" }
+                    };
+
+                    nfdopendialogu8args_t args = { 0 };
+                    args.filterCount = 1;
+                    args.filterList = filterItem;
+
+                    nfdresult_t result = NFD_OpenDialogU8_With(&outPath, &args);
+
+                    if (result == NFD_OKAY)
+                    {
+                        std::filesystem::path sceneFilePath(outPath);
+                        std::ifstream sceneFile(sceneFilePath);
+
+                        if (!sceneFile.is_open())
+                        {
+                            std::cerr << "Failed to open scene file: " << sceneFilePath << std::endl;
+                        }
+                        else
+                        {
+                            std::stringstream buffer;
+                            buffer << sceneFile.rdbuf();
+                            sceneFile.close();
+
+                            std::string yamlString = buffer.str();
+
+                            MELT::YAMLSceneSerializer _serializer;
+
+                            _serializer.deserialize_scene(*engine->manager_registry.get<MELT::SceneManager>()->working_scene, yamlString);
+
+                            engine->Logger.log("Scene loaded from: " + sceneFilePath.string());
+                        }
+                        NFD_FreePathU8(outPath);
+                    }
+                    else if (result == NFD_CANCEL)
+                    {
+                        puts("User pressed cancel.");
+                    }
+                    else
+                    {
+                        printf("Error: %s\n", NFD_GetError());
+                    }
+                }
                 ImGui::EndMenu();
             }
 
@@ -785,161 +833,7 @@ namespace MELT_EDITOR
         ImGui::PopStyleColor();
     }
 
-    std::string selectedFile;
-
-    // void Editor::display_file_browser(const std::filesystem::path& _file_path)
-    // {
-    //     for (const auto& entry : std::filesystem::directory_iterator(_file_path)) {
-    //
-    //         std::string _filename = entry.path().filename().string();
-    //
-    //         if (_filename == ".DS_Store")
-    //             continue;
-    //
-    //         if (entry.is_regular_file())
-    //         {
-    //             if (ImGui::Selectable(_filename.c_str()))
-    //             {
-    //                 std::string selectedFile = entry.path().string();
-    //             }
-    //         }
-    //         else if (entry.is_directory())
-    //         {
-    //             int _flag = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_SpanAvailWidth;
-    //             if (selectedFile == _filename)
-    //                 _flag |= ImGuiTreeNodeFlags_Selected;
-    //
-    //             bool isOpen    = ImGui::TreeNodeEx(_filename.c_str(), _flag);
-    //             bool isHovered = ImGui::IsItemHovered();
-    //             bool isClicked = ImGui::IsItemClicked();
-    //
-    //             if (!isOpen && isHovered && isClicked)
-    //             {
-    //                 selectedFile = _filename; // example
-    //             }
-    //
-    //             if (isOpen)
-    //             {
-    //                 display_file_browser(entry.path());
-    //                 ImGui::TreePop();
-    //             }
-    //         }
-    //     }
-    // }
-
-    // void Editor::draw_assets_gui()
-    // {
-    //     ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
-    //
-    //     ImVec2 windowPadding(4.0f, 4.0f); // Adjust values as needed
-    //     ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, windowPadding);
-    //     ImGui::Begin("Project");
-    //
-    //     ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2(4.0f, 0));
-    //
-    //     ImGui::PushStyleColor(ImGuiCol_ChildBg, ChildBackground_Color);
-    //     ImGui::BeginChild("Files", ImVec2(300, ImGui::GetContentRegionAvail().y), true);
-    //
-    //     ImGui::BeginChild("##Scrollable List", ImVec2(0, ImGui::GetContentRegionAvail().y), true);
-    //     if(std::filesystem::exists(CurrentWorkingProjectRootPath) && std::filesystem::is_directory(CurrentWorkingProjectRootPath))
-    //         display_file_browser(CurrentWorkingProjectRootPath);
-    //     ImGui::EndChild();
-    //
-    //     ImGui::EndChild();
-    //     ImGui::PopStyleColor();
-    //
-    //     ImGui::SameLine();
-    //
-    //     ImGui::PushStyleColor(ImGuiCol_ChildBg, ChildBackground_Color);
-    //     ImGui::BeginChild("Child Window 2", ImVec2(ImGui::GetContentRegionAvail().x, ImGui::GetContentRegionAvail().y), true);
-    //
-    //     MELT::TextureData* _texture_data = engine->manager_registry.get<MELT::ResourceManager>()->get_texture_data("open-file.png");
-    //
-    //     if (_texture_data)
-    //         {
-    //             ImTextureID folderIconTex = (ImTextureID)(intptr_t)_texture_data->p_texture->texture_id;
-    //
-    //             ImGui::BeginGroup();
-    //
-    //                 ImGui::PushStyleColor(ImGuiCol_Button,        ChildBackground_Color); // normal
-    //                 ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ChildBackground_Color); // hover
-    //                 ImGui::PushStyleColor(ImGuiCol_ButtonActive,  ImVec4(0.1f, 0.4f, 0.7f, 1.0f));
-    //
-    //                 ImVec2 iconSize(64, 64);
-    //                 ImVec2 uv0      = ImVec2(0.0f, 0.0f); // top-left
-    //                 ImVec2 uv1      = ImVec2(1.0f, 1.0f); // bottom-right
-    //                 ImVec4 bg_col   = ImVec4(0, 0, 0, 0); // transparent
-    //                 ImVec4 tint_color = ImGui::IsItemHovered() ?
-    //                     ImVec4(0.0f, 0.0f, 1.0f, 1.0f) :
-    //                     ImVec4(1, 1, 1, 1);
-    //
-    //                 if (ImGui::ImageButton(folderIconTex, iconSize, uv0, uv1, -1, bg_col, tint_color))
-    //                 {
-    //
-    //                 }
-    //                 if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0))
-    //                 {
-    //                 }
-    //
-    //                 const char* label = "My Folder";
-    //                 ImVec2 textSize = ImGui::CalcTextSize(label);
-    //                 float textOffset = (iconSize.x - textSize.x) * 0.5f;
-    //                 ImGui::SetCursorPosX(ImGui::GetCursorPosX() + textOffset);
-    //                 ImGui::TextUnformatted(label);
-    //
-    //                 ImGui::PopStyleColor(3); // Pop all 3 colors
-    //
-    //             ImGui::EndGroup();
-    //         }
-    //
-    //     _texture_data = engine->manager_registry.get<MELT::ResourceManager>()->get_texture_data("material_icon.png");
-    //     if (_texture_data)
-    //     {
-    //         ImTextureID folderIconTex = (ImTextureID)(intptr_t)_texture_data->p_texture->texture_id;
-    //
-    //         ImGui::BeginGroup();
-    //
-    //         ImGui::PushStyleColor(ImGuiCol_Button,        ChildBackground_Color); // normal
-    //         ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ChildBackground_Color); // hover
-    //         ImGui::PushStyleColor(ImGuiCol_ButtonActive,  ImVec4(0.1f, 0.4f, 0.7f, 1.0f));
-    //
-    //         ImVec2 iconSize(64, 64);
-    //         ImVec2 uv0      = ImVec2(0.0f, 0.0f); // top-left
-    //         ImVec2 uv1      = ImVec2(1.0f, 1.0f); // bottom-right
-    //         ImVec4 bg_col   = ImVec4(0, 0, 0, 0); // transparent
-    //         ImVec4 tint_color = ImGui::IsItemHovered() ?
-    //             ImVec4(0.0f, 0.0f, 1.0f, 1.0f) :
-    //             ImVec4(1, 1, 1, 1);
-    //
-    //         if (ImGui::ImageButton(folderIconTex, iconSize, uv0, uv1, -1, bg_col, tint_color))
-    //         {
-    //
-    //         }
-    //         if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0))
-    //         {
-    //         }
-    //
-    //         const char* label = "My Folder";
-    //         ImVec2 textSize = ImGui::CalcTextSize(label);
-    //         float textOffset = (iconSize.x - textSize.x) * 0.5f;
-    //         ImGui::SetCursorPosX(ImGui::GetCursorPosX() + textOffset);
-    //         ImGui::TextUnformatted(label);
-    //
-    //         ImGui::PopStyleColor(3); // Pop all 3 colors
-    //
-    //         ImGui::EndGroup();
-    //     }
-    //
-    //     ImGui::EndChild();
-    //     ImGui::NewLine();
-    //
-    //     ImGui::PopStyleColor();
-    //     ImGui::PopStyleVar();
-    //
-    //     ImGui::End();
-    //     ImGui::PopStyleColor();
-    //     ImGui::PopStyleVar();
-    // }
+    //std::string selectedFile;
 
     void Editor::DrawTransformComponentPanel(MELT::Transform& _transform)
     {

@@ -4,6 +4,10 @@
 #include "Core.h"
 #include "Scene.h"
 #include "Transform.h"
+#include "MeshRenderer.h"
+
+#define TRANSFORM_NODE     "transform"
+#define MESH_RENDERER_NODE "mesh_renderer"
 
 namespace YAML
 {
@@ -53,8 +57,25 @@ namespace YAML
             return true;
         }
     };
-}
 
+    template<>
+    struct convert<MELT::MeshRenderer>
+    {
+        static Node encode(const MELT::MeshRenderer& _mesh_renderer)
+        {
+            Node _node;
+            _node["mesh data name"] = _mesh_renderer.mesh_data->name;
+            return _node;
+        }
+
+        static bool decode(const Node& _node, MELT::MeshRenderer& _mesh_renderer)
+        {
+            if (!_node["position"] || !_node["rotation"] || !_node["scale"])
+                return false;
+            return true;
+        }
+    };
+}
 
 namespace MELT
 {
@@ -69,6 +90,7 @@ namespace MELT
 
         virtual void Serialize(entt::registry& registry, const std::string& path) = 0;
         virtual void Deserialize(entt::registry& registry, const std::string& path) = 0;
+
         virtual ~ISceneSerializer() = default;
     };
 
@@ -77,6 +99,7 @@ namespace MELT
     public:
 
         std::string serialize_scene(const Scene& _scene);
+        void deserialize_scene(Scene& _scene, const std::string& _save_file);
 
         // void Serialize  (entt::registry& registry, const std::string& path) override;
         // void Deserialize(entt::registry& registry, const std::string& path) override;
