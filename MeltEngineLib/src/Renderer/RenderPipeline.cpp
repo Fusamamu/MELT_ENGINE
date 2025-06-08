@@ -54,9 +54,6 @@ namespace MELT
         m_gizmos_shader->SetMat4UniformProjection(_projection);
         m_gizmos_shader->SetVec3UniformColor(glm::vec3(1.0, 1.0, 1.0));
 
-
-
-
         editor_scene_frame_buffer = new FrameBuffer();
 
         glEnable(GL_DEPTH_TEST);
@@ -97,7 +94,7 @@ namespace MELT
 
         for (Node& _node : m_Engine->manager_registry.get<SceneManager>()->working_scene->get_all_nodes())
         {
-            Transform& _transform        = _node.get_component<Transform>();
+            Transform& _transform = _node.get_component<Transform>();
 
             if (!_node.has_component<MeshRenderer>())
                 continue;
@@ -157,6 +154,8 @@ namespace MELT
             m_gizmos_shader->SetMat4UniformProjection(_projection);
             gizmos_renderer.draw(5.0f);
         }
+
+        //Render UI
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
     }

@@ -1,7 +1,9 @@
 #pragma once
-#include <iostream>
-#include <array>
-#include <GL/glew.h>
+// #include <iostream>
+// #include <array>
+// #include <GL/glew.h>
+#include "Core.h"
+#include "Mesh.h"
 #include "Vertex.h"
 
 namespace MELT
@@ -17,6 +19,7 @@ namespace MELT
         ~Quad();
 
         void Draw();
+        Mesh get_mesh() const;
         void SetTexCoords(std::array<glm::vec2, 4> _texCoords);
 
     private:

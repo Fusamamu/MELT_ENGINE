@@ -54,6 +54,17 @@ namespace MELT
         glDeleteBuffers(1, &EBO);
     }
 
+    Mesh Quad::get_mesh() const
+    {
+        // std::vector<Vertex_1P1C1T1N> _vertices(m_vertices.begin(), m_vertices.end());
+        // std::vector<unsigned int>    _indices (m_indices .begin(), m_indices .end());
+        Mesh _mesh;
+        // _mesh.vertices = _vertices;
+        // _mesh.indices  = _indices;
+
+        return _mesh;
+    }
+
     void Quad::Draw()
     {
         glBindVertexArray(VAO);

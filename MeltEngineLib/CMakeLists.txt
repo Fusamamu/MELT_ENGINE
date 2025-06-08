@@ -60,13 +60,17 @@ add_library(${PROJECT_NAME} SHARED
         src/MELT.inl
         src/Reflection/Reflection.cpp
         src/Logger.cpp
-        src/Serializer.cpp)
+        src/Serializer.cpp
+        src/UI/UI.cpp
+        src/UI/UIManager.cpp
+        src/UI/UIManager.h)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
 
 target_include_directories(${PROJECT_NAME} PUBLIC
         ./src
         ./src/Components
+        ./src/UI
 
         ./src/EventSystem
         ./src/Renderer
