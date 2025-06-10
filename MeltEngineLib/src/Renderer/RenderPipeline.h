@@ -25,7 +25,6 @@ namespace MELT
 
         glm::vec4 clear_color;
         FrameBuffer* editor_scene_frame_buffer;
-        //FrameBuffer material_preview_frame_buffer;
 
         RenderPipeline();
 
@@ -92,10 +91,12 @@ namespace MELT
         }
 
     private:
+        Engine* m_Engine;
+
         Quad* aQuad;
         Cube* aCube;
 
-        Engine* m_Engine;
+        MeshRenderer* m_grid_renderer;
 
         Shader* m_TargetShader;
         Shader* m_MeshOutlineShader;
@@ -104,7 +105,6 @@ namespace MELT
 
         SDL_Window* mp_window;
         GLbitfield m_clearBuffers;
-
 
         unsigned int m_ubo;
     };

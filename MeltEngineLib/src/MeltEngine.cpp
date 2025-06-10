@@ -235,9 +235,6 @@ namespace MELT
     {
         std::shared_ptr<ResourceManager> _resource_manager = manager_registry.get<ResourceManager>();
 
-        //MeshData* _mesh_data = _resource_manager->get_mesh_data("Sphere");
-        //MeshData* _mesh_data = &_resource_manager->default_cube;
-
         Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
 
         Node& _node = _working_scene->create_node("Entity");
@@ -246,7 +243,6 @@ namespace MELT
         _node.add_component<BoxCollider>();
 
         MeshRenderer& _mesh_renderer = _node.get_component<MeshRenderer>();
-        //_mesh_renderer.set_mesh_data(_mesh_data);
         _mesh_renderer.set_mesh_data(&_resource_manager->default_cube);
         _mesh_renderer.set_buffer_data();
 

@@ -1,5 +1,7 @@
 #include "ResourceManager.h"
 #define STB_IMAGE_IMPLEMENTATION
+#include <Quad.h>
+
 #include "stb_image.h"
 
 namespace MELT
@@ -21,6 +23,11 @@ namespace MELT
         default_cube.name = "default_cube";
         default_cube.mesh = new Mesh(_cube.get_mesh());
         mesh_data_table.try_emplace(default_cube.name, default_cube);
+
+        Quad _quad;
+        default_quad.name = "default_quad";
+        default_quad.mesh = new Mesh(_quad.get_mesh());
+        mesh_data_table.try_emplace(default_quad.name, default_quad);
     }
 
     void ResourceManager::load_texture(std::filesystem::path _path)
@@ -125,12 +132,9 @@ namespace MELT
             _vertex.position.y = _mesh->mVertices[i].y;
             _vertex.position.z = _mesh->mVertices[i].z;
 
-            if (_mesh->HasNormals())
-            {
-                _vertex.normal.x = _mesh->mNormals[i].x;
-                _vertex.normal.y = _mesh->mNormals[i].y;
-                _vertex.normal.z = _mesh->mNormals[i].z;
-            }
+            _vertex.color.r = 0.0f;
+            _vertex.color.g = 0.0f;
+            _vertex.color.b = 0.0f;
 
             if(_mesh->mTextureCoords[0])
             {
@@ -139,6 +143,13 @@ namespace MELT
             }
             else
                 _vertex.texCoord = glm::vec2(0.0f, 0.0f);
+
+            if (_mesh->HasNormals())
+            {
+                _vertex.normal.x = _mesh->mNormals[i].x;
+                _vertex.normal.y = _mesh->mNormals[i].y;
+                _vertex.normal.z = _mesh->mNormals[i].z;
+            }
 
             _vertices.push_back(_vertex);
         }
@@ -154,7 +165,10 @@ namespace MELT
         _vertex_buffer.resize(_vertices.size() * sizeof(Vertex_PCTN));
         memcpy(_vertex_buffer.data(), _vertices.data(), _vertex_buffer.size());
 
-        return { _vertex_buffer, _indices };
+        Mesh _result_mesh { _vertex_buffer, _indices };
+        _result_mesh.layout = createLayout_PCTN();
+
+        return _result_mesh;
     }
 
     TextureData* ResourceManager::get_texture_data(const std::string& _texture_name)

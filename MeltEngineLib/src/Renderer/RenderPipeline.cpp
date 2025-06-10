@@ -73,6 +73,11 @@ namespace MELT
 
         gizmos_renderer.init();
         gizmos_renderer.set_bounds(glm::vec3(-0.6f, -0.6f, -0.6f), glm::vec3(0.6f, 0.6f, 0.6f));
+
+        MeshData* _quad_mesh_data = _engine->manager_registry.get<ResourceManager>()->get_mesh_data("default_quad");
+        m_grid_renderer = new MeshRenderer();
+        m_grid_renderer->set_mesh_data(_quad_mesh_data);
+        m_grid_renderer->set_buffer_data();
     }
 
     void RenderPipeline::Render(float _dt)
@@ -90,7 +95,8 @@ namespace MELT
         m_GridShader->SetMat4UniformModel(glm::translate(glm::mat4(1.0f), glm::vec3 (0.0, 0.0, 0.0)));
         m_GridShader->SetMat4UniformView(_view);
         m_GridShader->SetMat4UniformProjection(_projection);
-        aQuad->Draw();
+        //aQuad->Draw();
+        m_grid_renderer->draw();
 
         for (Node& _node : m_Engine->manager_registry.get<SceneManager>()->working_scene->get_all_nodes())
         {

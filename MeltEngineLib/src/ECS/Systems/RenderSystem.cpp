@@ -109,7 +109,7 @@ namespace MELT
         glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         CheckerboardShader->Use();
-        aQuad->Draw();
+        //aQuad->Draw();
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
         //-----------------------------------//
@@ -172,14 +172,14 @@ namespace MELT
                 TextureOutlineShader->SetMat4UniformModel(_model);
             }
 
-            aQuad->Draw();
+            //aQuad->Draw();
         }
 
         PhongShader->Use();
         PhongShader->SetMat4UniformView(_view);
         PhongShader->SetMat4UniformProjection(_projection);
         PhongShader->SetVec3UniformCameraWorldPosition(Engine->MainCamera.Position);
-        aCube->Draw();
+        //aCube->Draw();
 
         glDisable(GL_DEPTH_TEST);
         LineShader->Use();

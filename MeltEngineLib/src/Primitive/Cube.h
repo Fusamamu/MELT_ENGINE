@@ -9,18 +9,13 @@ namespace MELT
     class Cube
     {
     public:
-        GLuint VAO;
-        GLuint VBO;
-        GLuint EBO;
-
         Cube();
-        ~Cube();
+        ~Cube() = default;
 
-        void Draw() const;
         Mesh get_mesh() const;
 
     private:
         std::array<Vertex_PCTN, 24> m_vertices;
-        std::array<GLuint, 36>          m_indices;
+        std::array<GLuint, 36>      m_indices;
     };
 }

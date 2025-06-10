@@ -11,6 +11,8 @@ namespace MELT
     {
     public:
         MeshData default_cube;
+        MeshData default_quad;
+
         ResourceManager () = default;
         ~ResourceManager() = default;
         void init();

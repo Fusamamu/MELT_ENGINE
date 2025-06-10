@@ -58,7 +58,9 @@ namespace MELT
         void draw()
         {
             glBindVertexArray(m_vao);
-            glDrawElements(GL_TRIANGLES, mesh_data->mesh->index_buffer.size() * sizeof(unsigned int), GL_UNSIGNED_INT, nullptr);
+            //std::cout <<  mesh_data->mesh->index_buffer.size() * sizeof(unsigned int) << std::endl;
+            //glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
+            glDrawElements(GL_TRIANGLES, (GLsizei)mesh_data->mesh->index_buffer.size(), GL_UNSIGNED_INT, nullptr);
             glBindVertexArray(0);
         }
 
@@ -67,7 +69,7 @@ namespace MELT
             glBindVertexArray(m_vao);
 
             glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-            glDrawElements(GL_TRIANGLES, mesh_data->mesh->index_buffer.size(), GL_UNSIGNED_INT, nullptr);
+            glDrawElements(GL_TRIANGLES, (GLsizei)mesh_data->mesh->index_buffer.size(), GL_UNSIGNED_INT, nullptr);
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
             glBindVertexArray(0);

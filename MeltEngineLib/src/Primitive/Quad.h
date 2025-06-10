@@ -1,7 +1,4 @@
 #pragma once
-// #include <iostream>
-// #include <array>
-// #include <GL/glew.h>
 #include "Core.h"
 #include "Mesh.h"
 #include "Vertex.h"
@@ -11,19 +8,14 @@ namespace MELT
     class Quad
     {
     public:
-        GLuint VAO;
-        GLuint VBO;
-        GLuint EBO;
-
         Quad();
-        ~Quad();
+        ~Quad() = default;
 
-        void Draw();
         Mesh get_mesh() const;
         void SetTexCoords(std::array<glm::vec2, 4> _texCoords);
 
     private:
-        std::array<Vertex, 4> m_Vertices;
+        std::array<Vertex_PCT, 4> m_Vertices;
         std::array<GLuint, 6> m_Indices;
     };
 }

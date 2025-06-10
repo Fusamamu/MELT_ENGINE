@@ -126,10 +126,6 @@ namespace MELT
         };
     }
 
-    Cube::~Cube()
-    {
-    }
-
     Mesh Cube::get_mesh() const
     {
         Mesh _mesh;
@@ -143,12 +139,5 @@ namespace MELT
         _mesh.layout = createLayout_PCTN();
 
         return _mesh;
-    }
-
-    void Cube::Draw() const
-    {
-        glBindVertexArray(VAO);
-        glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, nullptr);
-        glBindVertexArray(0);
     }
 }
