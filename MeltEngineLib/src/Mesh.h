@@ -6,17 +6,13 @@ namespace MELT
 {
     struct Mesh
     {
-        std::vector<Vertex_1P1C1T1N> vertices;
-        std::vector<unsigned int> indices;
+        std::vector<uint8_t> vertex_buffer;
+        std::vector<unsigned int> index_buffer;
 
-        [[nodiscard]] std::size_t get_vertices_size() const
-        {
-            return vertices.size() * sizeof(Vertex_1P1C1T1N);
-        }
-        [[nodiscard]] std::size_t get_indices_size () const
-        {
-            return indices.size() * sizeof(unsigned int);
-        }
+        VertexLayout layout;
+
+        [[nodiscard]] std::size_t get_vertex_buffer_size() const { return vertex_buffer.size(); }
+        [[nodiscard]] std::size_t get_index_buffer_size () const { return index_buffer.size() * sizeof(unsigned int); }
     };
 
     struct MeshData

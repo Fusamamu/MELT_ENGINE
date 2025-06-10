@@ -27,19 +27,29 @@ namespace MELT
 
             glBindVertexArray(m_vao);
 
-            auto m_mesh = mesh_data->mesh;
+            auto _mesh = mesh_data->mesh;
 
             glBindBuffer(GL_ARRAY_BUFFER        , m_vbo);
-            glBufferData(GL_ARRAY_BUFFER        , m_mesh->vertices.size() * sizeof(Vertex_1P1C1T1N), m_mesh->vertices.data(), GL_STATIC_DRAW);
+            glBufferData(GL_ARRAY_BUFFER        , _mesh->get_vertex_buffer_size(), _mesh->vertex_buffer.data(), GL_STATIC_DRAW);
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
-            glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_mesh->indices.size() * sizeof(unsigned int)    , m_mesh->indices.data() , GL_STATIC_DRAW);
+            glBufferData(GL_ELEMENT_ARRAY_BUFFER, _mesh->get_index_buffer_size() , _mesh->index_buffer.data() , GL_STATIC_DRAW);
 
-            glEnableVertexAttribArray(0);
-            glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex_1P1C1T1N), (void*)offsetof(Vertex_1P1C1T1N, position));
-            glEnableVertexAttribArray(1);
-            glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex_1P1C1T1N), (void*)offsetof(Vertex_1P1C1T1N, color));
-            glEnableVertexAttribArray(2);
-            glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex_1P1C1T1N), (void*)offsetof(Vertex_1P1C1T1N, texCoord));
+            // Setup vertex attributes from layout
+            uint32_t _attribIndex = 0;
+            for (const auto& _element : _mesh->layout.elements)
+            {
+                glEnableVertexAttribArray(_attribIndex);
+                glVertexAttribPointer
+                (
+                    _attribIndex,
+                    _element.components,
+                    _element.glType,
+                    _element.normalized ? GL_TRUE : GL_FALSE,
+                    _mesh->layout.stride,
+                    (void*)(uintptr_t)_element.offset
+                );
+                _attribIndex++;
+            }
 
             glBindBuffer(GL_ARRAY_BUFFER, 0);
             glBindVertexArray(0);
@@ -48,7 +58,7 @@ namespace MELT
         void draw()
         {
             glBindVertexArray(m_vao);
-            glDrawElements(GL_TRIANGLES, mesh_data->mesh->indices.size() * sizeof(unsigned int), GL_UNSIGNED_INT, nullptr);
+            glDrawElements(GL_TRIANGLES, mesh_data->mesh->index_buffer.size() * sizeof(unsigned int), GL_UNSIGNED_INT, nullptr);
             glBindVertexArray(0);
         }
 
@@ -57,7 +67,7 @@ namespace MELT
             glBindVertexArray(m_vao);
 
             glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-            glDrawElements(GL_TRIANGLES, mesh_data->mesh->indices.size(), GL_UNSIGNED_INT, nullptr);
+            glDrawElements(GL_TRIANGLES, mesh_data->mesh->index_buffer.size(), GL_UNSIGNED_INT, nullptr);
             glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
             glBindVertexArray(0);

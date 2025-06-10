@@ -927,11 +927,12 @@ namespace MELT_EDITOR
                     ImGui::Text("vertices");
                     ImGui::SameLine(120.0f);
                     //ImGui::Text(std::to_string(_renderer.get_mesh_ref().vertices.size()).c_str());
-                    ImGui::Text(std::to_string(_renderer.mesh_data->mesh->vertices.size()).c_str());
+                    //ImGui::Text(std::to_string(_renderer.mesh_data->mesh->vertices.size()).c_str());
+                    ImGui::Text(std::to_string(_renderer.mesh_data->mesh->vertex_buffer.size()).c_str());
 
                     ImGui::Text("indices");
                     ImGui::SameLine(120.0f);
-                    ImGui::Text(std::to_string(_renderer.mesh_data->mesh->indices.size()).c_str());
+                    ImGui::Text(std::to_string(_renderer.mesh_data->mesh->index_buffer.size()).c_str());
 
                 ImGui::PopStyleColor();
                 ImGui::Unindent();

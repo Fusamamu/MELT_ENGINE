@@ -20,7 +20,7 @@ namespace MELT
         Mesh get_mesh() const;
 
     private:
-        std::array<Vertex_1P1C1T1N, 24> m_vertices;
+        std::array<Vertex_PCTN, 24> m_vertices;
         std::array<GLuint, 36>          m_indices;
     };
 }

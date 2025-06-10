@@ -124,44 +124,23 @@ namespace MELT
                 20, 21, 22,
                 22, 23, 20
         };
-
-        glGenVertexArrays(1, &VAO);
-        glBindVertexArray(VAO);
-
-        glGenBuffers(1, &VBO);
-        glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(m_vertices), m_vertices.data(), GL_STATIC_DRAW);
-
-        glGenBuffers(1, &EBO);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(m_indices), m_indices.data(), GL_STATIC_DRAW);
-
-        glEnableVertexAttribArray(0);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex_1P1C1T1N), (void*)(offsetof(Vertex_1P1C1T1N, position)));
-
-        glEnableVertexAttribArray(1);
-        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex_1P1C1T1N), (void*)(offsetof(Vertex_1P1C1T1N, color)));
-
-        glEnableVertexAttribArray(2);
-        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex_1P1C1T1N), (void*)(offsetof(Vertex_1P1C1T1N, texCoord)));
-
-        glBindVertexArray(0);
     }
 
     Cube::~Cube()
     {
-        glDeleteVertexArrays(1, &VAO);
-        glDeleteBuffers(1, &VBO);
-        glDeleteBuffers(1, &EBO);
     }
 
     Mesh Cube::get_mesh() const
     {
-        std::vector<Vertex_1P1C1T1N> _vertices(m_vertices.begin(), m_vertices.end());
-        std::vector<unsigned int>    _indices (m_indices .begin(), m_indices .end());
         Mesh _mesh;
-        _mesh.vertices = _vertices;
-        _mesh.indices  = _indices;
+
+        _mesh.vertex_buffer.resize(m_vertices.size() * sizeof(Vertex_PCTN));
+        _mesh.index_buffer .resize(m_indices .size() * sizeof(unsigned int));
+
+        memcpy(_mesh.vertex_buffer.data(), m_vertices.data(), _mesh.vertex_buffer.size());
+        memcpy(_mesh.index_buffer .data(), m_indices .data(), _mesh.index_buffer .size());
+
+        _mesh.layout = createLayout_PCTN();
 
         return _mesh;
     }

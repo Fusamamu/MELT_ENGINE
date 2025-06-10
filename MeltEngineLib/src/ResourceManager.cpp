@@ -114,12 +114,12 @@ namespace MELT
 
     Mesh ResourceManager::process_mesh(aiMesh* _mesh, const aiScene* _scene)
     {
-        std::vector<Vertex_1P1C1T1N> _vertices;
+        std::vector<Vertex_PCTN> _vertices;
         std::vector<unsigned int> _indices;
 
         for(unsigned int i = 0; i < _mesh->mNumVertices; i++)
         {
-            Vertex_1P1C1T1N _vertex;
+            Vertex_PCTN _vertex;
 
             _vertex.position.x = _mesh->mVertices[i].x;
             _vertex.position.y = _mesh->mVertices[i].y;
@@ -150,7 +150,11 @@ namespace MELT
                 _indices.push_back(_face.mIndices[j]);
         }
 
-        return { _vertices, _indices };
+        std::vector<uint8_t> _vertex_buffer;
+        _vertex_buffer.resize(_vertices.size() * sizeof(Vertex_PCTN));
+        memcpy(_vertex_buffer.data(), _vertices.data(), _vertex_buffer.size());
+
+        return { _vertex_buffer, _indices };
     }
 
     TextureData* ResourceManager::get_texture_data(const std::string& _texture_name)
