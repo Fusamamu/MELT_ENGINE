@@ -67,6 +67,14 @@ namespace MELT
             for (auto& _node : m_nodes)
                 _node.is_selected = true;
         }
+
+        Node* resolve_node_id(const NodeID& _node_id)
+        {
+            for (auto& _node : m_nodes)
+                if (_node.id == _node_id)
+                    return &_node;
+            return nullptr;
+        }
     private:
         std::vector<Node> m_nodes;
     };

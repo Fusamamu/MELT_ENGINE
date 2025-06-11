@@ -74,6 +74,7 @@ namespace MELT_EDITOR
         SpriteEditorGUI.EditorOwner = this;
         SpriteEditorGUI.Init();
         project_gui     .init(this);
+        hierarchy_gui   .init(this);
 
         NFD_Init();
 
@@ -111,7 +112,7 @@ namespace MELT_EDITOR
         draw_gameplay_view_gui ();
         draw_inspector_gui     ();
         draw_material_gui      ();
-        draw_hierarchy_gui     ();
+        //draw_hierarchy_gui     ();
         //draw_assets_gui        ();
         draw_content_gui       ();
         draw_render_pipeline_gui();
@@ -122,7 +123,8 @@ namespace MELT_EDITOR
         SpriteEditorGUI.draw_gui();
         ScriptEditorGUI.draw_gui();
         ConsoleGUI     .draw_gui();
-        project_gui     .draw_gui();
+        project_gui    .draw_gui();
+        hierarchy_gui  .draw_gui();
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -612,6 +614,7 @@ namespace MELT_EDITOR
             if (ImGui::CollapsingHeader("Scene 1"))
             {
                 MELT::Scene* _working_scene = engine->manager_registry.get<MELT::SceneManager>()->working_scene;
+
                 for(std::size_t _i = 0; _i < _working_scene->get_all_nodes().size(); ++_i)
                 {
                     auto& _node = _working_scene->get_all_nodes()[_i];

@@ -17,6 +17,7 @@ add_library(${PROJECT_NAME} STATIC
         ./src/SpriteEditorGUI.cpp
         ./src/ApplicationState.cpp
         ./src/ProjectGUI.cpp
+        src/HierarchyGUI.cpp
         ${IMGUI_SRCS}
         ${IMGUI_BACKENDS}/imgui_impl_sdl2.cpp
         ${IMGUI_BACKENDS}/imgui_impl_opengl3.cpp

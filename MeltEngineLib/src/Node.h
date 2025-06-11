@@ -26,6 +26,13 @@ namespace MELT
             return m_entity_handle;
         }
 
+        void add_child   (const NodeID& _node_id);
+        void remove_child(const NodeID& _node_id);
+
+        bool has_parent() const;
+        NodeID get_parent() const;
+        std::vector<NodeID> get_children() const;
+
         template<typename T, typename... Args>
         T& add_component(Args&&... _args);
 
@@ -45,6 +52,9 @@ namespace MELT
     private:
         Scene* m_scene_owner;
         entt::entity m_entity_handle;
+
+        NodeID m_parent = "n/a";
+        std::vector<NodeID> m_children;
     };
 
     //#include "Node.inl"
