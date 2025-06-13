@@ -1,6 +1,5 @@
 #include "ResourceManager.h"
 #define STB_IMAGE_IMPLEMENTATION
-#include <Quad.h>
 
 #include "stb_image.h"
 
@@ -28,6 +27,11 @@ namespace MELT
         default_quad.name = "default_quad";
         default_quad.mesh = new Mesh(_quad.get_mesh());
         mesh_data_table.try_emplace(default_quad.name, default_quad);
+
+        Plane _plane (4, 4, 4, 4);
+        default_plane.name = "default_plane";
+        default_plane.mesh = new Mesh(_plane.get_mesh());
+        mesh_data_table.try_emplace(default_plane.name, default_plane);
     }
 
     void ResourceManager::load_texture(std::filesystem::path _path)

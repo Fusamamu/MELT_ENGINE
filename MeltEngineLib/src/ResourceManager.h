@@ -3,6 +3,8 @@
 #include "Core.h"
 #include "Texture.h"
 #include "Cube.h"
+#include "Quad.h"
+#include "Plane.h"
 #include "Mesh.h"
 
 namespace MELT
@@ -12,6 +14,7 @@ namespace MELT
     public:
         MeshData default_cube;
         MeshData default_quad;
+        MeshData default_plane;
 
         ResourceManager () = default;
         ~ResourceManager() = default;

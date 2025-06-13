@@ -8,6 +8,7 @@
 #include "ConsoleGUI.h"
 #include "ProjectGUI.h"
 #include "HierarchyGUI.h"
+#include "NodeGraph.h"
 
 namespace MELT_EDITOR
 {
@@ -25,6 +26,7 @@ namespace MELT_EDITOR
         ConsoleGUI      ConsoleGUI;
         ProjectGUI      project_gui;
         HierarchyGUI    hierarchy_gui;
+        NodeGraph       node_graph_gui;
 
         bool SpriteEditorDisplayed;
 

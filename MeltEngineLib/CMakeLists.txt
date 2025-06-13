@@ -37,8 +37,11 @@ add_library(${PROJECT_NAME} SHARED
         src/EventSystem/EventManager.cpp
 
         src/InputSystem.cpp
+
         src/Primitive/Cube.cpp
         src/Primitive/Quad.cpp
+        src/Primitive/Plane.cpp
+
         src/Resources/MeshImporter.cpp
         src/Node.cpp
         src/NodeManager.cpp
@@ -63,7 +66,7 @@ add_library(${PROJECT_NAME} SHARED
         src/Serializer.cpp
         src/UI/UI.cpp
         src/UI/UIManager.cpp
-        src/UI/UIManager.h)
+        src/Bounds.cpp)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
 

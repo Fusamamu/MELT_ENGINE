@@ -43,20 +43,47 @@ namespace MELT_EDITOR
             ImGui::PushStyleVar(ImGuiStyleVar_PopupRounding, 10.0f);
             if (ImGui::BeginPopup("CustomPopup"))
             {
-                ImGui::Text("Object creation");
+                ImGui::Text("creation");
                 ImGui::Separator();
 
-                if (ImGui::MenuItem("Create entity"))
+                if (ImGui::BeginMenu("Create node"))
                 {
-                    m_engine->create_node();
+                    if (ImGui::MenuItem("Cube node"))
+                    {
+                        m_engine->create_node();
+                    }
+
+                    if (ImGui::MenuItem("Quad node"))
+                    {
+                    }
+
+                    if (ImGui::MenuItem("Plane node"))
+                    {
+                        m_engine->create_plane_node();
+                    }
+                    ImGui::EndMenu();
                 }
 
                 if (ImGui::MenuItem("Create scene"))
                 {
                 }
-                if (ImGui::MenuItem("Create group"))
+
+                if (ImGui::BeginMenu("Create group"))
                 {
+                    if (ImGui::MenuItem("Empty group"))
+                    {
+                        // Create empty group logic
+                    }
+
+                    if (ImGui::MenuItem("Group with transform"))
+                    {
+                        // Create group with transform logic
+                    }
+
+                    ImGui::EndMenu();
                 }
+
+
                 ImGui::EndPopup();
             }
             ImGui::PopStyleColor(2);

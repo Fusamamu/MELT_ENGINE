@@ -137,4 +137,38 @@ namespace MELT
         std::cout << "Ray cast hit" << std::endl;
         return true;
     }
+
+    bool RayCast::ray_intersect_plane(const glm::vec3& _ray_origin, const glm::vec3& _ray_dir, const glm::vec3& _plane_point, const glm::vec3& _plane_normal, glm::vec3& _out_intersection, glm::vec3& _out_normal)
+    {
+        float _denom = glm::dot(_plane_normal, _ray_dir);
+
+        if (std::abs(_denom) > 1e-6f)
+        {
+            float t = glm::dot(_plane_point - _ray_origin, _plane_normal) / _denom;
+            if (t >= 0) 
+            {
+                _out_intersection = _ray_origin + t * _ray_dir;
+                _out_normal       = glm::normalize(_plane_normal); // In case input isn't normalized
+                return true;
+            }
+        }
+        return false;
+    }
+
+    glm::vec3 GetAABBNormal(const glm::vec3& _hit_point, const AABB& _box)
+    {
+        const float _epsilon = 1e-4f;
+
+        glm::vec3 _normal(0.0f);
+
+        if (std::abs(_hit_point.x - _box.min.x) < _epsilon)      _normal = glm::vec3(-1,  0,  0);
+        else if (std::abs(_hit_point.x - _box.max.x) < _epsilon) _normal = glm::vec3( 1,  0,  0);
+        else if (std::abs(_hit_point.y - _box.min.y) < _epsilon) _normal = glm::vec3( 0, -1,  0);
+        else if (std::abs(_hit_point.y - _box.max.y) < _epsilon) _normal = glm::vec3( 0,  1,  0);
+        else if (std::abs(_hit_point.z - _box.min.z) < _epsilon) _normal = glm::vec3( 0,  0, -1);
+        else if (std::abs(_hit_point.z - _box.max.z) < _epsilon) _normal = glm::vec3( 0,  0,  1);
+
+        return _normal;
+    }
+
 }

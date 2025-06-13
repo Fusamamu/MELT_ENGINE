@@ -230,7 +230,6 @@ namespace MELT
         SDL_Quit();
     }
 
-    //Use scene manager instead
     void Engine::create_node()
     {
         std::shared_ptr<ResourceManager> _resource_manager = manager_registry.get<ResourceManager>();
@@ -246,7 +245,25 @@ namespace MELT
         _mesh_renderer.set_mesh_data(&_resource_manager->default_cube);
         _mesh_renderer.set_buffer_data();
 
-        Logger.log("Create new node");
+        Logger.log("Create cube node");
+    }
+
+    void Engine::create_plane_node()
+    {
+        std::shared_ptr<ResourceManager> _resource_manager = manager_registry.get<ResourceManager>();
+
+        Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
+
+        Node& _node = _working_scene->create_node("Entity");
+        _node.add_component<Transform>();
+        _node.add_component<MeshRenderer>();
+        _node.add_component<BoxCollider>();
+
+        MeshRenderer& _mesh_renderer = _node.get_component<MeshRenderer>();
+        _mesh_renderer.set_mesh_data(&_resource_manager->default_plane);
+        _mesh_renderer.set_buffer_data();
+
+        Logger.log("Create plane node");
     }
 
     void Engine::deselect_all_nodes()

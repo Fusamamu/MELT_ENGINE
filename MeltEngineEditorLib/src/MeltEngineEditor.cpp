@@ -75,6 +75,7 @@ namespace MELT_EDITOR
         SpriteEditorGUI.Init();
         project_gui     .init(this);
         hierarchy_gui   .init(this);
+        node_graph_gui  .init(this);
 
         NFD_Init();
 
@@ -125,6 +126,7 @@ namespace MELT_EDITOR
         ConsoleGUI     .draw_gui();
         project_gui    .draw_gui();
         hierarchy_gui  .draw_gui();
+        node_graph_gui .draw_gui();
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -471,8 +473,31 @@ namespace MELT_EDITOR
             ImGui::Text("Mouse world position        : (%.1f, %.1f)"     , MELT::Input.MouseScreenWorldPosition.x     , MELT::Input.MouseScreenWorldPosition.y     );
             ImGui::InputFloat3("Camera position", glm::value_ptr(engine->MainCamera.Position));
             ImGui::SliderFloat("Near plane"       , &engine->MainCamera.NearPlane, -100.0f, 0.0f);
-            ImGui::SliderFloat("Far plane"        , &engine->MainCamera.FarPlane, 0.0, 1000.0f);
+            ImGui::SliderFloat("Far plane"        , &engine->MainCamera.FarPlane ,     0.0, 1000.0f);
             ImGui::SliderFloat("Orthographic size", &engine->MainCamera.OrthographicSize, 1.0f, 200.f);
+
+
+
+
+             ImGui::SetNextWindowPos(ImVec2(ImGui::GetCursorScreenPos().x, ImGui::GetCursorScreenPos().y), ImGuiCond_Always, ImVec2(0.5f, 1.0f)); // anchor center-bottom
+             ImGui::Begin("##WorldLabel", nullptr,
+                          ImGuiWindowFlags_NoDecoration       |
+                          ImGuiWindowFlags_AlwaysAutoResize   |
+                          ImGuiWindowFlags_NoBackground       |
+                          ImGuiWindowFlags_NoFocusOnAppearing |
+                          ImGuiWindowFlags_NoNav              |
+                          ImGuiWindowFlags_NoInputs);
+            ImGui::TextUnformatted("asdsadasdsdsadassadasdasdasdsa");
+            ImGui::End();
+
+
+
+
+
+
+
+
+
 
             // Push to bottom
             float padding = 10.0f; // Space from bottom edge
