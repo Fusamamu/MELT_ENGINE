@@ -5,6 +5,7 @@
 #include "Cube.h"
 #include "Quad.h"
 #include "Plane.h"
+#include "Line.h"
 #include "Mesh.h"
 
 namespace MELT
@@ -15,6 +16,7 @@ namespace MELT
         MeshData default_cube;
         MeshData default_quad;
         MeshData default_plane;
+        MeshData debug_line;
 
         ResourceManager () = default;
         ~ResourceManager() = default;

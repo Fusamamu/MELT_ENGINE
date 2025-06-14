@@ -8,6 +8,7 @@
 #include "ConsoleGUI.h"
 #include "ProjectGUI.h"
 #include "HierarchyGUI.h"
+#include "InspectorGUI.h"
 #include "NodeGraph.h"
 
 namespace MELT_EDITOR
@@ -21,12 +22,13 @@ namespace MELT_EDITOR
 
         std::filesystem::path working_project_directory = "../Project";
 
-        SpriteEditorGUI SpriteEditorGUI;
-        ScriptEditorGUI ScriptEditorGUI;
-        ConsoleGUI      ConsoleGUI;
+        SpriteEditorGUI sprite_editor_gui;
+        ScriptEditorGUI script_editor_gui;
+        ConsoleGUI      console_gui;
         ProjectGUI      project_gui;
         HierarchyGUI    hierarchy_gui;
         NodeGraph       node_graph_gui;
+        InspectorGUI    inspector_gui;
 
         bool SpriteEditorDisplayed;
 

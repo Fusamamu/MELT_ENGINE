@@ -5,14 +5,14 @@ namespace MELT
 {
     struct Camera
     {
-        bool UseOrthographic;
+        bool use_orthographic;
 
         glm::vec3 Position;
         glm::vec3 Target;
         glm::vec3 Up;
 
-        float NearPlane;
-        float FarPlane;
+        float near_plane;
+        float far_plane;
 
         /** @brief Screen size of a window used to calculate projection matrix*/
         glm::vec2 ScreenSize;
@@ -32,5 +32,7 @@ namespace MELT
         [[nodiscard]] glm::mat4 GetOrthographicProjectionMatrix() const;
 
         void UpdateScreenSizeWithOrthographicSize(float _screenRatio);
+
+        std::array<glm::vec3, 8> get_frustum_corners(const glm::vec3& eye, const glm::vec3& forward, const glm::vec3& up, const glm::vec3& right, float fovY_rad, float aspect, float nearDist, float farDist);
     };
 }

@@ -23,7 +23,7 @@ add_library(${PROJECT_NAME} STATIC
         ${IMGUI_BACKENDS}/imgui_impl_opengl3.cpp
         ${IMGUIZMOS_SRCS}
         src/NodeGraph.cpp
-        src/NodeGraph.h)
+        src/InspectorGUI.cpp)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC ./src/EditorCore.h)
 

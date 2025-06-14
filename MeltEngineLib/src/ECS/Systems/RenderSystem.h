@@ -19,7 +19,7 @@ namespace MELT
         //Geometry
         Quad* aQuad;
         Cube* aCube;
-        Line* DummyLine;
+        //Line* DummyLine;
         GizmosTransform* GizmosAxis;
 
         //Render target

@@ -48,19 +48,24 @@ namespace MELT_EDITOR
 
                 if (ImGui::BeginMenu("Create node"))
                 {
+                    ImGui::Text("Primitive");
+                    ImGui::Separator();
+
                     if (ImGui::MenuItem("Cube node"))
-                    {
                         m_engine->create_node();
-                    }
 
                     if (ImGui::MenuItem("Quad node"))
                     {
                     }
 
                     if (ImGui::MenuItem("Plane node"))
-                    {
                         m_engine->create_plane_node();
-                    }
+
+                    ImGui::Separator();
+
+                    if (ImGui::MenuItem("Camera node"))
+                        m_engine->create_camera_node();
+
                     ImGui::EndMenu();
                 }
 

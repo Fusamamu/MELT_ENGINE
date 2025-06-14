@@ -70,12 +70,13 @@ namespace MELT_EDITOR
             std::cout << "ERROR : " << _e.what() << std::endl;
         }
 
-        ConsoleGUI     .EditorOwner = this;
-        SpriteEditorGUI.EditorOwner = this;
-        SpriteEditorGUI.Init();
+        console_gui     .EditorOwner = this;
+        sprite_editor_gui.EditorOwner = this;
+        sprite_editor_gui.Init();
         project_gui     .init(this);
         hierarchy_gui   .init(this);
         node_graph_gui  .init(this);
+        inspector_gui   .init(this);
 
         NFD_Init();
 
@@ -111,22 +112,21 @@ namespace MELT_EDITOR
             ImGui::BeginDisabled();
 
         draw_gameplay_view_gui ();
-        draw_inspector_gui     ();
+        //draw_inspector_gui     ();
         draw_material_gui      ();
-        //draw_hierarchy_gui     ();
-        //draw_assets_gui        ();
         draw_content_gui       ();
         draw_render_pipeline_gui();
 
         if (!_is_edit_mode)
             ImGui::EndDisabled();
 
-        SpriteEditorGUI.draw_gui();
-        ScriptEditorGUI.draw_gui();
-        ConsoleGUI     .draw_gui();
-        project_gui    .draw_gui();
-        hierarchy_gui  .draw_gui();
-        node_graph_gui .draw_gui();
+        sprite_editor_gui.draw_gui();
+        script_editor_gui.draw_gui();
+        console_gui      .draw_gui();
+        project_gui      .draw_gui();
+        hierarchy_gui    .draw_gui();
+        node_graph_gui   .draw_gui();
+        inspector_gui    .draw_gui();
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -322,7 +322,7 @@ namespace MELT_EDITOR
             if (ImGui::BeginMenu("Window"))
             {
                 if (ImGui::MenuItem("Sprite Editor"))
-                    SpriteEditorGUI.Open();
+                    sprite_editor_gui.Open();
                 ImGui::EndMenu();
             }
 
@@ -472,8 +472,8 @@ namespace MELT_EDITOR
             ImGui::Text("Normalized position         : (%.1f, %.1f)"     , MELT::Input.MouseScreenNormalizedPosition.x, MELT::Input.MouseScreenNormalizedPosition.y);
             ImGui::Text("Mouse world position        : (%.1f, %.1f)"     , MELT::Input.MouseScreenWorldPosition.x     , MELT::Input.MouseScreenWorldPosition.y     );
             ImGui::InputFloat3("Camera position", glm::value_ptr(engine->MainCamera.Position));
-            ImGui::SliderFloat("Near plane"       , &engine->MainCamera.NearPlane, -100.0f, 0.0f);
-            ImGui::SliderFloat("Far plane"        , &engine->MainCamera.FarPlane ,     0.0, 1000.0f);
+            ImGui::SliderFloat("Near plane"       , &engine->MainCamera.near_plane, -100.0f, 0.0f);
+            ImGui::SliderFloat("Far plane"        , &engine->MainCamera.far_plane ,     0.0, 1000.0f);
             ImGui::SliderFloat("Orthographic size", &engine->MainCamera.OrthographicSize, 1.0f, 200.f);
 
 
@@ -860,8 +860,6 @@ namespace MELT_EDITOR
         ImGui::End();
         ImGui::PopStyleColor();
     }
-
-    //std::string selectedFile;
 
     void Editor::DrawTransformComponentPanel(MELT::Transform& _transform)
     {

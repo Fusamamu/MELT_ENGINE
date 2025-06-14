@@ -23,7 +23,7 @@ namespace MELT
             for (uint32_t x = 0; x <= _x_segments; ++x)
             {
                 float xPos = (float)x / _x_segments * _width - halfWidth;
-                float _s    = (float)x / _x_segments;
+                float _s   = (float)x / _x_segments;
 
                 Vertex_PCTN _vertex;
                 _vertex.position = glm::vec3(xPos, 0.0f, _z_pos);

@@ -266,6 +266,19 @@ namespace MELT
         Logger.log("Create plane node");
     }
 
+    void Engine::create_camera_node()
+    {
+        std::shared_ptr<ResourceManager> _resource_manager = manager_registry.get<ResourceManager>();
+
+        Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
+
+        Node& _node = _working_scene->create_node("Camera");
+        _node.add_component<Transform>();
+        _node.add_component<Camera>();
+
+        Logger.log("Create camera node");
+    }
+
     void Engine::deselect_all_nodes()
     {
         Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;

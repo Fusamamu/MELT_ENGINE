@@ -35,7 +35,7 @@ namespace MELT
 
     struct Vertex_P
     {
-        float x, y, z;
+        M_VEC3 position;
     };
 
     struct Vertex_PCTN
@@ -63,7 +63,7 @@ namespace MELT
     inline VertexLayout createLayout_P() {
         VertexLayout _layout;
         _layout.stride = sizeof(Vertex_P);
-        _layout.addElement(VertexAttribute::POSITION, offsetof(Vertex_P, x), sizeof(float) * 3, GL_FLOAT, 3);
+        _layout.addElement(VertexAttribute::POSITION, offsetof(Vertex_P, position), sizeof(M_VEC3), GL_FLOAT, 3);
         return _layout;
     }
 

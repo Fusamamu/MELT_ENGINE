@@ -68,7 +68,6 @@ namespace MELT
             return { c - h, c + h };
         }
 
-        // Get corners (8)
         std::array<glm::vec3, 8> corners() const
         {
             return
@@ -81,6 +80,29 @@ namespace MELT
                 glm::vec3{max.x, min.y, max.z},
                 glm::vec3{min.x, max.y, max.z},
                 glm::vec3{max.x, max.y, max.z}
+            };
+        }
+
+        std::array<glm::vec3, 24> get_mesh() const
+        {
+            return {
+                // Bottom face
+                glm::vec3{min.x, min.y, min.z}, glm::vec3{max.x, min.y, min.z},
+                glm::vec3{max.x, min.y, min.z}, glm::vec3{max.x, min.y, max.z},
+                glm::vec3{max.x, min.y, max.z}, glm::vec3{min.x, min.y, max.z},
+                glm::vec3{min.x, min.y, max.z}, glm::vec3{min.x, min.y, min.z},
+
+                // Top face
+                glm::vec3{min.x, max.y, min.z}, glm::vec3{max.x, max.y, min.z},
+                glm::vec3{max.x, max.y, min.z}, glm::vec3{max.x, max.y, max.z},
+                glm::vec3{max.x, max.y, max.z}, glm::vec3{min.x, max.y, max.z},
+                glm::vec3{min.x, max.y, max.z}, glm::vec3{min.x, max.y, min.z},
+
+                // Vertical edges
+                glm::vec3{min.x, min.y, min.z}, glm::vec3{min.x, max.y, min.z},
+                glm::vec3{max.x, min.y, min.z}, glm::vec3{max.x, max.y, min.z},
+                glm::vec3{max.x, min.y, max.z}, glm::vec3{max.x, max.y, max.z},
+                glm::vec3{min.x, min.y, max.z}, glm::vec3{min.x, max.y, max.z},
             };
         }
     };

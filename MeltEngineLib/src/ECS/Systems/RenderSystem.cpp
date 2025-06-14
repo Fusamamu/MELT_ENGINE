@@ -7,7 +7,7 @@ namespace MELT
     {
         aQuad      = new Quad();
         aCube      = new Cube();
-        DummyLine  = new Line();
+        //DummyLine  = new Line();
         GizmosAxis = new GizmosTransform();
 
         GridShader2D         = new Shader("../MeltEngineLib/res/shaders/2DGrid.shader");
@@ -185,7 +185,7 @@ namespace MELT
         LineShader->Use();
         LineShader->SetMat4UniformView(_view);
         LineShader->SetMat4UniformProjection(_projection);
-        DummyLine->Draw();
+        //DummyLine->Draw();
 
         GizmosAxisShader->Use();
         GizmosAxisShader->SetMat4UniformView(_view);

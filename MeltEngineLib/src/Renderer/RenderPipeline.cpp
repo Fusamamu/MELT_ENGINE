@@ -24,6 +24,7 @@ namespace MELT
         m_MeshOutlineShader = new Shader("../MeltEngineLib/res/shaders/MeshOutline.shader");
         m_GridShader        = new Shader("../MeltEngineLib/res/shaders/3DGrid.shader");
         m_gizmos_shader     = new Shader("../MeltEngineLib/res/shaders/Gizmos.shader");
+        m_debug_line        = new Shader("../MeltEngineLib/res/shaders/CylinderLine.shader");
 
         glm::mat4 _model      = glm::translate(glm::mat4(1.0f), glm::vec3 (0.0f, 0.0f, 0.0f));
         glm::mat4 _view       = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -54,6 +55,11 @@ namespace MELT
         m_gizmos_shader->SetMat4UniformProjection(_projection);
         m_gizmos_shader->SetVec3UniformColor(glm::vec3(1.0, 1.0, 1.0));
 
+        m_debug_line->Use();
+        m_debug_line->SetMat4UniformView      (_view);
+        m_debug_line->SetMat4UniformProjection(_projection);
+        m_debug_line->SetVec3UniformColor(glm::vec3(1.0, 1.0, 1.0));
+
         editor_scene_frame_buffer = new FrameBuffer();
 
         glEnable(GL_DEPTH_TEST);
@@ -72,7 +78,17 @@ namespace MELT
         shader_preview.preview_renderer.set_buffer_data();
 
         gizmos_renderer.init();
-        gizmos_renderer.set_bounds(glm::vec3(-0.6f, -0.6f, -0.6f), glm::vec3(0.6f, 0.6f, 0.6f));
+        gizmos_renderer.set_bounds
+                (
+                    {
+                    M_VEC3(-0.6f, -0.6f, -0.6f),
+                    M_VEC3( 0.6f,  0.6f,  0.6f)
+                    }
+                );
+        //gizmos_renderer.set_bounds(glm::vec3(-0.6f, -0.6f, -0.6f), glm::vec3(0.6f, 0.6f, 0.6f));
+
+        line_renderer.set_mesh_data(&_engine->manager_registry.get<ResourceManager>()->debug_line);
+        line_renderer.set_buffer_data();
 
         MeshData* _quad_mesh_data = _engine->manager_registry.get<ResourceManager>()->get_mesh_data("default_quad");
         m_grid_renderer = new MeshRenderer();
@@ -159,8 +175,14 @@ namespace MELT
             m_gizmos_shader->SetMat4UniformView(_view);
             m_gizmos_shader->SetMat4UniformProjection(_projection);
             gizmos_renderer.draw(5.0f);
+
         }
 
+
+        m_debug_line->Use();
+        m_debug_line->SetMat4UniformView(_view);
+        m_debug_line->SetMat4UniformProjection(_projection);
+        line_renderer.draw();
         //Render UI
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);

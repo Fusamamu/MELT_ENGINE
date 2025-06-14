@@ -62,7 +62,7 @@ namespace MELT
         GLint m_UniformLoc_CameraWorldPosition;
         GLint m_UniformLoc_LightWorldPosition;
 
-        GLuint CreateShader(const std::string& _vertexSrc, const std::string& _geometrySrc, const std::string& _fragmentSrc);
+        GLuint CreateShader(const std::string& _vertex_src, const std::string& _geometry_src, const std::string& _fragment_src);
         GLuint CompileShader(GLenum _shaderType, const std::string& _shaderSrc);
     };
 }

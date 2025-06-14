@@ -43,6 +43,7 @@
 
 #define UUID std::string
 #define M_VEC3 glm::vec3
+#define M_VEC3_SIZE sizeof(M_VEC3)
 #define IM_TEXTURE_ID_FROM_GL(t) reinterpret_cast<void*>((uintptr_t)(t))
 
 namespace MELT

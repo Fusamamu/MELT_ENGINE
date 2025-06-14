@@ -28,7 +28,7 @@ add_library(${PROJECT_NAME} SHARED
 
         src/Renderer/FrameBuffer.cpp
         src/TextureManager.cpp
-        src/Renderer/Line.cpp
+#        src/Renderer/Line.cpp
         src/GizmosTransform.cpp
 
         src/EventSystem/Event.cpp
@@ -66,7 +66,11 @@ add_library(${PROJECT_NAME} SHARED
         src/Serializer.cpp
         src/UI/UI.cpp
         src/UI/UIManager.cpp
-        src/Bounds.cpp)
+        src/Bounds.cpp
+        src/Primitive/Line.cpp
+        src/Primitive/Line.h
+        src/Components/LineRenderer.cpp
+        src/Components/LineRenderer.h)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
 

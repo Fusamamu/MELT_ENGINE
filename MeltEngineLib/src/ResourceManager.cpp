@@ -2,6 +2,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 
 #include "stb_image.h"
+#include "Primitive/Line.h"
 
 namespace MELT
 {
@@ -32,6 +33,11 @@ namespace MELT
         default_plane.name = "default_plane";
         default_plane.mesh = new Mesh(_plane.get_mesh());
         mesh_data_table.try_emplace(default_plane.name, default_plane);
+
+        Line _line (M_VEC3(0.0f, 0.0f, 0.0f), M_VEC3(10.0f, 10.0f, 10.0f));
+        debug_line.name = "debug_line";
+        debug_line.mesh = new Mesh(_line.get_mesh());
+        mesh_data_table.try_emplace(debug_line.name, debug_line);
     }
 
     void ResourceManager::load_texture(std::filesystem::path _path)
