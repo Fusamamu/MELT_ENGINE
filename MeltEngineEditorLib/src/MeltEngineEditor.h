@@ -10,6 +10,7 @@
 #include "HierarchyGUI.h"
 #include "InspectorGUI.h"
 #include "NodeGraph.h"
+#include "TileEditor.h"
 
 namespace MELT_EDITOR
 {
@@ -29,6 +30,7 @@ namespace MELT_EDITOR
         HierarchyGUI    hierarchy_gui;
         NodeGraph       node_graph_gui;
         InspectorGUI    inspector_gui;
+        TileEditor       system_gui;
 
         bool SpriteEditorDisplayed;
 
@@ -48,22 +50,12 @@ namespace MELT_EDITOR
         void draw_main_menubar       ();
         void draw_scene_view_gui     ();
         void draw_gameplay_view_gui  ();
-        void draw_hierarchy_gui      ();
-        void draw_inspector_gui      ();
+        //void draw_hierarchy_gui      ();
         void draw_material_gui       ();
-        //void draw_assets_gui         ();
         void draw_content_gui        ();
         void draw_render_pipeline_gui();
 
-        void DrawLineSeparator();
-
-        void DrawTransformComponentPanel  (MELT::Transform   & _transform  );
-        void DrawRendererComponentPanel   (MELT::MeshRenderer& _renderer   );
-        void DrawBoxColliderComponentPanel(MELT::BoxCollider & _boxCollider);
-
-        //void display_file_browser(const std::filesystem::path& _file_path);
-
-        void DrawSpriteRendererComponentPanel(MELT::SpriteRenderer& _spriteRenderer);
+        void draw_line_separator();
 
         std::string CurrentTextDisplay;
         std::string LoadTextFile(const std::string& _filePath);
@@ -85,7 +77,5 @@ namespace MELT_EDITOR
 
     private:
         bool m_is_running = true;
-
-
     };
 }

@@ -4,7 +4,7 @@ namespace MELT
 {
     glm::vec3 RayCast::ScreenToWorldRay(int _cursorX, int _cursorY, const Camera& _camera)
     {
-        return ScreenToWorldRay(_cursorX, _cursorY, static_cast<int>(_camera.ScreenSize.x), static_cast<int>(_camera.ScreenSize.y), _camera.GetViewMatrix(), _camera.GetOrthographicProjectionMatrix());
+        return ScreenToWorldRay(_cursorX, _cursorY, static_cast<int>(_camera.ScreenSize.x), static_cast<int>(_camera.ScreenSize.y), _camera.get_view_matrix(), _camera.get_orthographic_projection_matrix());
     }
 
     glm::vec3 RayCast::ScreenToWorldRay(glm::vec2 _mouseScreenPos, const Camera& _camera)
@@ -20,8 +20,8 @@ namespace MELT
         glm::vec4 _farClip  = glm::vec4(_ndcX, _ndcY, 1.0f, 1.0f); // far plane in clip space
 
         // Inverse the projection and view matrices to go from clip space back to world space
-        glm::mat4 _projInv = glm::inverse(_camera.GetOrthographicProjectionMatrix());
-        glm::mat4 _viewInv = glm::inverse(_camera.GetViewMatrix());
+        glm::mat4 _projInv = glm::inverse(_camera.get_orthographic_projection_matrix());
+        glm::mat4 _viewInv = glm::inverse(_camera.get_view_matrix());
 
         // Transform clip space coordinates into world space
         glm::vec4 _nearPoint = _viewInv * _projInv * _nearClip; // World space near point

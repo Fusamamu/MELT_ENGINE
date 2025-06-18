@@ -1,5 +1,4 @@
 #include "MeltEngine.h"
-// #include "Coordinator.h"
 #include "RenderPipeline.h"
 
 namespace MELT
@@ -34,7 +33,7 @@ namespace MELT
         m_TargetShader->SetMat4UniformModel     (_model);
         m_TargetShader->SetMat4UniformView      (_view);
         m_TargetShader->SetMat4UniformProjection(_projection);
-        m_TargetShader->SetVec3UniformObjectColor(glm::vec3(1.0, 0.0, 0.0));
+        m_TargetShader->SetVec3UniformObjectColor(glm::vec3(0.8, 0.0, 0.0));
         m_TargetShader->SetVec3UniformLightColor (glm::vec3(1.0, 1.0, 1.0));
         m_TargetShader->SetFloatUniformObjectShininess(1.0f);
         m_TargetShader->SetVec3UniformLightWorldPosition(glm::vec3(100, 100, 100));
@@ -104,8 +103,8 @@ namespace MELT
 
         BeginFrame();
 
-        glm::mat4 _view       = m_Engine->MainCamera.GetViewMatrix();
-        glm::mat4 _projection = m_Engine->MainCamera.GetOrthographicProjectionMatrix();
+        glm::mat4 _view       = m_Engine->MainCamera.get_view_matrix();
+        glm::mat4 _projection = m_Engine->MainCamera.get_orthographic_projection_matrix();
 
         m_GridShader->Use();
         m_GridShader->SetMat4UniformModel(glm::translate(glm::mat4(1.0f), glm::vec3 (0.0, 0.0, 0.0)));
@@ -122,11 +121,7 @@ namespace MELT
                 continue;
             MeshRenderer& _mesh_renderer = _node.get_component<MeshRenderer>();
 
-            float _xPos = _transform.position.x;
-            float _yPos = _transform.position.y;
-            float _zPos = _transform.position.z;
-
-            glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (_xPos, _yPos, _zPos));
+            glm::mat4 _model = _transform.get_transform_matrix();
 
             if(_node.is_selected)
             {

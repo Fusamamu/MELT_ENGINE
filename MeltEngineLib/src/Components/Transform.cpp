@@ -20,6 +20,6 @@ namespace MELT
         // Combine all transformations: Translation * Rotation * Scale
         glm::mat4 transformationMatrix = translationMatrix * rotationMatrix * scaleMatrix;
 
-        return translationMatrix;
+        return transformationMatrix;
     }
 }

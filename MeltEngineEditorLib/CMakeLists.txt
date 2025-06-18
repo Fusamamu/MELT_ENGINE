@@ -17,13 +17,14 @@ add_library(${PROJECT_NAME} STATIC
         ./src/SpriteEditorGUI.cpp
         ./src/ApplicationState.cpp
         ./src/ProjectGUI.cpp
-        src/HierarchyGUI.cpp
+        ./src/HierarchyGUI.cpp
+        ./src/NodeGraph.cpp
+        ./src/InspectorGUI.cpp
+        src/TileEditor.cpp
         ${IMGUI_SRCS}
         ${IMGUI_BACKENDS}/imgui_impl_sdl2.cpp
         ${IMGUI_BACKENDS}/imgui_impl_opengl3.cpp
-        ${IMGUIZMOS_SRCS}
-        src/NodeGraph.cpp
-        src/InspectorGUI.cpp)
+        ${IMGUIZMOS_SRCS})
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC ./src/EditorCore.h)
 

@@ -28,8 +28,8 @@ namespace MELT
         [[nodiscard]] float HalfScreenWidth () const;
         [[nodiscard]] float HalfScreenHeight() const;
 
-        [[nodiscard]] glm::mat4 GetViewMatrix() const;
-        [[nodiscard]] glm::mat4 GetOrthographicProjectionMatrix() const;
+        [[nodiscard]] glm::mat4 get_view_matrix() const;
+        [[nodiscard]] glm::mat4 get_orthographic_projection_matrix() const;
 
         void UpdateScreenSizeWithOrthographicSize(float _screenRatio);
 

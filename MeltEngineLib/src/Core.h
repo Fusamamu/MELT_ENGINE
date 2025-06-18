@@ -18,6 +18,7 @@
 #include <typeinfo>
 #include <optional>
 #include <mutex>
+#include <algorithm>
 
 #include <dlfcn.h>
 #include <cstdlib>

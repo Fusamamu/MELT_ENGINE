@@ -20,4 +20,22 @@ namespace MELT
         });
         m_nodes.erase(it, m_nodes.end());
     }
+
+    void Scene::destroy_node_by_id(NodeID _id)
+    {
+        auto _it = std::find_if(m_nodes.begin(), m_nodes.end(), [&](const Node& _node)
+        {
+            return _node.id == _id;
+        });
+
+        if (_it != m_nodes.end())
+        {
+            entt::entity entity = _it->get_entity();
+            if (!ecs_registry.valid(entity))
+                return;
+            ecs_registry.destroy(entity);
+
+            m_nodes.erase(_it, m_nodes.end());
+        }
+    }
 }

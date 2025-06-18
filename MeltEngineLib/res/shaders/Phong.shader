@@ -1,9 +1,9 @@
 #shader vertex
 #version 330 core
 layout(location = 0) in vec3 position;
-layout(location = 1) in vec3 vertexColor;
+layout(location = 1) in vec3 aColor;
 layout(location = 2) in vec2 texCoord;
-layout(location = 4) in vec3 normal;    // Vertex normal
+layout(location = 3) in vec3 normal;    // Vertex normal
 
 out vec2 TexCoord;
 

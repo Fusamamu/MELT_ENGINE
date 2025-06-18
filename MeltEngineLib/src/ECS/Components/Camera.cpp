@@ -29,12 +29,12 @@ namespace MELT
         return ScreenSize.y / 2.0f;
     }
 
-    glm::mat4 Camera::GetViewMatrix() const
+    glm::mat4 Camera::get_view_matrix() const
     {
         return glm::lookAt(Position, Target, Up);
     }
 
-    glm::mat4 Camera::GetOrthographicProjectionMatrix() const
+    glm::mat4 Camera::get_orthographic_projection_matrix() const
     {
         return glm::ortho(-ScreenSize.x/2, ScreenSize.x/2, -ScreenSize.y/2, ScreenSize.y/2, near_plane, far_plane);
     }

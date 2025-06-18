@@ -30,6 +30,7 @@ namespace MELT
 
         Node& create_node(const std::string& _name);
         void destroy_node(const Node& _node);
+        void destroy_node_by_id(NodeID _id);
 
         template<typename T, typename... Args>
         Node& create_node_with_type(const std::string& _name, Args&&... _args)

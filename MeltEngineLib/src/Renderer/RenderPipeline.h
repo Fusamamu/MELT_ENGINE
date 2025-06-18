@@ -49,8 +49,8 @@ namespace MELT
             constexpr auto _m4Size = sizeof(glm::mat4);
 
             glBindBuffer   (GL_UNIFORM_BUFFER, m_ubo);
-            glBufferSubData(GL_UNIFORM_BUFFER, 0                , sizeof(glm::mat4), glm::value_ptr(_camera.GetViewMatrix()));
-            glBufferSubData(GL_UNIFORM_BUFFER, sizeof(glm::mat4), sizeof(glm::mat4), glm::value_ptr(_camera.GetOrthographicProjectionMatrix()));
+            glBufferSubData(GL_UNIFORM_BUFFER, 0                , sizeof(glm::mat4), glm::value_ptr(_camera.get_view_matrix()));
+            glBufferSubData(GL_UNIFORM_BUFFER, sizeof(glm::mat4), sizeof(glm::mat4), glm::value_ptr(_camera.get_orthographic_projection_matrix()));
             glBindBuffer   (GL_UNIFORM_BUFFER, 0);
         }
 

@@ -65,34 +65,34 @@ namespace MELT_EDITOR
 
             ImGui::NewLine();
 
-            m_editor->DrawLineSeparator();
+            m_editor->draw_line_separator();
 
             if (_selected_node && _selected_node->has_component<MELT::Transform>())
             {
                 MELT::Transform& _transform = _selected_node->get_component<MELT::Transform>();
                 draw_transform_component_panel(_transform);
-                m_editor->DrawLineSeparator();
+                m_editor->draw_line_separator();
             }
 
             if (_selected_node && _selected_node->has_component<MELT::MeshRenderer>())
             {
                 MELT::MeshRenderer& _renderer = _selected_node->get_component<MELT::MeshRenderer>();
                 draw_renderer_component_panel(_renderer);
-                m_editor->DrawLineSeparator();
+                m_editor->draw_line_separator();
             }
 
             if (_selected_node && _selected_node->has_component<MELT::BoxCollider>())
             {
                 MELT::BoxCollider& _box_collider = _selected_node->get_component<MELT::BoxCollider>();
                 draw_box_collider_component_panel(_box_collider);
-                m_editor->DrawLineSeparator();
+                m_editor->draw_line_separator();
             }
 
             if (_selected_node && _selected_node->has_component<MELT::Camera>())
             {
                 MELT::Camera& _camera = _selected_node->get_component<MELT::Camera>();
                 draw_camera_component_panel(_camera);
-                m_editor->DrawLineSeparator();
+                m_editor->draw_line_separator();
             }
 
             //Add components button
@@ -502,11 +502,6 @@ namespace MELT_EDITOR
             ImGui::PopStyleColor();
             ImGui::SameLine(120.0f);
             ImGui::InputFloat("##FarPlane", &_camera.far_plane);
-
-
-
-
-
 
             ImGui::Unindent();
             ImGui::PopStyleColor();
