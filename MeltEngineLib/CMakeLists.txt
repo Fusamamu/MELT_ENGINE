@@ -28,7 +28,6 @@ add_library(${PROJECT_NAME} SHARED
 
         src/Renderer/FrameBuffer.cpp
         src/TextureManager.cpp
-#        src/Renderer/Line.cpp
         src/GizmosTransform.cpp
 
         src/EventSystem/Event.cpp
@@ -53,9 +52,13 @@ add_library(${PROJECT_NAME} SHARED
         src/SceneManager.cpp
         src/ManagerRegistry.cpp
         src/ResourceManager.cpp
+
         src/Components/Transform.cpp
         src/Components/BoxCollider.cpp
         src/Components/MeshRenderer.cpp
+        src/Components/Light.cpp
+        src/Components/LineRenderer.cpp
+
         src/Texture.cpp
         src/ShaderPreview.cpp
         src/Renderer/GizmosRenderer.cpp
@@ -68,9 +71,8 @@ add_library(${PROJECT_NAME} SHARED
         src/UI/UIManager.cpp
         src/Bounds.cpp
         src/Primitive/Line.cpp
-        src/Primitive/Line.h
-        src/Components/LineRenderer.cpp
-        src/Components/LineRenderer.h)
+        src/Systems/MovementSystem.cpp
+)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
 
@@ -88,6 +90,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ./src/Resources
         ./src/MathLib
         ./src/Reflection
+        ./src/Systems
 
         ./include
         ./include/EventSystem
@@ -98,7 +101,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ./include/ECS/Systems
         ./include/Resources
         ./include/MathLib
-        
+
         ./vendors/stb
         ./vendors/yaml-cpp/include
         ./vendors/assimp/include

@@ -1,5 +1,6 @@
 #ifndef APPLICATIONSTATE_H
 #define APPLICATIONSTATE_H
+
 #include "Core.h"
 
 namespace MELT_EDITOR
@@ -11,27 +12,33 @@ namespace MELT_EDITOR
     public:
         Editor* editor_owner;
 
+        bool running = false;
+
         ApplicationMode(Editor* _editor): editor_owner(_editor){ }
-        virtual void OnEnter() = 0;
-        virtual void OnExit()  = 0;
-        virtual void update(float _dt) = 0;
         virtual ~ApplicationMode() = default;
+
+        virtual void on_enter() = 0;
+        virtual void on_exit()  = 0;
+        virtual void update(float _dt) = 0;
+        virtual void render() = 0;
     };
 
     class EditorMode : public ApplicationMode {
     public:
         EditorMode(Editor* _editor): ApplicationMode(_editor) { }
-        void OnEnter() override;
+        void on_enter() override;
+        void on_exit() override;
         void update(float dt) override;
-        void OnExit() override;
+        void render() override;
     };
 
     class GameplayMode : public ApplicationMode {
     public:
         GameplayMode(Editor* _editor): ApplicationMode(_editor) { }
-        void OnEnter() override;
+        void on_enter() override;
         void update(float dt) override;
-        void OnExit() override;
+        void on_exit() override;
+        void render() override;
     };
 
     class ApplicationModeManager
@@ -66,7 +73,7 @@ namespace MELT_EDITOR
             if (_it != m_mode_table.end())
             {
                 m_current_mode = _it->second.get();
-                m_current_mode->OnEnter();
+                m_current_mode->on_enter();
             }
         }
 
@@ -78,19 +85,14 @@ namespace MELT_EDITOR
             if (_it != m_mode_table.end())
             {
                 if (m_current_mode)
-                    m_current_mode->OnExit();
+                    m_current_mode->on_exit();
 
                 m_current_mode = _it->second.get();
-                m_current_mode->OnEnter();
+                m_current_mode->on_enter();
             }
         }
 
-        void update(float dt)
-        {
-            if (m_current_mode)
-                m_current_mode->update(dt);
-        }
-
+        void update(float dt);
     private:
         ApplicationMode* m_current_mode = nullptr;
         std::unordered_map<std::type_index, std::unique_ptr<ApplicationMode>> m_mode_table;

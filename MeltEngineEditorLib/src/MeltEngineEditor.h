@@ -17,6 +17,8 @@ namespace MELT_EDITOR
     class Editor
     {   
     public:
+        bool is_running = true;
+
         MELT::Engine* engine;
 
         std::vector<std::string> fileNames;
@@ -76,6 +78,5 @@ namespace MELT_EDITOR
         void DrawSpriteWithDrawList(ImTextureID texture_id, ImVec2 position, ImVec2 sprite_size, ImVec2 sprite_position);
 
     private:
-        bool m_is_running = true;
     };
 }

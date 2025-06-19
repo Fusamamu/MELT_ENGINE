@@ -52,7 +52,7 @@ namespace MELT_EDITOR
                     ImGui::Separator();
 
                     if (ImGui::MenuItem("Cube node"))
-                        m_engine->create_node();
+                        m_engine->create_cube_node();
 
                     if (ImGui::MenuItem("Quad node"))
                     {
@@ -65,6 +65,8 @@ namespace MELT_EDITOR
 
                     if (ImGui::MenuItem("Camera node"))
                         m_engine->create_camera_node();
+                    if (ImGui::MenuItem("Light node"))
+                        m_engine->create_light_node();
 
                     ImGui::EndMenu();
                 }

@@ -401,7 +401,7 @@ namespace MELT_EDITOR
                     if (!ImGuizmo::IsOver() && !ImGuizmo::IsUsing() || !_working_scene->selected_node_id.has_value())
                     {
                         engine->deselect_all_nodes();
-                        engine->SelectObject(MELT::Input.MouseScreenPosition, engine->MainCamera);
+                        engine->select_object(MELT::Input.MouseScreenPosition, engine->MainCamera);
                     }
                 }
             }
@@ -461,7 +461,7 @@ namespace MELT_EDITOR
             MELT::Input.MouseScreenPosition.y = ImVec2(MELT::Input.MouseWindowPosition.x - _cursor_screen_pos.x, MELT::Input.MouseWindowPosition.y - _cursor_screen_pos.y).y;
 
 
-            ImVec2 _screenPos = ImVec2(MELT::Input.MouseWindowPosition.x - _cursor_screen_pos.x, MELT::Input.MouseWindowPosition.y - _cursor_screen_pos.y);
+            ImVec2 _screenPos     = ImVec2(MELT::Input.MouseWindowPosition.x - _cursor_screen_pos.x, MELT::Input.MouseWindowPosition.y - _cursor_screen_pos.y);
             ImVec2 _normalizedPos = RemapImVec2(_screenPos,
                                                 0.0f, _scene_editor_window_width , 0.0f, 1.0f,
                                                 0.0f, _scene_editor_window_height, 0.0f, 1.0f);
@@ -490,53 +490,64 @@ namespace MELT_EDITOR
             ImGui::SliderFloat("Far plane"        , &engine->MainCamera.far_plane ,     0.0, 1000.0f);
             ImGui::SliderFloat("Orthographic size", &engine->MainCamera.OrthographicSize, 1.0f, 200.f);
 
-            M_VEC3 _world_pos = M_VEC3(0.0f, 0.0f, 0.0f);
 
-            glm::mat4 _view           = engine->MainCamera.get_view_matrix();
-            glm::mat4 _projection     = engine->MainCamera.get_orthographic_projection_matrix();
-            glm::vec4 _clip_space_pos = _projection * _view * glm::vec4(_world_pos, 1.0f);
+            auto _ent_view = _working_scene->ecs_registry.view<MELT::Transform, MELT::Light>();
 
-            glm::vec2 ndc = glm::vec2(_clip_space_pos.x, _clip_space_pos.y);
-            glm::vec2 screenNormalized = ndc * 0.5f + 0.5f;
-
-            glm::vec2 screenPos = glm::vec2(
-                        screenNormalized.x  * _scene_editor_window_width  + _cursor_screen_pos.x,
-                (1.0f - screenNormalized.y) * _scene_editor_window_height + _cursor_screen_pos.y); // flip Y
-
-            ImVec2 winPos = ImGui::GetWindowPos();
-            ImVec2 winSize = ImGui::GetWindowSize();
-            ImVec2 winMin = winPos;
-            ImVec2 winMax = ImVec2(winPos.x + winSize.x, winPos.y + winSize.y);
-
-            //Only draw if inside the window region
-            if (screenPos.x >= winMin.x && screenPos.x <= winMax.x &&
-                screenPos.y >= winMin.y && screenPos.y <= winMax.y)
+            for (auto _entity : _ent_view)
             {
-                ImVec2 boxSize = ImVec2(80.0f, 20.0f); // width x height
-                ImVec2 rectMin = ImVec2(screenPos.x - boxSize.x * 0.5f, screenPos.y - boxSize.y - 5.0f);
-                ImVec2 rectMax = ImVec2(screenPos.x + boxSize.x * 0.5f, screenPos.y - 5.0f);
+                auto& _transform = _ent_view.get<MELT::Transform>(_entity);
 
-                ImDrawList* drawList = ImGui::GetWindowDrawList();
-                drawList->AddRectFilled(rectMin, rectMax, IM_COL32( 30, 144, 255, 220), 6.0f); // background
-                drawList->AddRect      (rectMin, rectMax, IM_COL32(255, 255, 255, 255), 6.0f);      // border
+                M_VEC3 _world_pos = _transform.position;
 
-                ImVec2 textSize = ImGui::CalcTextSize("Label!");
-                ImVec2 textPos = ImVec2(
-                    rectMin.x + (rectMax.x - rectMin.x - textSize.x) * 0.5f,
-                    rectMin.y + (rectMax.y - rectMin.y - textSize.y) * 0.5f
-                );
+                glm::mat4 _view           = engine->MainCamera.get_view_matrix();
+                glm::mat4 _projection     = engine->MainCamera.get_orthographic_projection_matrix();
+                glm::vec4 _clip_space_pos = _projection * _view * glm::vec4(_world_pos, 1.0f);
 
-                drawList->AddText(textPos, IM_COL32(255, 255, 255, 255), "Camera");
+                glm::vec2 ndc = glm::vec2(_clip_space_pos.x, _clip_space_pos.y);
+                glm::vec2 screenNormalized = ndc * 0.5f + 0.5f;
 
-                MELT::TextureData* _camera_icon = engine->manager_registry.get<MELT::ResourceManager>()->get_texture_data("camera_icon.png");
-                ImTextureID _camera_icon_id = (ImTextureID)(intptr_t)_camera_icon->p_texture->texture_id;
+                glm::vec2 screenPos = glm::vec2(
+                            screenNormalized.x  * _scene_editor_window_width  + _cursor_screen_pos.x,
+                    (1.0f - screenNormalized.y) * _scene_editor_window_height + _cursor_screen_pos.y); // flip Y
 
-                const ImVec2 size = ImVec2(32, 32);
-                ImVec2 drawMin = ImVec2(screenPos.x - size.x * 0.5f, screenPos.y - size.y);
-                ImVec2 drawMax = ImVec2(drawMin.x + size.x         , drawMin.y   + size.y);
+                ImVec2 winPos = ImGui::GetWindowPos();
+                ImVec2 winSize = ImGui::GetWindowSize();
+                ImVec2 winMin = winPos;
+                ImVec2 winMax = ImVec2(winPos.x + winSize.x, winPos.y + winSize.y);
 
-                // Step 5: Draw the texture
-                ImGui::GetWindowDrawList()->AddImage(_camera_icon_id, drawMin, drawMax);
+                //Only draw if inside the window region
+                if (screenPos.x >= winMin.x && screenPos.x <= winMax.x &&
+                    screenPos.y >= winMin.y && screenPos.y <= winMax.y)
+                {
+                    ImVec2 boxSize = ImVec2(80.0f, 20.0f); // width x height
+                    ImVec2 rectMin = ImVec2(screenPos.x - boxSize.x * 0.5f, screenPos.y - boxSize.y - 5.0f);
+                    ImVec2 rectMax = ImVec2(screenPos.x + boxSize.x * 0.5f, screenPos.y - 5.0f);
+
+                    // ImDrawList* drawList = ImGui::GetWindowDrawList();
+                    // drawList->AddRectFilled(rectMin, rectMax, IM_COL32( 30, 144, 255, 220), 6.0f); // background
+                    // drawList->AddRect      (rectMin, rectMax, IM_COL32(255, 255, 255, 255), 6.0f);      // border
+
+                    ImVec2 textSize = ImGui::CalcTextSize("Label!");
+                    ImVec2 textPos = ImVec2(
+                        rectMin.x + (rectMax.x - rectMin.x - textSize.x) * 0.5f,
+                        rectMin.y + (rectMax.y - rectMin.y - textSize.y) * 0.5f
+                    );
+
+                    //drawList->AddText(textPos, IM_COL32(255, 255, 255, 255), "Camera");
+
+                    MELT::TextureData* _camera_icon = engine->manager_registry.get<MELT::ResourceManager>()->get_texture_data("camera_icon.png");
+                    ImTextureID _camera_icon_id = (ImTextureID)(intptr_t)_camera_icon->p_texture->texture_id;
+
+                    MELT::TextureData* _light_icon = engine->manager_registry.get<MELT::ResourceManager>()->get_texture_data("light_icon.png");
+                    ImTextureID _light_icon_id = (ImTextureID)(intptr_t)_light_icon->p_texture->texture_id;
+
+                    const ImVec2 size = ImVec2(32, 32);
+                    ImVec2 drawMin = ImVec2(screenPos.x - size.x * 0.5f, screenPos.y - size.y);
+                    ImVec2 drawMax = ImVec2(drawMin.x + size.x         , drawMin.y   + size.y);
+
+                    // Step 5: Draw the texture
+                    ImGui::GetWindowDrawList()->AddImage(_light_icon_id, drawMin, drawMax);
+                }
             }
 
             // Push to bottom

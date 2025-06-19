@@ -4,6 +4,8 @@
 #include "Core.h"
 #include "Node.h"
 
+#include "MovementSystem.h"
+
 namespace MELT
 {
     class Scene
@@ -24,6 +26,10 @@ namespace MELT
             uuid = GenerateUUID(reinterpret_cast<uintptr_t>(this));
         }
         ~Scene() = default;
+
+        void init();
+        void update();
+        void quit();
 
         std::vector<Node>& get_all_nodes(){ return m_nodes; }
         [[nodiscard]] const std::vector<Node>& get_all_nodes() const { return m_nodes; }
@@ -76,8 +82,22 @@ namespace MELT
                     return &_node;
             return nullptr;
         }
+
+        template<typename T>
+        bool try_get_first(T& _component)
+        {
+            auto _view = ecs_registry.view<T>();
+            for (auto entity : _view)
+            {
+                _component = _view.get(entity);
+                return true;
+            }
+            return false;
+        }
     private:
         std::vector<Node> m_nodes;
+
+        MovementSystem m_movement_system;
     };
 
     template<typename T, typename... Args>

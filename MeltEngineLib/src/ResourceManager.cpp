@@ -12,6 +12,7 @@ namespace MELT
         load_texture("../MeltEngineLib/res/textures/open-file.png");
         load_texture("../MeltEngineLib/res/textures/material_icon.png");
         load_texture("../MeltEngineLib/res/textures/camera_icon.png");
+        load_texture("../MeltEngineLib/res/textures/light_icon.png");
         load_texture("../MeltEngineLib/res/textures/scene_icon.png");
         load_texture("../MeltEngineLib/res/textures/exclamation.png");
         load_texture("../MeltEngineLib/res/textures/caution.png");

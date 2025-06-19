@@ -20,6 +20,7 @@ namespace MELT_EDITOR
         void draw_box_collider_component_panel   (MELT::BoxCollider   & _box_collider  );
         void draw_sprite_renderer_component_panel(MELT::SpriteRenderer& _spriteRenderer);
         void draw_camera_component_panel         (MELT::Camera        & _camera        );
+        void draw_light_component_panel          (MELT::Light         & _light         );
     };
 }
 

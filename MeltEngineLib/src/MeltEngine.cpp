@@ -108,37 +108,37 @@ namespace MELT
 
     void Engine::update()
     {
-        glEnable(GL_DEPTH_TEST);//Will remove this
-        while(m_is_running)
-        {
-            update_input ();
-            update_logic ();
-            update_render();
-            gEventManager.DispatchEvents();
-            SDL_Delay(16);
-        }
+        // glEnable(GL_DEPTH_TEST);//Will remove this
+        // while(m_is_running)
+        // {
+        //     update_input ();
+        //     update_logic ();
+        //     update_render();
+        //     gEventManager.DispatchEvents();
+        //     SDL_Delay(16);
+        // }
     }
 
     void Engine::update_input()
     {
-        Input.ClearInput();
-        while(SDL_PollEvent(&m_event))
-        {
-            Input.Update(m_event);
-            switch(m_event.type)
-            {
-                case SDL_QUIT:
-                    m_is_running = false;
-                    break;
-            }
-        }
-        Input.CheckMouseHoldStates();
+        // Input.ClearInput();
+        // while(SDL_PollEvent(&m_event))
+        // {
+        //     Input.Update(m_event);
+        //     switch(m_event.type)
+        //     {
+        //         case SDL_QUIT:
+        //             m_is_running = false;
+        //             break;
+        //     }
+        // }
+        // Input.CheckMouseHoldStates();
     }
 
-    void Engine::update_logic()
+    void Engine::update_editor_logic()
     {
-         if(Input.IsKeyPressed(SDL_SCANCODE_ESCAPE))
-             m_is_running = false;
+        if(Input.IsKeyPressed(SDL_SCANCODE_ESCAPE))
+            m_is_running = false;
 
         if(Input.IsMouseButtonPressed(SDL_BUTTON_RIGHT))
             m_is_dragging = true;
@@ -188,13 +188,11 @@ namespace MELT
             MainCamera.Position -= MainCamera.Up * 0.5f;
             MainCamera.Target   -= MainCamera.Up * 0.5f;
         }
+    }
 
-        // auto _view = manager_registry.get<SceneManager>()->working_scene->ecs_registry.view<Transform>();
-        // for (entt::entity _entity : _view)
-        // {
-        //     Transform& _transform = _view.get<Transform>(_entity);
-        //     _transform.position.x += 0.16f;
-        // }
+    void Engine::update_logic()
+    {
+        manager_registry.get<SceneManager>()->working_scene->update();
     }
 
     void Engine::update_render()
@@ -230,7 +228,7 @@ namespace MELT
         SDL_Quit();
     }
 
-    void Engine::create_node()
+    void Engine::create_cube_node()
     {
         std::shared_ptr<ResourceManager> _resource_manager = manager_registry.get<ResourceManager>();
 
@@ -279,13 +277,26 @@ namespace MELT
         Logger.log("Create camera node");
     }
 
+    void Engine::create_light_node()
+    {
+        std::shared_ptr<ResourceManager> _resource_manager = manager_registry.get<ResourceManager>();
+
+        Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
+
+        Node& _node = _working_scene->create_node("Light");
+        _node.add_component<Transform>();
+        _node.add_component<Light>();
+
+        Logger.log("Create light node");
+    }
+
     void Engine::deselect_all_nodes()
     {
         Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
         _working_scene->deselect_all_nodes();
     }
 
-    void Engine::SelectObject(glm::vec2 _mouseScreenPos, const MELT::Camera &_camera)
+    void Engine::select_object(glm::vec2 _mouseScreenPos, const MELT::Camera &_camera)
     {
         Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
 

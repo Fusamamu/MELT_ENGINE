@@ -16,6 +16,7 @@
 #include "MeshRenderer.h"
 #include "Renderer.h"
 #include "BoxCollider.h"
+#include "Light.h"
 
 #include "SpriteRenderer.h"
 #include "Coordinator.h"
@@ -63,6 +64,7 @@ namespace MELT
         void update();
         void update_input();
         void update_render();
+        void update_editor_logic();
         void update_logic();
 
         void begin_frame();
@@ -71,11 +73,12 @@ namespace MELT
 
         void quit();
 
-        void create_node();
+        void create_cube_node();
         void create_plane_node();
         void create_camera_node();
+        void create_light_node();
         void deselect_all_nodes();
-        void SelectObject(glm::vec2 _mouseScreenPos, const Camera& _camera);
+        void select_object(glm::vec2 _mouseScreenPos, const Camera& _camera);
 
     private:
         bool m_is_running;

@@ -113,6 +113,17 @@ namespace MELT
         //aQuad->Draw();
         m_grid_renderer->draw();
 
+        auto _light_view = m_Engine->manager_registry.get<SceneManager>()->working_scene->ecs_registry.view<Transform, Light>();
+
+        for (auto _entity : _light_view)
+        {
+            auto& _transform = _light_view.get<Transform>(_entity);
+
+            m_TargetShader->Use();
+            m_TargetShader->SetVec3UniformLightWorldPosition(_transform.position);
+        }
+
+
         for (Node& _node : m_Engine->manager_registry.get<SceneManager>()->working_scene->get_all_nodes())
         {
             Transform& _transform = _node.get_component<Transform>();

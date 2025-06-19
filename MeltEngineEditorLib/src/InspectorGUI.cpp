@@ -95,6 +95,13 @@ namespace MELT_EDITOR
                 m_editor->draw_line_separator();
             }
 
+            if (_selected_node && _selected_node->has_component<MELT::Light>())
+            {
+                MELT::Light& _light = _selected_node->get_component<MELT::Light>();
+                draw_light_component_panel(_light);
+                m_editor->draw_line_separator();
+            }
+
             //Add components button
             ImVec2 buttonSize = ImVec2(120, 30);
             ImVec2 windowSize = ImGui::GetWindowSize();
@@ -502,6 +509,57 @@ namespace MELT_EDITOR
             ImGui::PopStyleColor();
             ImGui::SameLine(120.0f);
             ImGui::InputFloat("##FarPlane", &_camera.far_plane);
+
+            ImGui::Unindent();
+            ImGui::PopStyleColor();
+
+            // Push custom colors for button
+            ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 6.0f);
+            ImGui::PushStyleColor(ImGuiCol_Button,        IM_COL32(40, 40, 40, 255));  // Default
+            ImGui::PushStyleColor(ImGuiCol_ButtonHovered, IM_COL32(100, 100, 100, 255));  // Hover
+            ImGui::PushStyleColor(ImGuiCol_ButtonActive,  IM_COL32(200, 200, 200, 255));    // Pressed
+
+            ImGui::NewLine();
+            ImGui::SameLine(ImGui::GetContentRegionAvail().x - ImGui::CalcTextSize("Delete").x - ImGui::GetStyle().FramePadding.x * 2);
+            ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.5f, 0.5f, 0.5f, 1.0f));
+            if (ImGui::Button("Delete 1")) {
+                if (_selected_node && _selected_node->has_component<MELT::Camera>())
+                    _selected_node->remove_component<MELT::Camera>();
+            }
+            ImGui::PopStyleColor();
+
+            ImGui::PopStyleColor(3);
+            ImGui::PopStyleVar();
+
+            ImGui::Dummy(ImVec2(0.0f, 4.0f));
+        }
+    }
+
+    void InspectorGUI::draw_light_component_panel(MELT::Light &_light)
+    {
+        MELT::Scene* _working_scene = m_engine->manager_registry.get<MELT::SceneManager>()->working_scene;
+        MELT::Node * _selected_node = _working_scene->get_selected_node();
+
+        if (ImGui::CollapsingHeader("Light", ImGuiTreeNodeFlags_DefaultOpen))
+        {
+            ImGui::Dummy(ImVec2(0.0f, 4.0f));
+
+            ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
+            ImGui::Indent();
+
+            auto _font_color = ImVec4(0.5f, 0.5f, 0.5f, 1.0f);
+
+
+
+
+
+            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            ImGui::Text("Color");
+            ImGui::PopStyleColor();
+            ImGui::SameLine(120.0f);
+            ImGui::InputFloat3("##Color", glm::value_ptr(_light.color));
+
+
 
             ImGui::Unindent();
             ImGui::PopStyleColor();

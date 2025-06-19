@@ -2,6 +2,21 @@
 
 namespace MELT
 {
+    void Scene::init()
+    {
+
+    }
+
+    void Scene::update()
+    {
+        m_movement_system.update(ecs_registry, 0.016f);
+    }
+
+    void Scene::quit()
+    {
+
+    }
+
     Node& Scene::create_node(const std::string& _name)
     {
         entt::entity _entity = ecs_registry.create();
