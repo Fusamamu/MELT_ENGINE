@@ -11,6 +11,7 @@
 #include "InspectorGUI.h"
 #include "NodeGraph.h"
 #include "TileEditor.h"
+#include "SceneViewGUI.h"
 
 namespace MELT_EDITOR
 {
@@ -25,6 +26,7 @@ namespace MELT_EDITOR
 
         std::filesystem::path working_project_directory = "../Project";
 
+        SceneViewGUI    scene_view_gui;
         SpriteEditorGUI sprite_editor_gui;
         ScriptEditorGUI script_editor_gui;
         ConsoleGUI      console_gui;
@@ -32,7 +34,7 @@ namespace MELT_EDITOR
         HierarchyGUI    hierarchy_gui;
         NodeGraph       node_graph_gui;
         InspectorGUI    inspector_gui;
-        TileEditor       system_gui;
+        TileEditor      system_gui;
 
         bool SpriteEditorDisplayed;
 
@@ -52,7 +54,6 @@ namespace MELT_EDITOR
         void draw_main_menubar       ();
         void draw_scene_view_gui     ();
         void draw_gameplay_view_gui  ();
-        //void draw_hierarchy_gui      ();
         void draw_material_gui       ();
         void draw_content_gui        ();
         void draw_render_pipeline_gui();

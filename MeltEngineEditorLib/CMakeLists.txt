@@ -20,7 +20,8 @@ add_library(${PROJECT_NAME} STATIC
         ./src/HierarchyGUI.cpp
         ./src/NodeGraph.cpp
         ./src/InspectorGUI.cpp
-        src/TileEditor.cpp
+        ./src/TileEditor.cpp
+        ./src/SceneViewGUI.cpp
         ${IMGUI_SRCS}
         ${IMGUI_BACKENDS}/imgui_impl_sdl2.cpp
         ${IMGUI_BACKENDS}/imgui_impl_opengl3.cpp
