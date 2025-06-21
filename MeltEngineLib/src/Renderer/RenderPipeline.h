@@ -22,7 +22,8 @@ namespace MELT
 
         ShaderPreview shader_preview;
 
-        GizmosRenderer gizmos_renderer;
+        GizmosRenderer aabb_gizmos_renderer;
+        GizmosRenderer camera_frustum_renderer;
         LineRenderer   line_renderer;
 
         glm::vec4 clear_color;
@@ -93,7 +94,7 @@ namespace MELT
         }
 
     private:
-        Engine* m_Engine;
+        Engine* m_engine;
 
         Quad* aQuad;
         Cube* aCube;
@@ -105,6 +106,7 @@ namespace MELT
         Shader* m_GridShader;
         Shader* m_gizmos_shader;
         Shader* m_debug_line;
+        Shader* m_camera_frustum;
 
         SDL_Window* mp_window;
         GLbitfield m_clearBuffers;

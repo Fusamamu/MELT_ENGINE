@@ -7,7 +7,7 @@ namespace MELT
     {
         bool use_orthographic;
 
-        glm::vec3 Position;
+        glm::vec3 position;
         glm::vec3 Target;
         glm::vec3 Up;
 
@@ -19,8 +19,8 @@ namespace MELT
         glm::vec2 WindowSize;
 
         float Zoom;
-        float ScreenRatio;
-        float OrthographicSize;
+        float screen_ratio;
+        float orthographic_size;
 
         Camera();
         ~Camera();
@@ -34,5 +34,7 @@ namespace MELT
         void UpdateScreenSizeWithOrthographicSize(float _screenRatio);
 
         std::array<glm::vec3, 8> get_frustum_corners(const glm::vec3& eye, const glm::vec3& forward, const glm::vec3& up, const glm::vec3& right, float fovY_rad, float aspect, float nearDist, float farDist);
+
+        [[nodiscard]] std::array<glm::vec3, 8> get_orthographic_frustum_corners() const;
     };
 }

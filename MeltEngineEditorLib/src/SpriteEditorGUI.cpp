@@ -10,7 +10,7 @@ namespace MELT_EDITOR
 
     void SpriteEditorGUI::Init()
     {
-        EditTextureData = &EditorOwner->engine->TextureMng.TextureDataTable["blacknwhite"];
+        EditTextureData = &EditorOwner->engine->texture_manager.TextureDataTable["blacknwhite"];
 
         if(std::filesystem::exists(EditTextureData->SpriteSheetPath))
         {
@@ -25,7 +25,7 @@ namespace MELT_EDITOR
 
     void SpriteEditorGUI::GenerateSpriteByGridSetting()
     {
-        auto& _textureData = EditorOwner->engine->TextureMng.TextureDataTable["blacknwhite"];
+        auto& _textureData = EditorOwner->engine->texture_manager.TextureDataTable["blacknwhite"];
 
         float _textureWidth  = static_cast<float>(_textureData.Width ) * 4.0f;
         float _textureHeight = static_cast<float>(_textureData.Height) * 4.0f;

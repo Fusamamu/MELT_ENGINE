@@ -84,7 +84,7 @@ namespace MELT
         manager_registry.get<SceneManager>   ()->init();
         manager_registry.get<RenderPipeline> ()->Init(this);
 
-        TextureMng.Init();
+        texture_manager.Init();
 
         void* _handle = dlopen("../Project/build/libCustomNativeScript.dylib", RTLD_LAZY);
         if (!_handle)
@@ -148,9 +148,9 @@ namespace MELT
             if (m_is_dragging)
             {
                 auto _delta = Input.MouseDelta;
-                auto screenToWorldScale = ScreenHeight / 2 * MainCamera.OrthographicSize;
-                MainCamera.Position.x -= _delta.x * 2.0f/ screenToWorldScale;
-                MainCamera.Position.y += _delta.y * 2.0f/ screenToWorldScale;
+                auto screenToWorldScale = ScreenHeight / 2 * main_camera.orthographic_size;
+                main_camera.position.x -= _delta.x * 2.0f/ screenToWorldScale;
+                main_camera.position.y += _delta.y * 2.0f/ screenToWorldScale;
             }
         }
 
@@ -161,32 +161,32 @@ namespace MELT
 
         if(Input.IsKeyHeld(SDL_SCANCODE_A))
         {
-            glm::vec3 _camDir     = glm::normalize(MainCamera.Target - MainCamera.Position);
-            glm::vec3 _lateralDir = glm::cross(MainCamera.Up, _camDir);
+            glm::vec3 _camDir     = glm::normalize(main_camera.Target - main_camera.position);
+            glm::vec3 _lateralDir = glm::cross(main_camera.Up, _camDir);
 
-            MainCamera.Position += _lateralDir * 0.5f;
-            MainCamera.Target   += _lateralDir * 0.5f;
+            main_camera.position += _lateralDir * 0.5f;
+            main_camera.Target   += _lateralDir * 0.5f;
         }
 
         if(Input.IsKeyHeld(SDL_SCANCODE_D))
         {
-            glm::vec3 _camDir     = glm::normalize(MainCamera.Target - MainCamera.Position);
-            glm::vec3 _lateralDir = glm::cross(MainCamera.Up, _camDir);
+            glm::vec3 _camDir     = glm::normalize(main_camera.Target - main_camera.position);
+            glm::vec3 _lateralDir = glm::cross(main_camera.Up, _camDir);
 
-            MainCamera.Position -= _lateralDir * 0.5f;
-            MainCamera.Target   -= _lateralDir * 0.5f;
+            main_camera.position -= _lateralDir * 0.5f;
+            main_camera.Target   -= _lateralDir * 0.5f;
         }
 
         if(Input.IsKeyHeld(SDL_SCANCODE_W))
         {
-            MainCamera.Position += MainCamera.Up * 0.5f;
-            MainCamera.Target   += MainCamera.Up * 0.5f;
+            main_camera.position += main_camera.Up * 0.5f;
+            main_camera.Target   += main_camera.Up * 0.5f;
         }
 
         if(Input.IsKeyHeld(SDL_SCANCODE_S))
         {
-            MainCamera.Position -= MainCamera.Up * 0.5f;
-            MainCamera.Target   -= MainCamera.Up * 0.5f;
+            main_camera.position -= main_camera.Up * 0.5f;
+            main_camera.Target   -= main_camera.Up * 0.5f;
         }
     }
 
@@ -273,6 +273,7 @@ namespace MELT
         Node& _node = _working_scene->create_node("Camera");
         _node.add_component<Transform>();
         _node.add_component<Camera>();
+        _node.add_component<Gizmos>(Gizmos::Type::CAMERA);
 
         Logger.log("Create camera node");
     }
@@ -286,6 +287,7 @@ namespace MELT
         Node& _node = _working_scene->create_node("Light");
         _node.add_component<Transform>();
         _node.add_component<Light>();
+        _node.add_component<Gizmos>(Gizmos::Type::LIGHT);
 
         Logger.log("Create light node");
     }

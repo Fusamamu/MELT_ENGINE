@@ -4,12 +4,12 @@ namespace MELT
 {
     Camera::Camera():
     use_orthographic(true),
-    Position(glm::vec3(3.0f, 3.0f, 3.0f)),
+    position(glm::vec3(3.0f, 3.0f, 3.0f)),
     Target  (glm::vec3(0.0f, 0.0f, 0.0f)),
     Up      (glm::vec3(0.0f, 1.0f, 0.0f)),
     near_plane(-100.0f),
     far_plane(1000.0f),
-    OrthographicSize(10.0f)
+    orthographic_size(10.0f)
     {
 
     }
@@ -31,7 +31,7 @@ namespace MELT
 
     glm::mat4 Camera::get_view_matrix() const
     {
-        return glm::lookAt(Position, Target, Up);
+        return glm::lookAt(position, Target, Up);
     }
 
     glm::mat4 Camera::get_orthographic_projection_matrix() const
@@ -41,8 +41,8 @@ namespace MELT
 
     void Camera::UpdateScreenSizeWithOrthographicSize(float _screenRatio)
     {
-        ScreenRatio = _screenRatio;
-        ScreenSize.y = OrthographicSize * 2;
+        screen_ratio = _screenRatio;
+        ScreenSize.y = orthographic_size * 2;
         ScreenSize.x = _screenRatio * ScreenSize.y;
     }
 
@@ -80,4 +80,42 @@ namespace MELT
 
         return _corners;
     }
+
+    std::array<glm::vec3, 8> Camera::get_orthographic_frustum_corners() const
+    {
+        std::array<glm::vec3, 8> corners;
+
+        float halfHeight = orthographic_size * 0.5f;
+        float halfWidth  = halfHeight * screen_ratio;
+
+        // halfHeight = 10.0f;
+        // halfWidth  = 20.0f;
+
+        float nearZ = -near_plane;
+        float farZ  = -far_plane;
+
+        // Frustum corners in camera/view space
+        glm::vec3 viewSpaceCorners[8] = {
+            { -halfWidth, -halfHeight, nearZ }, // 0
+            {  halfWidth, -halfHeight, nearZ }, // 1
+            {  halfWidth,  halfHeight, nearZ }, // 2
+            { -halfWidth,  halfHeight, nearZ }, // 3
+
+            { -halfWidth, -halfHeight, farZ },  // 4
+            {  halfWidth, -halfHeight, farZ },  // 5
+            {  halfWidth,  halfHeight, farZ },  // 6
+            { -halfWidth,  halfHeight, farZ },  // 7
+        };
+
+        // Inverse view matrix to convert to world space
+        glm::mat4 invView = glm::inverse(get_view_matrix());
+
+        for (int i = 0; i < 8; ++i) {
+            glm::vec4 world = invView * glm::vec4(viewSpaceCorners[i], 1.0f);
+            corners[i] = glm::vec3(world);
+        }
+
+        return corners;
+    }
+
 }

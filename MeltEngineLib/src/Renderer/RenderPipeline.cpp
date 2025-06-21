@@ -13,8 +13,8 @@ namespace MELT
 
     void RenderPipeline::Init(MELT::Engine *_engine)
     {
-        m_Engine = _engine;
-        mp_window = m_Engine->sdl_window;
+        m_engine = _engine;
+        mp_window = m_engine->sdl_window;
 
         aQuad = new Quad();
         aCube = new Cube();
@@ -24,6 +24,7 @@ namespace MELT
         m_GridShader        = new Shader("../MeltEngineLib/res/shaders/3DGrid.shader");
         m_gizmos_shader     = new Shader("../MeltEngineLib/res/shaders/Gizmos.shader");
         m_debug_line        = new Shader("../MeltEngineLib/res/shaders/CylinderLine.shader");
+        m_camera_frustum    = new Shader("../MeltEngineLib/res/shaders/camera_frustum.shader");
 
         glm::mat4 _model      = glm::translate(glm::mat4(1.0f), glm::vec3 (0.0f, 0.0f, 0.0f));
         glm::mat4 _view       = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -59,6 +60,10 @@ namespace MELT
         m_debug_line->SetMat4UniformProjection(_projection);
         m_debug_line->SetVec3UniformColor(glm::vec3(1.0, 1.0, 1.0));
 
+        m_camera_frustum->Use();
+        m_camera_frustum->SetMat4UniformView      (_view);
+        m_camera_frustum->SetMat4UniformProjection(_projection);
+
         editor_scene_frame_buffer = new FrameBuffer();
 
         glEnable(GL_DEPTH_TEST);
@@ -76,15 +81,24 @@ namespace MELT
         shader_preview.preview_renderer.set_mesh_data(_sphere_mesh_data);
         shader_preview.preview_renderer.set_buffer_data();
 
-        gizmos_renderer.init();
-        gizmos_renderer.set_bounds
+        aabb_gizmos_renderer.init(GizmosRenderType::CUBE);
+        aabb_gizmos_renderer.set_bounds
                 (
                     {
                     M_VEC3(-0.6f, -0.6f, -0.6f),
                     M_VEC3( 0.6f,  0.6f,  0.6f)
                     }
                 );
-        //gizmos_renderer.set_bounds(glm::vec3(-0.6f, -0.6f, -0.6f), glm::vec3(0.6f, 0.6f, 0.6f));
+
+        camera_frustum_renderer.init(GizmosRenderType::CAMERA_FRUSTUM);
+        camera_frustum_renderer.set_bounds();
+
+        // std::array<M_VEC3, 8> _corners = m_engine->main_camera.get_orthographic_frustum_corners();
+        // m_camera_frustum->Use();
+        // glUniform3fv(glGetUniformLocation(m_camera_frustum->ID, "corners"), 8, glm::value_ptr(_corners[0]));
+
+
+
 
         line_renderer.set_mesh_data(&_engine->manager_registry.get<ResourceManager>()->debug_line);
         line_renderer.set_buffer_data();
@@ -97,14 +111,16 @@ namespace MELT
 
     void RenderPipeline::Render(float _dt)
     {
+        Scene* _working_scene = m_engine->manager_registry.get<SceneManager>()->working_scene;
+
         shader_preview.Render();
 
         glBindFramebuffer(GL_FRAMEBUFFER, editor_scene_frame_buffer->FBO);
 
         BeginFrame();
 
-        glm::mat4 _view       = m_Engine->MainCamera.get_view_matrix();
-        glm::mat4 _projection = m_Engine->MainCamera.get_orthographic_projection_matrix();
+        glm::mat4 _view       = m_engine->main_camera.get_view_matrix();
+        glm::mat4 _projection = m_engine->main_camera.get_orthographic_projection_matrix();
 
         m_GridShader->Use();
         m_GridShader->SetMat4UniformModel(glm::translate(glm::mat4(1.0f), glm::vec3 (0.0, 0.0, 0.0)));
@@ -113,7 +129,7 @@ namespace MELT
         //aQuad->Draw();
         m_grid_renderer->draw();
 
-        auto _light_view = m_Engine->manager_registry.get<SceneManager>()->working_scene->ecs_registry.view<Transform, Light>();
+        auto _light_view = _working_scene->ecs_registry.view<Transform, Light>();
 
         for (auto _entity : _light_view)
         {
@@ -124,7 +140,7 @@ namespace MELT
         }
 
 
-        for (Node& _node : m_Engine->manager_registry.get<SceneManager>()->working_scene->get_all_nodes())
+        for (Node& _node : _working_scene->get_all_nodes())
         {
             Transform& _transform = _node.get_component<Transform>();
 
@@ -144,7 +160,7 @@ namespace MELT
                 m_TargetShader->SetMat4UniformModel(_model);
                 m_TargetShader->SetMat4UniformView(_view);
                 m_TargetShader->SetMat4UniformProjection(_projection);
-                m_TargetShader->SetVec3UniformCameraWorldPosition(m_Engine->MainCamera.Position);
+                m_TargetShader->SetVec3UniformCameraWorldPosition(m_engine->main_camera.position);
                 _mesh_renderer.draw();
 
                 glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
@@ -168,7 +184,7 @@ namespace MELT
                 m_TargetShader->SetMat4UniformModel(_model);
                 m_TargetShader->SetMat4UniformView(_view);
                 m_TargetShader->SetMat4UniformProjection(_projection);
-                m_TargetShader->SetVec3UniformCameraWorldPosition(m_Engine->MainCamera.Position);
+                m_TargetShader->SetVec3UniformCameraWorldPosition(m_engine->main_camera.position);
                 _mesh_renderer.draw();
 
                 glStencilMask(0xFF);
@@ -180,16 +196,30 @@ namespace MELT
             m_gizmos_shader->SetMat4UniformModel(_model);
             m_gizmos_shader->SetMat4UniformView(_view);
             m_gizmos_shader->SetMat4UniformProjection(_projection);
-            gizmos_renderer.draw(5.0f);
+            aabb_gizmos_renderer.draw();
 
         }
-
 
         m_debug_line->Use();
         m_debug_line->SetMat4UniformView(_view);
         m_debug_line->SetMat4UniformProjection(_projection);
         line_renderer.draw();
         //Render UI
+
+        auto _camera_view = _working_scene->ecs_registry.view<Camera>();
+        for (auto _entity : _camera_view)
+        {
+            auto& _camera = _camera_view.get<Camera>(_entity);
+
+            std::array<M_VEC3, 8> _corners = _camera.get_orthographic_frustum_corners();
+
+            m_camera_frustum->Use();
+            glUniform3fv(glGetUniformLocation(m_camera_frustum->ID, "corners"), 8, glm::value_ptr(_corners[0]));
+            m_camera_frustum->SetMat4UniformView(_view);
+            m_camera_frustum->SetMat4UniformProjection(_projection);
+            camera_frustum_renderer.draw_camera_frustum();
+        }
+
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
     }

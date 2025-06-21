@@ -122,7 +122,7 @@ namespace MELT
 //        aQuad->Draw();
 
         glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, Engine->TextureMng.TextureDataTable["blacknwhite"].TextureID);
+        glBindTexture(GL_TEXTURE_2D, Engine->texture_manager.TextureDataTable["blacknwhite"].TextureID);
 
 //        glm::mat4 _view  = glm::lookAt(
 //                Engine->MainCamera.Position,
@@ -134,9 +134,9 @@ namespace MELT
 
 
         glm::mat4 _view  = glm::lookAt(
-                Engine->MainCamera.Position,
+                Engine->main_camera.position,
                 glm::vec3(0.0),
-                Engine->MainCamera.Up
+                Engine->main_camera.Up
         );
 
         glm::mat4 _projection = glm::ortho(
@@ -178,7 +178,7 @@ namespace MELT
         PhongShader->Use();
         PhongShader->SetMat4UniformView(_view);
         PhongShader->SetMat4UniformProjection(_projection);
-        PhongShader->SetVec3UniformCameraWorldPosition(Engine->MainCamera.Position);
+        PhongShader->SetVec3UniformCameraWorldPosition(Engine->main_camera.position);
         //aCube->Draw();
 
         glDisable(GL_DEPTH_TEST);

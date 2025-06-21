@@ -58,6 +58,7 @@ add_library(${PROJECT_NAME} SHARED
         src/Components/MeshRenderer.cpp
         src/Components/Light.cpp
         src/Components/LineRenderer.cpp
+        src/Components/Gizmos.cpp
 
         src/Texture.cpp
         src/ShaderPreview.cpp

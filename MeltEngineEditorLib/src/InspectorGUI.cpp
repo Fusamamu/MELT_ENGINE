@@ -448,7 +448,7 @@ namespace MELT_EDITOR
         ImGui::Indent();
         ImGui::Text("Texture source");
 
-        auto& _textureData = m_engine->TextureMng.TextureDataTable["blacknwhite"];
+        auto& _textureData = m_engine->texture_manager.TextureDataTable["blacknwhite"];
         std::vector<const char*> textureKeys;
         textureKeys.reserve(_textureData.SpriteDataMap.size());
         for (const auto& pair : _textureData.SpriteDataMap) {
@@ -492,11 +492,37 @@ namespace MELT_EDITOR
 
             auto _font_color = ImVec4(0.5f, 0.5f, 0.5f, 1.0f);
 
+            // ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            // ImGui::Text("Orthographic");
+            // ImGui::PopStyleColor();
+            // ImGui::SameLine(120.0f);
+            // ImGui::Checkbox("##UseOrtho", &_camera.use_orthographic);
+
+            MELT_GUI::check_box("Orthographic", &_camera.use_orthographic);
+
             ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-            ImGui::Text("Orthographic");
+            ImGui::Text("Orthographic size");
             ImGui::PopStyleColor();
             ImGui::SameLine(120.0f);
-            ImGui::Checkbox("##UseOrtho", &_camera.use_orthographic);
+            ImGui::InputFloat("##OrthographicSize", &_camera.orthographic_size);
+
+            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            ImGui::Text("Screen ratio");
+            ImGui::PopStyleColor();
+            ImGui::SameLine(120.0f);
+            ImGui::InputFloat("##ScreenRatio", &_camera.screen_ratio);
+
+            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            ImGui::Text("Position");
+            ImGui::PopStyleColor();
+            ImGui::SameLine(120.0f);
+            ImGui::InputFloat3("##CameraPosition", glm::value_ptr(_camera.position));
+
+            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+            ImGui::Text("Target");
+            ImGui::PopStyleColor();
+            ImGui::SameLine(120.0f);
+            ImGui::InputFloat3("##Target", glm::value_ptr(_camera.Target));
 
             ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
             ImGui::Text("Near plane");

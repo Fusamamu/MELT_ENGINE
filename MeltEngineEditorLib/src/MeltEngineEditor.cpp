@@ -623,9 +623,9 @@ namespace MELT_EDITOR
                     ImVec2(1, 0)
             );
 
-            engine->MainCamera.WindowSize.x = _sceneEditorWindowWidth;
-            engine->MainCamera.WindowSize.y = _sceneEditorWindowHeight;
-            engine->MainCamera.UpdateScreenSizeWithOrthographicSize(_sceneEditorWindowWidth / _sceneEditorWindowHeight);
+            engine->main_camera.WindowSize.x = _sceneEditorWindowWidth;
+            engine->main_camera.WindowSize.y = _sceneEditorWindowHeight;
+            engine->main_camera.UpdateScreenSizeWithOrthographicSize(_sceneEditorWindowWidth / _sceneEditorWindowHeight);
         }
         ImGui::End();
     }

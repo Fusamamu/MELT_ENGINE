@@ -7,18 +7,19 @@
 
 namespace MELT
 {
-    enum class Gizmos
+    enum class GizmosRenderType
     {
         NONE,
         LINE,
         SPHERE,
-        CUBE
+        CUBE,
+        CAMERA_FRUSTUM
     };
 
     class GizmosRenderer
     {
     public:
-        Gizmos gizmos_type = Gizmos::NONE;
+        GizmosRenderType gizmos_type = GizmosRenderType::NONE;
 
         GizmosRenderer () = default;
         ~GizmosRenderer()
@@ -27,10 +28,26 @@ namespace MELT
             if (m_vbo) glDeleteBuffers     (1, &m_vbo);
         }
 
-        void init()
+        void init(const GizmosRenderType& _type)
         {
+            gizmos_type = _type;
             glGenVertexArrays(1, &m_vao);
             glGenBuffers     (1, &m_vbo);
+        }
+
+        void set_bounds()
+        {
+            glm::vec3 _dummy(0.0f);
+
+            glBindVertexArray(m_vao);
+
+            glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
+            glBufferData(GL_ARRAY_BUFFER, sizeof(_dummy), &_dummy, GL_STATIC_DRAW);
+
+            glEnableVertexAttribArray(0);
+            glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, M_VEC3_SIZE, (void*)nullptr);
+
+            glBindVertexArray(0);
         }
 
         void set_bounds(const AABB& _aabb)
@@ -81,13 +98,18 @@ namespace MELT
             glBindVertexArray(0);
         }
 
-        void draw(float _thickness = 2.0f)
+        void draw()
         {
-            glLineWidth(_thickness); //this not working
             glBindVertexArray(m_vao);
             glDrawArrays(GL_LINES, 0, 24);
             glBindVertexArray(0);
-            glLineWidth(1.0f);
+        }
+
+        void draw_camera_frustum()
+        {
+            glBindVertexArray(m_vao);
+            glDrawArrays(GL_POINTS, 0, 1); // Trigger geometry shader
+            glBindVertexArray(0);
         }
     private:
         GLuint m_vao = 0;

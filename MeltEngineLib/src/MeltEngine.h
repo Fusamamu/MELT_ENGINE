@@ -17,6 +17,7 @@
 #include "Renderer.h"
 #include "BoxCollider.h"
 #include "Light.h"
+#include "Components/Gizmos.h"
 
 #include "SpriteRenderer.h"
 #include "Coordinator.h"
@@ -46,8 +47,8 @@ namespace MELT
 
         ManagerRegistry manager_registry;
 
-        Camera         MainCamera;//will remove //move to scene??
-        TextureManager TextureMng;//will remove
+        Camera         main_camera;//will remove //move to scene??
+        TextureManager texture_manager;//will remove
 
         Logger Logger;
 

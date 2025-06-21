@@ -1,6 +1,8 @@
 #ifndef INSPECTORGUI_H
 #define INSPECTORGUI_H
 
+#include "GUI.h"
+
 namespace MELT_EDITOR
 {
     class Editor;
