@@ -35,6 +35,7 @@ namespace MELT_EDITOR
                         _node.add_component<MELT::Transform>();
                         _node.add_component<MELT::MeshRenderer>();
                         _node.add_component<MELT::BoxCollider>();
+                        _node.add_component<MELT::NodeEditor>();
 
                         MELT::Transform& _transform = _node.get_component<MELT::Transform>();
 
@@ -44,6 +45,9 @@ namespace MELT_EDITOR
                         MELT::MeshRenderer& _mesh_renderer = _node.get_component<MELT::MeshRenderer>();
                         _mesh_renderer.set_mesh_data(&_resource_manager->default_cube);
                         _mesh_renderer.set_buffer_data();
+
+                        MELT::NodeEditor& _node_editor = _node.get_component<MELT::NodeEditor>();
+                        _node_editor.id = _node.id;
 
                         tile_ids.push_back(_node.id);
                     }
@@ -64,6 +68,7 @@ namespace MELT_EDITOR
                         MELT::Node& _node = _scene_manager->working_scene->create_node(node_name);
                         _node.add_component<MELT::Transform>();
                         _node.add_component<MELT::MeshRenderer>();
+                        _node.add_component<MELT::NodeEditor>();
 
                         MELT::Transform& _transform = _node.get_component<MELT::Transform>();
 
@@ -74,6 +79,9 @@ namespace MELT_EDITOR
                         MELT::MeshRenderer& _mesh_renderer = _node.get_component<MELT::MeshRenderer>();
                         _mesh_renderer.set_mesh_data(_resource_manager->get_mesh_data("Sphere"));
                         _mesh_renderer.set_buffer_data();
+
+                        MELT::NodeEditor& _node_editor = _node.get_component<MELT::NodeEditor>();
+                        _node_editor.id = _node.id;
 
                         tile_ids.push_back(_node.id);
                     }

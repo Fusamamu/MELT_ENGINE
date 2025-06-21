@@ -17,7 +17,8 @@
 #include "Renderer.h"
 #include "BoxCollider.h"
 #include "Light.h"
-#include "Components/Gizmos.h"
+#include "Gizmos.h"
+#include "NodeEditor.h"
 
 #include "SpriteRenderer.h"
 #include "Coordinator.h"

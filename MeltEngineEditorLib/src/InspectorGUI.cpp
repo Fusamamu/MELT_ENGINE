@@ -490,51 +490,13 @@ namespace MELT_EDITOR
             ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
             ImGui::Indent();
 
-            auto _font_color = ImVec4(0.5f, 0.5f, 0.5f, 1.0f);
-
-            // ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-            // ImGui::Text("Orthographic");
-            // ImGui::PopStyleColor();
-            // ImGui::SameLine(120.0f);
-            // ImGui::Checkbox("##UseOrtho", &_camera.use_orthographic);
-
-            MELT_GUI::check_box("Orthographic", &_camera.use_orthographic);
-
-            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-            ImGui::Text("Orthographic size");
-            ImGui::PopStyleColor();
-            ImGui::SameLine(120.0f);
-            ImGui::InputFloat("##OrthographicSize", &_camera.orthographic_size);
-
-            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-            ImGui::Text("Screen ratio");
-            ImGui::PopStyleColor();
-            ImGui::SameLine(120.0f);
-            ImGui::InputFloat("##ScreenRatio", &_camera.screen_ratio);
-
-            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-            ImGui::Text("Position");
-            ImGui::PopStyleColor();
-            ImGui::SameLine(120.0f);
-            ImGui::InputFloat3("##CameraPosition", glm::value_ptr(_camera.position));
-
-            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-            ImGui::Text("Target");
-            ImGui::PopStyleColor();
-            ImGui::SameLine(120.0f);
-            ImGui::InputFloat3("##Target", glm::value_ptr(_camera.Target));
-
-            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-            ImGui::Text("Near plane");
-            ImGui::PopStyleColor();
-            ImGui::SameLine(120.0f);
-            ImGui::InputFloat("##NearPlane", &_camera.near_plane);
-
-            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-            ImGui::Text("Far plane");
-            ImGui::PopStyleColor();
-            ImGui::SameLine(120.0f);
-            ImGui::InputFloat("##FarPlane", &_camera.far_plane);
+            MELT_GUI::check_box    ("Orthographic"     , _camera.use_orthographic );
+            MELT_GUI::input_float  ("Orthographic size", _camera.orthographic_size);
+            MELT_GUI::input_float  ("Screen ratio"     , _camera.screen_ratio     );
+            MELT_GUI::input_float_3("Position"         , _camera.position         );
+            MELT_GUI::input_float_3("Target"           , _camera.Target           );
+            MELT_GUI::input_float  ("Near plane"       , _camera.near_plane       );
+            MELT_GUI::input_float  ("Far plane"        , _camera.far_plane        );
 
             ImGui::Unindent();
             ImGui::PopStyleColor();

@@ -144,8 +144,7 @@ namespace MELT_EDITOR
         if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen())
         {
             _working_scene->deselect_all_nodes();
-            _working_scene->selected_node_id = _node.id;
-            _node.is_selected = true;
+            _working_scene->select_node_id(_node.id);
         }
 
         if (ImGui::BeginDragDropSource())

@@ -10,7 +10,9 @@
 
 namespace MELT_GUI
 {
-    void check_box(const char* _label, bool* _value);
+    void check_box    (const char* _label, bool& _value );
+    void input_float  (const char* _label, float& _value);
+    void input_float_3(const char* _label, glm::vec3& _value);
 }
 
 #endif //GUI_H

@@ -50,7 +50,7 @@ namespace MELT
                 return;
             ecs_registry.destroy(entity);
 
-            m_nodes.erase(_it, m_nodes.end());
+            m_nodes.erase(_it);
         }
     }
 }

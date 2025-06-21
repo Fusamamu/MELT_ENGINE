@@ -5,6 +5,7 @@
 #include "Node.h"
 
 #include "MovementSystem.h"
+#include "NodeEditor.h"
 
 namespace MELT
 {
@@ -16,7 +17,6 @@ namespace MELT
 
         bool is_active = false;
 
-        Node* selected_node;
         std::optional<NodeID> selected_node_id;
 
         entt::registry ecs_registry;
@@ -62,17 +62,40 @@ namespace MELT
             return nullptr;
         }
 
-        void deselect_all_nodes()
+        void select_node_id(const NodeID& _node_id)
         {
-            for (auto& _node : m_nodes)
-                _node.is_selected = false;
-            selected_node_id.reset();
+            selected_node_id = _node_id;
+            Node* _selected_node = resolve_node_id(_node_id);
+            if (_selected_node)
+                _selected_node->on_get_selected();
         }
 
         void select_all_nodes()
         {
             for (auto& _node : m_nodes)
-                _node.is_selected = true;
+                _node.on_get_selected();
+        }
+
+        void deselect_node_id(const NodeID& _node_id)
+        {
+            selected_node_id.reset();
+            Node* _selected_node = resolve_node_id(_node_id);
+            if (_selected_node)
+                _selected_node->on_get_deselected();
+        }
+
+        void deselect_all_nodes()
+        {
+            if (selected_node_id.has_value())
+            {
+                Node* _selected_node = resolve_node_id(selected_node_id.value());
+                if (_selected_node)
+                    _selected_node->on_get_deselected();
+                selected_node_id.reset();
+            }
+
+            for (auto& _node : m_nodes)
+                _node.on_get_deselected();
         }
 
         Node* resolve_node_id(const NodeID& _node_id)

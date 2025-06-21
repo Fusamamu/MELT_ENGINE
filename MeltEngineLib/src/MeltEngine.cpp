@@ -235,13 +235,17 @@ namespace MELT
         Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
 
         Node& _node = _working_scene->create_node("Entity");
-        _node.add_component<Transform>();
+        _node.add_component<Transform>  ();
         _node.add_component<MeshRenderer>();
-        _node.add_component<BoxCollider>();
+        _node.add_component<BoxCollider> ();
+        _node.add_component<NodeEditor>  ();
 
         MeshRenderer& _mesh_renderer = _node.get_component<MeshRenderer>();
         _mesh_renderer.set_mesh_data(&_resource_manager->default_cube);
         _mesh_renderer.set_buffer_data();
+
+        NodeEditor& _node_editor = _node.get_component<NodeEditor>();
+        _node_editor.id = _node.id;
 
         Logger.log("Create cube node");
     }
@@ -256,10 +260,14 @@ namespace MELT
         _node.add_component<Transform>();
         _node.add_component<MeshRenderer>();
         _node.add_component<BoxCollider>();
+        _node.add_component<NodeEditor>  ();
 
         MeshRenderer& _mesh_renderer = _node.get_component<MeshRenderer>();
         _mesh_renderer.set_mesh_data(&_resource_manager->default_plane);
         _mesh_renderer.set_buffer_data();
+
+        NodeEditor& _node_editor = _node.get_component<NodeEditor>();
+        _node_editor.id = _node.id;
 
         Logger.log("Create plane node");
     }
@@ -274,6 +282,10 @@ namespace MELT
         _node.add_component<Transform>();
         _node.add_component<Camera>();
         _node.add_component<Gizmos>(Gizmos::Type::CAMERA);
+        _node.add_component<NodeEditor>  ();
+
+        NodeEditor& _node_editor = _node.get_component<NodeEditor>();
+        _node_editor.id = _node.id;
 
         Logger.log("Create camera node");
     }
@@ -288,6 +300,10 @@ namespace MELT
         _node.add_component<Transform>();
         _node.add_component<Light>();
         _node.add_component<Gizmos>(Gizmos::Type::LIGHT);
+        _node.add_component<NodeEditor>  ();
+
+        NodeEditor& _node_editor = _node.get_component<NodeEditor>();
+        _node_editor.id = _node.id;
 
         Logger.log("Create light node");
     }
@@ -306,12 +322,11 @@ namespace MELT
 
         float _closestDistance = FLT_MAX;
 
-        for (auto& _node : _working_scene->get_all_nodes())
+        auto _view = _working_scene->ecs_registry.view<Transform, NodeEditor>();
+        for (auto _entity : _view)
         {
-            if (!_node.has_component<Transform>())
-                continue;
-
-            Transform& _transform = _node.get_component<Transform>();
+            auto& _transform = _working_scene->ecs_registry.get<Transform>(_entity);
+            auto& _node      = _working_scene->ecs_registry.get<NodeEditor>(_entity);
 
             auto _minBounds = _transform.position + glm::vec3(-0.5, -0.5, -0.5);
             auto _maxBounds = _transform.position + glm::vec3( 0.5,  0.5,  0.5);
@@ -339,7 +354,7 @@ namespace MELT
                     _closestDistance = _distance;
 
                     _node.is_selected = true;
-                    _working_scene->selected_node_id = _node.id;
+                    _working_scene->select_node_id(_node.id);
                     break;
                 }
             }

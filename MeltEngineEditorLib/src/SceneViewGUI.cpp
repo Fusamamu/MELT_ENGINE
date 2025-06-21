@@ -73,29 +73,32 @@ namespace MELT_EDITOR
             if (ImGui::Button("Scale"))
                 currentOperation = ImGuizmo::SCALE;
 
-            if (_working_scene->selected_node_id.has_value())
+            auto _view = _working_scene->ecs_registry.view<MELT::Transform, MELT::NodeEditor>();
+            for (auto _entity : _view)
             {
-                MELT::Node* _node = _working_scene->get_selected_node();
+                auto& _transform   = _working_scene->ecs_registry.get<MELT::Transform> (_entity);
+                auto& _node_editor = _working_scene->ecs_registry.get<MELT::NodeEditor>(_entity);
 
-                auto& transform = _node->get_component<MELT::Transform>();
-
-                glm::mat4 _object_matrix = transform.get_transform_matrix();
-
-                ImGuizmo::Manipulate(
-                    glm::value_ptr(m_engine->main_camera.get_view_matrix()),
-                    glm::value_ptr(m_engine->main_camera.get_orthographic_projection_matrix()),
-                    currentOperation,
-                    ImGuizmo::WORLD,
-                    glm::value_ptr(_object_matrix)
-                );
-
-                if (ImGuizmo::IsUsing())
+                if (_node_editor.is_selected)
                 {
-                    ImGuizmo::DecomposeMatrixToComponents(
-                        glm::value_ptr(_object_matrix),
-                        glm::value_ptr(transform.position),
-                        glm::value_ptr(transform.rotation),
-                        glm::value_ptr(transform.scale));
+                    glm::mat4 _object_matrix = _transform.get_transform_matrix();
+
+                    ImGuizmo::Manipulate(
+                        glm::value_ptr(m_engine->main_camera.get_view_matrix()),
+                        glm::value_ptr(m_engine->main_camera.get_orthographic_projection_matrix()),
+                        currentOperation,
+                        ImGuizmo::WORLD,
+                        glm::value_ptr(_object_matrix)
+                    );
+
+                    if (ImGuizmo::IsUsing())
+                    {
+                        ImGuizmo::DecomposeMatrixToComponents(
+                            glm::value_ptr(_object_matrix),
+                            glm::value_ptr(_transform.position),
+                            glm::value_ptr(_transform.rotation),
+                            glm::value_ptr(_transform.scale));
+                    }
                 }
             }
 

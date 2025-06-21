@@ -73,6 +73,8 @@ add_library(${PROJECT_NAME} SHARED
         src/Bounds.cpp
         src/Primitive/Line.cpp
         src/Systems/MovementSystem.cpp
+        src/Components/NodeEditor.cpp
+        src/Components/NodeEditor.h
 )
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)

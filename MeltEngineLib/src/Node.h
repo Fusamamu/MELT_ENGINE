@@ -29,6 +29,9 @@ namespace MELT
         void add_child   (const NodeID& _node_id);
         void remove_child(const NodeID& _node_id);
 
+        void on_get_selected();
+        void on_get_deselected();
+
         bool has_parent() const;
         NodeID get_parent() const;
         std::vector<NodeID> get_children() const;

@@ -66,15 +66,15 @@ namespace MELT
 
         editor_scene_frame_buffer = new FrameBuffer();
 
-        glEnable(GL_DEPTH_TEST);
-        glDepthFunc(GL_LESS);
+        glEnable     (GL_DEPTH_TEST);
+        glDepthFunc  (GL_LESS);
 
-        glEnable(GL_BLEND);
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        glEnable     (GL_BLEND);
+        glBlendFunc  (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-        glEnable(GL_STENCIL_TEST);
+        glEnable     (GL_STENCIL_TEST);
         glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
-        glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);
+        glStencilOp  (GL_KEEP, GL_KEEP, GL_REPLACE);
 
         MeshData* _sphere_mesh_data = _engine->manager_registry.get<ResourceManager>()->get_mesh_data("Sphere");
         shader_preview.init();
@@ -92,13 +92,6 @@ namespace MELT
 
         camera_frustum_renderer.init(GizmosRenderType::CAMERA_FRUSTUM);
         camera_frustum_renderer.set_bounds();
-
-        // std::array<M_VEC3, 8> _corners = m_engine->main_camera.get_orthographic_frustum_corners();
-        // m_camera_frustum->Use();
-        // glUniform3fv(glGetUniformLocation(m_camera_frustum->ID, "corners"), 8, glm::value_ptr(_corners[0]));
-
-
-
 
         line_renderer.set_mesh_data(&_engine->manager_registry.get<ResourceManager>()->debug_line);
         line_renderer.set_buffer_data();
@@ -126,7 +119,6 @@ namespace MELT
         m_GridShader->SetMat4UniformModel(glm::translate(glm::mat4(1.0f), glm::vec3 (0.0, 0.0, 0.0)));
         m_GridShader->SetMat4UniformView(_view);
         m_GridShader->SetMat4UniformProjection(_projection);
-        //aQuad->Draw();
         m_grid_renderer->draw();
 
         auto _light_view = _working_scene->ecs_registry.view<Transform, Light>();
@@ -139,72 +131,67 @@ namespace MELT
             m_TargetShader->SetVec3UniformLightWorldPosition(_transform.position);
         }
 
+        auto _object_view = _working_scene->ecs_registry.view<Transform, MeshRenderer, NodeEditor>();
 
-        for (Node& _node : _working_scene->get_all_nodes())
+        for (auto _entity : _object_view)
         {
-            Transform& _transform = _node.get_component<Transform>();
-
-            if (!_node.has_component<MeshRenderer>())
-                continue;
-            MeshRenderer& _mesh_renderer = _node.get_component<MeshRenderer>();
+            auto& _transform     = _object_view.get<Transform>   (_entity);
+            auto& _mesh_renderer = _object_view.get<MeshRenderer>(_entity);
+            auto& _node_editor   = _object_view.get<NodeEditor>  (_entity);
 
             glm::mat4 _model = _transform.get_transform_matrix();
 
-            if(_node.is_selected)
-            {
-                // 1st. render pass, draw objects as normal, writing to the stencil buffer
-                glStencilFunc(GL_ALWAYS, 1, 0xFF);
-                glStencilMask(0xFF);
+             if(_node_editor.is_selected)
+             {
+                 // 1st. render pass, draw objects as normal, writing to the stencil buffer
+                 glStencilFunc(GL_ALWAYS, 1, 0xFF);
+                 glStencilMask(0xFF);
 
-                m_TargetShader->Use();
-                m_TargetShader->SetMat4UniformModel(_model);
-                m_TargetShader->SetMat4UniformView(_view);
-                m_TargetShader->SetMat4UniformProjection(_projection);
-                m_TargetShader->SetVec3UniformCameraWorldPosition(m_engine->main_camera.position);
-                _mesh_renderer.draw();
+                 m_TargetShader->Use();
+                 m_TargetShader->SetMat4UniformModel     (_model);
+                 m_TargetShader->SetMat4UniformView      (_view);
+                 m_TargetShader->SetMat4UniformProjection(_projection);
+                 _mesh_renderer.draw();
 
-                glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
-                glStencilMask(0x00);
-                glDisable(GL_DEPTH_TEST);
+                 glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
+                 glStencilMask(0x00);
+                 glDisable(GL_DEPTH_TEST);
 
-                m_MeshOutlineShader->Use();
-                glm::mat4 _scaledModel = glm::scale(_model, glm::vec3(1.05f, 1.05f, 1.05f));
-                m_MeshOutlineShader->SetMat4UniformModel(_scaledModel);
-                m_MeshOutlineShader->SetMat4UniformView(_view);
-                m_MeshOutlineShader->SetMat4UniformProjection(_projection);
-                _mesh_renderer.draw();
+                 m_MeshOutlineShader->Use();
+                 glm::mat4 _scaledModel = glm::scale(_model, glm::vec3(1.05f, 1.05f, 1.05f));
+                 m_MeshOutlineShader->SetMat4UniformModel     (_scaledModel);
+                 m_MeshOutlineShader->SetMat4UniformView      (_view);
+                 m_MeshOutlineShader->SetMat4UniformProjection(_projection);
+                 _mesh_renderer.draw();
 
-                glStencilMask(0xFF);
-                glStencilFunc(GL_ALWAYS, 0, 0xFF);
-                glEnable(GL_DEPTH_TEST);
-            }
-            else
-            {
-                m_TargetShader->Use();
-                m_TargetShader->SetMat4UniformModel(_model);
-                m_TargetShader->SetMat4UniformView(_view);
-                m_TargetShader->SetMat4UniformProjection(_projection);
-                m_TargetShader->SetVec3UniformCameraWorldPosition(m_engine->main_camera.position);
-                _mesh_renderer.draw();
+                 glStencilMask(0xFF);
+                 glStencilFunc(GL_ALWAYS, 0, 0xFF);
+                 glEnable(GL_DEPTH_TEST);
+             }
+             else
+             {
+                 m_TargetShader->Use();
+                 m_TargetShader->SetMat4UniformModel     (_model);
+                 m_TargetShader->SetMat4UniformView      (_view);
+                 m_TargetShader->SetMat4UniformProjection(_projection);
+                 _mesh_renderer.draw();
 
-                glStencilMask(0xFF);
-                glStencilFunc(GL_ALWAYS, 0, 0xFF);
-                glEnable(GL_DEPTH_TEST);
-            }
+                 glStencilMask(0xFF);
+                 glStencilFunc(GL_ALWAYS, 0, 0xFF);
+                 glEnable(GL_DEPTH_TEST);
+             }
 
             m_gizmos_shader->Use();
             m_gizmos_shader->SetMat4UniformModel(_model);
             m_gizmos_shader->SetMat4UniformView(_view);
             m_gizmos_shader->SetMat4UniformProjection(_projection);
             aabb_gizmos_renderer.draw();
-
         }
 
         m_debug_line->Use();
         m_debug_line->SetMat4UniformView(_view);
         m_debug_line->SetMat4UniformProjection(_projection);
         line_renderer.draw();
-        //Render UI
 
         auto _camera_view = _working_scene->ecs_registry.view<Camera>();
         for (auto _entity : _camera_view)
@@ -219,7 +206,6 @@ namespace MELT
             m_camera_frustum->SetMat4UniformProjection(_projection);
             camera_frustum_renderer.draw_camera_frustum();
         }
-
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
     }

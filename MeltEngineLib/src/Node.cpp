@@ -59,4 +59,18 @@ namespace MELT
     {
         return m_children;
     }
+
+    void Node::on_get_selected()
+    {
+        is_selected = true;
+        NodeEditor& _node_editor = m_scene_owner->ecs_registry.get<NodeEditor>(m_entity_handle);
+        _node_editor.is_selected = true;
+    }
+
+    void Node::on_get_deselected()
+    {
+        is_selected = false;
+        NodeEditor& _node_editor = m_scene_owner->ecs_registry.get<NodeEditor>(m_entity_handle);
+        _node_editor.is_selected = false;
+    }
 }
