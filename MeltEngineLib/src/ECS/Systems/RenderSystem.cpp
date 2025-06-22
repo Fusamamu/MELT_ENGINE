@@ -29,49 +29,49 @@ namespace MELT
 
         glm::mat4 _projection = glm::ortho(-400.0f, 400.0f, -300.0f, 300.0f, 0.1f, 100.0f);
 
-        GridShader2D->Use();
-        GridShader2D->SetMat4UniformModel     (_model);
-        GridShader2D->SetMat4UniformView      (_view);
-        GridShader2D->SetMat4UniformProjection(_projection);
+        GridShader2D->use();
+        GridShader2D->set_mat4_uniform_model     (_model);
+        GridShader2D->set_mat4_uniform_view      (_view);
+        GridShader2D->set_mat4_uniform_projection(_projection);
         GridShader2D->SetVec2UniformScreenSize(glm::vec2(800, 600));
 
-        CheckerboardShader->Use();
+        CheckerboardShader->use();
 
-        BasicShader->Use();
-        BasicShader->SetMat4UniformModel     (_model);
-        BasicShader->SetMat4UniformView      (_view);
-        BasicShader->SetMat4UniformProjection(_projection);
+        BasicShader->use();
+        BasicShader->set_mat4_uniform_model     (_model);
+        BasicShader->set_mat4_uniform_view      (_view);
+        BasicShader->set_mat4_uniform_projection(_projection);
         BasicShader->SetVec3UniformColor(glm::vec3(1.0f, 1.0f, 1.0f));
 
-        TextureShader->Use();
-        TextureShader->SetMat4UniformModel     (_model);
-        TextureShader->SetMat4UniformView      (_view);
-        TextureShader->SetMat4UniformProjection(_projection);
+        TextureShader->use();
+        TextureShader->set_mat4_uniform_model     (_model);
+        TextureShader->set_mat4_uniform_view      (_view);
+        TextureShader->set_mat4_uniform_projection(_projection);
         TextureShader->SetVec3UniformColor(glm::vec3(1.0f, 1.0f, 1.0f));
 
-        TextureOutlineShader->Use();
-        TextureOutlineShader->SetMat4UniformModel     (_model);
-        TextureOutlineShader->SetMat4UniformView      (_view);
-        TextureOutlineShader->SetMat4UniformProjection(_projection);
+        TextureOutlineShader->use();
+        TextureOutlineShader->set_mat4_uniform_model     (_model);
+        TextureOutlineShader->set_mat4_uniform_view      (_view);
+        TextureOutlineShader->set_mat4_uniform_projection(_projection);
         TextureOutlineShader->SetVec3UniformColor(glm::vec3(1.0f, 1.0f, 1.0f));
 
-        LineShader->Use();
-        LineShader->SetMat4UniformModel     (_model);
-        LineShader->SetMat4UniformView      (_view);
-        LineShader->SetMat4UniformProjection(_projection);
+        LineShader->use();
+        LineShader->set_mat4_uniform_model     (_model);
+        LineShader->set_mat4_uniform_view      (_view);
+        LineShader->set_mat4_uniform_projection(_projection);
         LineShader->SetVec3UniformColor(glm::vec3(1.0f, 0.0f, 0.0f));
 
         _model = glm::translate(glm::mat4(1.0f), glm::vec3 (0.0f, 0.0f, 0.0f));
 
-        GizmosAxisShader->Use();
-        GizmosAxisShader->SetMat4UniformModel     (_model);
-        GizmosAxisShader->SetMat4UniformView      (_view);
-        GizmosAxisShader->SetMat4UniformProjection(_projection);
+        GizmosAxisShader->use();
+        GizmosAxisShader->set_mat4_uniform_model     (_model);
+        GizmosAxisShader->set_mat4_uniform_view      (_view);
+        GizmosAxisShader->set_mat4_uniform_projection(_projection);
 
-        PhongShader->Use();
-        PhongShader->SetMat4UniformModel     (_model);
-        PhongShader->SetMat4UniformView      (_view);
-        PhongShader->SetMat4UniformProjection(_projection);
+        PhongShader->use();
+        PhongShader->set_mat4_uniform_model     (_model);
+        PhongShader->set_mat4_uniform_view      (_view);
+        PhongShader->set_mat4_uniform_projection(_projection);
         PhongShader->SetVec3UniformObjectColor(glm::vec3(1.0, 0.0, 0.0));
         PhongShader->SetVec3UniformLightColor (glm::vec3(1.0, 1.0, 1.0));
         PhongShader->SetFloatUniformObjectShininess(1.0f);
@@ -105,15 +105,15 @@ namespace MELT
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-        glBindFramebuffer(GL_FRAMEBUFFER, EditorGUIFrameBuffer->FBO);
+        glBindFramebuffer(GL_FRAMEBUFFER, EditorGUIFrameBuffer->fbo);
         glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        CheckerboardShader->Use();
+        CheckerboardShader->use();
         //aQuad->Draw();
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
         //-----------------------------------//
-        glBindFramebuffer(GL_FRAMEBUFFER, EditorSceneFrameBuffer->FBO);
+        glBindFramebuffer(GL_FRAMEBUFFER, EditorSceneFrameBuffer->fbo);
         glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -146,13 +146,13 @@ namespace MELT
                  (Engine::ScreenHeight / 2),
                 0.1f, 100.0f);
 
-        TargetShader->Use();
-        TargetShader->SetMat4UniformView(_view);
-        TargetShader->SetMat4UniformProjection(_projection);
+        TargetShader->use();
+        TargetShader->set_mat4_uniform_view(_view);
+        TargetShader->set_mat4_uniform_projection(_projection);
 
-        TextureOutlineShader->Use();
-        TextureOutlineShader->SetMat4UniformView(_view);
-        TextureOutlineShader->SetMat4UniformProjection(_projection);
+        TextureOutlineShader->use();
+        TextureOutlineShader->set_mat4_uniform_view(_view);
+        TextureOutlineShader->set_mat4_uniform_projection(_projection);
 
         for(const unsigned int& _entity : Entities)
         {
@@ -163,33 +163,33 @@ namespace MELT
 
             glm::mat4 _model = glm::translate(glm::mat4(1.0f), glm::vec3 (_xPos, _yPos, 0.0f));
 
-            TargetShader->Use();
-            TargetShader->SetMat4UniformModel(_model);
+            TargetShader->use();
+            TargetShader->set_mat4_uniform_model(_model);
 
             if(ECSCoord->SelectedEntity == _entity)
             {
-                TextureOutlineShader->Use();
-                TextureOutlineShader->SetMat4UniformModel(_model);
+                TextureOutlineShader->use();
+                TextureOutlineShader->set_mat4_uniform_model(_model);
             }
 
             //aQuad->Draw();
         }
 
-        PhongShader->Use();
-        PhongShader->SetMat4UniformView(_view);
-        PhongShader->SetMat4UniformProjection(_projection);
+        PhongShader->use();
+        PhongShader->set_mat4_uniform_view(_view);
+        PhongShader->set_mat4_uniform_projection(_projection);
         PhongShader->SetVec3UniformCameraWorldPosition(Engine->main_camera.position);
         //aCube->Draw();
 
         glDisable(GL_DEPTH_TEST);
-        LineShader->Use();
-        LineShader->SetMat4UniformView(_view);
-        LineShader->SetMat4UniformProjection(_projection);
+        LineShader->use();
+        LineShader->set_mat4_uniform_view(_view);
+        LineShader->set_mat4_uniform_projection(_projection);
         //DummyLine->Draw();
 
-        GizmosAxisShader->Use();
-        GizmosAxisShader->SetMat4UniformView(_view);
-        GizmosAxisShader->SetMat4UniformProjection(_projection);
+        GizmosAxisShader->use();
+        GizmosAxisShader->set_mat4_uniform_view(_view);
+        GizmosAxisShader->set_mat4_uniform_projection(_projection);
         GizmosAxis->Draw();
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);

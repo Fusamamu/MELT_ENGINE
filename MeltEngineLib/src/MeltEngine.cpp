@@ -197,10 +197,10 @@ namespace MELT
 
     void Engine::update_render()
     {
-        std::shared_ptr<RenderPipeline> _render_pipeline = manager_registry.get<RenderPipeline>();;
-        _render_pipeline->BeginFrame();
-        _render_pipeline->Render(0.0f);
-        _render_pipeline->EndFrame();
+        // std::shared_ptr<RenderPipeline> _render_pipeline = manager_registry.get<RenderPipeline>();;
+        // _render_pipeline->BeginFrame();
+        // _render_pipeline->Render(0.0f);
+        // _render_pipeline->EndFrame();
     }
 
     void Engine::begin_frame()

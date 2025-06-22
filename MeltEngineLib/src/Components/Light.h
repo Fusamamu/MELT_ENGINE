@@ -50,6 +50,28 @@ namespace MELT
         {
             return color * intensity;
         }
+
+        // Light-space matrix for shadow mapping (only for directional light)
+        glm::mat4 get_light_space_matrix(float orthoSize = 10.0f, float nearPlane = 1.0f, float farPlane = 50.0f) const
+        {
+            if (type != LightType::DIRECTIONAL)
+                return glm::mat4(1.0f); // Identity for unsupported types
+
+            glm::mat4 lightProjection = glm::ortho(
+                -orthoSize, orthoSize,
+                -orthoSize, orthoSize,
+                nearPlane, farPlane
+            );
+
+            glm::mat4 lightView = glm::lookAt
+            (
+                position,                             // eye
+                position + glm::normalize(direction), // target
+                glm::vec3(0.0f, 1.0f, 0.0f)           // up
+            );
+
+            return lightProjection * lightView;
+        }
     };
 }
 

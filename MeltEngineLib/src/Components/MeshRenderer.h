@@ -55,7 +55,7 @@ namespace MELT
             glBindVertexArray(0);
         }
 
-        void draw()
+        void draw() const
         {
             glBindVertexArray(m_vao);
             glDrawElements(GL_TRIANGLES, (GLsizei)mesh_data->mesh->index_buffer.size(), GL_UNSIGNED_INT, nullptr);

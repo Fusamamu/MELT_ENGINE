@@ -5,6 +5,9 @@
 #include "ShaderPreview.h"
 #include "GizmosRenderer.h"
 #include "LineRenderer.h"
+#include "DepthPass.h"
+#include "RenderPass.h"
+#include "RenderCommand.h"
 
 namespace MELT
 {
@@ -13,26 +16,31 @@ namespace MELT
     class RenderPipeline
     {
     public:
-
         enum class RenderStateAction
         {
             ENABLE,
             DISABLE
         };
 
+        GRAPHIC::RenderPass geometry_pass;
+        GRAPHIC::RenderPass outline_pass;
+
         ShaderPreview shader_preview;
+        DepthPass     depth_pass;
 
         GizmosRenderer aabb_gizmos_renderer;
         GizmosRenderer camera_frustum_renderer;
         LineRenderer   line_renderer;
 
-        glm::vec4 clear_color;
-        FrameBuffer* editor_scene_frame_buffer;
+        glm::vec4   clear_color;
+        FrameBuffer editor_scene_frame_buffer;
 
         RenderPipeline();
 
         void Init(Engine* _engine);
+        void BeginFrame() const;
         void Render(float _dt);
+        void EndFrame  () const;
 
         void SetUpUBO()
         {
@@ -71,17 +79,6 @@ namespace MELT
             }
         }
 
-        void BeginFrame() const
-        {
-            glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
-            glClear(m_clearBuffers);
-        }
-
-        void EndFrame()
-        {
-            SDL_GL_SwapWindow(mp_window);
-        }
-
         void* shader_preview_texture()
         {
             return (void*)(intptr_t)shader_preview.preview_fbo.texture_id;
@@ -89,8 +86,10 @@ namespace MELT
 
         void rescale_frame_buffers(const GLsizei& _w, const GLsizei& _h)
         {
-            editor_scene_frame_buffer->RescaleFrameBuffer(_w, _h);
-            shader_preview.preview_fbo.RescaleFrameBuffer(_w, _h);
+            editor_scene_frame_buffer .resize(_w, _h);
+            shader_preview.preview_fbo.resize(_w, _h);
+
+            //geometry_pass.render_target.resize(_w, _h);
         }
 
     private:

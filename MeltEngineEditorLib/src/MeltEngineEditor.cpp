@@ -616,7 +616,7 @@ namespace MELT_EDITOR
             ImGuizmo::SetRect(_cursorScreenPos.x, _cursorScreenPos.y, _sceneEditorWindowWidth, _sceneEditorWindowHeight);
 
             ImGui::GetWindowDrawList()->AddImage(
-                    (void*)(intptr_t)engine->manager_registry.get<MELT::RenderPipeline>()->editor_scene_frame_buffer->texture_id,
+                    (void*)(intptr_t)engine->manager_registry.get<MELT::RenderPipeline>()->editor_scene_frame_buffer.texture_id,
                     ImVec2(_cursorScreenPos.x, _cursorScreenPos.y),
                     ImVec2(_cursorScreenPos.x + _sceneEditorWindowWidth, _cursorScreenPos.y + _sceneEditorWindowHeight),
                     ImVec2(0, 1),

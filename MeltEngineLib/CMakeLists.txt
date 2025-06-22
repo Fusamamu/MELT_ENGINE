@@ -75,6 +75,17 @@ add_library(${PROJECT_NAME} SHARED
         src/Systems/MovementSystem.cpp
         src/Components/NodeEditor.cpp
         src/Components/NodeEditor.h
+        src/Renderer/DepthPass.cpp
+        src/Renderer/DepthPass.h
+        src/Renderer/RenderPass.cpp
+        src/Renderer/RenderPass.h
+        src/Renderer/Material.cpp
+        src/Renderer/Material.h
+        src/Renderer/CommandBuffer.cpp
+        src/Renderer/CommandBuffer.h
+        src/Renderer/RenderCommand.cpp
+        src/Renderer/RenderCommand.h
+        src/Renderer/RenderContext.h
 )
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)

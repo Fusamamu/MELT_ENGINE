@@ -84,22 +84,22 @@ namespace MELT
         glDeleteProgram(ID);
     }
 
-    void Shader::Use()
+    void Shader::use()
     {
         glUseProgram(ID);
     }
 
-    void Shader::SetMat4UniformModel(glm::mat4 _model) const
+    void Shader::set_mat4_uniform_model(glm::mat4 _model) const
     {
         glUniformMatrix4fv(m_UniformLoc_Model, 1, GL_FALSE, glm::value_ptr(_model));
     }
 
-    void Shader::SetMat4UniformView(glm::mat4 _view) const
+    void Shader::set_mat4_uniform_view(glm::mat4 _view) const
     {
         glUniformMatrix4fv(m_UniformLoc_View, 1, GL_FALSE, glm::value_ptr(_view));
     }
 
-    void Shader::SetMat4UniformProjection(glm::mat4 _projection) const
+    void Shader::set_mat4_uniform_projection(glm::mat4 _projection) const
     {
         glUniformMatrix4fv(m_UniformLoc_Projection, 1, GL_FALSE, glm::value_ptr(_projection));
     }

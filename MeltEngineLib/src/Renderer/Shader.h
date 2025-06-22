@@ -20,11 +20,11 @@ namespace MELT
         explicit Shader(const std::string& _filePath);
         ~Shader();
 
-        void Use();
+        void use();
 
-        void SetMat4UniformModel              (glm::mat4 _model) const;
-        void SetMat4UniformView               (glm::mat4 _view) const;
-        void SetMat4UniformProjection         (glm::mat4 _projection) const;
+        void set_mat4_uniform_model              (glm::mat4 _model) const;
+        void set_mat4_uniform_view               (glm::mat4 _view) const;
+        void set_mat4_uniform_projection         (glm::mat4 _projection) const;
         void SetVec2UniformScreenSize         (glm::vec2 _screenSize) const;
         void SetVec2UniformOrigin             (glm::vec2 _origin) const;
         void SetVec3UniformColor              (glm::vec3 _color) const;

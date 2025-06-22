@@ -54,8 +54,10 @@ namespace MELT_EDITOR
                 }
             }
 
-            ImGui::GetWindowDrawList()->AddImage(
-                    (void*)(intptr_t)m_engine->manager_registry.get<MELT::RenderPipeline>()->editor_scene_frame_buffer->texture_id,
+            ImGui::GetWindowDrawList()->AddImage
+            (
+                    (void*)(intptr_t)m_engine->manager_registry.get<MELT::RenderPipeline>()->editor_scene_frame_buffer.texture_id,
+                    //(void*)(intptr_t)m_engine->manager_registry.get<MELT::RenderPipeline>()->geometry_pass.render_target.texture_id,
                     ImVec2(_cursor_screen_pos.x, _cursor_screen_pos.y),
                     ImVec2(_cursor_screen_pos.x + _scene_editor_window_width, _cursor_screen_pos.y + _scene_editor_window_height),
                     ImVec2(0, 1),

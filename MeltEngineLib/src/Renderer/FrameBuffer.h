@@ -6,13 +6,16 @@ namespace MELT
     class FrameBuffer
     {
     public:
-        GLuint FBO;
-        GLuint RBO;
+        GLuint fbo;
+        GLuint rbo;
         GLuint texture_id;
 
         FrameBuffer();
         ~FrameBuffer() = default;
 
-        void RescaleFrameBuffer(const GLsizei& _w, const GLsizei& _h);
+        void create(GLsizei _w, GLsizei _h);
+        void bind();
+        void unbind();
+        void resize(const GLsizei& _w, const GLsizei& _h);
     };
 }
