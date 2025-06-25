@@ -535,19 +535,9 @@ namespace MELT_EDITOR
             ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
             ImGui::Indent();
 
-            auto _font_color = ImVec4(0.5f, 0.5f, 0.5f, 1.0f);
-
-
-
-
-
-            ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-            ImGui::Text("Color");
-            ImGui::PopStyleColor();
-            ImGui::SameLine(120.0f);
-            ImGui::InputFloat3("##Color", glm::value_ptr(_light.color));
-
-
+            MELT_GUI::input_float_3("Light color"    , _light.position );
+            MELT_GUI::input_float_3("Light target"   , _light.target   );
+            MELT_GUI::input_float_3("Light direction", _light.direction);
 
             ImGui::Unindent();
             ImGui::PopStyleColor();

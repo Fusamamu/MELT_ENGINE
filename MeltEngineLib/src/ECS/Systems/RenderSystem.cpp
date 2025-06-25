@@ -75,7 +75,7 @@ namespace MELT
         PhongShader->SetVec3UniformObjectColor(glm::vec3(1.0, 0.0, 0.0));
         PhongShader->SetVec3UniformLightColor (glm::vec3(1.0, 1.0, 1.0));
         PhongShader->SetFloatUniformObjectShininess(1.0f);
-        PhongShader->SetVec3UniformLightWorldPosition(glm::vec3(100, 100, 100));
+        PhongShader->set_vec3_uniform_light_world_position(glm::vec3(100, 100, 100));
         //PhongShader->SetVec3UniformCameraWorldPosition(Engine->MainCamera.Position);
 
         EditorSceneFrameBuffer = new FrameBuffer();

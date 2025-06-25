@@ -134,7 +134,7 @@ namespace MELT
         glUniform3f(m_UniformLoc_LightColor, _lightColor.r, _lightColor.g, _lightColor.b);
     }
 
-    void Shader::SetVec3UniformLightWorldPosition(glm::vec3 _lightWorldPos) const
+    void Shader::set_vec3_uniform_light_world_position(glm::vec3 _lightWorldPos) const
     {
         glUniform3f(m_UniformLoc_LightWorldPosition, _lightWorldPos.x, _lightWorldPos.y, _lightWorldPos.z);
     }

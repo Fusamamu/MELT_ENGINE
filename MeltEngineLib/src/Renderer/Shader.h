@@ -31,7 +31,7 @@ namespace MELT
         void SetVec3UniformObjectColor        (glm::vec3 _objectColor) const;
         void SetFloatUniformObjectShininess   (float _shininess) const;
         void SetVec3UniformLightColor         (glm::vec3 _lightColor) const;
-        void SetVec3UniformLightWorldPosition (glm::vec3 _lightWorldPos) const;
+        void set_vec3_uniform_light_world_position (glm::vec3 _lightWorldPos) const;
         void SetVec3UniformCameraWorldPosition(glm::vec3 _cameraWorldPos) const;
 
         friend std::ostream& operator<<(std::ostream& _os, Shader& _shader)

@@ -10,7 +10,7 @@ out vec2 TexCoord;
 uniform mat4 proj;
 uniform mat4 view;
 uniform mat4 model;
-uniform vec3 lightWorldPos;     // Light position in world space
+uniform vec3 lightWorldPos;       // Light position in world space
 uniform vec3 cameraWorldPos;      // Camera position in world space
 
 out vec3 FragPos;          // Fragment position in world space
@@ -20,17 +20,10 @@ out vec3 ViewDir;          // Direction from fragment to view/camera
 
 void main()
 {
-    // Compute the fragment position in world space
-    FragPos = vec3(model * vec4(position, 1.0));
-    // Transform the normal vector to world space
-    Normal = mat3(transpose(inverse(model))) * normal;
-    // Calculate light direction (from fragment to light)
-    LightDir = lightWorldPos - FragPos;
-    // Calculate view direction (from fragment to camera/view)
-    ViewDir = cameraWorldPos - FragPos;
-    // Transform vertex position for the final position output
-    //gl_Position = projection * view * vec4(FragPos, 1.0);
-
+    FragPos     = vec3(model * vec4(position, 1.0));          // Compute the fragment position in world space
+    Normal      = mat3(transpose(inverse(model))) * normal;   // Transform the normal vector to world space
+    LightDir    = lightWorldPos  - FragPos;                   // Calculate light direction (from fragment to light)
+    ViewDir     = cameraWorldPos - FragPos;                   // Calculate view direction (from fragment to camera/view)
     gl_Position = proj * view * model * vec4(position.x, position.y, position.z, 1.0);
     TexCoord = texCoord;
 }
@@ -49,15 +42,12 @@ uniform vec3 lightColor;       // Light color
 uniform vec3 objectColor;      // Object color
 uniform float shininess;       // Shininess exponent
 
-// uniform vec3 Color;
-// uniform sampler2D Texture;
-
 void main()
 {
     // Normalize the normal, light direction, and view direction
-    vec3 norm = normalize(Normal);
+    vec3 norm     = normalize(Normal);
     vec3 lightDir = normalize(LightDir);
-    vec3 viewDir = normalize(ViewDir);
+    vec3 viewDir  = normalize(ViewDir);
 
     // Ambient lighting (constant low-level light)
     float ambientStrength = 0.1;
@@ -69,7 +59,7 @@ void main()
 
     // Specular lighting (Phong reflection model)
     vec3 reflectDir = reflect(-lightDir, norm); // Reflection direction
-    float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
+    float spec             = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
     float specularStrength = 0.5; // Specular reflection strength
     vec3 specular = specularStrength * spec * lightColor;
 

@@ -34,6 +34,7 @@ namespace MELT
 
         glm::vec4   clear_color;
         FrameBuffer editor_scene_frame_buffer;
+        FrameBuffer depth_buffer;
 
         RenderPipeline();
 
@@ -99,6 +100,7 @@ namespace MELT
         Cube* aCube;
 
         MeshRenderer* m_grid_renderer;
+        MeshRenderer* m_quad_renderer;
 
         Shader* m_TargetShader;
         Shader* m_MeshOutlineShader;
@@ -106,6 +108,8 @@ namespace MELT
         Shader* m_gizmos_shader;
         Shader* m_debug_line;
         Shader* m_camera_frustum;
+        Shader* m_depth_shader;
+        Shader* m_screen_quad_shader;
 
         SDL_Window* mp_window;
         GLbitfield m_clearBuffers;
