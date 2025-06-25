@@ -33,7 +33,7 @@ namespace MELT
         GridShader2D->set_mat4_uniform_model     (_model);
         GridShader2D->set_mat4_uniform_view      (_view);
         GridShader2D->set_mat4_uniform_projection(_projection);
-        GridShader2D->SetVec2UniformScreenSize(glm::vec2(800, 600));
+        GridShader2D->set_vec2_uniform_screen_size(glm::vec2(800, 600));
 
         CheckerboardShader->use();
 
@@ -41,25 +41,25 @@ namespace MELT
         BasicShader->set_mat4_uniform_model     (_model);
         BasicShader->set_mat4_uniform_view      (_view);
         BasicShader->set_mat4_uniform_projection(_projection);
-        BasicShader->SetVec3UniformColor(glm::vec3(1.0f, 1.0f, 1.0f));
+        BasicShader->set_vec3_uniform_color(glm::vec3(1.0f, 1.0f, 1.0f));
 
         TextureShader->use();
         TextureShader->set_mat4_uniform_model     (_model);
         TextureShader->set_mat4_uniform_view      (_view);
         TextureShader->set_mat4_uniform_projection(_projection);
-        TextureShader->SetVec3UniformColor(glm::vec3(1.0f, 1.0f, 1.0f));
+        TextureShader->set_vec3_uniform_color(glm::vec3(1.0f, 1.0f, 1.0f));
 
         TextureOutlineShader->use();
         TextureOutlineShader->set_mat4_uniform_model     (_model);
         TextureOutlineShader->set_mat4_uniform_view      (_view);
         TextureOutlineShader->set_mat4_uniform_projection(_projection);
-        TextureOutlineShader->SetVec3UniformColor(glm::vec3(1.0f, 1.0f, 1.0f));
+        TextureOutlineShader->set_vec3_uniform_color(glm::vec3(1.0f, 1.0f, 1.0f));
 
         LineShader->use();
         LineShader->set_mat4_uniform_model     (_model);
         LineShader->set_mat4_uniform_view      (_view);
         LineShader->set_mat4_uniform_projection(_projection);
-        LineShader->SetVec3UniformColor(glm::vec3(1.0f, 0.0f, 0.0f));
+        LineShader->set_vec3_uniform_color(glm::vec3(1.0f, 0.0f, 0.0f));
 
         _model = glm::translate(glm::mat4(1.0f), glm::vec3 (0.0f, 0.0f, 0.0f));
 
@@ -72,9 +72,9 @@ namespace MELT
         PhongShader->set_mat4_uniform_model     (_model);
         PhongShader->set_mat4_uniform_view      (_view);
         PhongShader->set_mat4_uniform_projection(_projection);
-        PhongShader->SetVec3UniformObjectColor(glm::vec3(1.0, 0.0, 0.0));
-        PhongShader->SetVec3UniformLightColor (glm::vec3(1.0, 1.0, 1.0));
-        PhongShader->SetFloatUniformObjectShininess(1.0f);
+        PhongShader->set_vec3_uniform_object_color(glm::vec3(1.0, 0.0, 0.0));
+        PhongShader->set_vec3_uniform_light_color (glm::vec3(1.0, 1.0, 1.0));
+        PhongShader->set_float_uniform_object_shininess(1.0f);
         PhongShader->set_vec3_uniform_light_world_position(glm::vec3(100, 100, 100));
         //PhongShader->SetVec3UniformCameraWorldPosition(Engine->MainCamera.Position);
 
@@ -178,7 +178,7 @@ namespace MELT
         PhongShader->use();
         PhongShader->set_mat4_uniform_view(_view);
         PhongShader->set_mat4_uniform_projection(_projection);
-        PhongShader->SetVec3UniformCameraWorldPosition(Engine->main_camera.position);
+        PhongShader->set_vec3_uniform_camera_world_position(Engine->main_camera.position);
         //aCube->Draw();
 
         glDisable(GL_DEPTH_TEST);

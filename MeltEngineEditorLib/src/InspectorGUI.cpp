@@ -535,9 +535,12 @@ namespace MELT_EDITOR
             ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
             ImGui::Indent();
 
-            MELT_GUI::input_float_3("Light color"    , _light.position );
-            MELT_GUI::input_float_3("Light target"   , _light.target   );
-            MELT_GUI::input_float_3("Light direction", _light.direction);
+            MELT_GUI::input_float_3("Light color"     , _light.position );
+            MELT_GUI::input_float_3("Light target"    , _light.target   );
+            MELT_GUI::input_float_3("Light direction" , _light.direction);
+            MELT_GUI::input_float  ("Light ortho size", _light.ortho_size );
+            MELT_GUI::input_float  ("Light near plane", _light.near_plane );
+            MELT_GUI::input_float  ("Light far plane" , _light.far_plane  );
 
             ImGui::Unindent();
             ImGui::PopStyleColor();

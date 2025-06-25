@@ -29,7 +29,7 @@ namespace MELT
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
         p_target_shader->use();
-        p_target_shader->SetVec3UniformColor(glm::vec3(1.0f, 1.0f, 1.0f));
+        p_target_shader->set_vec3_uniform_color(glm::vec3(1.0f, 1.0f, 1.0f));
         preview_renderer.draw();
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);

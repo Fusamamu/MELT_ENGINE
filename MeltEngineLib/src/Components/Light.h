@@ -28,9 +28,9 @@ namespace MELT
         float innerConeAngle = glm::radians(12.5f);    // Spot light specific
         float outerConeAngle = glm::radians(17.5f);
 
-        float ortho_size;
-        float near_plane;
-        float far_plane;
+        float ortho_size = 50.0f;
+        float near_plane = 0.0f;
+        float far_plane  = 100.0f;
 
         bool castShadows = true;
 
@@ -46,8 +46,9 @@ namespace MELT
         glm::vec3 get_position() const { return position;                 }
         glm::vec3 get_color   () const { return color * intensity;        }
 
-        glm::mat4 get_projection();
         glm::mat4 get_view();
+        glm::mat4 get_view(M_VEC3 _light_pos);
+        glm::mat4 get_projection();
 
         glm::mat4 get_light_space_matrix(float orthoSize = 10.0f, float nearPlane = 1.0f, float farPlane = 50.0f) const   // Light-space matrix for shadow mapping (only for directional light)
         {

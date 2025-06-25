@@ -42,9 +42,9 @@ namespace MELT
         m_TargetShader->set_mat4_uniform_model     (_model);
         m_TargetShader->set_mat4_uniform_view      (_view);
         m_TargetShader->set_mat4_uniform_projection(_projection);
-        m_TargetShader->SetVec3UniformObjectColor(glm::vec3(0.8, 0.0, 0.0));
-        m_TargetShader->SetVec3UniformLightColor (glm::vec3(1.0, 1.0, 1.0));
-        m_TargetShader->SetFloatUniformObjectShininess(1.0f);
+        m_TargetShader->set_vec3_uniform_object_color(glm::vec3(0.8, 0.0, 0.0));
+        m_TargetShader->set_vec3_uniform_light_color (glm::vec3(1.0, 1.0, 1.0));
+        m_TargetShader->set_float_uniform_object_shininess(1.0f);
         m_TargetShader->set_vec3_uniform_light_world_position(glm::vec3(100, 100, 100));
 
         m_MeshOutlineShader->use();
@@ -61,12 +61,12 @@ namespace MELT
         m_gizmos_shader->set_mat4_uniform_model     (_model);
         m_gizmos_shader->set_mat4_uniform_view      (_view);
         m_gizmos_shader->set_mat4_uniform_projection(_projection);
-        m_gizmos_shader->SetVec3UniformColor(glm::vec3(1.0, 1.0, 1.0));
+        m_gizmos_shader->set_vec3_uniform_color(glm::vec3(1.0, 1.0, 1.0));
 
         m_debug_line->use();
         m_debug_line->set_mat4_uniform_view      (_view);
         m_debug_line->set_mat4_uniform_projection(_projection);
-        m_debug_line->SetVec3UniformColor(glm::vec3(1.0, 1.0, 1.0));
+        m_debug_line->set_vec3_uniform_color(glm::vec3(1.0, 1.0, 1.0));
 
         m_camera_frustum->use();
         m_camera_frustum->set_mat4_uniform_view      (_view);
@@ -139,6 +139,8 @@ namespace MELT
         geometry_pass.command_buffer.add(std::move(_render_grid_command));
 
         auto _object_view = _working_scene->ecs_registry.view<Transform, MeshRenderer, NodeEditor>();
+        auto _light_view  = _working_scene->ecs_registry.view<Transform, Light>();
+
         for (auto _entity : _object_view)
         {
             auto& _transform     = _object_view.get<Transform>   (_entity);
@@ -188,34 +190,20 @@ namespace MELT
         glViewport(0, 0, 2048, 2048);
         glClear(GL_DEPTH_BUFFER_BIT);
 
-        // m_depth_shader->use();
-        //
-        // float near_plane = 1.0f, far_plane = 100.0f;
-        // auto lightProjection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, near_plane, far_plane);
-        //
-        // glm::vec3 lightDir = glm::normalize(glm::vec3(-1.0f, -1.0f, -1.0f)); // example
-        // glm::vec3 lightPos = -lightDir * 20.0f; // pull back from scene center
-        // glm::vec3 sceneCenter = glm::vec3(0.0f);
-        //
-        // auto lightView = glm::lookAt(lightPos, sceneCenter, glm::vec3(0.0f, 1.0f, 0.0f));
-        //
-        // m_depth_shader->set_mat4_uniform_view(lightView);
-        // m_depth_shader->set_mat4_uniform_projection(lightProjection);
-        //
-        // for (auto _entity : _object_view)
-        // {
-        //     auto& _transform     = _object_view.get<Transform>   (_entity);
-        //     auto& _mesh_renderer = _object_view.get<MeshRenderer>(_entity);
-        //     auto& _node_editor   = _object_view.get<NodeEditor>  (_entity);
-        //
-        //     m_depth_shader->set_mat4_uniform_model(_transform.get_transform_matrix());
-        //     _mesh_renderer.draw();
-        // }
+        glm::mat4 _light_space;
 
-
+        /*Store depth texture*/
         m_depth_shader->use();
-        m_depth_shader->set_mat4_uniform_view      (_view);
-        m_depth_shader->set_mat4_uniform_projection(_projection);
+        for (auto _entity : _light_view)
+        {
+            auto& _transform = _light_view.get<Transform>(_entity);
+            auto& _light     = _light_view.get<Light>    (_entity);
+
+            m_depth_shader->set_mat4_uniform_view      (_light.get_view(_transform.position));
+            m_depth_shader->set_mat4_uniform_projection(_light.get_projection());
+
+            _light_space = _light.get_projection() * _light.get_view(_transform.position);
+        }
 
         for (auto _entity : _object_view)
         {
@@ -224,12 +212,11 @@ namespace MELT
             m_depth_shader->set_mat4_uniform_model(_transform.get_transform_matrix());
             _mesh_renderer.draw();
         }
-
         depth_buffer.unbind();
+        /*-----------------*/
 
-
+        /*Draw depth on quad*/
         editor_scene_frame_buffer.bind();
-
         glViewport(0, 0, editor_scene_frame_buffer.width, editor_scene_frame_buffer.height);
 
         glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
@@ -242,25 +229,35 @@ namespace MELT
         glUniform1i(glGetUniformLocation(m_screen_quad_shader->ID, "depthMap"), 0);
 
         m_quad_renderer->draw();
-
         editor_scene_frame_buffer.unbind();
-
+        /*-----------------*/
 
         editor_scene_frame_buffer.bind();
 
         geometry_pass.begin();
+
+        m_TargetShader->use();
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, depth_buffer.texture_id);
+
+        glUniform1i       (glGetUniformLocation(m_TargetShader->ID, "shadow_map"), 1);
+        glUniformMatrix4fv(glGetUniformLocation(m_TargetShader->ID, "light_space_mat"), 1, GL_FALSE, glm::value_ptr(_light_space));
+
+
+
+
         geometry_pass.execute();
         outline_pass .execute();
         geometry_pass.end();
 
-        auto _light_view = _working_scene->ecs_registry.view<Transform, Light>();
         for (auto _entity : _light_view)
         {
             auto& _transform = _light_view.get<Transform>(_entity);
-            auto& _light     = _light_view.get<Light>(_entity);
+            auto& _light     = _light_view.get<Light>    (_entity);
 
             m_TargetShader->use();
             m_TargetShader->set_vec3_uniform_light_world_position(_transform.position);
+            m_TargetShader->set_vec3_uniform_light_world_target  (_light.target);
 
             m_debug_line->use();
             m_debug_line->set_mat4_uniform_view      (_view);
