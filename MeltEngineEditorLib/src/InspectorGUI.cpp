@@ -102,6 +102,13 @@ namespace MELT_EDITOR
                 m_editor->draw_line_separator();
             }
 
+            if (_selected_node && _selected_node->has_component<MELT::Tile>())
+            {
+                MELT::Tile& _tile = _selected_node->get_component<MELT::Tile>();
+                draw_tile_component_panel(_tile);
+                m_editor->draw_line_separator();
+            }
+
             //Add components button
             ImVec2 buttonSize = ImVec2(120, 30);
             ImVec2 windowSize = ImGui::GetWindowSize();
@@ -247,6 +254,9 @@ namespace MELT_EDITOR
 
 
 
+
+
+
                 ImGui::PushStyleColor(ImGuiCol_Button,        IM_COL32(40, 40, 40, 255));  // Default
                 ImGui::PushStyleColor(ImGuiCol_ButtonHovered, IM_COL32(100, 100, 100, 255));  // Hover
                 ImGui::PushStyleColor(ImGuiCol_ButtonActive,  IM_COL32(200, 200, 200, 255));    // Pressed
@@ -275,8 +285,11 @@ namespace MELT_EDITOR
                             for (int i = 0; i < 20; i++)
                             {
                                 char label[32];
+
                                 sprintf(label, "Item %d", i);
+
                                 bool is_selected = (selected == i);
+
                                 if (ImGui::Selectable(label, is_selected))
                                     selected = i;
                             }
@@ -557,6 +570,52 @@ namespace MELT_EDITOR
             if (ImGui::Button("Delete 1")) {
                 if (_selected_node && _selected_node->has_component<MELT::Camera>())
                     _selected_node->remove_component<MELT::Camera>();
+            }
+            ImGui::PopStyleColor();
+
+            ImGui::PopStyleColor(3);
+            ImGui::PopStyleVar();
+
+            ImGui::Dummy(ImVec2(0.0f, 4.0f));
+        }
+    }
+
+    void InspectorGUI::draw_tile_component_panel(MELT::Tile & _tile)
+    {
+        MELT::Scene* _working_scene = m_engine->manager_registry.get<MELT::SceneManager>()->working_scene;
+        MELT::Node * _selected_node = _working_scene->get_selected_node();
+
+        if (ImGui::CollapsingHeader("Tile", ImGuiTreeNodeFlags_DefaultOpen))
+        {
+            ImGui::Dummy(ImVec2(0.0f, 4.0f));
+
+            ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(0, 0, 0, 255));
+            ImGui::Indent();
+
+            MELT_GUI::input_int_3("Tile index", _tile.idx, _tile.idy, _tile.idz);
+
+            //MELT_GUI::input_float_3("Light color"     , _light.position );
+            // MELT_GUI::input_float_3("Light target"    , _light.target   );
+            // MELT_GUI::input_float_3("Light direction" , _light.direction);
+            // MELT_GUI::input_float  ("Light ortho size", _light.ortho_size );
+            // MELT_GUI::input_float  ("Light near plane", _light.near_plane );
+            // MELT_GUI::input_float  ("Light far plane" , _light.far_plane  );
+
+            ImGui::Unindent();
+            ImGui::PopStyleColor();
+
+            // Push custom colors for button
+            ImGui::PushStyleVar(ImGuiStyleVar_FrameRounding, 6.0f);
+            ImGui::PushStyleColor(ImGuiCol_Button,        IM_COL32(40, 40, 40, 255));  // Default
+            ImGui::PushStyleColor(ImGuiCol_ButtonHovered, IM_COL32(100, 100, 100, 255));  // Hover
+            ImGui::PushStyleColor(ImGuiCol_ButtonActive,  IM_COL32(200, 200, 200, 255));    // Pressed
+
+            ImGui::NewLine();
+            ImGui::SameLine(ImGui::GetContentRegionAvail().x - ImGui::CalcTextSize("Delete").x - ImGui::GetStyle().FramePadding.x * 2);
+            ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.5f, 0.5f, 0.5f, 1.0f));
+            if (ImGui::Button("Delete 1")) {
+                if (_selected_node && _selected_node->has_component<MELT::Tile>())
+                    _selected_node->remove_component<MELT::Tile>();
             }
             ImGui::PopStyleColor();
 

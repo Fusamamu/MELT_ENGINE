@@ -151,6 +151,21 @@ namespace MELT
         //glUniform3f(m_UniformLoc_Color, _cameraWorldPos.x, _cameraWorldPos.y, _cameraWorldPos.x);
     }
 
+    void Shader::set_uniform(const std::string& _name, int _iv) const
+    {
+
+    }
+
+    void Shader::set_uniform(const std::string& _name, float _fv) const
+    {
+
+    }
+
+    void Shader::set_uniform(const std::string& _name, M_VEC4 _vec4) const
+    {
+
+    }
+
     GLuint Shader::CreateShader(const std::string& _vertex_src, const std::string& _geometry_src, const std::string& _fragment_src)
     {
         GLuint _vertexShader   = CompileShader(GL_VERTEX_SHADER  , _vertex_src  );

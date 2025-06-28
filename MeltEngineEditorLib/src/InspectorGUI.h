@@ -1,5 +1,5 @@
-#ifndef INSPECTORGUI_H
-#define INSPECTORGUI_H
+#ifndef INSPECTOR_GUI_H
+#define INSPECTOR_GUI_H
 
 #include "GUI.h"
 
@@ -23,6 +23,7 @@ namespace MELT_EDITOR
         void draw_sprite_renderer_component_panel(MELT::SpriteRenderer& _spriteRenderer);
         void draw_camera_component_panel         (MELT::Camera        & _camera        );
         void draw_light_component_panel          (MELT::Light         & _light         );
+        void draw_tile_component_panel           (MELT::Tile          & _tile          );
     };
 }
 

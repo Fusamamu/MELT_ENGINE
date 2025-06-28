@@ -308,6 +308,31 @@ namespace MELT_EDITOR
                         printf("Error: %s\n", NFD_GetError());
                     }
                 }
+
+
+                if (ImGui::MenuItem("Create material"))
+                {
+                    std::string _target_path = "../Project/Assets/default_material.mat";
+
+                    std::string _save_text = MELT::GRAPHIC::create_material();
+
+                    if (!std::filesystem::exists(_target_path))
+                    {
+                        std::ofstream _f_out(_target_path);
+                        _f_out << _save_text.c_str();
+                        _f_out.close();
+
+                        engine->Logger.log("Created new YAML file");
+                    } else {
+
+                        std::ofstream _file;
+                        _file.open(_target_path);
+                        _file << _save_text.c_str();
+                        _file.close();
+
+                        engine->Logger.log("File already exists");
+                    }
+                }
                 ImGui::EndMenu();
             }
 

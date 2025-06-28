@@ -10,6 +10,10 @@ namespace MELT
     class MovementSystem
     {
     public:
+        void init()
+        {
+        }
+
         void update(entt::registry& registry, float deltaTime)
         {
             auto view = registry.view<Transform>(entt::exclude<Light>);

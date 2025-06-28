@@ -19,6 +19,7 @@
 #include "Light.h"
 #include "Gizmos.h"
 #include "NodeEditor.h"
+#include "TileGrid.h"
 
 #include "SpriteRenderer.h"
 #include "Coordinator.h"

@@ -1,5 +1,5 @@
-#ifndef SYSTEMGUI_H
-#define SYSTEMGUI_H
+#ifndef SYSTEM_GUI_H
+#define SYSTEM_GUI_H
 
 namespace MELT_EDITOR
 {
@@ -22,4 +22,4 @@ namespace MELT_EDITOR
     };
 }
 
-#endif //SYSTEMGUI_H
+#endif

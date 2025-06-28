@@ -20,6 +20,7 @@ namespace MELT
 
         ResourceManager () = default;
         ~ResourceManager() = default;
+
         void init();
         void load_default_cube();
         void load_texture(std::filesystem::path _path);

@@ -6,8 +6,15 @@ namespace MELT
     struct Texture
     {
         GLuint texture_id;
+        GLenum texture_target = GL_TEXTURE_2D;
         int width, height, nrComponents;
         unsigned char* p_data;
+
+        void bind(int _slot = 0) const
+        {
+            glActiveTexture(GL_TEXTURE0 + _slot);
+            glBindTexture(texture_target, texture_id);
+        }
     };
 
     struct TextureData
@@ -26,4 +33,5 @@ namespace MELT
         }
     };
 }
+
 #endif //TEXTURE_H

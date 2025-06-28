@@ -27,6 +27,10 @@ namespace MELT_EDITOR
                 std::shared_ptr<MELT::ResourceManager> _resource_manager = m_engine->manager_registry.get<MELT::ResourceManager>();
                 std::shared_ptr<MELT::SceneManager>    _scene_manager    = m_engine->manager_registry.get<MELT::SceneManager>();
 
+                MELT::Scene* _working_scene = _scene_manager->working_scene;
+
+                ///_working_scene->ecs_registry.
+
                 for (std::size_t _i = 0; _i < column; ++_i)
                 {
                     for (std::size_t _j = 0; _j < row; ++_j)
@@ -36,6 +40,7 @@ namespace MELT_EDITOR
                         _node.add_component<MELT::MeshRenderer>();
                         _node.add_component<MELT::BoxCollider>();
                         _node.add_component<MELT::NodeEditor>();
+                        _node.add_component<MELT::Tile>();
 
                         MELT::Transform& _transform = _node.get_component<MELT::Transform>();
 
@@ -48,6 +53,11 @@ namespace MELT_EDITOR
 
                         MELT::NodeEditor& _node_editor = _node.get_component<MELT::NodeEditor>();
                         _node_editor.id = _node.id;
+
+                        MELT::Tile& _tile = _node.get_component<MELT::Tile>();
+                        _tile.idx = _i;
+                        _tile.idy = _j;
+                        _tile.idz = 0;
 
                         tile_ids.push_back(_node.id);
                     }

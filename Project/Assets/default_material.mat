@@ -1,0 +1,7 @@
+Material:
+  name: default_material
+  shader: phong.glsl
+  render_queue: opaque
+  properties:
+    base_color: [0, 0, 0, 1]
+    albedo_texture: white_texture.png

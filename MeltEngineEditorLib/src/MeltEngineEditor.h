@@ -12,6 +12,7 @@
 #include "NodeGraph.h"
 #include "TileEditor.h"
 #include "SceneViewGUI.h"
+#include "Material.h"
 
 namespace MELT_EDITOR
 {

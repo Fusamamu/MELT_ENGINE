@@ -86,6 +86,10 @@ add_library(${PROJECT_NAME} SHARED
         src/Renderer/RenderCommand.cpp
         src/Renderer/RenderCommand.h
         src/Renderer/RenderContext.h
+        src/AssetRegistry.cpp
+        src/AssetRegistry.h
+        src/TileSystem/TileGrid.cpp
+        src/TileSystem/TileGrid.h
 )
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
@@ -94,6 +98,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ./src
         ./src/Components
         ./src/UI
+        ./src/TileSystem
 
         ./src/EventSystem
         ./src/Renderer
