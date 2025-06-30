@@ -26,6 +26,7 @@ namespace MELT
         aCube = new Cube();
 
         m_TargetShader       = new Shader("../MeltEngineLib/res/shaders/Phong.shader");
+        m_phong_shader       = new Shader("../MeltEngineLib/res/shaders/phong.glsl");
         m_MeshOutlineShader  = new Shader("../MeltEngineLib/res/shaders/MeshOutline.shader");
         m_GridShader         = new Shader("../MeltEngineLib/res/shaders/3DGrid.shader");
         m_gizmos_shader      = new Shader("../MeltEngineLib/res/shaders/Gizmos.shader");
@@ -82,10 +83,15 @@ namespace MELT
         glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
         glStencilOp  (GL_KEEP, GL_KEEP, GL_REPLACE);
 
-        MeshData* _sphere_mesh_data = _engine->manager_registry.get<ResourceManager>()->get_mesh_data("Sphere");
+        // MeshData* _sphere_mesh_data = _engine->manager_registry.get<ResourceManager>()->get_mesh_data("Sphere");
+        // shader_preview.init();
+        // shader_preview.preview_renderer.set_mesh_data(_sphere_mesh_data);
+        // shader_preview.preview_renderer.set_buffer_data();
+
+        Mesh* _sphere_mesh = AssetRegistry::instance().get_by_name<Mesh>("Sphere");
         shader_preview.init();
-        shader_preview.preview_renderer.set_mesh_data(_sphere_mesh_data);
-        shader_preview.preview_renderer.set_buffer_data();
+        shader_preview.preview_renderer.set_mesh       (_sphere_mesh);
+        shader_preview.preview_renderer.set_buffer_data(_sphere_mesh);
 
         depth_pass.init();
 

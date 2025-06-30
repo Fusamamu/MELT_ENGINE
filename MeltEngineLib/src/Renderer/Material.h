@@ -9,6 +9,7 @@ namespace MELT::GRAPHIC
 {
     namespace UNIFORMS
     {
+        constexpr const char* COLOR        = "u_color";
         constexpr const char* ALBEDO_COLOR = "u_albedo_color";
         constexpr const char* ALBEDO_MAP   = "u_albedo_map"  ;
         constexpr const char* METALLIC     = "u_metallic"    ;
@@ -19,6 +20,10 @@ namespace MELT::GRAPHIC
     {
     public:
         std::string name;
+
+        UUID uuid;
+
+        std::string shader_name;
 
         Shader* p_shader;
 

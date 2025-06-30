@@ -88,8 +88,8 @@ add_library(${PROJECT_NAME} SHARED
         src/Renderer/RenderContext.h
         src/AssetRegistry.cpp
         src/AssetRegistry.h
-        src/TileSystem/TileGrid.cpp
-        src/TileSystem/TileGrid.h
+        src/TileSystem/TileGridFixedSize.cpp
+        src/TileSystem/TileGridFixedSize.h
 )
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)

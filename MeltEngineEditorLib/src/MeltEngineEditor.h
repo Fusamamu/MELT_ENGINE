@@ -16,6 +16,18 @@
 
 namespace MELT_EDITOR
 {
+    enum class InspectorSelectionType
+    {
+        NONE,
+        ENTITY_NODE,
+        MATERIAL
+    };
+
+    struct InspectorSelectionContext
+    {
+        InspectorSelectionType type = InspectorSelectionType::NONE;
+    };
+
     class Editor
     {   
     public:
@@ -26,6 +38,8 @@ namespace MELT_EDITOR
         std::vector<std::string> fileNames;
 
         std::filesystem::path working_project_directory = "../Project";
+
+        InspectorSelectionContext inspector_selection_context;
 
         SceneViewGUI    scene_view_gui;
         SpriteEditorGUI sprite_editor_gui;
@@ -53,7 +67,6 @@ namespace MELT_EDITOR
         void GetContent();
 
         void draw_main_menubar       ();
-        void draw_scene_view_gui     ();
         void draw_gameplay_view_gui  ();
         void draw_material_gui       ();
         void draw_content_gui        ();

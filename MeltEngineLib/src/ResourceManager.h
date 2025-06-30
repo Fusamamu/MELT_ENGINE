@@ -1,6 +1,7 @@
 #ifndef RESOURCEMANAGER_H
 #define RESOURCEMANAGER_H
 #include "Core.h"
+#include "AssetRegistry.h"
 #include "Texture.h"
 #include "Cube.h"
 #include "Quad.h"

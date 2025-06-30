@@ -6,6 +6,8 @@ namespace MELT
 {
     struct Mesh
     {
+        //std::string name;
+
         std::vector<uint8_t> vertex_buffer;
         std::vector<unsigned int> index_buffer;
 
@@ -13,6 +15,10 @@ namespace MELT
 
         [[nodiscard]] std::size_t get_vertex_buffer_size() const { return vertex_buffer.size(); }
         [[nodiscard]] std::size_t get_index_buffer_size () const { return index_buffer .size() * sizeof(unsigned int); }
+
+        UUID gen_uuid() const {
+            return generate_uuid(reinterpret_cast<uintptr_t>(this));
+        }
     };
 
     struct MeshData
@@ -25,7 +31,7 @@ namespace MELT
             name(""),
             mesh(nullptr)
         {
-            uuid = GenerateUUID(reinterpret_cast<uintptr_t>(this));
+            uuid = generate_uuid(reinterpret_cast<uintptr_t>(this));
         }
     };
 }

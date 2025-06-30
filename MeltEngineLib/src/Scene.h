@@ -23,7 +23,7 @@ namespace MELT
 
         Scene()
         {
-            uuid = GenerateUUID(reinterpret_cast<uintptr_t>(this));
+            uuid = generate_uuid(reinterpret_cast<uintptr_t>(this));
         }
         ~Scene() = default;
 

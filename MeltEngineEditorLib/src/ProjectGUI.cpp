@@ -63,7 +63,13 @@ namespace MELT_EDITOR
 
                     if (_entry.path().extension() == ".yaml")
                     {
-                        draw_icon(IconType::SCENE, _entry.path().filename().string());
+                        draw_icon(IconType::SCENE, _filename);
+                        continue;
+                    }
+
+                    if (_entry.path().extension() == ".mat")
+                    {
+                        draw_icon(IconType::MATERIAL, _filename);
                         continue;
                     }
 
@@ -71,6 +77,48 @@ namespace MELT_EDITOR
                 }
             }
         }
+
+        ImGui::PushStyleColor(ImGuiCol_PopupBg, IM_COL32(73, 74, 70, 255));
+        ImGui::PushStyleColor(ImGuiCol_Border , IM_COL32(73, 74, 70, 0));
+        ImGui::PushStyleVar(ImGuiStyleVar_PopupRounding, 10.0f);
+        if (ImGui::BeginPopupContextWindow("CC", ImGuiPopupFlags_MouseButtonRight))
+        {
+            if (ImGui::BeginMenu("Create"))
+            {
+                if (ImGui::MenuItem("Material"))
+                {
+                    if (std::filesystem::is_directory(m_selected_directory))
+                    {
+                        m_engine->Logger.log(m_selected_directory);
+
+                        std::string _target_path = m_selected_directory + "/new_default_material.mat";
+                        std::string _save_text   = MELT::GRAPHIC::create_material();
+
+                        if (!std::filesystem::exists(_target_path))
+                        {
+                            std::ofstream _f_out(_target_path);
+                            _f_out << _save_text.c_str();
+                            _f_out.close();
+
+                            m_engine->Logger.log("Created new YAML file");
+                        } else {
+
+                            std::ofstream _file;
+                            _file.open(_target_path);
+                            _file << _save_text.c_str();
+                            _file.close();
+
+                            m_engine->Logger.log("File already exists");
+                        }
+                    }
+                }
+                ImGui::EndMenu();
+            }
+
+            ImGui::EndPopup();
+        }
+        ImGui::PopStyleColor(2);
+        ImGui::PopStyleVar();
 
         ImGui::EndChild();
     }
@@ -97,22 +145,16 @@ namespace MELT_EDITOR
         ImGui::PushStyleColor(ImGuiCol_ButtonActive,  ImVec4(0.1f, 0.4f, 0.7f, 1.0f));
 
         ImVec2 iconSize(m_icon_size, m_icon_size);
-        ImVec2 uv0      = ImVec2(0.0f, 0.0f); // top-left
-        ImVec2 uv1      = ImVec2(1.0f, 1.0f); // bottom-right
-        ImVec4 bg_col   = ImVec4(0, 0, 0, 0); // transparent
-        ImVec4 tint_color = ImGui::IsItemHovered() ?
-            ImVec4(0.0f, 0.0f, 1.0f, 1.0f) :
-            ImVec4(1, 1, 1, 1);
 
-        if (ImGui::ImageButton(_icon_texture_id, iconSize, uv0, uv1, -1, bg_col, tint_color))
+        if (ImGui::ImageButton(_icon_texture_id, iconSize))
         {
-
+            m_editor->inspector_selection_context.type = InspectorSelectionType::MATERIAL;
         }
         if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0))
         {
+            m_engine->Logger.log("icon double click");
         }
 
-        //const char* label = "My Folder";
         ImVec2 textSize = ImGui::CalcTextSize(_label_name.c_str());
         float textOffset = (iconSize.x - textSize.x) * 0.5f;
         ImGui::SetCursorPosX(ImGui::GetCursorPosX() + textOffset);

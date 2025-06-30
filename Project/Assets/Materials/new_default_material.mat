@@ -1,0 +1,8 @@
+Material:
+  name: default_material
+  uuid: b2ee9529-b52b-c179-b2ee-9529b52bc179
+  shader: phong.glsl
+  render_queue: opaque
+  properties:
+    color: [0, 0, 0, 1]
+    texture: white_texture.png

@@ -121,11 +121,22 @@ namespace MELT
 
             Mesh _mesh = process_mesh(_scene->mMeshes[_node->mMeshes[i]], _scene);
 
+            Mesh* _new_mesh = new Mesh(_mesh);
+
             MeshData _mesh_data;
             _mesh_data.name = _name;
             _mesh_data.mesh = new Mesh(_mesh);
 
             mesh_data_table.try_emplace(_name, std::move(_mesh_data));
+
+
+            AssetMetadata _asset_metadata;
+            _asset_metadata.name = _name;
+            _asset_metadata.path = "";
+            _asset_metadata.uuid = _new_mesh->gen_uuid();
+
+            AssetRegistry::instance().register_asset<Mesh>(_asset_metadata, _new_mesh);
+
 
             std::cout << "loading mesh : " << _name << "\n";
         }

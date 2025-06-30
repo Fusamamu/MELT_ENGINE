@@ -10,7 +10,7 @@ namespace MELT
         m_entity_handle(_entity),
         is_selected(false)
     {
-        id = GenerateUUID(reinterpret_cast<uintptr_t>(this));
+        id = generate_uuid(reinterpret_cast<uintptr_t>(this));
     }
 
     Node::Node(std::string _name, M_VEC3 _position):
@@ -18,7 +18,7 @@ namespace MELT
         is_selected(false),
         m_scene_owner(nullptr)
     {
-        id = GenerateUUID(reinterpret_cast<uintptr_t>(this));
+        id = generate_uuid(reinterpret_cast<uintptr_t>(this));
     }
 
     Node::Node()  = default;

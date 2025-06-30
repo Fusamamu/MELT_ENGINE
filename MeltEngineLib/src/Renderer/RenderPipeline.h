@@ -103,6 +103,7 @@ namespace MELT
         MeshRenderer* m_quad_renderer;
 
         Shader* m_TargetShader;
+        Shader* m_phong_shader;
         Shader* m_MeshOutlineShader;
         Shader* m_GridShader;
         Shader* m_gizmos_shader;

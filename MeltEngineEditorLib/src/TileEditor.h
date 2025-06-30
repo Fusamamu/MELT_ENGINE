@@ -17,6 +17,7 @@ namespace MELT_EDITOR
 
         int column = 10;
         int row    = 10;
+        int height = 1;
 
         std::vector<MELT::NodeID> tile_ids;
     };

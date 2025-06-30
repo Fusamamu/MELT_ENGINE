@@ -2,7 +2,7 @@
 
 namespace MELT
 {
-    std::string GenerateUUID(uintptr_t _id)
+    UUID generate_uuid(uintptr_t _id)
     {
         // 1. Get high-resolution time
         auto now = std::chrono::high_resolution_clock::now();
@@ -32,5 +32,14 @@ namespace MELT
              << '-' << std::setw(12) << (hashValue & 0xFFFFFFFFFFFF);
 
         return uuid.str();
+    }
+
+    UUID generate_deterministic_uuid(const std::filesystem::path& path)
+    {
+        std::hash<std::string> hasher;
+        size_t hash = hasher(path.string()); // or path.lexically_normal().string()
+        std::stringstream ss;
+        ss << std::hex << hash;
+        return ss.str();
     }
 }

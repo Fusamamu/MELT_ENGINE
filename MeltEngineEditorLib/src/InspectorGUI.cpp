@@ -16,138 +16,180 @@ namespace MELT_EDITOR
 
     void InspectorGUI::draw_gui()
     {
-        unsigned int ChildBackground_Color  = IM_COL32(26, 28, 27, 255);
-
-        MELT::Scene* _working_scene = m_engine->manager_registry.get<MELT::SceneManager>()->working_scene;
-
-        MELT::Node * _selected_node = _working_scene->get_selected_node();
+        unsigned int ChildBackground_Color = IM_COL32(26, 28, 27, 255);
 
         ImGui::PushStyleColor(ImGuiCol_WindowBg, ChildBackground_Color);
         if (ImGui::Begin("Inspector"))
         {
-            ImDrawList* draw_list = ImGui::GetWindowDrawList();
-
-            ImVec2 _startCursor = ImGui::GetCursorScreenPos();
-            ImVec2 rect_min     = ImGui::GetCursorScreenPos();
-
-            ImVec2 padding = ImGui::GetStyle().WindowPadding;
-            rect_min.x -= padding.x;
-            rect_min.y -= padding.y;
-
-            ImVec2 rect_max = ImVec2(
-                    rect_min.x + ImGui::GetWindowWidth(),
-                    rect_min.y + 100);
-
-            draw_list->AddRectFilled(
-                    rect_min,
-                    rect_max,
-                    ChildBackground_Color);
-
-            rect_min.y += 100.0f;
-
-            rect_max.x = rect_min.x + ImGui::GetWindowWidth();
-            rect_max.y = rect_min.y + 400.0f;
-
-            rect_min.x += ImGui::GetStyle().WindowBorderSize + 1.0f;
-            rect_max.x -= ImGui::GetStyle().WindowBorderSize + 1.0f;
-
-            if (_selected_node)
+            switch (m_editor->inspector_selection_context.type)
             {
-                char buffer[128];
-                std::strncpy(buffer, _selected_node->name.c_str(), sizeof(buffer));
-                buffer[sizeof(buffer) - 1] = '\0'; // ensure null termination
-                if (ImGui::InputText("Name", buffer, IM_ARRAYSIZE(buffer)))
-                    _selected_node->name = std::string(buffer);
-                ImGui::Text(_selected_node->id.c_str());
+                case InspectorSelectionType::NONE:
+                    break;
+                case InspectorSelectionType::ENTITY_NODE:
+                    draw_node_inspector();
+                    break;
+                case InspectorSelectionType::MATERIAL:
+                    draw_material_inspector();
+                    break;
             }
-
-            ImGui::SetCursorScreenPos(rect_min);
-
-            ImGui::NewLine();
-
-            m_editor->draw_line_separator();
-
-            if (_selected_node && _selected_node->has_component<MELT::Transform>())
-            {
-                MELT::Transform& _transform = _selected_node->get_component<MELT::Transform>();
-                draw_transform_component_panel(_transform);
-                m_editor->draw_line_separator();
-            }
-
-            if (_selected_node && _selected_node->has_component<MELT::MeshRenderer>())
-            {
-                MELT::MeshRenderer& _renderer = _selected_node->get_component<MELT::MeshRenderer>();
-                draw_renderer_component_panel(_renderer);
-                m_editor->draw_line_separator();
-            }
-
-            if (_selected_node && _selected_node->has_component<MELT::BoxCollider>())
-            {
-                MELT::BoxCollider& _box_collider = _selected_node->get_component<MELT::BoxCollider>();
-                draw_box_collider_component_panel(_box_collider);
-                m_editor->draw_line_separator();
-            }
-
-            if (_selected_node && _selected_node->has_component<MELT::Camera>())
-            {
-                MELT::Camera& _camera = _selected_node->get_component<MELT::Camera>();
-                draw_camera_component_panel(_camera);
-                m_editor->draw_line_separator();
-            }
-
-            if (_selected_node && _selected_node->has_component<MELT::Light>())
-            {
-                MELT::Light& _light = _selected_node->get_component<MELT::Light>();
-                draw_light_component_panel(_light);
-                m_editor->draw_line_separator();
-            }
-
-            if (_selected_node && _selected_node->has_component<MELT::Tile>())
-            {
-                MELT::Tile& _tile = _selected_node->get_component<MELT::Tile>();
-                draw_tile_component_panel(_tile);
-                m_editor->draw_line_separator();
-            }
-
-            //Add components button
-            ImVec2 buttonSize = ImVec2(120, 30);
-            ImVec2 windowSize = ImGui::GetWindowSize();
-            ImGui::SetCursorPosY(windowSize.y - buttonSize.y - ImGui::GetStyle().WindowPadding.y);
-            float buttonX = (windowSize.x - buttonSize.x) / 2.0f;
-            ImGui::SetCursorPosX(buttonX);
-            if (ImGui::Button("Add component", buttonSize))
-            {
-                ImGui::OpenPopup("AddComponentPopup");
-            }
-
-            ImGui::PushStyleColor(ImGuiCol_PopupBg, IM_COL32(73, 74, 70, 255));
-            ImGui::PushStyleColor(ImGuiCol_Border , IM_COL32(73, 74, 70, 0));
-            ImGui::PushStyleVar(ImGuiStyleVar_PopupRounding, 10.0f);
-            if (ImGui::BeginPopup("AddComponentPopup"))
-            {
-                ImGui::Text("Components");
-                ImGui::Separator();
-                if (ImGui::MenuItem("Renderer"))
-                {
-                    if (_selected_node && !_selected_node->has_component<MELT::Renderer>())
-                        _selected_node->add_component<MELT::Renderer>();
-                }
-                if (ImGui::MenuItem("Sprite Renderer"))
-                {
-                }
-
-                if (ImGui::MenuItem("Box Collider"))
-                {
-                    if (_selected_node && !_selected_node->has_component<MELT::BoxCollider>())
-                        _selected_node->add_component<MELT::BoxCollider>();
-                }
-                ImGui::EndPopup();
-            }
-            ImGui::PopStyleColor(2);
-            ImGui::PopStyleVar();
         }
         ImGui::End();
         ImGui::PopStyleColor();
+    }
+
+    void InspectorGUI::draw_node_inspector()
+    {
+        unsigned int ChildBackground_Color = IM_COL32(26, 28, 27, 255);
+
+        MELT::Scene* _working_scene = m_engine->manager_registry.get<MELT::SceneManager>()->working_scene;
+        MELT::Node * _selected_node = _working_scene->get_selected_node();
+
+        ImDrawList* draw_list = ImGui::GetWindowDrawList();
+
+        ImVec2 _startCursor = ImGui::GetCursorScreenPos();
+        ImVec2 rect_min     = ImGui::GetCursorScreenPos();
+
+        ImVec2 padding = ImGui::GetStyle().WindowPadding;
+        rect_min.x -= padding.x;
+        rect_min.y -= padding.y;
+
+        ImVec2 rect_max = ImVec2(
+                    rect_min.x + ImGui::GetWindowWidth(),
+                    rect_min.y + 100);
+
+        draw_list->AddRectFilled(
+                rect_min,
+                rect_max,
+                ChildBackground_Color);
+
+        rect_min.y += 100.0f;
+
+        rect_max.x = rect_min.x + ImGui::GetWindowWidth();
+        rect_max.y = rect_min.y + 400.0f;
+
+        rect_min.x += ImGui::GetStyle().WindowBorderSize + 1.0f;
+        rect_max.x -= ImGui::GetStyle().WindowBorderSize + 1.0f;
+
+        if (_selected_node)
+        {
+            char buffer[128];
+            std::strncpy(buffer, _selected_node->name.c_str(), sizeof(buffer));
+            buffer[sizeof(buffer) - 1] = '\0'; // ensure null termination
+            if (ImGui::InputText("Name", buffer, IM_ARRAYSIZE(buffer)))
+                _selected_node->name = std::string(buffer);
+            ImGui::Text(_selected_node->id.c_str());
+        }
+
+
+        ImGui::SetCursorScreenPos(rect_min);
+
+        ImGui::NewLine();
+
+        m_editor->draw_line_separator();
+
+        if (_selected_node && _selected_node->has_component<MELT::Transform>())
+        {
+            MELT::Transform& _transform = _selected_node->get_component<MELT::Transform>();
+            draw_transform_component_panel(_transform);
+            m_editor->draw_line_separator();
+        }
+
+        if (_selected_node && _selected_node->has_component<MELT::MeshRenderer>())
+        {
+            MELT::MeshRenderer& _renderer = _selected_node->get_component<MELT::MeshRenderer>();
+            draw_renderer_component_panel(_renderer);
+            m_editor->draw_line_separator();
+        }
+
+        if (_selected_node && _selected_node->has_component<MELT::BoxCollider>())
+        {
+            MELT::BoxCollider& _box_collider = _selected_node->get_component<MELT::BoxCollider>();
+            draw_box_collider_component_panel(_box_collider);
+            m_editor->draw_line_separator();
+        }
+
+        if (_selected_node && _selected_node->has_component<MELT::Camera>())
+        {
+            MELT::Camera& _camera = _selected_node->get_component<MELT::Camera>();
+            draw_camera_component_panel(_camera);
+            m_editor->draw_line_separator();
+        }
+
+        if (_selected_node && _selected_node->has_component<MELT::Light>())
+        {
+            MELT::Light& _light = _selected_node->get_component<MELT::Light>();
+            draw_light_component_panel(_light);
+            m_editor->draw_line_separator();
+        }
+
+        if (_selected_node && _selected_node->has_component<MELT::Tile>())
+        {
+            MELT::Tile& _tile = _selected_node->get_component<MELT::Tile>();
+            draw_tile_component_panel(_tile);
+            m_editor->draw_line_separator();
+        }
+
+        //Add components button
+        ImVec2 buttonSize = ImVec2(120, 30);
+        ImVec2 windowSize = ImGui::GetWindowSize();
+        ImGui::SetCursorPosY(windowSize.y - buttonSize.y - ImGui::GetStyle().WindowPadding.y);
+        float buttonX = (windowSize.x - buttonSize.x) / 2.0f;
+        ImGui::SetCursorPosX(buttonX);
+        if (ImGui::Button("Add component", buttonSize))
+        {
+            ImGui::OpenPopup("AddComponentPopup");
+        }
+
+        ImGui::PushStyleColor(ImGuiCol_PopupBg, IM_COL32(73, 74, 70, 255));
+        ImGui::PushStyleColor(ImGuiCol_Border , IM_COL32(73, 74, 70, 0));
+        ImGui::PushStyleVar(ImGuiStyleVar_PopupRounding, 10.0f);
+        if (ImGui::BeginPopup("AddComponentPopup"))
+        {
+            ImGui::Text("Components");
+            ImGui::Separator();
+            if (ImGui::MenuItem("Renderer"))
+            {
+                if (_selected_node && !_selected_node->has_component<MELT::Renderer>())
+                    _selected_node->add_component<MELT::Renderer>();
+            }
+            if (ImGui::MenuItem("Sprite Renderer"))
+            {
+            }
+
+            if (ImGui::MenuItem("Box Collider"))
+            {
+                if (_selected_node && !_selected_node->has_component<MELT::BoxCollider>())
+                    _selected_node->add_component<MELT::BoxCollider>();
+            }
+            ImGui::EndPopup();
+        }
+        ImGui::PopStyleColor(2);
+        ImGui::PopStyleVar();
+    }
+
+    void InspectorGUI::draw_material_inspector()
+    {
+        ImGui::Text("Material");
+        ImGui::SameLine(120.0f);
+        ImGui::Text("name :");
+        ImGui::Text("");
+        ImGui::SameLine(120.0f);
+        ImGui::Text("uuid : ");
+
+        std::shared_ptr<MELT::RenderPipeline> _render_pipeline = m_engine->manager_registry.get<MELT::RenderPipeline>();
+
+        if (ImGui::ColorEdit4("##picker", &_render_pipeline->shader_preview.clear_color[0], ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel))
+        {
+        }
+
+        float availableHeight = ImGui::GetContentRegionAvail().y;
+        float windowWidth     = ImGui::GetContentRegionAvail().x;
+
+        ImGui::Dummy(ImVec2(0, availableHeight - windowWidth)); // Push everything down
+
+        ImVec2 imageSize(windowWidth, windowWidth); // Square: width == height
+
+        ImGui::Image(m_engine->manager_registry.get<MELT::RenderPipeline>()->shader_preview_texture(), imageSize);
     }
 
     void InspectorGUI::draw_transform_component_panel(MELT::Transform& _transform)
@@ -241,21 +283,13 @@ namespace MELT_EDITOR
 
                     ImGui::Text("vertices");
                     ImGui::SameLine(120.0f);
-                    //ImGui::Text(std::to_string(_renderer.get_mesh_ref().vertices.size()).c_str());
-                    //ImGui::Text(std::to_string(_renderer.mesh_data->mesh->vertices.size()).c_str());
                     ImGui::Text(std::to_string(_renderer.mesh_data->mesh->vertex_buffer.size()).c_str());
-
                     ImGui::Text("indices");
                     ImGui::SameLine(120.0f);
                     ImGui::Text(std::to_string(_renderer.mesh_data->mesh->index_buffer.size()).c_str());
 
                 ImGui::PopStyleColor();
                 ImGui::Unindent();
-
-
-
-
-
 
                 ImGui::PushStyleColor(ImGuiCol_Button,        IM_COL32(40, 40, 40, 255));  // Default
                 ImGui::PushStyleColor(ImGuiCol_ButtonHovered, IM_COL32(100, 100, 100, 255));  // Hover
@@ -267,8 +301,6 @@ namespace MELT_EDITOR
                         ImGui::OpenPopup("Search mesh ref");
                     }
 
-
-
                     ImGui::PushStyleColor(ImGuiCol_PopupBg, IM_COL32(73, 74, 70, 255));
                     ImGui::PushStyleColor(ImGuiCol_Border , IM_COL32(73, 74, 70, 0));
                     ImGui::PushStyleVar(ImGuiStyleVar_PopupRounding, 10.0f);
@@ -277,20 +309,15 @@ namespace MELT_EDITOR
                         ImGui::Text("Mesh selection");
                         ImGui::Separator();
 
-
-
                         if (ImGui::BeginListBox("##listbox", ImVec2(200, 150)))
                         {
+                            std::vector<std::string> _mesh_names = MELT::AssetRegistry::instance().get_all_names<MELT::Mesh>();
+
                             static int selected = -1;
-                            for (int i = 0; i < 20; i++)
+                            for (std::size_t i = 0; i < _mesh_names.size(); i++)
                             {
-                                char label[32];
-
-                                sprintf(label, "Item %d", i);
-
                                 bool is_selected = (selected == i);
-
-                                if (ImGui::Selectable(label, is_selected))
+                                if (ImGui::Selectable(_mesh_names[i].c_str(), is_selected))
                                     selected = i;
                             }
                             ImGui::EndListBox();
@@ -300,19 +327,6 @@ namespace MELT_EDITOR
                     }
                     ImGui::PopStyleColor(2);
                     ImGui::PopStyleVar();
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                     ImGui::PopStyleColor();
@@ -335,13 +349,13 @@ namespace MELT_EDITOR
 
 
 
-                ImGui::Text("Material");
-
-                ImGui::Indent();
-                // ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
-                // ImGui::PopStyleColor();
-
-                ImGui::Unindent();
+                // ImGui::Text("Material");
+                //
+                // ImGui::Indent();
+                // // ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
+                // // ImGui::PopStyleColor();
+                //
+                // ImGui::Unindent();
 
             ImGui::PopStyleColor();
 

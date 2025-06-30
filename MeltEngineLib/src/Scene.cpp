@@ -4,7 +4,6 @@ namespace MELT
 {
     void Scene::init()
     {
-
     }
 
     void Scene::update()

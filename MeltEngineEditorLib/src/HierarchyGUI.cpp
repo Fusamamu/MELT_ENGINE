@@ -145,6 +145,8 @@ namespace MELT_EDITOR
         {
             _working_scene->deselect_all_nodes();
             _working_scene->select_node_id(_node.id);
+
+            m_editor->inspector_selection_context.type = InspectorSelectionType::ENTITY_NODE;
         }
 
         if (ImGui::BeginDragDropSource())

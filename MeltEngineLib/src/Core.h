@@ -6,7 +6,9 @@
 #include <sstream>
 #include <array>
 #include <vector>
+#include <queue>
 #include <unordered_map>
+#include <unordered_set>
 #include <memory>
 #include <filesystem>
 #include <stdexcept>
@@ -36,6 +38,7 @@
 #include <assimp/postprocess.h>
 
 #include <entt/entt.hpp>
+
 #include <spdlog/spdlog.h>
 #include <spdlog/sinks/base_sink.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
@@ -50,5 +53,5 @@
 
 namespace MELT
 {
-    std::string GenerateUUID(uintptr_t _id);
+    std::string generate_uuid(uintptr_t _id);
 }

@@ -2,6 +2,7 @@
 #define INSPECTOR_GUI_H
 
 #include "GUI.h"
+#include "AssetRegistry.h"
 
 namespace MELT_EDITOR
 {
@@ -16,6 +17,9 @@ namespace MELT_EDITOR
     private:
         Editor*       m_editor;
         MELT::Engine* m_engine;
+
+        void draw_node_inspector();
+        void draw_material_inspector();
 
         void draw_transform_component_panel      (MELT::Transform     & _transform     );
         void draw_renderer_component_panel       (MELT::MeshRenderer  & _renderer      );
