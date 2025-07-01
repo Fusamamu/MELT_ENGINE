@@ -8,6 +8,7 @@
 #include "Plane.h"
 #include "Line.h"
 #include "Mesh.h"
+#include "Material.h"
 
 namespace MELT
 {
@@ -24,8 +25,9 @@ namespace MELT
 
         void init();
         void load_default_cube();
-        void load_texture(std::filesystem::path _path);
-        void load_model  (std::filesystem::path _path);
+        void load_texture (std::filesystem::path _path);
+        void load_model   (std::filesystem::path _path);
+        void load_material(std::filesystem::path _path);
         void process_node(aiNode* _node, const aiScene* _scene);
         Mesh process_mesh(aiMesh* _mesh, const aiScene* _scene);
 

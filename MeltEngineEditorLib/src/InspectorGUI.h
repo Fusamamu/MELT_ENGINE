@@ -31,4 +31,4 @@ namespace MELT_EDITOR
     };
 }
 
-#endif //INSPECTORGUI_H
+#endif

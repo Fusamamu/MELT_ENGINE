@@ -67,6 +67,7 @@ namespace MELT::GRAPHIC
     Material load_material(const std::string& _mat_file)
     {
         Material _material;
+
         YAML::Node _root = YAML::Load(_mat_file);
 
         auto material_node = _root["Material"];
@@ -74,8 +75,8 @@ namespace MELT::GRAPHIC
         if (!material_node)
             throw std::runtime_error("Invalid material file: 'Material' root not found.");
 
-        _material.name         = material_node["name"].as<std::string>();
-        _material.uuid         = material_node["uuid"].as<std::string>();
+        _material.name         = material_node["name"  ].as<std::string>();
+        _material.uuid         = material_node["uuid"  ].as<std::string>();
         _material.shader_name  = material_node["shader"].as<std::string>();
         // mat.render_queue = material_node["render_queue"].as<std::string>();
 

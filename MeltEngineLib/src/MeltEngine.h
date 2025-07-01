@@ -1,6 +1,7 @@
 #include "Core.h"
 #include "Logger.h"
 #include "ManagerRegistry.h"
+#include "AssetRegistry.h"
 #include "ResourceManager.h"
 #include "SceneManager.h"
 

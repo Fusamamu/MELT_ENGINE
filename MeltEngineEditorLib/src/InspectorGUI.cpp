@@ -273,10 +273,10 @@ namespace MELT_EDITOR
 
                 ImGui::Text("Mesh");
                 ImGui::SameLine(120.0f);
-                ImGui::Text("name : %s", _renderer.mesh_data->name.c_str());
+                ImGui::Text("name : %s", _renderer.mesh_handle.get_name().c_str());
                 ImGui::Text("");
                 ImGui::SameLine(120.0f);
-                ImGui::Text("uuid : %s", _renderer.mesh_data->uuid.c_str());
+                ImGui::Text("uuid : %s", _renderer.mesh_handle.uuid.c_str());
 
                 ImGui::Indent();
                 ImGui::PushStyleColor(ImGuiCol_Text, _font_color);
@@ -314,11 +314,23 @@ namespace MELT_EDITOR
                             std::vector<std::string> _mesh_names = MELT::AssetRegistry::instance().get_all_names<MELT::Mesh>();
 
                             static int selected = -1;
-                            for (std::size_t i = 0; i < _mesh_names.size(); i++)
+
+                            int _index = 0;
+                            for (const auto& [_uuid, asset_meta] : MELT::AssetRegistry::get_metadata_table<MELT::Mesh>())
                             {
-                                bool is_selected = (selected == i);
-                                if (ImGui::Selectable(_mesh_names[i].c_str(), is_selected))
-                                    selected = i;
+                                bool is_selected = (selected == _index);
+                                if (ImGui::Selectable(asset_meta.name.c_str(), is_selected))
+                                {
+                                    selected = _index;
+
+                                    _renderer.mesh_handle.uuid = _uuid;
+                                    MELT::Mesh* _selected_mesh = _renderer.mesh_handle.get();
+                                    _renderer.set_mesh       (_selected_mesh);
+                                    _renderer.set_buffer_data(_selected_mesh);
+
+                                    ImGui::CloseCurrentPopup();
+                                }
+                                _index++;
                             }
                             ImGui::EndListBox();
                         }
@@ -343,6 +355,14 @@ namespace MELT_EDITOR
                     ImGui::PopStyleVar();
 
                 ImGui::PopStyleColor(3);
+
+
+                ImGui::Text("Material");
+                ImGui::SameLine(120.0f);
+                ImGui::Text("name : %s", _renderer.material_handle.get_name().c_str());
+                ImGui::Text("");
+                ImGui::SameLine(120.0f);
+                ImGui::Text("uuid : %s", _renderer.material_handle.uuid.c_str());
 
 
 

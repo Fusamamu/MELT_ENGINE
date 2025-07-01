@@ -243,6 +243,7 @@ namespace MELT
         MeshRenderer& _mesh_renderer = _node.get_component<MeshRenderer>();
         _mesh_renderer.set_mesh_data(&_resource_manager->default_cube);
         _mesh_renderer.set_buffer_data();
+        _mesh_renderer.material_handle.uuid = AssetRegistry::instance().get_meta_by_name<GRAPHIC::Material>("default_material").uuid;
 
         NodeEditor& _node_editor = _node.get_component<NodeEditor>();
         _node_editor.id = _node.id;
@@ -265,6 +266,7 @@ namespace MELT
         MeshRenderer& _mesh_renderer = _node.get_component<MeshRenderer>();
         _mesh_renderer.set_mesh_data(&_resource_manager->default_plane);
         _mesh_renderer.set_buffer_data();
+
 
         NodeEditor& _node_editor = _node.get_component<NodeEditor>();
         _node_editor.id = _node.id;

@@ -20,6 +20,8 @@ namespace MELT
 
         load_model  ("../MeltEngineLib/res/models/sphere.fbx"         );
         load_model  ("../MeltEngineLib/res/models/teapot/teapot.fbx"  );
+
+        load_material("../Project/Assets/Materials/new_default_material.mat");
     }
 
     void ResourceManager::load_default_cube()
@@ -110,6 +112,49 @@ namespace MELT
             return;
         }
         process_node(_scene->mRootNode, _scene);
+    }
+
+    void ResourceManager::load_material(std::filesystem::path _path)
+    {
+        YAML::Node _root = YAML::LoadFile(_path.string());
+
+        auto material_node = _root["Material"];
+
+        if (!material_node)
+            throw std::runtime_error("Invalid material file: 'Material' root not found.");
+
+        GRAPHIC::Material* _material = new GRAPHIC::Material();
+        _material->name         = material_node["name"  ].as<std::string>();
+        _material->uuid         = material_node["uuid"  ].as<std::string>();
+        _material->shader_name  = material_node["shader"].as<std::string>();
+        // mat.render_queue = material_node["render_queue"].as<std::string>();
+
+        auto props = material_node["properties"];
+        if (props)
+        {
+            if (props["color"] && props["color"].IsSequence() && props["color"].size() == 4)
+            {
+                glm::vec4 _color = glm::vec4(
+                    props["color"][0].as<float>(),
+                    props["color"][1].as<float>(),
+                    props["color"][2].as<float>(),
+                    props["color"][3].as<float>()
+                );
+
+                _material->vec4_uniforms["color"] = _color;
+            }
+
+            // if (props["texture"]) {
+            //     _material.texture = props["texture"].as<std::string>();
+            // }
+        }
+
+        AssetMetadata _asset_metadata;
+        _asset_metadata.name = _material->name;
+        _asset_metadata.path = _path.string();
+        _asset_metadata.uuid = _material->uuid;
+
+        AssetRegistry::instance().register_asset<GRAPHIC::Material>(_asset_metadata, _material);
     }
 
     void ResourceManager::process_node(aiNode* _node, const aiScene* _scene)

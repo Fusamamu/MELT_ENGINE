@@ -13,7 +13,7 @@ namespace MELT
     {
     public:
         AssetHandle<Mesh>              mesh_handle;
-        AssetHandle<GRAPHIC::Material> mesh_material;
+        AssetHandle<GRAPHIC::Material> material_handle;
 
         Mesh*     mesh;
         MeshData* mesh_data;
@@ -25,6 +25,7 @@ namespace MELT
         void set_mesh_data(MeshData* _mesh_data);
         void set_buffer_data();
         void set_buffer_data(Mesh* _mesh);
+
 
         void draw() const;
         void draw_polygon();

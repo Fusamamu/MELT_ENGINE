@@ -15,6 +15,7 @@ namespace MELT
         bool is_valid() const { return !uuid.empty(); }
 
         T* get() const;
+        std::string get_name() const;
     };
 
     struct AssetMetadata
@@ -87,6 +88,18 @@ namespace MELT
         }
 
         template<typename T>
+        const AssetMetadata& get_meta_by_name(const std::string& _name) const
+        {
+            const auto& meta_table = get_metadata_table<T>();
+            for (const auto& [uuid, meta] : meta_table)
+            {
+                if (meta.name == _name)
+                    return meta;
+            }
+            return AssetMetadata();
+        }
+
+        template<typename T>
         T* get_by_path(const std::string& path)
         {
             const auto& meta_table = get_metadata_table<T>();
@@ -142,6 +155,12 @@ namespace MELT
             return names;
         }
 
+        template<typename T>
+        static std::unordered_map<UUID, AssetMetadata>& get_metadata_table()
+        {
+            static std::unordered_map<UUID, AssetMetadata> meta_table;
+            return meta_table;
+        }
     private:
         AssetRegistry() = default;
         ~AssetRegistry() = default;
@@ -154,18 +173,22 @@ namespace MELT
             return table;
         }
 
-        template<typename T>
-        static std::unordered_map<UUID, AssetMetadata>& get_metadata_table()
-        {
-            static std::unordered_map<UUID, AssetMetadata> meta_table;
-            return meta_table;
-        }
     };
 
     template<typename T>
     T* AssetHandle<T>::get() const
     {
         return AssetRegistry::instance().get<T>(uuid);
+    }
+
+    template<typename T>
+    std::string AssetHandle<T>::get_name() const
+    {
+        auto& _meta_table = AssetRegistry::get_metadata_table<T>();
+        auto _it = _meta_table.find(uuid);
+        if (_it != _meta_table.end())
+            return _it->second.name;
+        return "";
     }
 }
 
