@@ -4,6 +4,8 @@ namespace MELT
 {
     Shader::Shader(const std::string& _filePath)
     {
+        //uuid = generate_uuid(reinterpret_cast<uintptr_t>(this));
+
         std::ifstream _inputFile (_filePath);
 
         std::filesystem::path filepath = _filePath;

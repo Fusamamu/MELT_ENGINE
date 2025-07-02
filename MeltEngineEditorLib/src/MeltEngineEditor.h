@@ -26,6 +26,7 @@ namespace MELT_EDITOR
     struct InspectorSelectionContext
     {
         InspectorSelectionType type = InspectorSelectionType::NONE;
+        UUID selected_uuid;
     };
 
     class Editor

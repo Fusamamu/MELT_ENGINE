@@ -15,6 +15,9 @@ namespace MELT
     class Shader
     {
     public:
+        UUID uuid;
+        std::string name;
+
         GLuint ID;
 
         explicit Shader(const std::string& _filePath);

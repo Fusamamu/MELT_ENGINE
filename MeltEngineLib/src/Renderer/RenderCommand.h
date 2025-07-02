@@ -78,6 +78,7 @@ namespace MELT::GRAPHIC
     public:
         std::string name = "Draw mesh command";
         Shader       * p_shader;
+        Material     * p_material;
         MeshRenderer * p_mesh_renderer;
         RenderContext* p_context;
 

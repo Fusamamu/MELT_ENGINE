@@ -1,7 +1,7 @@
 Material:
   name: default_material
-  uuid: b2ee9529-b52b-c179-b2ee-9529b52bc179
-  shader: phong.glsl
+  uuid: ba7cea6b-6cb5-dac8-ba7c-ea6b6cb5dac8
+  shader_handle: 5cf34c6a77298e9c
   render_queue: opaque
   properties:
     color: [0, 0, 0, 1]

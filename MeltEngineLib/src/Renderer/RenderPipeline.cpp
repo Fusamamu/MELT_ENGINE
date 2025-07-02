@@ -25,7 +25,7 @@ namespace MELT
         aQuad = new Quad();
         aCube = new Cube();
 
-        m_TargetShader       = new Shader("../MeltEngineLib/res/shaders/Phong.shader");
+        m_TargetShader       = new Shader("../MeltEngineLib/res/shaders/phong.glsl");
         m_phong_shader       = new Shader("../MeltEngineLib/res/shaders/phong.glsl");
         m_MeshOutlineShader  = new Shader("../MeltEngineLib/res/shaders/MeshOutline.shader");
         m_GridShader         = new Shader("../MeltEngineLib/res/shaders/3DGrid.shader");

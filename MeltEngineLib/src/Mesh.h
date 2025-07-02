@@ -23,8 +23,9 @@ namespace MELT
 
     struct MeshData
     {
-        std::string name;
         UUID uuid;
+        std::string name;
+
         Mesh* mesh;
 
         MeshData():

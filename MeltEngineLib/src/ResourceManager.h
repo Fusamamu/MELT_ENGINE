@@ -1,5 +1,6 @@
 #ifndef RESOURCEMANAGER_H
 #define RESOURCEMANAGER_H
+
 #include "Core.h"
 #include "AssetRegistry.h"
 #include "Texture.h"
@@ -27,6 +28,7 @@ namespace MELT
         void load_default_cube();
         void load_texture (std::filesystem::path _path);
         void load_model   (std::filesystem::path _path);
+        void load_shader  (std::filesystem::path _path);
         void load_material(std::filesystem::path _path);
         void process_node(aiNode* _node, const aiScene* _scene);
         Mesh process_mesh(aiMesh* _mesh, const aiScene* _scene);

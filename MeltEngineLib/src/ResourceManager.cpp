@@ -10,16 +10,25 @@ namespace MELT
     {
         load_default_cube();
 
-        load_texture("../MeltEngineLib/res/textures/open-file.png"    );
-        load_texture("../MeltEngineLib/res/textures/material_icon.png");
-        load_texture("../MeltEngineLib/res/textures/camera_icon.png"  );
-        load_texture("../MeltEngineLib/res/textures/light_icon.png"   );
-        load_texture("../MeltEngineLib/res/textures/scene_icon.png"   );
-        load_texture("../MeltEngineLib/res/textures/exclamation.png"  );
-        load_texture("../MeltEngineLib/res/textures/caution.png"      );
+        load_texture("../MeltEngineLib/res/textures/open-file.png"      );
+        load_texture("../MeltEngineLib/res/textures/material_icon.png"  );
+        load_texture("../MeltEngineLib/res/textures/camera_icon.png"    );
+        load_texture("../MeltEngineLib/res/textures/light_icon.png"     );
+        load_texture("../MeltEngineLib/res/textures/scene_icon.png"     );
+        load_texture("../MeltEngineLib/res/textures/exclamation.png"    );
+        load_texture("../MeltEngineLib/res/textures/caution.png"        );
 
-        load_model  ("../MeltEngineLib/res/models/sphere.fbx"         );
-        load_model  ("../MeltEngineLib/res/models/teapot/teapot.fbx"  );
+        load_model  ("../MeltEngineLib/res/models/sphere.fbx"           );
+        load_model  ("../MeltEngineLib/res/models/teapot/teapot.fbx"    );
+
+        load_shader("../MeltEngineLib/res/shaders/phong.glsl"           );
+        load_shader("../MeltEngineLib/res/shaders/MeshOutline.shader"   );
+        load_shader("../MeltEngineLib/res/shaders/3DGrid.shader"        );
+        load_shader("../MeltEngineLib/res/shaders/Gizmos.shader"        );
+        load_shader("../MeltEngineLib/res/shaders/CylinderLine.shader"  );
+        load_shader("../MeltEngineLib/res/shaders/camera_frustum.shader");
+        load_shader("../MeltEngineLib/res/shaders/depth.shader"         );
+        load_shader("../MeltEngineLib/res/shaders/screen_quad.shader"   );
 
         load_material("../Project/Assets/Materials/new_default_material.mat");
     }
@@ -114,6 +123,20 @@ namespace MELT
         process_node(_scene->mRootNode, _scene);
     }
 
+    void ResourceManager::load_shader(std::filesystem::path _path)
+    {
+        Shader* _loaded_shader = new Shader(_path);
+
+        AssetMetadata _asset_metadata;
+        _asset_metadata.name = _path.filename().string();
+        _asset_metadata.path = _path.string();
+        _asset_metadata.uuid = generate_deterministic_uuid(_path);
+
+        std::cout << _path.filename().string() << std::endl;
+
+        AssetRegistry::instance().register_asset<Shader>(_asset_metadata, _loaded_shader);
+    }
+
     void ResourceManager::load_material(std::filesystem::path _path)
     {
         YAML::Node _root = YAML::LoadFile(_path.string());
@@ -124,10 +147,9 @@ namespace MELT
             throw std::runtime_error("Invalid material file: 'Material' root not found.");
 
         GRAPHIC::Material* _material = new GRAPHIC::Material();
-        _material->name         = material_node["name"  ].as<std::string>();
-        _material->uuid         = material_node["uuid"  ].as<std::string>();
-        _material->shader_name  = material_node["shader"].as<std::string>();
-        // mat.render_queue = material_node["render_queue"].as<std::string>();
+        _material->name               = material_node["name"         ].as<std::string>();
+        _material->uuid               = material_node["uuid"         ].as<std::string>();
+        _material->shader_handle.uuid = material_node["shader_handle"].as<std::string>();
 
         auto props = material_node["properties"];
         if (props)
@@ -148,6 +170,8 @@ namespace MELT
             //     _material.texture = props["texture"].as<std::string>();
             // }
         }
+
+        _material->validate();
 
         AssetMetadata _asset_metadata;
         _asset_metadata.name = _material->name;

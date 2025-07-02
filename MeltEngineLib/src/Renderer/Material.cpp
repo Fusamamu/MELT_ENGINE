@@ -4,23 +4,23 @@ namespace MELT::GRAPHIC
 {
     void Material::bind()
     {
-        p_shader->use(); 
+        mp_cached_shader->use();
 
         for (auto& [name, value] : vec4_uniforms)
-            p_shader->set_uniform(name, value);
+            mp_cached_shader->set_uniform(name, value);
 
         for (auto& [name, value] : float_uniforms)
-            p_shader->set_uniform(name, value);
+            mp_cached_shader->set_uniform(name, value);
 
         for (auto& [name, value] : int_uniforms)
-            p_shader->set_uniform(name, value);
+            mp_cached_shader->set_uniform(name, value);
 
         int _tex_slot = 0;
 
         for (auto& [name, _texture] : texture_uniforms)
         {
             _texture->bind(_tex_slot);
-            p_shader->set_uniform(name, _tex_slot);
+            mp_cached_shader->set_uniform(name, _tex_slot);
             _tex_slot++;
         }
 
@@ -46,9 +46,10 @@ namespace MELT::GRAPHIC
         _out << YAML::BeginMap;
         _out << YAML::Key << "Material" << YAML::Value << YAML::BeginMap;
         
-            _out << YAML::Key << "name"         << YAML::Value << "default_material";
-            _out << YAML::Key << "uuid"         << YAML::Value << MELT::generate_uuid(1).c_str();
-            _out << YAML::Key << "shader"       << YAML::Value << "phong.glsl";
+            _out << YAML::Key << "name"          << YAML::Value << "default_material";
+            _out << YAML::Key << "uuid"          << YAML::Value << MELT::generate_uuid(1).c_str();
+            _out << YAML::Key << "shader_handle" << YAML::Value << AssetRegistry::instance().get_meta_by_name<Shader>("phong.glsl").uuid;
+
             _out << YAML::Key << "render_queue" << YAML::Value << "opaque";
             _out << YAML::Key << "properties"   << YAML::Value << YAML::BeginMap;
 
@@ -77,7 +78,7 @@ namespace MELT::GRAPHIC
 
         _material.name         = material_node["name"  ].as<std::string>();
         _material.uuid         = material_node["uuid"  ].as<std::string>();
-        _material.shader_name  = material_node["shader"].as<std::string>();
+        //_material.shader_name  = material_node["shader"].as<std::string>();
         // mat.render_queue = material_node["render_queue"].as<std::string>();
 
         auto props = material_node["properties"];
@@ -100,5 +101,12 @@ namespace MELT::GRAPHIC
             // }
         }
         return _material;
+    }
+
+    void Material::validate()
+    {
+        if (mp_cached_shader != nullptr)
+            return;
+        mp_cached_shader = shader_handle.get();
     }
 }

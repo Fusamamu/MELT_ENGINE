@@ -53,5 +53,6 @@
 
 namespace MELT
 {
-    std::string generate_uuid(uintptr_t _id);
+    UUID generate_uuid(uintptr_t _id);
+    UUID generate_deterministic_uuid(const std::filesystem::path& path);
 }

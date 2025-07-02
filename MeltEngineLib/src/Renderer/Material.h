@@ -2,6 +2,7 @@
 #define MATERIAL_H
 
 #include "Core.h"
+#include "AssetRegistry.h"
 #include "Shader.h"
 #include "Texture.h"
 
@@ -19,13 +20,10 @@ namespace MELT::GRAPHIC
     class Material
     {
     public:
+        UUID uuid;
         std::string name;
 
-        UUID uuid;
-
-        std::string shader_name;
-
-        Shader* p_shader;
+        AssetHandle<Shader> shader_handle;
 
         bool transparent  = false;
         bool double_sided = false;
@@ -39,6 +37,11 @@ namespace MELT::GRAPHIC
         ~Material() = default;
     
         void bind();
+        void unbind();
+        void validate();
+
+    private:
+        Shader* mp_cached_shader;
     };
     
     std::string create_material();

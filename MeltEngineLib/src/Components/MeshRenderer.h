@@ -26,7 +26,6 @@ namespace MELT
         void set_buffer_data();
         void set_buffer_data(Mesh* _mesh);
 
-
         void draw() const;
         void draw_polygon();
 
