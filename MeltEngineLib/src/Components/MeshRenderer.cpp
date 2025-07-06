@@ -85,6 +85,20 @@ namespace MELT
         glBindVertexArray(0);
     }
 
+    void MeshRenderer::set_material_by_uuid(UUID _uuid, bool _reload)
+    {
+        material_handle.uuid = _uuid;
+        if (_reload)
+            mp_cached_material = material_handle.get();
+    }
+
+    GRAPHIC::Material* MeshRenderer::get_cached_material()
+    {
+        if (mp_cached_material == nullptr)
+            mp_cached_material = material_handle.get();
+        return mp_cached_material;
+    }
+
     void MeshRenderer::draw() const
     {
         glBindVertexArray(m_vao);

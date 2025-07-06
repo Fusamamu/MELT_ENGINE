@@ -23,8 +23,12 @@ namespace MELT
 
         void set_mesh(Mesh* _mesh);
         void set_mesh_data(MeshData* _mesh_data);
+
         void set_buffer_data();
         void set_buffer_data(Mesh* _mesh);
+
+        void set_material_by_uuid(UUID _uuid, bool _reload = false);
+        GRAPHIC::Material* get_cached_material();
 
         void draw() const;
         void draw_polygon();
@@ -32,6 +36,9 @@ namespace MELT
         void destroy();
     private:
         unsigned int m_vao, m_vbo, m_ebo;
+
+        Mesh             * mp_cached_mesh    ;
+        GRAPHIC::Material* mp_cached_material;
     };
 }
 

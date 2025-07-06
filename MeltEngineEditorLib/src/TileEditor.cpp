@@ -55,6 +55,7 @@ namespace MELT_EDITOR
                         MELT::MeshRenderer& _mesh_renderer = _node.get_component<MELT::MeshRenderer>();
                         _mesh_renderer.set_mesh_data(&_resource_manager->default_cube);
                         _mesh_renderer.set_buffer_data();
+                        _mesh_renderer.set_material_by_uuid(MELT::AssetRegistry::instance().get_meta_by_name<MELT::GRAPHIC::Material>("new_default_material").uuid, true);
 
                         MELT::NodeEditor& _node_editor = _node.get_component<MELT::NodeEditor>();
                         _node_editor.id = _node.id;

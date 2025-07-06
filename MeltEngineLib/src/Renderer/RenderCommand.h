@@ -91,10 +91,25 @@ namespace MELT::GRAPHIC
 
         void execute() override
         {
-            p_shader->use();
-            p_shader->set_mat4_uniform_model     (model_mat);
-            p_shader->set_mat4_uniform_view      (view_mat);
-            p_shader->set_mat4_uniform_projection(projection_mat);
+            if (p_shader != nullptr)
+            {
+                p_shader->use();
+                p_shader->set_mat4_uniform_model     (model_mat);
+                p_shader->set_mat4_uniform_view      (view_mat);
+                p_shader->set_mat4_uniform_projection(projection_mat);
+            }
+
+            if (p_material != nullptr)
+            {
+                Shader* _shader = p_material->get_cached_shader();
+                _shader->use();
+                _shader->set_mat4_uniform_model     (model_mat);
+                _shader->set_mat4_uniform_view      (view_mat);
+                _shader->set_mat4_uniform_projection(projection_mat);
+                
+                p_material->bind();
+            }
+
             p_mesh_renderer->draw();
         }
     };

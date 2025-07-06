@@ -30,6 +30,7 @@ namespace MELT
         TextureData()
         {
             uuid = generate_uuid(reinterpret_cast<uintptr_t>(this));
+            std::cout << "Texture UUID : " << uuid << std::endl;
         }
     };
 }

@@ -69,7 +69,8 @@ namespace MELT_EDITOR
 
                     if (_entry.path().extension() == ".mat")
                     {
-                        draw_icon(IconType::MATERIAL, _filename);
+                        //draw_icon(IconType::MATERIAL, _filename);
+                        draw_icon(IconType::MATERIAL, _entry);
                         continue;
                     }
 
@@ -149,6 +150,8 @@ namespace MELT_EDITOR
         if (ImGui::ImageButton(_icon_texture_id, iconSize))
         {
             m_editor->inspector_selection_context.type = InspectorSelectionType::MATERIAL;
+
+            m_engine->Logger.log(_label_name);
         }
         if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0))
         {
@@ -159,6 +162,56 @@ namespace MELT_EDITOR
         float textOffset = (iconSize.x - textSize.x) * 0.5f;
         ImGui::SetCursorPosX(ImGui::GetCursorPosX() + textOffset);
         ImGui::TextUnformatted(_label_name.c_str());
+
+        ImGui::PopStyleColor(3);
+        ImGui::EndGroup();
+    }
+
+    void ProjectGUI::draw_icon(IconType _icon_type, const std::filesystem::directory_entry& _entry)
+    {
+        std::string _target_path    = _entry.path().string();
+        std::string _file_name      = _entry.path().filename().string();
+        std::string _file_name_stem = _entry.path().stem().string();
+
+        ImTextureID _icon_texture_id;
+        switch (_icon_type)
+        {
+            case IconType::FOLDER:
+                _icon_texture_id = m_folder_icon_texture_id;
+            break;
+            case IconType::MATERIAL:
+                _icon_texture_id = m_material_icon_texture_id;
+            break;
+            case IconType::SCENE:
+                _icon_texture_id = m_scene_icon_texture_id;
+            break;
+        }
+
+        ImGui::BeginGroup();
+        ImGui::PushStyleColor(ImGuiCol_Button,        ChildBackground_Color); // normal
+        ImGui::PushStyleColor(ImGuiCol_ButtonHovered, ChildBackground_Color); // hover
+        ImGui::PushStyleColor(ImGuiCol_ButtonActive,  ImVec4(0.1f, 0.4f, 0.7f, 1.0f));
+
+        ImVec2 iconSize(m_icon_size, m_icon_size);
+
+        if (ImGui::ImageButton(_icon_texture_id, iconSize))
+        {
+            m_editor->inspector_selection_context.type          = InspectorSelectionType::MATERIAL;
+            m_editor->inspector_selection_context.selected_uuid = "";
+
+            MELT::GRAPHIC::Material* _material = MELT::AssetRegistry::instance().get_by_name<MELT::GRAPHIC::Material>(_file_name_stem);
+            if (_material != nullptr)
+                m_engine->manager_registry.get<MELT::RenderPipeline>()->shader_preview.set_preview_target_material(_material);
+        }
+        if (ImGui::IsItemHovered() && ImGui::IsMouseDoubleClicked(0))
+        {
+            m_engine->Logger.log("icon double click");
+        }
+
+        ImVec2 textSize = ImGui::CalcTextSize(_file_name.c_str());
+        float textOffset = (iconSize.x - textSize.x) * 0.5f;
+        ImGui::SetCursorPosX(ImGui::GetCursorPosX() + textOffset);
+        ImGui::TextUnformatted(_file_name.c_str());
 
         ImGui::PopStyleColor(3);
         ImGui::EndGroup();
@@ -193,7 +246,7 @@ namespace MELT_EDITOR
 
                 if (!isOpen && isHovered && isClicked)
                 {
-                    m_selected_directory = _path; // example
+                    m_selected_directory = _path;
                 }
 
                 if (isOpen)

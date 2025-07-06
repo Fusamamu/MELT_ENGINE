@@ -169,15 +169,28 @@ namespace MELT_EDITOR
 
     void InspectorGUI::draw_material_inspector()
     {
-        ImGui::Text("Material");
-        ImGui::SameLine(120.0f);
-        ImGui::Text("name :");
-        ImGui::Text("");
-        ImGui::SameLine(120.0f);
-        ImGui::Text("uuid : ");
-
         std::shared_ptr<MELT::RenderPipeline> _render_pipeline = m_engine->manager_registry.get<MELT::RenderPipeline>();
 
+        MELT::GRAPHIC::Material& _preview_material = _render_pipeline->shader_preview.get_preview_material();
+
+        ImGui::Text("Material");
+        ImGui::SameLine(120.0f);
+        ImGui::Text("name : %s", _preview_material.name.c_str());
+        ImGui::Text("");
+        ImGui::SameLine(120.0f);
+        ImGui::Text("uuid : %s", _preview_material.uuid.c_str());
+
+        if (ImGui::ColorEdit4("color", &_preview_material.vec4_uniforms["color"][0], ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel))
+        {
+            MELT::Shader* _shader = _preview_material.get_cached_shader();
+            if (_shader != nullptr)
+            {
+                glm::vec3 _color = _preview_material.vec4_uniforms["color"];
+                _shader->use();
+                _shader->set_vec3_uniform_object_color(_color);
+            }
+        }
+        
         if (ImGui::ColorEdit4("##picker", &_render_pipeline->shader_preview.clear_color[0], ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel))
         {
         }
@@ -355,6 +368,7 @@ namespace MELT_EDITOR
                     ImGui::PopStyleVar();
 
                 ImGui::PopStyleColor(3);
+
 
 
                 ImGui::Text("Material");

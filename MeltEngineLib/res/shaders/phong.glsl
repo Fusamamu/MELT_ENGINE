@@ -29,7 +29,7 @@ void main()
     Normal      = mat3(transpose(inverse(model))) * normal;      // Transform the normal vector to world space
     TexCoord     = texCoord;
     //LightDir    = light_world_pos - FragPos;                   // Calculate light direction (from fragment to light)
-    LightDir    = light_world_pos - light_world_target;
+    LightDir    = light_world_pos  - light_world_target;
     ViewDir     = camera_world_pos - FragPos;                    // Calculate view direction (from fragment to camera/view)
 
     frag_pos_light_space = light_space_mat * vec4(FragPos, 1.0); // For shadow mapping
@@ -52,6 +52,7 @@ uniform vec3 lightColor;       // Light color
 uniform vec3 objectColor;      // Object color
 uniform float shininess;       // Shininess exponent
 
+uniform sampler2D u_texture;
 uniform sampler2D shadow_map; // shadow texture
 
 // Shadow calculation function
@@ -98,18 +99,21 @@ void main()
     vec3 ambient = ambientStrength * lightColor;
 
     // Diffuse lighting (Lambert's cosine law)
-    float diff = max(dot(norm, lightDir), 0.0);
+    float diff   = max(dot(norm, lightDir), 0.0);
     vec3 diffuse = diff * lightColor;
 
+    vec3 _texture_col = texture(u_texture, TexCoord).rgb;
+
     // Specular lighting (Phong reflection model)
-    vec3 reflectDir = reflect(-lightDir, norm); // Reflection direction
+    vec3 reflectDir        = reflect(-lightDir, norm); // Reflection direction
     float spec             = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
     float specularStrength = 0.5; // Specular reflection strength
-    vec3 specular = specularStrength * spec * lightColor;
+    vec3 specular          = specularStrength * spec * lightColor;
 
     float _shadow = ShadowCalculation(frag_pos_light_space);
+
     vec3 result = (ambient + (1.0 - _shadow) * (diffuse + specular)) * objectColor;
-    //vec3 result = (ambient + diffuse + specular) * objectColor;
+    result = (ambient + (1.0 - _shadow) * (diffuse + specular)) * _texture_col;
 
     FragColor = vec4(result, 1.0);
 }

@@ -155,7 +155,7 @@ namespace MELT
 
     void Shader::set_uniform(const std::string& _name, int _iv) const
     {
-
+        glUniform1i(glGetUniformLocation(ID, "u_texture"), _iv); 
     }
 
     void Shader::set_uniform(const std::string& _name, float _fv) const

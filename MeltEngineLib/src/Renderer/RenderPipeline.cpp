@@ -26,7 +26,8 @@ namespace MELT
         aCube = new Cube();
 
         m_TargetShader       = new Shader("../MeltEngineLib/res/shaders/phong.glsl");
-        m_phong_shader       = new Shader("../MeltEngineLib/res/shaders/phong.glsl");
+        m_TargetShader       = AssetRegistry::instance().get_by_name<GRAPHIC::Material>("new_default_material")->get_cached_shader();
+        //m_phong_shader       = new Shader("../MeltEngineLib/res/shaders/phong.glsl");
         m_MeshOutlineShader  = new Shader("../MeltEngineLib/res/shaders/MeshOutline.shader");
         m_GridShader         = new Shader("../MeltEngineLib/res/shaders/3DGrid.shader");
         m_gizmos_shader      = new Shader("../MeltEngineLib/res/shaders/Gizmos.shader");
@@ -130,7 +131,7 @@ namespace MELT
 
     void RenderPipeline::Render(float _dt)
     {
-        shader_preview.Render();
+        shader_preview.render();
 
         glm::mat4 _view       = m_engine->main_camera.get_view_matrix();
         glm::mat4 _projection = m_engine->main_camera.get_orthographic_projection_matrix();
@@ -158,7 +159,8 @@ namespace MELT
                 geometry_pass.command_buffer.add(std::make_unique<GRAPHIC::SetStencilCommand>(GL_ALWAYS, 1, 0xFF, 0xFF));
 
                 auto _command = std::make_unique<GRAPHIC::DrawMeshCommand>();
-                _command->p_shader        = m_TargetShader;
+                //_command->p_shader        = m_TargetShader;
+                _command->p_material      = _mesh_renderer.get_cached_material();
                 _command->model_mat       = _transform.get_transform_matrix();
                 _command->view_mat        = _view;
                 _command->projection_mat  = _projection;
@@ -183,7 +185,8 @@ namespace MELT
             else
             {
                 auto _command = std::make_unique<GRAPHIC::DrawMeshCommand>();
-                _command->p_shader        = m_TargetShader;
+                //_command->p_shader        = m_TargetShader;
+                _command->p_material      = _mesh_renderer.get_cached_material();
                 _command->model_mat       = _transform.get_transform_matrix();
                 _command->view_mat        = _view;
                 _command->projection_mat  = _projection;

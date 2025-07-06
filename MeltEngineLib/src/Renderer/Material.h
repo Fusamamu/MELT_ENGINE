@@ -40,8 +40,9 @@ namespace MELT::GRAPHIC
         void unbind();
         void validate();
 
+        Shader* get_cached_shader();
     private:
-        Shader* mp_cached_shader;
+        Shader* mp_cached_shader = nullptr;
     };
     
     std::string create_material();

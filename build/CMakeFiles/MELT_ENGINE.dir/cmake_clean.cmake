@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/MELT_ENGINE.dir/Project/Scripts/HelloWorld.cpp.o"
+  "CMakeFiles/MELT_ENGINE.dir/Project/Scripts/HelloWorld.cpp.o.d"
+  "CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch"
+  "CMakeFiles/MELT_ENGINE.dir/cmake_pch.hxx.pch.d"
   "CMakeFiles/MELT_ENGINE.dir/main.cpp.o"
   "CMakeFiles/MELT_ENGINE.dir/main.cpp.o.d"
   "MELT_ENGINE"

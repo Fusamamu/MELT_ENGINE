@@ -2,6 +2,7 @@
 #define PROJECTGUI_H
 
 #include "EditorCore.h"
+#include "AssetRegistry.h"
 
 namespace MELT_EDITOR
 {
@@ -40,6 +41,7 @@ namespace MELT_EDITOR
         void draw_tree_nodes();
         void draw_selected_content();
         void draw_icon(IconType _icon_type, const std::string& _label_name);
+        void draw_icon(IconType _icon_type, const std::filesystem::directory_entry& _entry);
         void draw_file_browser(const std::filesystem::path& _file_path);
     };
 }

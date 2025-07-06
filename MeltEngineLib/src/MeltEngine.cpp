@@ -235,15 +235,15 @@ namespace MELT
         Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
 
         Node& _node = _working_scene->create_node("Entity");
-        _node.add_component<Transform>  ();
+        _node.add_component<Transform>   ();
         _node.add_component<MeshRenderer>();
         _node.add_component<BoxCollider> ();
         _node.add_component<NodeEditor>  ();
 
         MeshRenderer& _mesh_renderer = _node.get_component<MeshRenderer>();
-        _mesh_renderer.set_mesh_data(&_resource_manager->default_cube);
-        _mesh_renderer.set_buffer_data();
-        _mesh_renderer.material_handle.uuid = AssetRegistry::instance().get_meta_by_name<GRAPHIC::Material>("default_material").uuid;
+        _mesh_renderer.set_mesh_data       (&_resource_manager->default_cube);
+        _mesh_renderer.set_buffer_data     ();
+        _mesh_renderer.set_material_by_uuid(AssetRegistry::instance().get_meta_by_name<GRAPHIC::Material>("new_default_material").uuid, true);
 
         NodeEditor& _node_editor = _node.get_component<NodeEditor>();
         _node_editor.id = _node.id;

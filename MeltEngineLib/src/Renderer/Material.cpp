@@ -24,20 +24,20 @@ namespace MELT::GRAPHIC
             _tex_slot++;
         }
 
-        if (transparent)
-        {
-            glEnable   (GL_BLEND);
-            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        }
-        else
-        {
-            glDisable(GL_BLEND);
-        }
+        //if (transparent)
+        //{
+        //    glEnable   (GL_BLEND);
+        //    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        //}
+        //else
+        //{
+        //    glDisable(GL_BLEND);
+        //}
 
-        if (double_sided)
-            glDisable(GL_CULL_FACE);
-        else
-            glEnable(GL_CULL_FACE);
+        //if (double_sided)
+        //    glDisable(GL_CULL_FACE);
+        //else
+        //    glEnable(GL_CULL_FACE);
     }
     
     std::string create_material()
@@ -46,7 +46,7 @@ namespace MELT::GRAPHIC
         _out << YAML::BeginMap;
         _out << YAML::Key << "Material" << YAML::Value << YAML::BeginMap;
         
-            _out << YAML::Key << "name"          << YAML::Value << "default_material";
+            _out << YAML::Key << "name"          << YAML::Value << "new_default_material";
             _out << YAML::Key << "uuid"          << YAML::Value << MELT::generate_uuid(1).c_str();
             _out << YAML::Key << "shader_handle" << YAML::Value << AssetRegistry::instance().get_meta_by_name<Shader>("phong.glsl").uuid;
 
@@ -55,7 +55,7 @@ namespace MELT::GRAPHIC
 
                 _out << YAML::Key << "color"   << YAML::Value << YAML::Flow 
                     << YAML::BeginSeq << 0.0 << 0.0 << 0.0 << 1.0 << YAML::EndSeq;
-                _out << YAML::Key << "texture" << YAML::Value << "white_texture.png";
+                _out << YAML::Key << "texture_handle" << YAML::Value << AssetRegistry::instance().get_meta_by_name<Texture>("checker.png").uuid;
 
             _out << YAML::EndMap; 
 
@@ -65,48 +65,20 @@ namespace MELT::GRAPHIC
         return std::string(_out.c_str());
     }
 
-    Material load_material(const std::string& _mat_file)
+    Shader* Material::get_cached_shader()
     {
-        Material _material;
-
-        YAML::Node _root = YAML::Load(_mat_file);
-
-        auto material_node = _root["Material"];
-
-        if (!material_node)
-            throw std::runtime_error("Invalid material file: 'Material' root not found.");
-
-        _material.name         = material_node["name"  ].as<std::string>();
-        _material.uuid         = material_node["uuid"  ].as<std::string>();
-        //_material.shader_name  = material_node["shader"].as<std::string>();
-        // mat.render_queue = material_node["render_queue"].as<std::string>();
-
-        auto props = material_node["properties"];
-        if (props)
-        {
-            if (props["color"] && props["color"].IsSequence() && props["color"].size() == 4)
-            {
-                glm::vec4 _color = glm::vec4(
-                    props["color"][0].as<float>(),
-                    props["color"][1].as<float>(),
-                    props["color"][2].as<float>(),
-                    props["color"][3].as<float>()
-                );
-
-                _material.vec4_uniforms["color"] = _color;
-            }
-
-            // if (props["texture"]) {
-            //     _material.texture = props["texture"].as<std::string>();
-            // }
-        }
-        return _material;
+        return mp_cached_shader;
     }
 
     void Material::validate()
     {
-        if (mp_cached_shader != nullptr)
-            return;
-        mp_cached_shader = shader_handle.get();
+        if (mp_cached_shader == nullptr)
+            mp_cached_shader = shader_handle.get();
+
+        for (auto& [_name, _p_texture] : texture_uniforms)
+        {
+            // if (_p_texture == nullptr)
+            //     _p_texture = textru
+        }
     }
 }

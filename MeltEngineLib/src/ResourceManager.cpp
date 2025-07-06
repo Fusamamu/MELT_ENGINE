@@ -17,6 +17,7 @@ namespace MELT
         load_texture("../MeltEngineLib/res/textures/scene_icon.png"     );
         load_texture("../MeltEngineLib/res/textures/exclamation.png"    );
         load_texture("../MeltEngineLib/res/textures/caution.png"        );
+        load_texture("../MeltEngineLib/res/textures/checker.png"        );
 
         load_model  ("../MeltEngineLib/res/models/sphere.fbx"           );
         load_model  ("../MeltEngineLib/res/models/teapot/teapot.fbx"    );
@@ -106,6 +107,14 @@ namespace MELT
         _texture_data.file_name     = _path.filename().string();
         _texture_data.extension     = _path.extension().string();
 
+        AssetMetadata _asset_metadata;
+        _asset_metadata.name = _path.filename().string();
+        _asset_metadata.path = _path.string();
+        _asset_metadata.uuid = generate_deterministic_uuid(_path);
+
+        Texture* _new_texture = new Texture(_texture);
+        AssetRegistry::instance().register_asset<Texture>(_asset_metadata, _new_texture);
+
         texture_data_table.try_emplace(_texture_data.name, std::move(_texture_data));
     }
 
@@ -166,6 +175,12 @@ namespace MELT
                 _material->vec4_uniforms["color"] = _color;
             }
 
+            if (props["texture_handle"])
+            {
+                UUID _texture_uuid = props["texture_handle"].as<std::string>();
+                _material->texture_uniforms["u_texture"] = AssetRegistry::instance().get<Texture>(_texture_uuid);
+            }
+
             // if (props["texture"]) {
             //     _material.texture = props["texture"].as<std::string>();
             // }
@@ -177,6 +192,8 @@ namespace MELT
         _asset_metadata.name = _material->name;
         _asset_metadata.path = _path.string();
         _asset_metadata.uuid = _material->uuid;
+
+        std::cout << _asset_metadata.name << std::endl;
 
         AssetRegistry::instance().register_asset<GRAPHIC::Material>(_asset_metadata, _material);
     }

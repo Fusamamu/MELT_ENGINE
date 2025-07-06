@@ -1,8 +1,8 @@
 Material:
-  name: default_material
-  uuid: ba7cea6b-6cb5-dac8-ba7c-ea6b6cb5dac8
+  name: new_default_material
+  uuid: 15c00022-b19d-7485-15c0-0022b19d7485
   shader_handle: 5cf34c6a77298e9c
   render_queue: opaque
   properties:
     color: [0, 0, 0, 1]
-    texture: white_texture.png
+    texture_handle: 155a815d9eca0a50
