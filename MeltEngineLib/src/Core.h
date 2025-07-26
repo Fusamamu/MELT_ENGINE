@@ -46,6 +46,7 @@
 #include <yaml-cpp/yaml.h>
 
 #define UUID std::string
+#define M_VEC2 glm::vec2
 #define M_VEC3 glm::vec3
 #define M_VEC4 glm::vec4
 #define M_VEC3_SIZE sizeof(M_VEC3)

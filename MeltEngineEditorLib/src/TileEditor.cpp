@@ -34,7 +34,9 @@ namespace MELT_EDITOR
                 if (_ctx.contains<MELT::BlockTileGrid>())
                     _ctx.erase<MELT::BlockTileGrid>();
 
-                _ctx.emplace<MELT::BlockTileGrid>(MELT::BlockTileGrid{MELT::Grid(column, row, 1)});
+                _ctx.emplace<MELT::BlockTileGrid>(MELT::BlockTileGrid{MELT::Grid(column, 1, row)});
+
+                auto& _block_tile = _ctx.get<MELT::BlockTileGrid>();
 
                 for (std::size_t _i = 0; _i < column; ++_i)
                 {
@@ -49,8 +51,8 @@ namespace MELT_EDITOR
 
                         MELT::Transform& _transform = _node.get_component<MELT::Transform>();
 
-                        _transform.position.x += _i + 0.5f; // 1.5f;
-                        _transform.position.z += _j + 0.5f; // 1.5f;
+                        _transform.position.x += _i + 0.5f;
+                        _transform.position.z += _j + 0.5f;
 
                         MELT::MeshRenderer& _mesh_renderer = _node.get_component<MELT::MeshRenderer>();
                         _mesh_renderer.set_mesh_data(&_resource_manager->default_cube);
@@ -62,10 +64,12 @@ namespace MELT_EDITOR
 
                         MELT::Tile& _tile = _node.get_component<MELT::Tile>();
                         _tile.idx = _i;
-                        _tile.idy = _j;
-                        _tile.idz = 0;
+                        _tile.idy = 0;
+                        _tile.idz = _j;
 
-                        tile_ids.push_back(_node.id);
+                        tile_ids.push_back(_node.id);//need to remove this
+
+                        _block_tile.grid.at(_i, 0, _j) = _node.get_entity();
                     }
                 }
             }
@@ -81,7 +85,9 @@ namespace MELT_EDITOR
                 if (_ctx.contains<MELT::VolumeNodeGrid>())
                     _ctx.erase<MELT::VolumeNodeGrid>();
 
-                _ctx.emplace<MELT::VolumeNodeGrid>(MELT::VolumeNodeGrid{MELT::Grid(column, row, 1)});
+                _ctx.emplace<MELT::VolumeNodeGrid>(MELT::VolumeNodeGrid{MELT::Grid(column + 1, height + 1, row + 1)});
+
+                auto& _volume_node = _ctx.get<MELT::VolumeNodeGrid>();
 
                 for (std::size_t _i = 0; _i < column + 1; ++_i)
                 {
@@ -107,12 +113,53 @@ namespace MELT_EDITOR
                             MELT::MeshRenderer& _mesh_renderer = _node.get_component<MELT::MeshRenderer>();
                             _mesh_renderer.set_mesh_data(_resource_manager->get_mesh_data("Sphere"));
                             _mesh_renderer.set_buffer_data();
+                            _mesh_renderer.set_material_by_uuid(MELT::AssetRegistry::instance().get_meta_by_name<MELT::GRAPHIC::Material>("new_default_material").uuid, true);
 
                             MELT::NodeEditor& _node_editor = _node.get_component<MELT::NodeEditor>();
                             _node_editor.id = _node.id;
 
-                            tile_ids.push_back(_node.id);
+                            MELT::VolumePoint& _volume_point = _node.get_component<MELT::VolumePoint>();
+                            _volume_point.idx = _i;
+                            _volume_point.idy = _k;
+                            _volume_point.idz = _j;
+
+                            tile_ids.push_back(_node.id);//will remove this
+
+                            _volume_node.grid.at(_i, _k, _j) = _node.get_entity();
                         }
+                    }
+                }
+            }
+
+            if (ImGui::Button("Connect references"))
+            {
+                std::shared_ptr<MELT::SceneManager> _scene_manager = m_engine->manager_registry.get<MELT::SceneManager>();
+                MELT::Scene* _working_scene = _scene_manager->working_scene;
+
+                auto& _ctx = _working_scene->ecs_registry.ctx();
+                if (!_ctx.contains<MELT::BlockTileGrid>())
+                    return;
+                if (!_ctx.contains<MELT::VolumeNodeGrid>())
+                    return;
+
+                auto& _tile_block  = _ctx.get<MELT::BlockTileGrid >();
+                auto& _volume_node = _ctx.get<MELT::VolumeNodeGrid>();
+
+                for (std::size_t _i = 0; _i < _tile_block.grid.width; ++_i)
+                {
+                    for (std::size_t _j = 0; _j < _tile_block.grid.depth; ++_j)
+                    {
+                        auto& _tile = _working_scene->ecs_registry.get<MELT::Tile>(_tile_block.grid.at(_i, 0, _j));
+
+                        _tile.volume_point_refs[0] = _volume_node.grid.at(_i, 0, _j);
+                        _tile.volume_point_refs[1] = _volume_node.grid.at(_i, 0, _j);
+                        _tile.volume_point_refs[2] = _volume_node.grid.at(_i, 0, _j);
+                        _tile.volume_point_refs[3] = _volume_node.grid.at(_i, 0, _j);
+
+                        _tile.volume_point_refs[4] = _volume_node.grid.at(_i, 0, _j);
+                        _tile.volume_point_refs[5] = _volume_node.grid.at(_i, 0, _j);
+                        _tile.volume_point_refs[6] = _volume_node.grid.at(_i, 0, _j);
+                        _tile.volume_point_refs[7] = _volume_node.grid.at(_i, 0, _j);
                     }
                 }
             }

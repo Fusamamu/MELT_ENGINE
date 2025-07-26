@@ -188,6 +188,33 @@ namespace MELT
             main_camera.position -= main_camera.Up * 0.5f;
             main_camera.Target   -= main_camera.Up * 0.5f;
         }
+
+        Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
+        auto _view = _working_scene->ecs_registry.view<Transform, NodeEditor>();
+
+        float _closestDistance = FLT_MAX;
+        Ray _ray = RayCast::screen_to_world_ray(InputSystem::Instance().MouseScreenPosition, main_camera);
+
+        for (auto _entity : _view)
+        {
+            auto& _transform = _working_scene->ecs_registry.get<Transform >(_entity);
+            auto& _node      = _working_scene->ecs_registry.get<NodeEditor>(_entity);
+
+            //Need to check against aabb
+            auto _minBounds = _transform.position + glm::vec3(-0.5, -0.5, -0.5);
+            auto _maxBounds = _transform.position + glm::vec3( 0.5,  0.5,  0.5);
+
+            if (RayCast::RayIntersectsAABB(_ray.origin, _ray.direction, _minBounds, _maxBounds))
+            {
+                float _distance = glm::distance(_ray.origin, _transform.position);
+                if (_distance < _closestDistance)
+                {
+                    _closestDistance = _distance;
+                    Logger.log(_node.id);
+                    break;
+                }
+            }
+        }
     }
 
     void Engine::update_logic()
@@ -319,42 +346,26 @@ namespace MELT
     void Engine::select_object(glm::vec2 _mouseScreenPos, const MELT::Camera &_camera)
     {
         Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
-
-        glm::vec3 rayDir = RayCast::ScreenToWorldRay(_mouseScreenPos, _camera);
+        auto _view = _working_scene->ecs_registry.view<Transform, NodeEditor>();
 
         float _closestDistance = FLT_MAX;
+        Ray _ray = RayCast::screen_to_world_ray(_mouseScreenPos, _camera);
 
-        auto _view = _working_scene->ecs_registry.view<Transform, NodeEditor>();
         for (auto _entity : _view)
         {
-            auto& _transform = _working_scene->ecs_registry.get<Transform>(_entity);
+            auto& _transform = _working_scene->ecs_registry.get<Transform >(_entity);
             auto& _node      = _working_scene->ecs_registry.get<NodeEditor>(_entity);
 
+            //Need to check against aabb
             auto _minBounds = _transform.position + glm::vec3(-0.5, -0.5, -0.5);
             auto _maxBounds = _transform.position + glm::vec3( 0.5,  0.5,  0.5);
 
-            float _ndcX = (2.0f * _mouseScreenPos.x) / _camera.WindowSize.x - 1.0f;
-            float _ndcY = 1.0f - (2.0f * _mouseScreenPos.y) / _camera.WindowSize.y;
-
-            // Define near and far clip points in clip space
-            glm::vec4 _nearClip = glm::vec4(_ndcX, _ndcY, 0.0f, 1.0f); // near plane in clip space
-            glm::vec4 _farClip  = glm::vec4(_ndcX, _ndcY, 1.0f, 1.0f); // far plane in clip space
-
-            // Inverse the projection and view matrices to go from clip space back to world space
-            glm::mat4 _projInv = glm::inverse(_camera.get_orthographic_projection_matrix());
-            glm::mat4 _viewInv = glm::inverse(_camera.get_view_matrix());
-
-            // Transform clip space coordinates into world space
-            glm::vec4 _nearPoint = _viewInv * _projInv * _nearClip; // World space near point
-            glm::vec3 _rayOrigin = glm::vec3(_nearPoint.x, _nearPoint.y, _nearPoint.z);
-
-            if (RayCast::RayIntersectsAABB(_rayOrigin, rayDir, _minBounds, _maxBounds))
+            if (RayCast::RayIntersectsAABB(_ray.origin, _ray.direction, _minBounds, _maxBounds))
             {
-                float _distance = glm::distance(_rayOrigin, _transform.position);
+                float _distance = glm::distance(_ray.origin, _transform.position);
                 if (_distance < _closestDistance)
                 {
                     _closestDistance = _distance;
-
                     _node.is_selected = true;
                     _working_scene->select_node_id(_node.id);
                     break;

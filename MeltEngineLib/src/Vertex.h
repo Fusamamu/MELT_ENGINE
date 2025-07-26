@@ -3,6 +3,8 @@
 
 namespace MELT
 {
+    #define MAX_BONE_INFLUENCE 4
+
     enum class VertexAttribute
     {
         POSITION,
@@ -33,6 +35,12 @@ namespace MELT
         }
     };
 
+    struct BoneInfo
+    {
+        int id;
+        glm::mat4 offset;
+    };
+
     struct Vertex_P
     {
         M_VEC3 position;
@@ -44,6 +52,19 @@ namespace MELT
         glm::vec3 color;
         glm::vec2 texCoord;
         glm::vec3 normal;
+    };
+
+    struct Vertex_PCTN_TB_BW
+    {
+        M_VEC3 position  ;
+        M_VEC3 color     ;
+        M_VEC2 texCoord  ;
+        M_VEC3 normal    ;
+        M_VEC3 tangent   ;
+        M_VEC3 bi_tangent;
+
+        int   bond_ids[4];
+        float weights [4];
     };
 
     struct Vertex_PCT
@@ -94,5 +115,27 @@ namespace MELT
         _layout.addElement(VertexAttribute::COLOR     , offsetof(Vertex_PCTN, color   ), sizeof(M_VEC3)    , GL_FLOAT, 3, true);
         _layout.addElement(VertexAttribute::TEXCOORD_0, offsetof(Vertex_PCTN, texCoord), sizeof(glm::vec2) , GL_FLOAT, 2);
         return _layout;
+    }
+
+    inline void set_vertex_bone_to_default(Vertex_PCTN_TB_BW& _vertex)
+    {
+        for (int _i = 0; _i < MAX_BONE_INFLUENCE; ++_i)
+        {
+            _vertex.bond_ids[_i] = -1  ;
+            _vertex.weights [_i] = 0.0f;
+        }
+    }
+
+    inline void set_vertex_bone_data(Vertex_PCTN_TB_BW& _vertex, int _bone_id, float _weight)
+    {
+        for (int _i = 0; _i < MAX_BONE_INFLUENCE; ++_i)
+        {
+            if (_vertex.weights[_i] < 0)
+            {
+                _vertex.weights [_i] = _weight ;
+                _vertex.bond_ids[_i] = _bone_id;
+                break;
+            }
+        }
     }
 }

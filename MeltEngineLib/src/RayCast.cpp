@@ -29,12 +29,43 @@ namespace MELT
 
         // Convert homogeneous coordinates to 3D by dividing by w
         _nearPoint /= _nearPoint.w;
-        _farPoint /= _farPoint.w;
+        _farPoint  /= _farPoint.w;
 
         // Compute the ray direction (from near to far point)
         glm::vec3 _rayDirection = glm::normalize(glm::vec3(_farPoint - _nearPoint));
 
         return _rayDirection;
+    }
+
+    Ray RayCast::screen_to_world_ray(glm::vec2 _mouse_screen_pos, const Camera& _camera)
+    {
+        Ray _ray;
+
+        // Convert screen space to NDC (Normalized Device Coordinates)
+        float _ndcX = (2.0f * _mouse_screen_pos.x) / _camera.WindowSize.x - 1.0f;
+        float _ndcY = 1.0f - (2.0f * _mouse_screen_pos.y) / _camera.WindowSize.y;
+
+        // Define near and far clip points in clip space
+        glm::vec4 _nearClip = glm::vec4(_ndcX, _ndcY, 0.0f, 1.0f); // near plane in clip space
+        glm::vec4 _farClip  = glm::vec4(_ndcX, _ndcY, 1.0f, 1.0f); // far plane in clip space
+
+        // Inverse the projection and view matrices to go from clip space back to world space
+        glm::mat4 _projInv = glm::inverse(_camera.get_orthographic_projection_matrix());
+        glm::mat4 _viewInv = glm::inverse(_camera.get_view_matrix());
+
+        // Transform clip space coordinates into world space
+        glm::vec4 _nearPoint = _viewInv * _projInv * _nearClip; // World space near point
+        glm::vec4 _farPoint  = _viewInv * _projInv * _farClip;  // World space far point
+
+        // Convert homogeneous coordinates to 3D by dividing by w
+        _nearPoint /= _nearPoint.w;
+        _farPoint  /= _farPoint.w;
+
+        // Compute the ray direction (from near to far point)
+        _ray.origin    = glm::vec3(_nearPoint.x, _nearPoint.y, _nearPoint.z);
+        _ray.direction = glm::normalize(glm::vec3(_farPoint - _nearPoint));
+
+        return _ray;
     }
 
     static glm::vec3 ScreenToWorldRay(
@@ -135,6 +166,48 @@ namespace MELT
         }
 
         std::cout << "Ray cast hit" << std::endl;
+        return true;
+    }
+
+    bool RayCast::RayIntersectsAABB(const AABB& _aabb)
+    {
+        // M_VEC3 _min = _aabb.min;
+        // M_VEC3 _max = _aabb.max;
+        //
+        // float tMin = (_min.x - rayOrigin.x) / rayDir.x;
+        // float tMax = (_max.x - rayOrigin.x) / rayDir.x;
+        //
+        // if (tMin > tMax)
+        //     std::swap(tMin, tMax);
+        //
+        // float tyMin = (_min.y - rayOrigin.y) / rayDir.y;
+        // float tyMax = (_max.y - rayOrigin.y) / rayDir.y;
+        //
+        // if (tyMin > tyMax)
+        //     std::swap(tyMin, tyMax);
+        //
+        // if ((tMin > tyMax) || (tyMin > tMax))
+        //     return false;
+        //
+        // if (tyMin > tMin)
+        //     tMin = tyMin;
+        //
+        // if (tyMax < tMax)
+        //     tMax = tyMax;
+        //
+        // float tzMin = (_min.z - rayOrigin.z) / rayDir.z;
+        // float tzMax = (_max.z - rayOrigin.z) / rayDir.z;
+        //
+        // if (tzMin > tzMax)
+        //     std::swap(tzMin, tzMax);
+        //
+        // if ((tMin > tzMax) || (tzMin > tMax))
+        // {
+        //     std::cout << "Ray cast missed" << std::endl;
+        //     return false;
+        // }
+        //
+        // std::cout << "Ray cast hit" << std::endl;
         return true;
     }
 

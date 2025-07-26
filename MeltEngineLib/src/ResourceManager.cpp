@@ -203,9 +203,10 @@ namespace MELT
         for(unsigned int i = 0; i < _node->mNumMeshes; i++)
         {
             aiMesh* _ai_mesh = _scene->mMeshes[_node->mMeshes[i]];
+
             std::string _name = _ai_mesh->mName.C_Str();
 
-            Mesh _mesh = process_mesh(_scene->mMeshes[_node->mMeshes[i]], _scene);
+            Mesh _mesh = process_mesh(_ai_mesh, _scene);
 
             Mesh* _new_mesh = new Mesh(_mesh);
 
@@ -215,14 +216,12 @@ namespace MELT
 
             mesh_data_table.try_emplace(_name, std::move(_mesh_data));
 
-
             AssetMetadata _asset_metadata;
             _asset_metadata.name = _name;
             _asset_metadata.path = "";
             _asset_metadata.uuid = _new_mesh->gen_uuid();
 
             AssetRegistry::instance().register_asset<Mesh>(_asset_metadata, _new_mesh);
-
 
             std::cout << "loading mesh : " << _name << "\n";
         }
@@ -231,10 +230,99 @@ namespace MELT
             process_node(_node->mChildren[i], _scene);
     }
 
+    // Mesh ResourceManager::process_mesh(aiMesh* _mesh, const aiScene* _scene)
+    // {
+    //     std::vector<Vertex_PCTN> _vertices;
+    //     std::vector<unsigned int> _indices;
+    //
+    //     for(unsigned int i = 0; i < _mesh->mNumVertices; i++)
+    //     {
+    //         Vertex_PCTN _vertex;
+    //
+    //         _vertex.position.x = _mesh->mVertices[i].x;
+    //         _vertex.position.y = _mesh->mVertices[i].y;
+    //         _vertex.position.z = _mesh->mVertices[i].z;
+    //
+    //         _vertex.color.r = 0.0f;
+    //         _vertex.color.g = 0.0f;
+    //         _vertex.color.b = 0.0f;
+    //
+    //         if(_mesh->mTextureCoords[0])
+    //         {
+    //             _vertex.texCoord.x = _mesh->mTextureCoords[0][i].x;
+    //             _vertex.texCoord.y = _mesh->mTextureCoords[0][i].y;
+    //         }
+    //         else
+    //             _vertex.texCoord = glm::vec2(0.0f, 0.0f);
+    //
+    //         if (_mesh->HasNormals())
+    //         {
+    //             _vertex.normal.x = _mesh->mNormals[i].x;
+    //             _vertex.normal.y = _mesh->mNormals[i].y;
+    //             _vertex.normal.z = _mesh->mNormals[i].z;
+    //         }
+    //
+    //         _vertices.push_back(_vertex);
+    //     }
+    //
+    //     for(unsigned int i = 0; i < _mesh->mNumFaces; i++)
+    //     {
+    //         aiFace _face = _mesh->mFaces[i];
+    //         for(unsigned int j = 0; j < _face.mNumIndices; j++)
+    //             _indices.push_back(_face.mIndices[j]);
+    //     }
+    //
+    //     std::vector<uint8_t> _vertex_buffer;
+    //     _vertex_buffer.resize(_vertices.size() * sizeof(Vertex_PCTN));
+    //     memcpy(_vertex_buffer.data(), _vertices.data(), _vertex_buffer.size());
+    //
+    //     Mesh _result_mesh { _vertex_buffer, _indices };
+    //     _result_mesh.layout = createLayout_PCTN();
+    //
+    //     return _result_mesh;
+    // }
+
     Mesh ResourceManager::process_mesh(aiMesh* _mesh, const aiScene* _scene)
     {
-        std::vector<Vertex_PCTN> _vertices;
         std::vector<unsigned int> _indices;
+        for(unsigned int i = 0; i < _mesh->mNumFaces; i++)
+        {
+            aiFace _face = _mesh->mFaces[i];
+            for(unsigned int j = 0; j < _face.mNumIndices; j++)
+                _indices.push_back(_face.mIndices[j]);
+        }
+
+        if (_mesh->HasBones())
+        {
+             std::vector<Vertex_PCTN_TB_BW> _vertices = build_vertices_PCTN_TB_BW(_mesh, _scene);
+
+             std::vector<uint8_t> _vertex_buffer;
+             _vertex_buffer.resize(_vertices.size() * sizeof(Vertex_PCTN_TB_BW));
+             memcpy(_vertex_buffer.data(), _vertices.data(), _vertex_buffer.size());
+
+             Mesh _result_mesh { _vertex_buffer, _indices };
+             _result_mesh.layout = createLayout_PCTN();
+
+             return _result_mesh;
+        }
+        else
+        {
+            std::vector<Vertex_PCTN> _vertices = build_vertices_PCTN(_mesh, _scene);
+
+            std::vector<uint8_t> _vertex_buffer;
+            _vertex_buffer.resize(_vertices.size() * sizeof(Vertex_PCTN));
+            memcpy(_vertex_buffer.data(), _vertices.data(), _vertex_buffer.size());
+
+            Mesh _result_mesh { _vertex_buffer, _indices };
+            _result_mesh.layout = createLayout_PCTN();
+
+            return _result_mesh;
+        }
+    }
+
+    std::vector<Vertex_PCTN> ResourceManager::build_vertices_PCTN(aiMesh* _mesh, const aiScene* _scene)
+    {
+        std::vector<Vertex_PCTN> _vertices;
 
         for(unsigned int i = 0; i < _mesh->mNumVertices; i++)
         {
@@ -248,7 +336,7 @@ namespace MELT
             _vertex.color.g = 0.0f;
             _vertex.color.b = 0.0f;
 
-            if(_mesh->mTextureCoords[0])
+            if (_mesh->HasTextureCoords(0))
             {
                 _vertex.texCoord.x = _mesh->mTextureCoords[0][i].x;
                 _vertex.texCoord.y = _mesh->mTextureCoords[0][i].y;
@@ -266,21 +354,108 @@ namespace MELT
             _vertices.push_back(_vertex);
         }
 
-        for(unsigned int i = 0; i < _mesh->mNumFaces; i++)
+        return _vertices;
+    }
+
+    std::vector<Vertex_PCTN_TB_BW> ResourceManager::build_vertices_PCTN_TB_BW(aiMesh* _mesh, const aiScene* _scene)
+    {
+        std::map<std::string, BoneInfo> _bone_info_map;
+        int _bone_counter = 0;
+
+        std::vector<Vertex_PCTN_TB_BW> _vertices;
+
+        for(unsigned int i = 0; i < _mesh->mNumVertices; i++)
         {
-            aiFace _face = _mesh->mFaces[i];
-            for(unsigned int j = 0; j < _face.mNumIndices; j++)
-                _indices.push_back(_face.mIndices[j]);
+            Vertex_PCTN_TB_BW _vertex;
+
+            set_vertex_bone_to_default(_vertex);
+
+            _vertex.position.x = _mesh->mVertices[i].x;
+            _vertex.position.y = _mesh->mVertices[i].y;
+            _vertex.position.z = _mesh->mVertices[i].z;
+
+            if (_mesh->HasVertexColors(0))
+            {
+                _vertex.color.r = _mesh->mColors[0][i].r;
+                _vertex.color.g = _mesh->mColors[0][i].g;
+                _vertex.color.b = _mesh->mColors[0][i].b;
+            }
+            else
+            {
+                _vertex.color.r = 0.0f;
+                _vertex.color.g = 0.0f;
+                _vertex.color.b = 0.0f;
+            }
+
+            if (_mesh->HasTextureCoords(0))
+            {
+                _vertex.texCoord.x = _mesh->mTextureCoords[0][i].x;
+                _vertex.texCoord.y = _mesh->mTextureCoords[0][i].y;
+            }
+            else
+            {
+                _vertex.texCoord = glm::vec2(0.0f, 0.0f);
+            }
+
+            if (_mesh->HasNormals())
+            {
+                _vertex.normal.x = _mesh->mNormals[i].x;
+                _vertex.normal.y = _mesh->mNormals[i].y;
+                _vertex.normal.z = _mesh->mNormals[i].z;
+            }
+
+            if (_mesh->HasTangentsAndBitangents())
+            {
+                _vertex.tangent.x    = _mesh->mTangents  [0].x;
+                _vertex.tangent.y    = _mesh->mTangents  [0].y;
+                _vertex.tangent.z    = _mesh->mTangents  [0].z;
+                _vertex.bi_tangent.x = _mesh->mBitangents[0].x;
+                _vertex.bi_tangent.y = _mesh->mBitangents[0].y;
+                _vertex.bi_tangent.z = _mesh->mBitangents[0].z;
+            }
+
+            //Extract bone weight from vertices
+            for (int _bone_index = 0; _bone_index < _mesh->mNumBones; ++_bone_index)
+            {
+                int _bone_id = -1;
+
+                std::string _bone_name = _mesh->mBones[_bone_index]->mName.C_Str();
+
+                if (_bone_info_map.find(_bone_name) == _bone_info_map.end())
+                {
+                    BoneInfo _bone_info;
+                    _bone_info.id     = _bone_counter;
+                    _bone_info.offset = AssimpGLMHelpers::ConvertMatrixToGLMFormat(_mesh->mBones[_bone_index]->mOffsetMatrix);
+
+                    _bone_info_map[_bone_name] = _bone_info;
+
+                    _bone_id = _bone_counter;
+
+                    _bone_counter++;
+                }
+                else
+                {
+                    _bone_id = _bone_info_map[_bone_name].id;
+                }
+
+                assert(_bone_id != -1);
+
+                aiVertexWeight* _weights = _mesh->mBones[_bone_index]->mWeights   ;
+                int _num_weights         = _mesh->mBones[_bone_index]->mNumWeights;
+
+                for (int _weight_idx = 0; _weight_idx < _num_weights; ++_weight_idx)
+                {
+                    int _vertex_idx = _weights[_weight_idx].mVertexId;
+                    float _weight   = _weights[_weight_idx].mWeight;
+                    assert(_vertex_idx <= _vertices.size());
+                    set_vertex_bone_data(_vertices[_vertex_idx], _bone_id, _weight);
+                }
+            }
+
+            _vertices.push_back(_vertex);
         }
 
-        std::vector<uint8_t> _vertex_buffer;
-        _vertex_buffer.resize(_vertices.size() * sizeof(Vertex_PCTN));
-        memcpy(_vertex_buffer.data(), _vertices.data(), _vertex_buffer.size());
-
-        Mesh _result_mesh { _vertex_buffer, _indices };
-        _result_mesh.layout = createLayout_PCTN();
-
-        return _result_mesh;
+        return _vertices;
     }
 
     TextureData* ResourceManager::get_texture_data(const std::string& _texture_name)

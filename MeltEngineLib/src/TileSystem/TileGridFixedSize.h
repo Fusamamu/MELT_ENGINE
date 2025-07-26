@@ -10,15 +10,19 @@ namespace MELT
 
     struct Tile
     {
-        TileType type;
-        uint32_t idx, idy, idz;
-        M_VEC3 position;
         bool walkable = true;
+
+        TileType type;
+        M_VEC3 position;
+
+        uint32_t idx, idy, idz;
+        std::array<entt::entity, 8> volume_point_refs; // -ZX, -Z-X
     };
 
     struct VolumePoint
     {
         uint32_t idx, idy, idz;
+        std::array<entt::entity, 8> tile_refs;
         VolumePoint() = default;
     };
 
