@@ -4,6 +4,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(./vendors/yaml-cpp)
 add_subdirectory(./vendors/entt)
+add_subdirectory(./vendors/freetype)
 
 get_target_property(_aliased EnTT::EnTT ALIASED_TARGET)
 message(STATUS "EnTT target found as: ${_aliased}")
@@ -69,7 +70,8 @@ add_library(${PROJECT_NAME} SHARED
         src/Logger.cpp
         src/Serializer.cpp
         src/UI/UI.cpp
-        src/UI/UIManager.cpp
+        src/UI/UISystem.cpp
+        src/UI/Text.h
         src/Bounds.cpp
         src/Primitive/Line.cpp
         src/Systems/MovementSystem.cpp
@@ -90,6 +92,13 @@ add_library(${PROJECT_NAME} SHARED
         src/AssetRegistry.h
         src/TileSystem/TileGridFixedSize.cpp
         src/TileSystem/TileGridFixedSize.h
+        src/Animation/Bone.cpp
+        src/Animation/Bone.h
+        src/Util.h
+        src/UI/Text.cpp
+        src/UI/Text.h
+        src/Components/TextRenderer.cpp
+        src/Components/TextRenderer.h
 )
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)
@@ -124,6 +133,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ./vendors/stb
         ./vendors/yaml-cpp/include
         ./vendors/assimp/include
+        ./vendors/freetype/include
 
         ./vendors/spdlog/include)
 
@@ -150,6 +160,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC GLEW::glew)
 target_link_libraries(${PROJECT_NAME} PUBLIC ZLIB::ZLIB)
 target_link_libraries(${PROJECT_NAME} PUBLIC yaml-cpp::yaml-cpp)
 target_link_libraries(${PROJECT_NAME} PUBLIC EnTT)
+target_link_libraries(${PROJECT_NAME} PUBLIC freetype)
 target_link_libraries(${PROJECT_NAME} PUBLIC ${OPENGL_gl_LIBRARY})
 target_link_libraries(${PROJECT_NAME} PUBLIC ${ASSIMP_PATH})
 target_link_libraries(${PROJECT_NAME} PUBLIC ${SPDLOG_PATH})

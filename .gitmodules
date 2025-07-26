@@ -22,3 +22,6 @@
 [submodule "MeltEngineLib/vendors/spdlog"]
 	path = MeltEngineLib/vendors/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "MeltEngineLib/vendors/freetype"]
+	path = MeltEngineLib/vendors/freetype
+	url = https://github.com/freetype/freetype.git

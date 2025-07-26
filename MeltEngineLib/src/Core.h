@@ -37,6 +37,9 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
+#include <ft2build.h>
+#include FT_FREETYPE_H
+
 #include <entt/entt.hpp>
 
 #include <spdlog/spdlog.h>

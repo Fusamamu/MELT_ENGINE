@@ -230,58 +230,6 @@ namespace MELT
             process_node(_node->mChildren[i], _scene);
     }
 
-    // Mesh ResourceManager::process_mesh(aiMesh* _mesh, const aiScene* _scene)
-    // {
-    //     std::vector<Vertex_PCTN> _vertices;
-    //     std::vector<unsigned int> _indices;
-    //
-    //     for(unsigned int i = 0; i < _mesh->mNumVertices; i++)
-    //     {
-    //         Vertex_PCTN _vertex;
-    //
-    //         _vertex.position.x = _mesh->mVertices[i].x;
-    //         _vertex.position.y = _mesh->mVertices[i].y;
-    //         _vertex.position.z = _mesh->mVertices[i].z;
-    //
-    //         _vertex.color.r = 0.0f;
-    //         _vertex.color.g = 0.0f;
-    //         _vertex.color.b = 0.0f;
-    //
-    //         if(_mesh->mTextureCoords[0])
-    //         {
-    //             _vertex.texCoord.x = _mesh->mTextureCoords[0][i].x;
-    //             _vertex.texCoord.y = _mesh->mTextureCoords[0][i].y;
-    //         }
-    //         else
-    //             _vertex.texCoord = glm::vec2(0.0f, 0.0f);
-    //
-    //         if (_mesh->HasNormals())
-    //         {
-    //             _vertex.normal.x = _mesh->mNormals[i].x;
-    //             _vertex.normal.y = _mesh->mNormals[i].y;
-    //             _vertex.normal.z = _mesh->mNormals[i].z;
-    //         }
-    //
-    //         _vertices.push_back(_vertex);
-    //     }
-    //
-    //     for(unsigned int i = 0; i < _mesh->mNumFaces; i++)
-    //     {
-    //         aiFace _face = _mesh->mFaces[i];
-    //         for(unsigned int j = 0; j < _face.mNumIndices; j++)
-    //             _indices.push_back(_face.mIndices[j]);
-    //     }
-    //
-    //     std::vector<uint8_t> _vertex_buffer;
-    //     _vertex_buffer.resize(_vertices.size() * sizeof(Vertex_PCTN));
-    //     memcpy(_vertex_buffer.data(), _vertices.data(), _vertex_buffer.size());
-    //
-    //     Mesh _result_mesh { _vertex_buffer, _indices };
-    //     _result_mesh.layout = createLayout_PCTN();
-    //
-    //     return _result_mesh;
-    // }
-
     Mesh ResourceManager::process_mesh(aiMesh* _mesh, const aiScene* _scene)
     {
         std::vector<unsigned int> _indices;
@@ -425,7 +373,7 @@ namespace MELT
                 {
                     BoneInfo _bone_info;
                     _bone_info.id     = _bone_counter;
-                    _bone_info.offset = AssimpGLMHelpers::ConvertMatrixToGLMFormat(_mesh->mBones[_bone_index]->mOffsetMatrix);
+                    _bone_info.offset = UTIL::AssimpGLMHelpers::ConvertMatrixToGLMFormat(_mesh->mBones[_bone_index]->mOffsetMatrix);
 
                     _bone_info_map[_bone_name] = _bone_info;
 
