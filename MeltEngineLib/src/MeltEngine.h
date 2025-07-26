@@ -7,6 +7,7 @@
 
 #include "NodeManager.h"
 #include "TextureManager.h"
+#include "UISystem.h"
 
 #include "Shader.h"
 #include "Quad.h"
@@ -64,23 +65,23 @@ namespace MELT
         Engine& operator=(const Engine& _other) = delete;
         ~Engine();
 
-        void init();
-        void update();
-        void update_input();
-        void update_render();
+        void init               ();
+        void update             ();
+        void update_input       ();
+        void update_render      ();
         void update_editor_logic();
-        void update_logic();
+        void update_logic       ();
 
-        void begin_frame();
+        void begin_frame ();
         void render_frame();
-        void end_frame();
+        void end_frame   ();
 
         void quit();
 
-        void create_cube_node();
-        void create_plane_node();
+        void create_cube_node  ();
+        void create_plane_node ();
         void create_camera_node();
-        void create_light_node();
+        void create_light_node ();
         void deselect_all_nodes();
         void select_object(glm::vec2 _mouseScreenPos, const Camera& _camera);
 

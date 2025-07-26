@@ -13,7 +13,7 @@ namespace MELT
         ~TextRenderer() = default;
 
         void set_buffer_data();
-        void draw(UI::Text& _text);
+        void draw(UI::Text& _text, std::map<GLchar, UI::Character> _characters);
     private:
         unsigned int m_vao, m_vbo;
     };

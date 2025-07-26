@@ -78,9 +78,11 @@ namespace MELT
 
         manager_registry.Register<ResourceManager>(std::make_shared<ResourceManager>());
         manager_registry.Register<SceneManager>   (std::make_shared<SceneManager>   ());
+        manager_registry.Register<UISystem>       (std::make_shared<UISystem>       ());
         manager_registry.Register<RenderPipeline> (std::make_shared<RenderPipeline> ());
 
         manager_registry.get<ResourceManager>()->init();
+        manager_registry.get<UISystem>       ()->init();
         manager_registry.get<SceneManager>   ()->init();
         manager_registry.get<RenderPipeline> ()->Init(this);
 

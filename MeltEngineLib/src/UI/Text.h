@@ -19,6 +19,8 @@ namespace MELT::UI
         float x, y;
         float scale;
 
+        M_VEC4 color;
+
         Text() = default;
         ~Text() = default;
 

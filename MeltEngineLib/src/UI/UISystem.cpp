@@ -1,6 +1,6 @@
 #include "UISystem.h"
 
-namespace MELT::UI
+namespace MELT
 {
     void UISystem::init()
     {
@@ -12,7 +12,7 @@ namespace MELT::UI
             return;
         }
 
-        std::string font_name;
+        std::string font_name = "../MeltEngineLib/res/fonts/QuartzoBold-W9lv.ttf";
 
         FT_Face _face;
         if (FT_New_Face(ft, font_name.c_str(), 0, &_face))
@@ -52,14 +52,14 @@ namespace MELT::UI
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-            Character character =
+            UI::Character character =
             {
                 _texture,
                 glm::ivec2(_face->glyph->bitmap.width, _face->glyph->bitmap.rows),
                 glm::ivec2(_face->glyph->bitmap_left, _face->glyph->bitmap_top),
                 static_cast<unsigned int>(_face->glyph->advance.x)
             };
-            m_characters.insert(std::pair<char, Character>(_c, character));
+            character_map.insert(std::pair<char, UI::Character>(_c, character));
         }
         glBindTexture(GL_TEXTURE_2D, 0);
 

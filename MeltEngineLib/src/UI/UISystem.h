@@ -4,17 +4,18 @@
 #include "Core.h"
 #include "Text.h"
 
-namespace MELT::UI
+namespace MELT
 {
     class UISystem
     {
 	public:
+          std::map<GLchar, UI::Character> character_map;
+
           UISystem() = default;
           ~UISystem() = default;
 
           void init();
     private:
-          std::map<GLchar, Character> m_characters;
     };
 }
 

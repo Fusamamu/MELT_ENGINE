@@ -9,6 +9,10 @@
 #include "RenderPass.h"
 #include "RenderCommand.h"
 
+//Text
+#include "Text.h"
+#include "TextRenderer.h"
+
 namespace MELT
 {
     class Engine;
@@ -34,7 +38,7 @@ namespace MELT
 
         glm::vec4   clear_color;
         FrameBuffer editor_scene_frame_buffer;
-        FrameBuffer depth_buffer;
+        FrameBuffer depth_frame_buffer;
 
         RenderPipeline();
 
@@ -102,19 +106,23 @@ namespace MELT
         MeshRenderer* m_grid_renderer;
         MeshRenderer* m_quad_renderer;
 
-        Shader* m_TargetShader;
-        Shader* m_phong_shader;
-        Shader* m_MeshOutlineShader;
-        Shader* m_GridShader;
-        Shader* m_gizmos_shader;
-        Shader* m_debug_line;
-        Shader* m_camera_frustum;
-        Shader* m_depth_shader;
-        Shader* m_screen_quad_shader;
+        Shader* m_target_shader      ;
+        Shader* m_phong_shader       ;
+        Shader* m_MeshOutlineShader  ;
+        Shader* m_GridShader         ;
+        Shader* m_gizmos_shader      ;
+        Shader* m_debug_line         ;
+        Shader* m_camera_frustum     ;
+        Shader* m_depth_shader       ;
+        Shader* m_screen_quad_shader ;
+        Shader* m_text_shader        ;
 
         SDL_Window* mp_window;
         GLbitfield m_clearBuffers;
 
         unsigned int m_ubo;
+
+        //Text
+        TextRenderer m_text_renderer;
     };
 }

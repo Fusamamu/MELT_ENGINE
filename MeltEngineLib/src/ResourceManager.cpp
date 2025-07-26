@@ -30,6 +30,7 @@ namespace MELT
         load_shader("../MeltEngineLib/res/shaders/camera_frustum.shader");
         load_shader("../MeltEngineLib/res/shaders/depth.shader"         );
         load_shader("../MeltEngineLib/res/shaders/screen_quad.shader"   );
+        load_shader("../MeltEngineLib/res/shaders/text.glsl"            );
 
         load_material("../Project/Assets/Materials/new_default_material.mat");
     }

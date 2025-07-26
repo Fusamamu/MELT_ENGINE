@@ -20,34 +20,34 @@ namespace MELT
         outline_pass.name  = "outline_pass";
 
         editor_scene_frame_buffer.create(1600, 1200);
-        depth_buffer             .create_depth_buffer(2048, 2048);
+        depth_frame_buffer             .create_depth_buffer(2048, 2048);
 
         aQuad = new Quad();
         aCube = new Cube();
 
-        m_TargetShader       = new Shader("../MeltEngineLib/res/shaders/phong.glsl");
-        m_TargetShader       = AssetRegistry::instance().get_by_name<GRAPHIC::Material>("new_default_material")->get_cached_shader();
-        //m_phong_shader       = new Shader("../MeltEngineLib/res/shaders/phong.glsl");
-        m_MeshOutlineShader  = new Shader("../MeltEngineLib/res/shaders/MeshOutline.shader");
-        m_GridShader         = new Shader("../MeltEngineLib/res/shaders/3DGrid.shader");
-        m_gizmos_shader      = new Shader("../MeltEngineLib/res/shaders/Gizmos.shader");
-        m_debug_line         = new Shader("../MeltEngineLib/res/shaders/CylinderLine.shader");
-        m_camera_frustum     = new Shader("../MeltEngineLib/res/shaders/camera_frustum.shader");
-        m_depth_shader       = new Shader("../MeltEngineLib/res/shaders/depth.shader");
-        m_screen_quad_shader = new Shader("../MeltEngineLib/res/shaders/screen_quad.shader");
+        m_target_shader       = new Shader("../MeltEngineLib/res/shaders/phong.glsl"           );
+        m_target_shader       = AssetRegistry::instance().get_by_name<GRAPHIC::Material>("new_default_material")->get_cached_shader();
+        m_MeshOutlineShader   = new Shader("../MeltEngineLib/res/shaders/MeshOutline.shader"   );
+        m_GridShader          = new Shader("../MeltEngineLib/res/shaders/3DGrid.shader"        );
+        m_gizmos_shader       = new Shader("../MeltEngineLib/res/shaders/Gizmos.shader"        );
+        m_debug_line          = new Shader("../MeltEngineLib/res/shaders/CylinderLine.shader"  );
+        m_camera_frustum      = new Shader("../MeltEngineLib/res/shaders/camera_frustum.shader");
+        m_depth_shader        = new Shader("../MeltEngineLib/res/shaders/depth.shader"         );
+        m_screen_quad_shader  = new Shader("../MeltEngineLib/res/shaders/screen_quad.shader"   );
+        m_text_shader         = new Shader("../MeltEngineLib/res/shaders/text.glsl"            );
 
         glm::mat4 _model      = glm::translate(glm::mat4(1.0f), glm::vec3 (0.0f, 0.0f, 0.0f));
         glm::mat4 _view       = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         glm::mat4 _projection = glm::ortho(-400.0f, 400.0f, -300.0f, 300.0f, 0.1f, 100.0f);
 
-        m_TargetShader->use();
-        m_TargetShader->set_mat4_uniform_model     (_model);
-        m_TargetShader->set_mat4_uniform_view      (_view);
-        m_TargetShader->set_mat4_uniform_projection(_projection);
-        m_TargetShader->set_vec3_uniform_object_color(glm::vec3(0.8, 0.0, 0.0));
-        m_TargetShader->set_vec3_uniform_light_color (glm::vec3(1.0, 1.0, 1.0));
-        m_TargetShader->set_float_uniform_object_shininess(1.0f);
-        m_TargetShader->set_vec3_uniform_light_world_position(glm::vec3(100, 100, 100));
+        m_target_shader->use();
+        m_target_shader->set_mat4_uniform_model     (_model);
+        m_target_shader->set_mat4_uniform_view      (_view);
+        m_target_shader->set_mat4_uniform_projection(_projection);
+        m_target_shader->set_vec3_uniform_object_color(glm::vec3(0.8, 0.0, 0.0));
+        m_target_shader->set_vec3_uniform_light_color (glm::vec3(1.0, 1.0, 1.0));
+        m_target_shader->set_float_uniform_object_shininess(1.0f);
+        m_target_shader->set_vec3_uniform_light_world_position(glm::vec3(100, 100, 100));
 
         m_MeshOutlineShader->use();
         m_MeshOutlineShader->set_mat4_uniform_model     (_model);
@@ -73,6 +73,11 @@ namespace MELT
         m_camera_frustum->use();
         m_camera_frustum->set_mat4_uniform_view      (_view);
         m_camera_frustum->set_mat4_uniform_projection(_projection);
+
+
+        // glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(m_engine->), 0.0f, static_cast<float>(SCR_HEIGHT));
+        // m_text_shader->use();
+        // m_text_shader->set_mat4_uniform_projection(projection);
 
         glEnable     (GL_DEPTH_TEST);
         glDepthFunc  (GL_LESS);
@@ -121,6 +126,11 @@ namespace MELT
         m_quad_renderer = new MeshRenderer();
         m_quad_renderer->set_mesh_data(_quad_mesh_data);
         m_quad_renderer->set_buffer_data();
+
+
+        m_text_renderer.set_buffer_data();
+
+
     }
 
     void RenderPipeline::BeginFrame() const
@@ -159,7 +169,6 @@ namespace MELT
                 geometry_pass.command_buffer.add(std::make_unique<GRAPHIC::SetStencilCommand>(GL_ALWAYS, 1, 0xFF, 0xFF));
 
                 auto _command = std::make_unique<GRAPHIC::DrawMeshCommand>();
-                //_command->p_shader        = m_TargetShader;
                 _command->p_material      = _mesh_renderer.get_cached_material();
                 _command->model_mat       = _transform.get_transform_matrix();
                 _command->view_mat        = _view;
@@ -185,7 +194,6 @@ namespace MELT
             else
             {
                 auto _command = std::make_unique<GRAPHIC::DrawMeshCommand>();
-                //_command->p_shader        = m_TargetShader;
                 _command->p_material      = _mesh_renderer.get_cached_material();
                 _command->model_mat       = _transform.get_transform_matrix();
                 _command->view_mat        = _view;
@@ -195,7 +203,7 @@ namespace MELT
             }
         }
 
-        depth_buffer.bind();
+        depth_frame_buffer.bind();
         glViewport(0, 0, 2048, 2048);
         glClear(GL_DEPTH_BUFFER_BIT);
 
@@ -221,52 +229,93 @@ namespace MELT
             m_depth_shader->set_mat4_uniform_model(_transform.get_transform_matrix());
             _mesh_renderer.draw();
         }
-        depth_buffer.unbind();
+        depth_frame_buffer.unbind();
         /*-----------------*/
 
         /*Draw depth on quad*/
-        editor_scene_frame_buffer.bind();
-        glViewport(0, 0, editor_scene_frame_buffer.width, editor_scene_frame_buffer.height);
-
-        glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-
-        m_screen_quad_shader->use();
-
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, depth_buffer.texture_id);
-        glUniform1i(glGetUniformLocation(m_screen_quad_shader->ID, "depthMap"), 0);
-
-        m_quad_renderer->draw();
-        editor_scene_frame_buffer.unbind();
+        // editor_scene_frame_buffer.bind();
+        // glViewport(0, 0, editor_scene_frame_buffer.width, editor_scene_frame_buffer.height);
+        //
+        // glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
+        // glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+        //
+        // m_screen_quad_shader->use();
+        //
+        // glActiveTexture(GL_TEXTURE0);
+        // glBindTexture(GL_TEXTURE_2D, depth_buffer.texture_id);
+        // glUniform1i(glGetUniformLocation(m_screen_quad_shader->ID, "depthMap"), 0);
+        //
+        // m_quad_renderer->draw();
+        // editor_scene_frame_buffer.unbind();
         /*-----------------*/
 
         editor_scene_frame_buffer.bind();
+        glViewport(0, 0, editor_scene_frame_buffer.width, editor_scene_frame_buffer.height);
 
         geometry_pass.begin();
 
-        m_TargetShader->use();
+        m_target_shader->use();
         glActiveTexture(GL_TEXTURE1);
-        glBindTexture(GL_TEXTURE_2D, depth_buffer.texture_id);
+        glBindTexture(GL_TEXTURE_2D, depth_frame_buffer.texture_id);
 
-        glUniform1i       (glGetUniformLocation(m_TargetShader->ID, "shadow_map"), 1);
-        glUniformMatrix4fv(glGetUniformLocation(m_TargetShader->ID, "light_space_mat"), 1, GL_FALSE, glm::value_ptr(_light_space));
+        glUniform1i       (glGetUniformLocation(m_target_shader->ID, "shadow_map"), 1);
+        glUniformMatrix4fv(glGetUniformLocation(m_target_shader->ID, "light_space_mat"), 1, GL_FALSE, glm::value_ptr(_light_space));
 
 
 
 
         geometry_pass.execute();
         outline_pass .execute();
+
+
+
+
+
         geometry_pass.end();
+
+
+
+        glDisable(GL_DEPTH_TEST);
+        UI::Text _text;
+        _text.x = 100.0f;
+        _text.y = 100.0f;
+        _text.scale = 1.0f;
+        _text.set_text("TEST");
+
+        m_text_shader->use();
+        glUniform3f(glGetUniformLocation(m_text_shader->ID, "text_color"), 1.0f, 1.0f, 1.0f);
+        glActiveTexture(GL_TEXTURE0);
+
+        glm::mat4 projection = glm::ortho(
+            0.0f,
+            static_cast<float>(editor_scene_frame_buffer.width),
+            static_cast<float>(editor_scene_frame_buffer.height),
+            0.0f);
+
+
+        m_text_shader->use();
+        m_text_shader->set_mat4_uniform_projection(projection);
+
+        m_text_renderer.draw(_text, m_engine->manager_registry.get<UISystem>()->character_map);
+
+        glBindTexture(GL_TEXTURE_2D, 0);
+
+
+        glEnable(GL_DEPTH_TEST);
+
+
+
+
+
 
         for (auto _entity : _light_view)
         {
             auto& _transform = _light_view.get<Transform>(_entity);
             auto& _light     = _light_view.get<Light>    (_entity);
 
-            m_TargetShader->use();
-            m_TargetShader->set_vec3_uniform_light_world_position(_transform.position);
-            m_TargetShader->set_vec3_uniform_light_world_target  (_light.target);
+            m_target_shader->use();
+            m_target_shader->set_vec3_uniform_light_world_position(_transform.position);
+            m_target_shader->set_vec3_uniform_light_world_target  (_light.target);
 
             m_debug_line->use();
             m_debug_line->set_mat4_uniform_view      (_view);
@@ -285,10 +334,20 @@ namespace MELT
 
             m_camera_frustum->use();
             glUniform3fv(glGetUniformLocation(m_camera_frustum->ID, "corners"), 8, glm::value_ptr(_corners[0]));
-            m_camera_frustum->set_mat4_uniform_view(_view);
+            m_camera_frustum->set_mat4_uniform_view      (_view);
             m_camera_frustum->set_mat4_uniform_projection(_projection);
             camera_frustum_renderer.draw_camera_frustum();
         }
+
+
+
+
+
+
+
+
+
+
 
         editor_scene_frame_buffer.unbind();
 
