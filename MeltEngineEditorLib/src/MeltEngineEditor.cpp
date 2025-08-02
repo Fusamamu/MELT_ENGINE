@@ -79,6 +79,7 @@ namespace MELT_EDITOR
         node_graph_gui  .init(this);
         inspector_gui   .init(this);
         system_gui      .init(this);
+        ui_system_gui   .init(this);
 
         NFD_Init();
 
@@ -130,6 +131,7 @@ namespace MELT_EDITOR
         node_graph_gui   .draw_gui();
         inspector_gui    .draw_gui();
         system_gui       .draw_gui();
+        ui_system_gui    .draw_gui();
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -400,24 +402,24 @@ namespace MELT_EDITOR
         {
             ImVec2 _cursorScreenPos = ImGui::GetCursorScreenPos();
 
-            const float _sceneEditorWindowWidth  = ImGui::GetContentRegionAvail().x;
-            const float _sceneEditorWindowHeight = ImGui::GetContentRegionAvail().y;
+            const float _scene_editor_window_width  = ImGui::GetContentRegionAvail().x;
+            const float _scene_editor_window_height = ImGui::GetContentRegionAvail().y;
 
             ImGuizmo::SetOrthographic(true);
             ImGuizmo::SetDrawlist();
-            ImGuizmo::SetRect(_cursorScreenPos.x, _cursorScreenPos.y, _sceneEditorWindowWidth, _sceneEditorWindowHeight);
+            ImGuizmo::SetRect(_cursorScreenPos.x, _cursorScreenPos.y, _scene_editor_window_width, _scene_editor_window_height);
 
             ImGui::GetWindowDrawList()->AddImage(
                     (void*)(intptr_t)engine->manager_registry.get<MELT::RenderPipeline>()->editor_scene_frame_buffer.texture_id,
                     ImVec2(_cursorScreenPos.x, _cursorScreenPos.y),
-                    ImVec2(_cursorScreenPos.x + _sceneEditorWindowWidth, _cursorScreenPos.y + _sceneEditorWindowHeight),
+                    ImVec2(_cursorScreenPos.x + _scene_editor_window_width, _cursorScreenPos.y + _scene_editor_window_height),
                     ImVec2(0, 1),
                     ImVec2(1, 0)
             );
 
-            engine->main_camera.WindowSize.x = _sceneEditorWindowWidth;
-            engine->main_camera.WindowSize.y = _sceneEditorWindowHeight;
-            engine->main_camera.UpdateScreenSizeWithOrthographicSize(_sceneEditorWindowWidth / _sceneEditorWindowHeight);
+            engine->main_camera.WindowSize.x = _scene_editor_window_width;
+            engine->main_camera.WindowSize.y = _scene_editor_window_height;
+            engine->main_camera.update_screen_size_with_orthographic_size(_scene_editor_window_width / _scene_editor_window_height);
         }
         ImGui::End();
     }

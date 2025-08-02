@@ -31,7 +31,7 @@ namespace MELT
         [[nodiscard]] glm::mat4 get_view_matrix() const;
         [[nodiscard]] glm::mat4 get_orthographic_projection_matrix() const;
 
-        void UpdateScreenSizeWithOrthographicSize(float _screenRatio);
+        void update_screen_size_with_orthographic_size(float _screenRatio);
 
         std::array<glm::vec3, 8> get_frustum_corners(const glm::vec3& eye, const glm::vec3& forward, const glm::vec3& up, const glm::vec3& right, float fovY_rad, float aspect, float nearDist, float farDist);
 

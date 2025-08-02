@@ -106,7 +106,7 @@ namespace MELT_EDITOR
 
             m_engine->main_camera.WindowSize.x = _scene_editor_window_width;
             m_engine->main_camera.WindowSize.y = _scene_editor_window_height;
-            m_engine->main_camera.UpdateScreenSizeWithOrthographicSize(_scene_editor_window_width / _scene_editor_window_height);
+            m_engine->main_camera.update_screen_size_with_orthographic_size(_scene_editor_window_width / _scene_editor_window_height);
 
             MELT::Input.MouseWindowPosition.x = ImGui::GetMousePos().x;
             MELT::Input.MouseWindowPosition.y = ImGui::GetMousePos().y;

@@ -65,6 +65,26 @@ CMAKE_BINARY_DIR = "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/buil
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target package
+package: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool..."
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && /opt/homebrew/bin/cpack --config ./CPackConfig.cmake
+.PHONY : package
+
+# Special rule for the target package
+package/fast: package
+.PHONY : package/fast
+
+# Special rule for the target package_source
+package_source:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool for source..."
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && /opt/homebrew/bin/cpack --config ./CPackSourceConfig.cmake /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/build/CPackSourceConfig.cmake
+.PHONY : package_source
+
+# Special rule for the target package_source
+package_source/fast: package_source
+.PHONY : package_source/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
@@ -84,6 +104,51 @@ rebuild_cache:
 # Special rule for the target rebuild_cache
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\" \"headers\" \"pkgconfig\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/opt/homebrew/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/opt/homebrew/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/opt/homebrew/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/opt/homebrew/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/opt/homebrew/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/opt/homebrew/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -145,6 +210,30 @@ cmake_pch.hxx.i:
 cmake_pch.hxx.s:
 	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.s
 .PHONY : cmake_pch.hxx.s
+
+src/Animation/Bone.o: src/Animation/Bone.cpp.o
+.PHONY : src/Animation/Bone.o
+
+# target to build an object file
+src/Animation/Bone.cpp.o:
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.o
+.PHONY : src/Animation/Bone.cpp.o
+
+src/Animation/Bone.i: src/Animation/Bone.cpp.i
+.PHONY : src/Animation/Bone.i
+
+# target to preprocess a source file
+src/Animation/Bone.cpp.i:
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.i
+.PHONY : src/Animation/Bone.cpp.i
+
+src/Animation/Bone.s: src/Animation/Bone.cpp.s
+.PHONY : src/Animation/Bone.s
+
+# target to generate assembly for a file
+src/Animation/Bone.cpp.s:
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.s
+.PHONY : src/Animation/Bone.cpp.s
 
 src/AssetRegistry.o: src/AssetRegistry.cpp.o
 .PHONY : src/AssetRegistry.o
@@ -337,6 +426,30 @@ src/Components/NodeEditor.s: src/Components/NodeEditor.cpp.s
 src/Components/NodeEditor.cpp.s:
 	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Components/NodeEditor.cpp.s
 .PHONY : src/Components/NodeEditor.cpp.s
+
+src/Components/TextRenderer.o: src/Components/TextRenderer.cpp.o
+.PHONY : src/Components/TextRenderer.o
+
+# target to build an object file
+src/Components/TextRenderer.cpp.o:
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.o
+.PHONY : src/Components/TextRenderer.cpp.o
+
+src/Components/TextRenderer.i: src/Components/TextRenderer.cpp.i
+.PHONY : src/Components/TextRenderer.i
+
+# target to preprocess a source file
+src/Components/TextRenderer.cpp.i:
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.i
+.PHONY : src/Components/TextRenderer.cpp.i
+
+src/Components/TextRenderer.s: src/Components/TextRenderer.cpp.s
+.PHONY : src/Components/TextRenderer.s
+
+# target to generate assembly for a file
+src/Components/TextRenderer.cpp.s:
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.s
+.PHONY : src/Components/TextRenderer.cpp.s
 
 src/Components/Transform.o: src/Components/Transform.cpp.o
 .PHONY : src/Components/Transform.o
@@ -1586,6 +1699,30 @@ src/TileSystem/TileGridFixedSize.cpp.s:
 	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/TileSystem/TileGridFixedSize.cpp.s
 .PHONY : src/TileSystem/TileGridFixedSize.cpp.s
 
+src/UI/Text.o: src/UI/Text.cpp.o
+.PHONY : src/UI/Text.o
+
+# target to build an object file
+src/UI/Text.cpp.o:
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.o
+.PHONY : src/UI/Text.cpp.o
+
+src/UI/Text.i: src/UI/Text.cpp.i
+.PHONY : src/UI/Text.i
+
+# target to preprocess a source file
+src/UI/Text.cpp.i:
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.i
+.PHONY : src/UI/Text.cpp.i
+
+src/UI/Text.s: src/UI/Text.cpp.s
+.PHONY : src/UI/Text.s
+
+# target to generate assembly for a file
+src/UI/Text.cpp.s:
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.s
+.PHONY : src/UI/Text.cpp.s
+
 src/UI/UI.o: src/UI/UI.cpp.o
 .PHONY : src/UI/UI.o
 
@@ -1610,29 +1747,29 @@ src/UI/UI.cpp.s:
 	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UI.cpp.s
 .PHONY : src/UI/UI.cpp.s
 
-src/UI/UIManager.o: src/UI/UIManager.cpp.o
-.PHONY : src/UI/UIManager.o
+src/UI/UISystem.o: src/UI/UISystem.cpp.o
+.PHONY : src/UI/UISystem.o
 
 # target to build an object file
-src/UI/UIManager.cpp.o:
-	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.o
-.PHONY : src/UI/UIManager.cpp.o
+src/UI/UISystem.cpp.o:
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.o
+.PHONY : src/UI/UISystem.cpp.o
 
-src/UI/UIManager.i: src/UI/UIManager.cpp.i
-.PHONY : src/UI/UIManager.i
+src/UI/UISystem.i: src/UI/UISystem.cpp.i
+.PHONY : src/UI/UISystem.i
 
 # target to preprocess a source file
-src/UI/UIManager.cpp.i:
-	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.i
-.PHONY : src/UI/UIManager.cpp.i
+src/UI/UISystem.cpp.i:
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.i
+.PHONY : src/UI/UISystem.cpp.i
 
-src/UI/UIManager.s: src/UI/UIManager.cpp.s
-.PHONY : src/UI/UIManager.s
+src/UI/UISystem.s: src/UI/UISystem.cpp.s
+.PHONY : src/UI/UISystem.s
 
 # target to generate assembly for a file
-src/UI/UIManager.cpp.s:
-	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.s
-.PHONY : src/UI/UIManager.cpp.s
+src/UI/UISystem.cpp.s:
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build" && $(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.s
+.PHONY : src/UI/UISystem.cpp.s
 
 src/Vertex.o: src/Vertex.cpp.o
 .PHONY : src/Vertex.o
@@ -1665,11 +1802,20 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
+	@echo "... package"
+	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... MeltEngineLib"
 	@echo "... cmake_pch.hxx.pch"
 	@echo "... cmake_pch.hxx.i"
 	@echo "... cmake_pch.hxx.s"
+	@echo "... src/Animation/Bone.o"
+	@echo "... src/Animation/Bone.i"
+	@echo "... src/Animation/Bone.s"
 	@echo "... src/AssetRegistry.o"
 	@echo "... src/AssetRegistry.i"
 	@echo "... src/AssetRegistry.s"
@@ -1694,6 +1840,9 @@ help:
 	@echo "... src/Components/NodeEditor.o"
 	@echo "... src/Components/NodeEditor.i"
 	@echo "... src/Components/NodeEditor.s"
+	@echo "... src/Components/TextRenderer.o"
+	@echo "... src/Components/TextRenderer.i"
+	@echo "... src/Components/TextRenderer.s"
 	@echo "... src/Components/Transform.o"
 	@echo "... src/Components/Transform.i"
 	@echo "... src/Components/Transform.s"
@@ -1850,12 +1999,15 @@ help:
 	@echo "... src/TileSystem/TileGridFixedSize.o"
 	@echo "... src/TileSystem/TileGridFixedSize.i"
 	@echo "... src/TileSystem/TileGridFixedSize.s"
+	@echo "... src/UI/Text.o"
+	@echo "... src/UI/Text.i"
+	@echo "... src/UI/Text.s"
 	@echo "... src/UI/UI.o"
 	@echo "... src/UI/UI.i"
 	@echo "... src/UI/UI.s"
-	@echo "... src/UI/UIManager.o"
-	@echo "... src/UI/UIManager.i"
-	@echo "... src/UI/UIManager.s"
+	@echo "... src/UI/UISystem.o"
+	@echo "... src/UI/UISystem.i"
+	@echo "... src/UI/UISystem.s"
 	@echo "... src/Vertex.o"
 	@echo "... src/Vertex.i"
 	@echo "... src/Vertex.s"

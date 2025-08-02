@@ -21,6 +21,8 @@
 #include <optional>
 #include <mutex>
 #include <algorithm>
+#include <concepts>
+#include <variant>
 
 #include <dlfcn.h>
 #include <cstdlib>

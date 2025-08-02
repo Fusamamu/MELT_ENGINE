@@ -903,21 +903,21 @@ MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineLib.dir/src/UI/UI.cpp.s"
 	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -S "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/UI/UI.cpp" -o CMakeFiles/MeltEngineLib.dir/src/UI/UI.cpp.s
 
-MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/flags.make
-MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.o: /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/UI/UIManager.cpp
-MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx
-MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch
-MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.o"
-	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -MD -MT MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.o -MF CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.o.d -o CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.o -c "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/UI/UIManager.cpp"
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/flags.make
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.o: /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/UI/UISystem.cpp
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.o"
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -MD -MT MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.o -MF CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.o.d -o CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.o -c "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/UI/UISystem.cpp"
 
-MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.i"
-	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -E "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/UI/UIManager.cpp" > CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.i
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.i"
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -E "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/UI/UISystem.cpp" > CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.i
 
-MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.s"
-	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -S "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/UI/UIManager.cpp" -o CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.s
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.s"
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -S "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/UI/UISystem.cpp" -o CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.s
 
 MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Bounds.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/flags.make
 MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Bounds.cpp.o: /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/Bounds.cpp
@@ -1095,6 +1095,54 @@ MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/TileSystem/TileGridFixedSize.cpp.
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineLib.dir/src/TileSystem/TileGridFixedSize.cpp.s"
 	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -S "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/TileSystem/TileGridFixedSize.cpp" -o CMakeFiles/MeltEngineLib.dir/src/TileSystem/TileGridFixedSize.cpp.s
 
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/flags.make
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.o: /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/Animation/Bone.cpp
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.o"
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -MD -MT MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.o -MF CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.o.d -o CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.o -c "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Animation/Bone.cpp"
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.i"
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -E "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Animation/Bone.cpp" > CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.i
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.s"
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -S "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Animation/Bone.cpp" -o CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.s
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/flags.make
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.o: /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/UI/Text.cpp
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.o"
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -MD -MT MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.o -MF CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.o.d -o CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.o -c "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/UI/Text.cpp"
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.i"
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -E "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/UI/Text.cpp" > CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.i
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.s"
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -S "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/UI/Text.cpp" -o CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.s
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/flags.make
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.o: /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/src/Components/TextRenderer.cpp
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.o: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.o"
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -MD -MT MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.o -MF CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.o.d -o CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.o -c "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Components/TextRenderer.cpp"
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.i"
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -E "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Components/TextRenderer.cpp" > CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.i
+
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.s"
+	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -Winvalid-pch -Xclang -include-pch -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx.pch" -Xclang -include -Xclang "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/CMakeFiles/MeltEngineLib.dir/cmake_pch.hxx" -S "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/src/Components/TextRenderer.cpp" -o CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.s
+
 # Object files for target MeltEngineLib
 MeltEngineLib_OBJECTS = \
 "CMakeFiles/MeltEngineLib.dir/src/Core.cpp.o" \
@@ -1148,7 +1196,7 @@ MeltEngineLib_OBJECTS = \
 "CMakeFiles/MeltEngineLib.dir/src/Logger.cpp.o" \
 "CMakeFiles/MeltEngineLib.dir/src/Serializer.cpp.o" \
 "CMakeFiles/MeltEngineLib.dir/src/UI/UI.cpp.o" \
-"CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.o" \
+"CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.o" \
 "CMakeFiles/MeltEngineLib.dir/src/Bounds.cpp.o" \
 "CMakeFiles/MeltEngineLib.dir/src/Primitive/Line.cpp.o" \
 "CMakeFiles/MeltEngineLib.dir/src/Systems/MovementSystem.cpp.o" \
@@ -1159,7 +1207,10 @@ MeltEngineLib_OBJECTS = \
 "CMakeFiles/MeltEngineLib.dir/src/Renderer/CommandBuffer.cpp.o" \
 "CMakeFiles/MeltEngineLib.dir/src/Renderer/RenderCommand.cpp.o" \
 "CMakeFiles/MeltEngineLib.dir/src/AssetRegistry.cpp.o" \
-"CMakeFiles/MeltEngineLib.dir/src/TileSystem/TileGridFixedSize.cpp.o"
+"CMakeFiles/MeltEngineLib.dir/src/TileSystem/TileGridFixedSize.cpp.o" \
+"CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.o" \
+"CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.o" \
+"CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.o"
 
 # External object files for target MeltEngineLib
 MeltEngineLib_EXTERNAL_OBJECTS =
@@ -1216,7 +1267,7 @@ MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir
 MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Logger.cpp.o
 MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Serializer.cpp.o
 MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UI.cpp.o
-MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UIManager.cpp.o
+MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/UISystem.cpp.o
 MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Bounds.cpp.o
 MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Primitive/Line.cpp.o
 MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Systems/MovementSystem.cpp.o
@@ -1228,15 +1279,23 @@ MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir
 MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Renderer/RenderCommand.cpp.o
 MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/AssetRegistry.cpp.o
 MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/TileSystem/TileGridFixedSize.cpp.o
+MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Animation/Bone.cpp.o
+MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/UI/Text.cpp.o
+MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/src/Components/TextRenderer.cpp.o
 MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make
 MeltEngineLib/libMeltEngineLib.dylib: /Library/Frameworks/SDL2.framework/Versions/A/SDL2
 MeltEngineLib/libMeltEngineLib.dylib: /opt/homebrew/lib/libGLEW.2.2.0.dylib
 MeltEngineLib/libMeltEngineLib.dylib: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/lib/libz.tbd
 MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/vendors/yaml-cpp/libyaml-cpp.a
+MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/vendors/freetype/libfreetype.a
 MeltEngineLib/libMeltEngineLib.dylib: /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/assimp/lib/libassimp.a
 MeltEngineLib/libMeltEngineLib.dylib: /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/spdlog/build/libspdlog.a
+MeltEngineLib/libMeltEngineLib.dylib: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/lib/libbz2.tbd
+MeltEngineLib/libMeltEngineLib.dylib: /opt/homebrew/lib/libpng.dylib
+MeltEngineLib/libMeltEngineLib.dylib: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/lib/libz.tbd
+MeltEngineLib/libMeltEngineLib.dylib: /opt/homebrew/Cellar/brotli/1.1.0/lib/libbrotlidec.dylib
 MeltEngineLib/libMeltEngineLib.dylib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_65) "Linking CXX shared library libMeltEngineLib.dylib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_68) "Linking CXX shared library libMeltEngineLib.dylib"
 	cd "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MeltEngineLib.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

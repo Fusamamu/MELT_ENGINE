@@ -13,6 +13,7 @@
 #include "TileEditor.h"
 #include "SceneViewGUI.h"
 #include "Material.h"
+#include "UISystemGUI.h"
 
 namespace MELT_EDITOR
 {
@@ -51,6 +52,7 @@ namespace MELT_EDITOR
         NodeGraph       node_graph_gui;
         InspectorGUI    inspector_gui;
         TileEditor      system_gui;
+        UISystemGUI     ui_system_gui;
 
         bool SpriteEditorDisplayed;
 

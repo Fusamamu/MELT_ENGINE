@@ -39,7 +39,7 @@ namespace MELT
         return glm::ortho(-ScreenSize.x/2, ScreenSize.x/2, -ScreenSize.y/2, ScreenSize.y/2, near_plane, far_plane);
     }
 
-    void Camera::UpdateScreenSizeWithOrthographicSize(float _screenRatio)
+    void Camera::update_screen_size_with_orthographic_size(float _screenRatio)
     {
         screen_ratio = _screenRatio;
         ScreenSize.y = orthographic_size * 2;

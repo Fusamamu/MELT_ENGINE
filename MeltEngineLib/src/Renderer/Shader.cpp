@@ -147,7 +147,6 @@ namespace MELT
         glUniform3f(m_uniform_loc_light_world_target, _light_world_target.x, _light_world_target.y, _light_world_target.z);
     }
 
-
     void Shader::set_vec3_uniform_camera_world_position(glm::vec3 _cameraWorldPos) const
     {
         //glUniform3f(m_UniformLoc_Color, _cameraWorldPos.x, _cameraWorldPos.y, _cameraWorldPos.x);
@@ -155,7 +154,8 @@ namespace MELT
 
     void Shader::set_uniform(const std::string& _name, int _iv) const
     {
-        glUniform1i(glGetUniformLocation(ID, "u_texture"), _iv); 
+        //glUniform1i(glGetUniformLocation(ID, "u_texture"), _iv);
+        glUniform1i(glGetUniformLocation(ID, _name.c_str()), _iv);
     }
 
     void Shader::set_uniform(const std::string& _name, float _fv) const
@@ -163,9 +163,26 @@ namespace MELT
 
     }
 
+    void Shader::set_uniform(const std::string& _name, M_VEC2 _vec2) const
+    {
+        glUniform2f(glGetUniformLocation(ID, _name.c_str()), _vec2.x, _vec2.y);
+    }
+
     void Shader::set_uniform(const std::string& _name, M_VEC4 _vec4) const
     {
 
+    }
+
+    void Shader::set_uniform(const std::string& _name, glm::mat4 _mat4) const
+    {
+        GLint location = glGetUniformLocation(ID, _name.c_str());
+        if (location == -1)
+        {
+            std::cerr << "Warning: uniform '" << _name << "' not found in shader.\n";
+            return;
+        }
+
+        glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(_mat4));
     }
 
     GLuint Shader::CreateShader(const std::string& _vertex_src, const std::string& _geometry_src, const std::string& _fragment_src)

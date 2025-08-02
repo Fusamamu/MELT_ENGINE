@@ -35,6 +35,7 @@ namespace MELT
         m_depth_shader        = new Shader("../MeltEngineLib/res/shaders/depth.shader"         );
         m_screen_quad_shader  = new Shader("../MeltEngineLib/res/shaders/screen_quad.shader"   );
         m_text_shader         = new Shader("../MeltEngineLib/res/shaders/text.glsl"            );
+        m_ui_shader           = new Shader("../MeltEngineLib/res/shaders/ui.glsl"              );
 
         glm::mat4 _model      = glm::translate(glm::mat4(1.0f), glm::vec3 (0.0f, 0.0f, 0.0f));
         glm::mat4 _view       = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
@@ -127,10 +128,8 @@ namespace MELT
         m_quad_renderer->set_mesh_data(_quad_mesh_data);
         m_quad_renderer->set_buffer_data();
 
-
         m_text_renderer.set_buffer_data();
-
-
+        m_ui_renderer.init();
     }
 
     void RenderPipeline::BeginFrame() const
@@ -261,21 +260,14 @@ namespace MELT
         glUniform1i       (glGetUniformLocation(m_target_shader->ID, "shadow_map"), 1);
         glUniformMatrix4fv(glGetUniformLocation(m_target_shader->ID, "light_space_mat"), 1, GL_FALSE, glm::value_ptr(_light_space));
 
-
-
-
         geometry_pass.execute();
         outline_pass .execute();
-
-
-
-
-
         geometry_pass.end();
 
 
-
+        //Draw UI
         glDisable(GL_DEPTH_TEST);
+
         UI::Text _text;
         _text.x = 100.0f;
         _text.y = 100.0f;
@@ -286,12 +278,14 @@ namespace MELT
         glUniform3f(glGetUniformLocation(m_text_shader->ID, "text_color"), 1.0f, 1.0f, 1.0f);
         glActiveTexture(GL_TEXTURE0);
 
-        glm::mat4 projection = glm::ortho(
-            0.0f,
-            static_cast<float>(editor_scene_frame_buffer.width),
-            static_cast<float>(editor_scene_frame_buffer.height),
-            0.0f);
+        float _height = 900.0f;
+        float _width  = _height * m_engine->main_camera.screen_ratio;
 
+        glm::mat4 projection = glm::ortho(
+          0.0f,
+          _width,
+          _height,
+          0.0f);
 
         m_text_shader->use();
         m_text_shader->set_mat4_uniform_projection(projection);
@@ -301,11 +295,29 @@ namespace MELT
         glBindTexture(GL_TEXTURE_2D, 0);
 
 
+
+
+
+        _working_scene->ui_system.draw_uis();
+
+        for (const UI::Widget_variant_up& _widget : _working_scene->ui_system.m_widgets)
+        {
+            std::visit([&](auto const& _widget)
+            {
+                auto _bound = _widget->bounds;
+
+                m_ui_shader->use();
+                m_ui_shader->set_uniform("u_position", glm::vec2(_bound.x, _bound.y));
+                m_ui_shader->set_uniform("u_size"    , glm::vec2(_bound.w, _bound.h));
+                m_ui_shader->set_uniform("u_proj"    , projection);
+                m_ui_renderer.draw();
+
+            }, _widget);
+        }
+
+
+
         glEnable(GL_DEPTH_TEST);
-
-
-
-
 
 
         for (auto _entity : _light_view)

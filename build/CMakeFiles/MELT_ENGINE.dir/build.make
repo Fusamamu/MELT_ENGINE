@@ -137,6 +137,11 @@ MELT_ENGINE: /Library/Frameworks/SDL2.framework/Versions/A/SDL2
 MELT_ENGINE: /opt/homebrew/lib/libGLEW.2.2.0.dylib
 MELT_ENGINE: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/lib/libz.tbd
 MELT_ENGINE: MeltEngineLib/vendors/yaml-cpp/libyaml-cpp.a
+MELT_ENGINE: MeltEngineLib/vendors/freetype/libfreetype.a
+MELT_ENGINE: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/lib/libbz2.tbd
+MELT_ENGINE: /opt/homebrew/lib/libpng.dylib
+MELT_ENGINE: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/lib/libz.tbd
+MELT_ENGINE: /opt/homebrew/Cellar/brotli/1.1.0/lib/libbrotlidec.dylib
 MELT_ENGINE: /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/assimp/lib/libassimp.a
 MELT_ENGINE: /Users/sukumduangpattra/Desktop/Game\ Engine/MELT_ENGINE/MeltEngineLib/vendors/spdlog/build/libspdlog.a
 MELT_ENGINE: MeltEngineEditorLib/vendors/nativefiledialog-extended/src/libnfd.a

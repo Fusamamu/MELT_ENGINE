@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.27)
 project(MeltEngineEditorLib)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(IMGUI_INCLUDE  ./vendors/imgui)
 set(IMGUI_BACKENDS ./vendors/imgui/backends)
@@ -27,7 +28,9 @@ add_library(${PROJECT_NAME} STATIC
         ${IMGUI_BACKENDS}/imgui_impl_opengl3.cpp
         ${IMGUIZMOS_SRCS}
         src/GUI.cpp
-        src/GUI.h)
+        src/GUI.h
+        src/UISystemGUI.cpp
+        src/UISystemGUI.h)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC ./src/EditorCore.h)
 

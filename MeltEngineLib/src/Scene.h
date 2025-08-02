@@ -4,8 +4,10 @@
 #include "Core.h"
 #include "Node.h"
 
+#include "UISystem.h"
 #include "MovementSystem.h"
 #include "NodeEditor.h"
+#include "UISystem.h"
 
 namespace MELT
 {
@@ -20,6 +22,7 @@ namespace MELT
         std::optional<NodeID> selected_node_id;
 
         entt::registry ecs_registry;
+        UISystem       ui_system;
 
         Scene()
         {

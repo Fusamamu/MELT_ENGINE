@@ -12,6 +12,7 @@
 //Text
 #include "Text.h"
 #include "TextRenderer.h"
+#include "UIRenderer.h"
 
 namespace MELT
 {
@@ -116,6 +117,7 @@ namespace MELT
         Shader* m_depth_shader       ;
         Shader* m_screen_quad_shader ;
         Shader* m_text_shader        ;
+        Shader* m_ui_shader          ;
 
         SDL_Window* mp_window;
         GLbitfield m_clearBuffers;
@@ -124,5 +126,6 @@ namespace MELT
 
         //Text
         TextRenderer m_text_renderer;
+        UI::UIRenderer m_ui_renderer;
     };
 }

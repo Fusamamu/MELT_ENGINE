@@ -20,11 +20,26 @@ APPKIT_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/Mac
 //Path to a library.
 ASSIMP_PATH:FILEPATH=/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/assimp/lib/libassimp.a
 
+//Path to a file.
+BROTLIDEC_INCLUDE_DIRS:PATH=/opt/homebrew/Cellar/brotli/1.1.0/include
+
+//Path to a library.
+BROTLIDEC_LIBRARIES:FILEPATH=/opt/homebrew/Cellar/brotli/1.1.0/lib/libbrotlidec.dylib
+
 //Build a shared library instead of static
 BUILD_SHARED_LIBS:BOOL=OFF
 
 //Build the testing tree.
 BUILD_TESTING:BOOL=ON
+
+//Path to a file.
+BZIP2_INCLUDE_DIR:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include
+
+//Path to a library.
+BZIP2_LIBRARY_DEBUG:FILEPATH=BZIP2_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+BZIP2_LIBRARY_RELEASE:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/lib/libbz2.tbd
 
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=CMAKE_ADDR2LINE-NOTFOUND
@@ -301,6 +316,24 @@ COVERAGE_COMMAND:FILEPATH=/usr/bin/gcov
 //Extra command line flags to pass to the coverage tool
 COVERAGE_EXTRA_FLAGS:STRING=-l
 
+//Enable to build RPM source packages
+CPACK_SOURCE_RPM:BOOL=OFF
+
+//Enable to build TBZ2 source packages
+CPACK_SOURCE_TBZ2:BOOL=ON
+
+//Enable to build TGZ source packages
+CPACK_SOURCE_TGZ:BOOL=ON
+
+//Enable to build TXZ source packages
+CPACK_SOURCE_TXZ:BOOL=ON
+
+//Enable to build TZ source packages
+CPACK_SOURCE_TZ:BOOL=ON
+
+//Enable to build ZIP source packages
+CPACK_SOURCE_ZIP:BOOL=OFF
+
 //How many times to retry timed-out CTest submissions.
 CTEST_SUBMIT_RETRY_COUNT:STRING=3
 
@@ -349,6 +382,43 @@ EnTT_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
 EnTT_SOURCE_DIR:STATIC=/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/entt
+
+//Disable support of compressed WOFF2 fonts.
+FT_DISABLE_BROTLI:BOOL=OFF
+
+//Disable support of bzip2 compressed fonts.
+FT_DISABLE_BZIP2:BOOL=OFF
+
+//Disable HarfBuzz (used for improving auto-hinting of OpenType
+// fonts).
+FT_DISABLE_HARFBUZZ:BOOL=OFF
+
+//Disable support of PNG compressed OpenType embedded bitmaps.
+FT_DISABLE_PNG:BOOL=OFF
+
+//Disable use of system zlib and use internal zlib library instead.
+FT_DISABLE_ZLIB:BOOL=OFF
+
+//Load HarfBuzz library dynamically at runtime, if possible.
+FT_DYNAMIC_HARFBUZZ:BOOL=ON
+
+//Enable support for meaningful error descriptions.
+FT_ENABLE_ERROR_STRINGS:BOOL=OFF
+
+//Require support of compressed WOFF2 fonts.
+FT_REQUIRE_BROTLI:BOOL=OFF
+
+//Require support of bzip2 compressed fonts.
+FT_REQUIRE_BZIP2:BOOL=OFF
+
+//Require HarfBuzz for improving auto-hinting of OpenType fonts.
+FT_REQUIRE_HARFBUZZ:BOOL=OFF
+
+//Require support of PNG compressed OpenType embedded bitmaps.
+FT_REQUIRE_PNG:BOOL=OFF
+
+//Require system zlib instead of internal zlib library.
+FT_REQUIRE_ZLIB:BOOL=OFF
 
 //Path to a program.
 GITCOMMAND:FILEPATH=/usr/bin/git
@@ -428,6 +498,21 @@ OPENGL_gl_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/
 //OpenGL GLU library
 OPENGL_glu_LIBRARY:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/System/Library/Frameworks/OpenGL.framework
 
+//Arguments to supply to pkg-config
+PKG_CONFIG_ARGN:STRING=
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/opt/homebrew/bin/pkg-config
+
+//Path to a library.
+PNG_LIBRARY_DEBUG:FILEPATH=PNG_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+PNG_LIBRARY_RELEASE:FILEPATH=/opt/homebrew/lib/libpng.dylib
+
+//Path to a file.
+PNG_PNG_INCLUDE_DIR:PATH=/opt/homebrew/include
+
 //The directory containing a CMake configuration file for SDL2.
 SDL2_DIR:PATH=/Library/Frameworks/SDL2.framework/Resources/CMake
 
@@ -485,6 +570,15 @@ ZLIB_LIBRARY_DEBUG:FILEPATH=ZLIB_LIBRARY_DEBUG-NOTFOUND
 //Path to a library.
 ZLIB_LIBRARY_RELEASE:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/lib/libz.tbd
 
+//Value Computed by CMake
+freetype_BINARY_DIR:STATIC=/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/MeltEngineLib/vendors/freetype
+
+//Value Computed by CMake
+freetype_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+freetype_SOURCE_DIR:STATIC=/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/MeltEngineLib/vendors/freetype
+
 //The directory containing a CMake configuration file for glm.
 glm_DIR:PATH=/opt/homebrew/share/glm
 
@@ -500,11 +594,29 @@ nativefiledialog-extended_SOURCE_DIR:STATIC=/Users/sukumduangpattra/Desktop/Game
 //Dependencies for the target
 nfd_LIB_DEPENDS:STATIC=general;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/System/Library/Frameworks/AppKit.framework;general;/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/System/Library/Frameworks/UniformTypeIdentifiers.framework;
 
+//Path to a library.
+pkgcfg_lib_PC_BROTLIDEC_brotlidec:FILEPATH=/opt/homebrew/Cellar/brotli/1.1.0/lib/libbrotlidec.dylib
+
+//Path to a library.
+pkgcfg_lib_PC_BZIP2_bz2:FILEPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/lib/libbz2.tbd
+
 
 ########################
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: BROTLIDEC_INCLUDE_DIRS
+BROTLIDEC_INCLUDE_DIRS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BROTLIDEC_LIBRARIES
+BROTLIDEC_LIBRARIES-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BZIP2_INCLUDE_DIR
+BZIP2_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BZIP2_LIBRARY_DEBUG
+BZIP2_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: BZIP2_LIBRARY_RELEASE
+BZIP2_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//Have symbol BZ2_bzCompressInit
+BZIP2_NEED_PREFIX:INTERNAL=1
 //ADVANCED property for variable: CMAKE_ADDR2LINE
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
@@ -633,7 +745,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=9
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -682,16 +794,36 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 COVERAGE_COMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: COVERAGE_EXTRA_FLAGS
 COVERAGE_EXTRA_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_RPM
+CPACK_SOURCE_RPM-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_TBZ2
+CPACK_SOURCE_TBZ2-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_TGZ
+CPACK_SOURCE_TGZ-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_TXZ
+CPACK_SOURCE_TXZ-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_TZ
+CPACK_SOURCE_TZ-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CPACK_SOURCE_ZIP
+CPACK_SOURCE_ZIP-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CTEST_SUBMIT_RETRY_COUNT
 CTEST_SUBMIT_RETRY_COUNT-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CTEST_SUBMIT_RETRY_DELAY
 CTEST_SUBMIT_RETRY_DELAY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: DART_TESTING_TIMEOUT
 DART_TESTING_TIMEOUT-ADVANCED:INTERNAL=1
+//Details about finding BZip2
+FIND_PACKAGE_MESSAGE_DETAILS_BZip2:INTERNAL=[/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/lib/libbz2.tbd][/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include][v1.0.8()]
+//Details about finding BrotliDec
+FIND_PACKAGE_MESSAGE_DETAILS_BrotliDec:INTERNAL=[/opt/homebrew/Cellar/brotli/1.1.0/include][/opt/homebrew/Cellar/brotli/1.1.0/lib/libbrotlidec.dylib][v1.1.0()]
 //Details about finding GLEW
 FIND_PACKAGE_MESSAGE_DETAILS_GLEW:INTERNAL=[/opt/homebrew/lib/cmake/glew/glew-config.cmake][v()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/System/Library/Frameworks/OpenGL.framework][/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/System/Library/Frameworks/OpenGL.framework][c ][v()]
+//Details about finding PNG
+FIND_PACKAGE_MESSAGE_DETAILS_PNG:INTERNAL=[/opt/homebrew/lib/libpng.dylib][/opt/homebrew/include][v1.6.47()]
+//Details about finding PkgConfig
+FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/opt/homebrew/bin/pkg-config][v2.4.3()]
 //Details about finding ZLIB
 FIND_PACKAGE_MESSAGE_DETAILS_ZLIB:INTERNAL=[/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/lib/libz.tbd][/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.4.sdk/usr/include][c ][v1.2.12()]
 //ADVANCED property for variable: GITCOMMAND
@@ -700,6 +832,12 @@ GITCOMMAND-ADVANCED:INTERNAL=1
 GLEW_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GLEW_LIBRARY_RELEASE
 GLEW_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//Have symbol dlopen
+HAVE_DLOPEN_IN_LIBC:INTERNAL=1
+//Have include fcntl.h
+HAVE_FCNTL_H:INTERNAL=1
+//Have include unistd.h
+HAVE_UNISTD_H:INTERNAL=1
 //ADVANCED property for variable: MAKECOMMAND
 MAKECOMMAND-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: MEMORYCHECK_COMMAND
@@ -716,6 +854,86 @@ OPENGL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_glu_LIBRARY
 OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
+PC_BROTLIDEC_CFLAGS:INTERNAL=-I/opt/homebrew/Cellar/brotli/1.1.0/include
+PC_BROTLIDEC_CFLAGS_I:INTERNAL=
+PC_BROTLIDEC_CFLAGS_OTHER:INTERNAL=
+PC_BROTLIDEC_FOUND:INTERNAL=1
+PC_BROTLIDEC_INCLUDEDIR:INTERNAL=/opt/homebrew/Cellar/brotli/1.1.0/include
+PC_BROTLIDEC_INCLUDE_DIRS:INTERNAL=/opt/homebrew/Cellar/brotli/1.1.0/include
+PC_BROTLIDEC_LDFLAGS:INTERNAL=-L/opt/homebrew/Cellar/brotli/1.1.0/lib;-lbrotlidec
+PC_BROTLIDEC_LDFLAGS_OTHER:INTERNAL=
+PC_BROTLIDEC_LIBDIR:INTERNAL=/opt/homebrew/Cellar/brotli/1.1.0/lib
+PC_BROTLIDEC_LIBRARIES:INTERNAL=brotlidec
+PC_BROTLIDEC_LIBRARY_DIRS:INTERNAL=/opt/homebrew/Cellar/brotli/1.1.0/lib
+PC_BROTLIDEC_LIBS:INTERNAL=
+PC_BROTLIDEC_LIBS_L:INTERNAL=
+PC_BROTLIDEC_LIBS_OTHER:INTERNAL=
+PC_BROTLIDEC_LIBS_PATHS:INTERNAL=
+PC_BROTLIDEC_MODULE_NAME:INTERNAL=libbrotlidec
+PC_BROTLIDEC_PREFIX:INTERNAL=/opt/homebrew/Cellar/brotli/1.1.0
+PC_BROTLIDEC_STATIC_CFLAGS:INTERNAL=-I/opt/homebrew/Cellar/brotli/1.1.0/include
+PC_BROTLIDEC_STATIC_CFLAGS_I:INTERNAL=
+PC_BROTLIDEC_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_BROTLIDEC_STATIC_INCLUDE_DIRS:INTERNAL=/opt/homebrew/Cellar/brotli/1.1.0/include
+PC_BROTLIDEC_STATIC_LDFLAGS:INTERNAL=-L/opt/homebrew/Cellar/brotli/1.1.0/lib;-lbrotlidec;-lbrotlicommon
+PC_BROTLIDEC_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_BROTLIDEC_STATIC_LIBDIR:INTERNAL=
+PC_BROTLIDEC_STATIC_LIBRARIES:INTERNAL=brotlidec;brotlicommon
+PC_BROTLIDEC_STATIC_LIBRARY_DIRS:INTERNAL=/opt/homebrew/Cellar/brotli/1.1.0/lib
+PC_BROTLIDEC_STATIC_LIBS:INTERNAL=
+PC_BROTLIDEC_STATIC_LIBS_L:INTERNAL=
+PC_BROTLIDEC_STATIC_LIBS_OTHER:INTERNAL=
+PC_BROTLIDEC_STATIC_LIBS_PATHS:INTERNAL=
+PC_BROTLIDEC_VERSION:INTERNAL=1.1.0
+PC_BROTLIDEC_libbrotlidec_INCLUDEDIR:INTERNAL=
+PC_BROTLIDEC_libbrotlidec_LIBDIR:INTERNAL=
+PC_BROTLIDEC_libbrotlidec_PREFIX:INTERNAL=
+PC_BROTLIDEC_libbrotlidec_VERSION:INTERNAL=
+PC_BZIP2_CFLAGS:INTERNAL=
+PC_BZIP2_CFLAGS_I:INTERNAL=
+PC_BZIP2_CFLAGS_OTHER:INTERNAL=
+PC_BZIP2_FOUND:INTERNAL=1
+PC_BZIP2_INCLUDEDIR:INTERNAL=/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr/include
+PC_BZIP2_INCLUDE_DIRS:INTERNAL=
+PC_BZIP2_LDFLAGS:INTERNAL=-L/usr/lib;-lbz2
+PC_BZIP2_LDFLAGS_OTHER:INTERNAL=
+PC_BZIP2_LIBDIR:INTERNAL=/usr/lib
+PC_BZIP2_LIBRARIES:INTERNAL=bz2
+PC_BZIP2_LIBRARY_DIRS:INTERNAL=/usr/lib
+PC_BZIP2_LIBS:INTERNAL=
+PC_BZIP2_LIBS_L:INTERNAL=
+PC_BZIP2_LIBS_OTHER:INTERNAL=
+PC_BZIP2_LIBS_PATHS:INTERNAL=
+PC_BZIP2_MODULE_NAME:INTERNAL=bzip2
+PC_BZIP2_PREFIX:INTERNAL=/Library/Developer/CommandLineTools/SDKs/MacOSX15.sdk/usr
+PC_BZIP2_STATIC_CFLAGS:INTERNAL=
+PC_BZIP2_STATIC_CFLAGS_I:INTERNAL=
+PC_BZIP2_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_BZIP2_STATIC_INCLUDE_DIRS:INTERNAL=
+PC_BZIP2_STATIC_LDFLAGS:INTERNAL=-L/usr/lib;-lbz2
+PC_BZIP2_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_BZIP2_STATIC_LIBDIR:INTERNAL=
+PC_BZIP2_STATIC_LIBRARIES:INTERNAL=bz2
+PC_BZIP2_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib
+PC_BZIP2_STATIC_LIBS:INTERNAL=
+PC_BZIP2_STATIC_LIBS_L:INTERNAL=
+PC_BZIP2_STATIC_LIBS_OTHER:INTERNAL=
+PC_BZIP2_STATIC_LIBS_PATHS:INTERNAL=
+PC_BZIP2_VERSION:INTERNAL=1.0.8
+PC_BZIP2_bzip2_INCLUDEDIR:INTERNAL=
+PC_BZIP2_bzip2_LIBDIR:INTERNAL=
+PC_BZIP2_bzip2_PREFIX:INTERNAL=
+PC_BZIP2_bzip2_VERSION:INTERNAL=
+//ADVANCED property for variable: PKG_CONFIG_ARGN
+PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PNG_LIBRARY_DEBUG
+PNG_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PNG_LIBRARY_RELEASE
+PNG_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PNG_PNG_INCLUDE_DIR
+PNG_PNG_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SITE
 SITE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ZLIB_INCLUDE_DIR
@@ -726,4 +944,13 @@ ZLIB_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 ZLIB_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/usr/local
+__pkg_config_arguments_PC_BROTLIDEC:INTERNAL=QUIET;libbrotlidec
+__pkg_config_arguments_PC_BZIP2:INTERNAL=bzip2
+__pkg_config_checked_PC_BROTLIDEC:INTERNAL=1
+__pkg_config_checked_PC_BZIP2:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_BROTLIDEC_brotlidec
+pkgcfg_lib_PC_BROTLIDEC_brotlidec-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_BZIP2_bz2
+pkgcfg_lib_PC_BZIP2_bz2-ADVANCED:INTERNAL=1
+prefix_result:INTERNAL=/opt/homebrew/Cellar/brotli/1.1.0/lib
 

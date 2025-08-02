@@ -152,23 +152,27 @@ MeltEngineEditorLib/vendors/nativefiledialog-extended/src/clean: MeltEngineEdito
 MeltEngineLib/all: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all
 MeltEngineLib/all: MeltEngineLib/vendors/yaml-cpp/all
 MeltEngineLib/all: MeltEngineLib/vendors/entt/all
+MeltEngineLib/all: MeltEngineLib/vendors/freetype/all
 .PHONY : MeltEngineLib/all
 
 # Recursive "codegen" directory target.
 MeltEngineLib/codegen: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/codegen
 MeltEngineLib/codegen: MeltEngineLib/vendors/yaml-cpp/codegen
 MeltEngineLib/codegen: MeltEngineLib/vendors/entt/codegen
+MeltEngineLib/codegen: MeltEngineLib/vendors/freetype/codegen
 .PHONY : MeltEngineLib/codegen
 
 # Recursive "preinstall" directory target.
 MeltEngineLib/preinstall: MeltEngineLib/vendors/yaml-cpp/preinstall
 MeltEngineLib/preinstall: MeltEngineLib/vendors/entt/preinstall
+MeltEngineLib/preinstall: MeltEngineLib/vendors/freetype/preinstall
 .PHONY : MeltEngineLib/preinstall
 
 # Recursive "clean" directory target.
 MeltEngineLib/clean: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/clean
 MeltEngineLib/clean: MeltEngineLib/vendors/yaml-cpp/clean
 MeltEngineLib/clean: MeltEngineLib/vendors/entt/clean
+MeltEngineLib/clean: MeltEngineLib/vendors/freetype/clean
 .PHONY : MeltEngineLib/clean
 
 #=============================================================================
@@ -189,6 +193,25 @@ MeltEngineLib/vendors/entt/preinstall:
 # Recursive "clean" directory target.
 MeltEngineLib/vendors/entt/clean:
 .PHONY : MeltEngineLib/vendors/entt/clean
+
+#=============================================================================
+# Directory level rules for directory MeltEngineLib/vendors/freetype
+
+# Recursive "all" directory target.
+MeltEngineLib/vendors/freetype/all: MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/all
+.PHONY : MeltEngineLib/vendors/freetype/all
+
+# Recursive "codegen" directory target.
+MeltEngineLib/vendors/freetype/codegen: MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/codegen
+.PHONY : MeltEngineLib/vendors/freetype/codegen
+
+# Recursive "preinstall" directory target.
+MeltEngineLib/vendors/freetype/preinstall:
+.PHONY : MeltEngineLib/vendors/freetype/preinstall
+
+# Recursive "clean" directory target.
+MeltEngineLib/vendors/freetype/clean: MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/clean
+.PHONY : MeltEngineLib/vendors/freetype/clean
 
 #=============================================================================
 # Directory level rules for directory MeltEngineLib/vendors/yaml-cpp
@@ -271,6 +294,7 @@ MeltEngineLib/vendors/yaml-cpp/util/clean: MeltEngineLib/vendors/yaml-cpp/util/C
 # All Build rule for target.
 CMakeFiles/MELT_ENGINE.dir/all: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all
 CMakeFiles/MELT_ENGINE.dir/all: MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/all
+CMakeFiles/MELT_ENGINE.dir/all: MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/all
 CMakeFiles/MELT_ENGINE.dir/all: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/all
 CMakeFiles/MELT_ENGINE.dir/all: MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MELT_ENGINE.dir/build.make CMakeFiles/MELT_ENGINE.dir/depend
@@ -280,7 +304,7 @@ CMakeFiles/MELT_ENGINE.dir/all: MeltEngineEditorLib/vendors/nativefiledialog-ext
 
 # Build rule for subdir invocation for target.
 CMakeFiles/MELT_ENGINE.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 95
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 96
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/MELT_ENGINE.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 0
 .PHONY : CMakeFiles/MELT_ENGINE.dir/rule
@@ -305,14 +329,15 @@ CMakeFiles/MELT_ENGINE.dir/clean:
 
 # All Build rule for target.
 MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all: MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/all
+MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all: MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/all
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/depend
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70 "Built target MeltEngineLib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54 "Built target MeltEngineLib"
 .PHONY : MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all
 
 # Build rule for subdir invocation for target.
 MeltEngineLib/CMakeFiles/MeltEngineLib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 72
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 78
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 0
 .PHONY : MeltEngineLib/CMakeFiles/MeltEngineLib.dir/rule
@@ -324,7 +349,7 @@ MeltEngineLib: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/rule
 # codegen rule for target.
 MeltEngineLib/CMakeFiles/MeltEngineLib.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/CMakeFiles/MeltEngineLib.dir/build.make MeltEngineLib/CMakeFiles/MeltEngineLib.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70 "Finished codegen for target MeltEngineLib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54 "Finished codegen for target MeltEngineLib"
 .PHONY : MeltEngineLib/CMakeFiles/MeltEngineLib.dir/codegen
 
 # clean rule for target.
@@ -1235,12 +1260,12 @@ MeltEngineLib/vendors/yaml-cpp/CMakeFiles/ContinuousSubmit.dir/clean:
 MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/all:
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/build.make MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/depend
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/build.make MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95 "Built target yaml-cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96 "Built target yaml-cpp"
 .PHONY : MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/all
 
 # Build rule for subdir invocation for target.
 MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 24
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 0
 .PHONY : MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/rule
@@ -1252,7 +1277,7 @@ yaml-cpp: MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/rule
 # codegen rule for target.
 MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/build.make MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95 "Finished codegen for target yaml-cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96 "Finished codegen for target yaml-cpp"
 .PHONY : MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/codegen
 
 # clean rule for target.
@@ -1272,7 +1297,7 @@ MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-sandbox.dir/all: MeltEng
 
 # Build rule for subdir invocation for target.
 MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-sandbox.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 26
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 19
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-sandbox.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 0
 .PHONY : MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-sandbox.dir/rule
@@ -1299,12 +1324,12 @@ MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-sandbox.dir/clean:
 MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/all: MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/all
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/build.make MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/depend
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/build.make MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=96,97 "Built target yaml-cpp-parse"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=97 "Built target yaml-cpp-parse"
 .PHONY : MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/all
 
 # Build rule for subdir invocation for target.
 MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 26
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 18
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 0
 .PHONY : MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/rule
@@ -1316,7 +1341,7 @@ yaml-cpp-parse: MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.di
 # codegen rule for target.
 MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/build.make MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=96,97 "Finished codegen for target yaml-cpp-parse"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=97 "Finished codegen for target yaml-cpp-parse"
 .PHONY : MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-parse.dir/codegen
 
 # clean rule for target.
@@ -1336,7 +1361,7 @@ MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-read.dir/all: MeltEngine
 
 # Build rule for subdir invocation for target.
 MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-read.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 25
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 18
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-read.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 0
 .PHONY : MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-read.dir/rule
@@ -1357,20 +1382,53 @@ MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-read.dir/clean:
 .PHONY : MeltEngineLib/vendors/yaml-cpp/util/CMakeFiles/yaml-cpp-read.dir/clean
 
 #=============================================================================
+# Target rules for target MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir
+
+# All Build rule for target.
+MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/all:
+	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/build.make MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/depend
+	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/build.make MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77 "Built target freetype"
+.PHONY : MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/all
+
+# Build rule for subdir invocation for target.
+MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 23
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 0
+.PHONY : MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/rule
+
+# Convenience name for target.
+freetype: MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/rule
+.PHONY : freetype
+
+# codegen rule for target.
+MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/build.make MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77 "Finished codegen for target freetype"
+.PHONY : MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/codegen
+
+# clean rule for target.
+MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/clean:
+	$(MAKE) $(MAKESILENT) -f MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/build.make MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/clean
+.PHONY : MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/clean
+
+#=============================================================================
 # Target rules for target MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir
 
 # All Build rule for target.
 MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/all: MeltEngineLib/CMakeFiles/MeltEngineLib.dir/all
 MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/all: MeltEngineLib/vendors/yaml-cpp/CMakeFiles/yaml-cpp.dir/all
+MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/all: MeltEngineLib/vendors/freetype/CMakeFiles/freetype.dir/all
 MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/all: MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/all
 	$(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/depend
 	$(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 "Built target MeltEngineEditorLib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=3,4,5,6,7,8,9,10,11,12,13,14,15,16 "Built target MeltEngineEditorLib"
 .PHONY : MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/all
 
 # Build rule for subdir invocation for target.
 MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 93
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 94
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 0
 .PHONY : MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/rule
@@ -1382,7 +1440,7 @@ MeltEngineEditorLib: MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/rule
 # codegen rule for target.
 MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/build.make MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22 "Finished codegen for target MeltEngineEditorLib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=3,4,5,6,7,8,9,10,11,12,13,14,15,16 "Finished codegen for target MeltEngineEditorLib"
 .PHONY : MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/codegen
 
 # clean rule for target.
@@ -1397,12 +1455,12 @@ MeltEngineEditorLib/CMakeFiles/MeltEngineEditorLib.dir/clean:
 MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/all:
 	$(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/build.make MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/depend
 	$(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/build.make MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=71 "Built target nfd"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=78,79 "Built target nfd"
 .PHONY : MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/all
 
 # Build rule for subdir invocation for target.
 MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 1
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" 0
 .PHONY : MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/rule
@@ -1414,7 +1472,7 @@ nfd: MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.di
 # codegen rule for target.
 MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/build.make MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=71 "Finished codegen for target nfd"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="/Users/sukumduangpattra/Desktop/Game Engine/MELT_ENGINE/build/CMakeFiles" --progress-num=78,79 "Finished codegen for target nfd"
 .PHONY : MeltEngineEditorLib/vendors/nativefiledialog-extended/src/CMakeFiles/nfd.dir/codegen
 
 # clean rule for target.

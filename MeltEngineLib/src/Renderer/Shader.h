@@ -38,9 +38,11 @@ namespace MELT
         void set_vec3_uniform_camera_world_position (glm::vec3 _cameraWorldPos     ) const;
         void set_float_uniform_object_shininess     (float _shininess) const;
 
-        void set_uniform(const std::string& _name, int    _iv  ) const;
-        void set_uniform(const std::string& _name, float  _fv  ) const;
-        void set_uniform(const std::string& _name, M_VEC4 _vec4) const;
+        void set_uniform(const std::string& _name, int       _iv  ) const;
+        void set_uniform(const std::string& _name, float     _fv  ) const;
+        void set_uniform(const std::string& _name, M_VEC2    _vec2) const;
+        void set_uniform(const std::string& _name, M_VEC4    _vec4) const;
+        void set_uniform(const std::string& _name, glm::mat4 _mat4) const;
 
         friend std::ostream& operator<<(std::ostream& _os, Shader& _shader)
         {
