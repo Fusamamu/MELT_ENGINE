@@ -17,6 +17,13 @@ namespace MELT
 
         uint32_t idx, idy, idz;
         std::array<entt::entity, 8> volume_point_refs; // -ZX, -Z-X
+
+        void set_idx(M_VEC3_I _index)
+        {
+            idx = _index.x;
+            idy = _index.y;
+            idz = _index.z;
+        }
     };
 
     struct VolumePoint
@@ -62,54 +69,6 @@ namespace MELT
         Tile m_data[W][H][D] = { };
     };
 
-    class Grid
-    {
-    public:
-        size_t width, height, depth;
-
-        Grid(size_t w, size_t h, size_t d)
-            : width(w), height(h), depth(d), m_data(w * h * d)
-        {
-
-        }
-
-        ~Grid() = default;
-
-        void init()
-        {
-        }
-
-        [[nodiscard]] bool is_valid_at(int32_t x, int32_t y, int32_t z) const {
-            return x >= 0 && x < static_cast<int32_t>(width) &&
-                   y >= 0 && y < static_cast<int32_t>(height) &&
-                   z >= 0 && z < static_cast<int32_t>(depth);
-        }
-
-        entt::entity& at(size_t x, size_t y, size_t z) {
-            return m_data[index(x, y, z)];
-        }
-
-        [[nodiscard]] const entt::entity& at(size_t x, size_t y, size_t z) const {
-            return m_data[index(x, y, z)];
-        }
-
-    private:
-        std::vector<entt::entity> m_data;
-
-        [[nodiscard]] size_t index(size_t x, size_t y, size_t z) const {
-            if (x >= width || y >= height || z >= depth)
-                throw std::out_of_range("TileGrid::index out of range");
-            return x + y * width + z * width * height;
-        }
-    };
-
-    struct BlockTileGrid{
-        Grid grid;
-    };
-
-    struct VolumeNodeGrid{
-        Grid grid;
-    };
 
     struct TileNode
     {
@@ -135,7 +94,7 @@ namespace MELT
     };
 
     inline float heuristic(int x1, int y1, int x2, int y2);
-    std::vector<TileNode> find_path(entt::registry& _registry, Grid& _grid, int start_x, int start_y, int end_x, int end_y, int z_layer = 0);
+    // std::vector<TileNode> find_path(entt::registry& _registry, Grid& _grid, int start_x, int start_y, int end_x, int end_y, int z_layer = 0);
 }
 
 #endif

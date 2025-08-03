@@ -42,6 +42,12 @@ namespace MELT
         default_cube.mesh = new Mesh(_cube.get_mesh());
         mesh_data_table.try_emplace(default_cube.name, default_cube);
 
+        AssetMetadata _asset_metadata;
+        _asset_metadata.name = default_cube.name;
+        _asset_metadata.path = "";
+        _asset_metadata.uuid = default_cube.mesh->gen_uuid();
+        AssetRegistry::instance().register_asset<Mesh>(_asset_metadata, default_cube.mesh);
+
         Quad _quad;
         default_quad.name = "default_quad";
         default_quad.mesh = new Mesh(_quad.get_mesh());

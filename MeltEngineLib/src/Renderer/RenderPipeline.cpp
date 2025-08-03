@@ -202,6 +202,7 @@ namespace MELT
             }
         }
 
+        /*-------------------------------*/
         depth_frame_buffer.bind();
         glViewport(0, 0, 2048, 2048);
         glClear(GL_DEPTH_BUFFER_BIT);
@@ -251,7 +252,9 @@ namespace MELT
         editor_scene_frame_buffer.bind();
         glViewport(0, 0, editor_scene_frame_buffer.width, editor_scene_frame_buffer.height);
 
-        geometry_pass.begin();
+        //geometry_pass.begin();
+        glClearColor(clear_color.r, clear_color.g, clear_color.b, clear_color.a);
+        glClear     (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
         m_target_shader->use();
         glActiveTexture(GL_TEXTURE1);

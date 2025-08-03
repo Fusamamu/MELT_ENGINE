@@ -191,32 +191,32 @@ namespace MELT
             main_camera.Target   -= main_camera.Up * 0.5f;
         }
 
-        Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
-        auto _view = _working_scene->ecs_registry.view<Transform, NodeEditor>();
-
-        float _closestDistance = FLT_MAX;
-        Ray _ray = RayCast::screen_to_world_ray(InputSystem::Instance().MouseScreenPosition, main_camera);
-
-        for (auto _entity : _view)
-        {
-            auto& _transform = _working_scene->ecs_registry.get<Transform >(_entity);
-            auto& _node      = _working_scene->ecs_registry.get<NodeEditor>(_entity);
-
-            //Need to check against aabb
-            auto _minBounds = _transform.position + glm::vec3(-0.5, -0.5, -0.5);
-            auto _maxBounds = _transform.position + glm::vec3( 0.5,  0.5,  0.5);
-
-            if (RayCast::RayIntersectsAABB(_ray.origin, _ray.direction, _minBounds, _maxBounds))
-            {
-                float _distance = glm::distance(_ray.origin, _transform.position);
-                if (_distance < _closestDistance)
-                {
-                    _closestDistance = _distance;
-                    Logger.log(_node.id);
-                    break;
-                }
-            }
-        }
+        // Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
+        // auto _view = _working_scene->ecs_registry.view<Transform, NodeEditor>();
+        //
+        // float _closestDistance = FLT_MAX;
+        // Ray _ray = RayCast::screen_to_world_ray(InputSystem::Instance().MouseScreenPosition, main_camera);
+        //
+        // for (auto _entity : _view)
+        // {
+        //     auto& _transform = _working_scene->ecs_registry.get<Transform >(_entity);
+        //     auto& _node      = _working_scene->ecs_registry.get<NodeEditor>(_entity);
+        //
+        //     //Need to check against aabb
+        //     auto _minBounds = _transform.position + glm::vec3(-0.5, -0.5, -0.5);
+        //     auto _maxBounds = _transform.position + glm::vec3( 0.5,  0.5,  0.5);
+        //
+        //     if (RayCast::RayIntersectsAABB(_ray.origin, _ray.direction, _minBounds, _maxBounds))
+        //     {
+        //         float _distance = glm::distance(_ray.origin, _transform.position);
+        //         if (_distance < _closestDistance)
+        //         {
+        //             _closestDistance = _distance;
+        //             Logger.log(_node.id);
+        //             break;
+        //         }
+        //     }
+        // }
     }
 
     void Engine::update_logic()

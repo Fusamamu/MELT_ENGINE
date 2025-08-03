@@ -1,5 +1,5 @@
-#ifndef APPLICATIONSTATE_H
-#define APPLICATIONSTATE_H
+#ifndef APPLICATION_STATE_H
+#define APPLICATION_STATE_H
 
 #include "Core.h"
 
@@ -41,6 +41,25 @@ namespace MELT_EDITOR
         void render() override;
     };
 
+    class TileEditorMode : public ApplicationMode
+    {
+    public:
+        enum class EDIT_MODE
+        {
+            ADD_TILE = 0,
+            REMOVE_TILE,
+            PLACE_TIE
+        };
+
+        EDIT_MODE edit_mode = EDIT_MODE::ADD_TILE;
+
+        TileEditorMode(Editor* _editor): ApplicationMode(_editor) { }
+        void on_enter() override;
+        void on_exit() override;
+        void update(float dt) override;
+        void render() override;
+    };
+
     class ApplicationModeManager
     {
     public:
@@ -63,6 +82,16 @@ namespace MELT_EDITOR
             static_assert(std::is_base_of<ApplicationMode, T>::value, "T must be derived from ApplicationMode");
             std::type_index index(typeid(T));
             m_mode_table.try_emplace(index, std::make_unique<T>(std::forward<Args>(_args)...));
+        }
+
+        template<typename T>
+        T& get_state()
+        {
+            std::type_index _index(typeid(T));
+            if (m_mode_table.find(_index) != m_mode_table.end())
+                return *static_cast<T*>(m_mode_table[_index].get());
+
+            throw std::runtime_error("State type not found");
         }
 
         template<typename T>

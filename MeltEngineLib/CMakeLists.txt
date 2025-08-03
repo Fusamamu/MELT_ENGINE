@@ -102,6 +102,9 @@ add_library(${PROJECT_NAME} SHARED
         src/Components/TextRenderer.h
         src/UI/UIRenderer.cpp
         src/UI/UIRenderer.h
+        src/TileSystem/Grid.cpp
+        src/TileSystem/Grid.h
+        src/Components/Components.h
 )
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/Core.h)

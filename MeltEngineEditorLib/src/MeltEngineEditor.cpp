@@ -83,8 +83,9 @@ namespace MELT_EDITOR
 
         NFD_Init();
 
-        application_mode_manager.add_state<EditorMode>  (this);
-        application_mode_manager.add_state<GameplayMode>(this);
+        application_mode_manager.add_state<EditorMode>    (this);
+        application_mode_manager.add_state<TileEditorMode>(this);
+        application_mode_manager.add_state<GameplayMode>  (this);
         application_mode_manager.set_initial_state<EditorMode>();
     }
 

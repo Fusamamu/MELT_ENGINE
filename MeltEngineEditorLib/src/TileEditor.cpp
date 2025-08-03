@@ -16,9 +16,44 @@ namespace MELT_EDITOR
 
     void TileEditor::draw_gui()
     {
+        TileEditorMode& _tile_editor_mode = m_editor->application_mode_manager.get_state<TileEditorMode>();
+
         ImGui::PushStyleColor(ImGuiCol_WindowBg, IM_COL32(26, 28, 27, 255));
         if (ImGui::Begin("Tile Editor"))
         {
+            ImGui::PushStyleColor(ImGuiCol_Button, use_edit_mode ? ImVec4(0.2f, 0.7f, 0.2f, 1.0f) : ImVec4(0.7f, 0.2f, 0.2f, 1.0f));
+            if (ImGui::Button(use_edit_mode ? "EDIT ON" : "EDIT OFF"))
+            {
+                use_edit_mode = !use_edit_mode;
+                if (use_edit_mode)
+                {
+                    m_engine->manager_registry.get<MELT::RenderPipeline>()->clear_color = glm::vec4(0.30f, 0.34f, 0.36f, 1.0f);
+                    m_editor->application_mode_manager.change_state<TileEditorMode>();
+                }
+                else
+                {
+                    m_engine->manager_registry.get<MELT::RenderPipeline>()->clear_color = glm::vec4(222.0f/255.0f, 217.0f/255.0f, 226.0f/255.0f, 33.0f/255.0f);
+                    m_editor->application_mode_manager.change_state<EditorMode>();
+                }
+            }
+            ImGui::PopStyleColor();
+
+            for (int i = 0; i < 3; ++i) {
+                if (i > 0)
+                    ImGui::SameLine();
+
+                if (i == current_selection)
+                    ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.2f, 0.6f, 0.9f, 1.0f)); // Active
+                else
+                    ImGui::PushStyleColor(ImGuiCol_Button, ImVec4(0.3f, 0.3f, 0.3f, 1.0f)); // Inactive
+
+                if (ImGui::Button(m_options[i]))
+                    current_selection = i;
+
+                ImGui::PopStyleColor();
+            }
+
+
             ImGui::InputInt("Column" , &column);
             ImGui::InputInt("Row"    , &row);
             ImGui::InputInt("Height" , &height);
@@ -43,11 +78,11 @@ namespace MELT_EDITOR
                     for (std::size_t _j = 0; _j < row; ++_j)
                     {
                         MELT::Node& _node = _scene_manager->working_scene->create_node("Entity");
-                        _node.add_component<MELT::Transform>();
+                        _node.add_component<MELT::Transform   >();
                         _node.add_component<MELT::MeshRenderer>();
-                        _node.add_component<MELT::BoxCollider>();
-                        _node.add_component<MELT::NodeEditor>();
-                        _node.add_component<MELT::Tile>();
+                        _node.add_component<MELT::BoxCollider >();
+                        _node.add_component<MELT::Tile        >();
+                        _node.add_component<MELT::NodeEditor  >();
 
                         MELT::Transform& _transform = _node.get_component<MELT::Transform>();
 
@@ -67,9 +102,11 @@ namespace MELT_EDITOR
                         _tile.idy = 0;
                         _tile.idz = _j;
 
+                        //Will remove this
                         tile_ids.push_back(_node.id);//need to remove this
 
-                        _block_tile.grid.at(_i, 0, _j) = _node.get_entity();
+
+                        _block_tile.grid.add_node_at(_node.get_entity(), _i, 0, _j);
                     }
                 }
             }

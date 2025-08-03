@@ -4,7 +4,7 @@
 #include "Core.h"
 #include "Transform.h"
 #include "Light.h"
-#include "TileGridFixedSize.h"
+#include "Grid.h"
 
 namespace MELT
 {

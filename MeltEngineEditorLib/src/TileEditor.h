@@ -20,6 +20,11 @@ namespace MELT_EDITOR
         int height = 1;
 
         std::vector<MELT::NodeID> tile_ids;
+
+        bool use_edit_mode;
+
+        int current_selection = 0;
+        const char* m_options[3] = { "Add", "Remove", "Place" };
     };
 }
 
