@@ -8,7 +8,7 @@ namespace MELT
 
     class Scene;
 
-    class Node
+    class SceneNode
     {
     public:
         NodeID id;
@@ -16,10 +16,10 @@ namespace MELT
 
         bool is_selected;
 
-        Node(const std::string& _name, Scene* _scene_owner, entt::entity _entity);
-        Node(std::string _name, M_VEC3 _position);
-        Node();
-        ~Node();
+        SceneNode(const std::string& _name, Scene* _scene_owner, entt::entity _entity);
+        SceneNode(std::string _name, M_VEC3 _position);
+        SceneNode();
+        ~SceneNode();
 
         [[nodiscard]]
         entt::entity get_entity() const {

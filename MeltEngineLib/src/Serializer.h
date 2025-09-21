@@ -64,7 +64,7 @@ namespace YAML
         static Node encode(const MELT::MeshRenderer& _mesh_renderer)
         {
             Node _node;
-            _node["mesh data name"] = _mesh_renderer.mesh_data->name;
+            //_node["mesh data name"] = _mesh_renderer.mesh_data->name;
             return _node;
         }
 

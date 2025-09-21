@@ -42,7 +42,7 @@ namespace MELT_EDITOR
         unsigned int ChildBackground_Color = IM_COL32(26, 28, 27, 255);
 
         MELT::Scene* _working_scene = m_engine->manager_registry.get<MELT::SceneManager>()->working_scene;
-        MELT::Node * _selected_node = _working_scene->get_selected_node();
+        MELT::SceneNode * _selected_node = _working_scene->get_selected_node();
 
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
@@ -274,7 +274,7 @@ namespace MELT_EDITOR
     void InspectorGUI::draw_renderer_component_panel(MELT::MeshRenderer& _renderer)
     {
         MELT::Scene* _working_scene = m_engine->manager_registry.get<MELT::SceneManager>()->working_scene;
-        MELT::Node * _selected_node = _working_scene->get_selected_node();
+        MELT::SceneNode * _selected_node = _working_scene->get_selected_node();
 
         if (ImGui::CollapsingHeader("Renderer Component", ImGuiTreeNodeFlags_DefaultOpen))
         {
@@ -296,10 +296,10 @@ namespace MELT_EDITOR
 
                     ImGui::Text("vertices");
                     ImGui::SameLine(120.0f);
-                    ImGui::Text(std::to_string(_renderer.mesh_data->mesh->vertex_buffer.size()).c_str());
+                    ImGui::Text(std::to_string(_renderer.mesh->vertex_buffer.size()).c_str());
                     ImGui::Text("indices");
                     ImGui::SameLine(120.0f);
-                    ImGui::Text(std::to_string(_renderer.mesh_data->mesh->index_buffer.size()).c_str());
+                    ImGui::Text(std::to_string(_renderer.mesh->index_buffer.size()).c_str());
 
                 ImGui::PopStyleColor();
                 ImGui::Unindent();
@@ -420,7 +420,7 @@ namespace MELT_EDITOR
     void InspectorGUI::draw_box_collider_component_panel(MELT::BoxCollider& _box_collider)
     {
         MELT::Scene* _working_scene = m_engine->manager_registry.get<MELT::SceneManager>()->working_scene;
-        MELT::Node * _selected_node = _working_scene->get_selected_node();
+        MELT::SceneNode * _selected_node = _working_scene->get_selected_node();
 
         if (ImGui::CollapsingHeader("Box Collider 3D Component", ImGuiTreeNodeFlags_DefaultOpen))
         {
@@ -542,7 +542,7 @@ namespace MELT_EDITOR
     void InspectorGUI::draw_camera_component_panel(MELT::Camera &_camera)
     {
         MELT::Scene* _working_scene = m_engine->manager_registry.get<MELT::SceneManager>()->working_scene;
-        MELT::Node * _selected_node = _working_scene->get_selected_node();
+        MELT::SceneNode * _selected_node = _working_scene->get_selected_node();
 
         if (ImGui::CollapsingHeader("Camera", ImGuiTreeNodeFlags_DefaultOpen))
         {
@@ -587,7 +587,7 @@ namespace MELT_EDITOR
     void InspectorGUI::draw_light_component_panel(MELT::Light &_light)
     {
         MELT::Scene* _working_scene = m_engine->manager_registry.get<MELT::SceneManager>()->working_scene;
-        MELT::Node * _selected_node = _working_scene->get_selected_node();
+        MELT::SceneNode * _selected_node = _working_scene->get_selected_node();
 
         if (ImGui::CollapsingHeader("Light", ImGuiTreeNodeFlags_DefaultOpen))
         {
@@ -631,7 +631,7 @@ namespace MELT_EDITOR
     void InspectorGUI::draw_tile_component_panel(MELT::Tile & _tile)
     {
         MELT::Scene* _working_scene = m_engine->manager_registry.get<MELT::SceneManager>()->working_scene;
-        MELT::Node * _selected_node = _working_scene->get_selected_node();
+        MELT::SceneNode * _selected_node = _working_scene->get_selected_node();
 
         if (ImGui::CollapsingHeader("Tile", ImGuiTreeNodeFlags_DefaultOpen))
         {

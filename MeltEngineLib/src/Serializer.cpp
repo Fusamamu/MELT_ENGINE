@@ -61,7 +61,7 @@ namespace MELT
                 std::string _uuid = _node["uuid"].as<std::string>();
 
                 // Create node (you might have a function like this)
-                Node& _new_node = _scene.create_node(_name);
+                SceneNode& _new_node = _scene.create_node(_name);
                 _new_node.id = _uuid;
 
                 // Get entity from node and attach Transform

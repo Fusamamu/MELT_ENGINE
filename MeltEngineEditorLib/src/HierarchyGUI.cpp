@@ -128,7 +128,7 @@ namespace MELT_EDITOR
         ImGui::PopStyleColor();
     }
 
-    void HierarchyGUI::draw_node(MELT::Node& _node)
+    void HierarchyGUI::draw_node(MELT::SceneNode& _node)
     {
         MELT::Scene* _working_scene = m_engine->manager_registry.get<MELT::SceneManager>()->working_scene;
 
@@ -171,7 +171,7 @@ namespace MELT_EDITOR
         {
             for (auto _node_id : _node.get_children())
             {
-                MELT::Node* _child_node = _working_scene->resolve_node_id(_node_id);
+                MELT::SceneNode* _child_node = _working_scene->resolve_node_id(_node_id);
                 draw_node(*_child_node);
             }
             ImGui::TreePop();

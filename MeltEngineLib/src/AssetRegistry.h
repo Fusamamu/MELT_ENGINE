@@ -111,6 +111,43 @@ namespace MELT
             return nullptr;
         }
 
+#pragma region Handle
+        template<typename T>
+        AssetHandle<T> get_handle_by_name(const std::string& name)
+        {
+            const auto& meta_table = get_metadata_table<T>();
+            for (const auto& [uuid, meta] : meta_table)
+            {
+                if (meta.name == name)
+                    return AssetHandle<T>{ uuid };
+            }
+            return {};
+        }
+
+        template<typename T>
+        AssetHandle<T> get_handle_by_path(const std::string& path)
+        {
+            const auto& meta_table = get_metadata_table<T>();
+            for (const auto& [uuid, meta] : meta_table)
+            {
+                if (meta.path == path)
+                    return AssetHandle<T>{ uuid };
+            }
+            return {};
+        }
+
+        template<typename T>
+        std::vector<AssetHandle<T>> get_all_handles()
+        {
+            std::vector<AssetHandle<T>> handles;
+            const auto& meta_table = get_metadata_table<T>();
+            for (const auto& [uuid, _] : meta_table)
+                handles.emplace_back(AssetHandle<T>{ uuid });
+            return handles;
+        }
+#pragma endregion
+
+
         template<typename T>
         void rename_asset(const UUID& uuid, const std::string& new_name)
         {

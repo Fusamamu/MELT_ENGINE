@@ -6,8 +6,6 @@ namespace MELT
 {
     struct Mesh
     {
-        //std::string name;
-
         std::vector<uint8_t> vertex_buffer;
         std::vector<unsigned int> index_buffer;
 
@@ -21,6 +19,7 @@ namespace MELT
         }
     };
 
+    //Will remove this
     struct MeshData
     {
         UUID uuid;

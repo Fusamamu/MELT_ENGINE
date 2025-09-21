@@ -11,7 +11,7 @@ namespace MELT_EDITOR
         HierarchyGUI();
         void init(Editor* _editor);
         void draw_gui();
-        void draw_node(MELT::Node& _node);
+        void draw_node(MELT::SceneNode& _node);
     private:
         Editor*       m_editor;
         MELT::Engine* m_engine;

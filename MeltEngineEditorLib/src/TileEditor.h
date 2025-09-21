@@ -19,7 +19,7 @@ namespace MELT_EDITOR
         int row    = 10;
         int height = 1;
 
-        std::vector<MELT::NodeID> tile_ids;
+        //std::vector<MELT::NodeID> tile_ids;
 
         bool use_edit_mode;
 

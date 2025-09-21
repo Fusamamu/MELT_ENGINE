@@ -107,31 +107,58 @@ namespace MELT_EDITOR
         editor_owner->engine->update_editor_logic();
 
         MELT::Scene* _working_scene = editor_owner->engine->manager_registry.get<MELT::SceneManager>()->working_scene;
-        auto _view = _working_scene->ecs_registry.view<MELT::Transform, MELT::NodeEditor>();
+        auto _view = _working_scene->ecs_registry.view<MELT::Transform, MELT::Tile, MELT::NodeEditor>();
 
-        float _closestDistance = FLT_MAX;
-        MELT::Ray _ray = MELT::RayCast::screen_to_world_ray(MELT::InputSystem::Instance().MouseScreenPosition, editor_owner->engine->main_camera);
 
-        for (auto _entity : _view)
+
+
+        if(MELT::Input.IsMouseButtonPressed(SDL_BUTTON_LEFT))
         {
-            auto& _transform = _working_scene->ecs_registry.get<MELT::Transform >(_entity);
-            auto& _node      = _working_scene->ecs_registry.get<MELT::NodeEditor>(_entity);
+            float _closestDistance = FLT_MAX;
+            MELT::Ray _ray = MELT::RayCast::screen_to_world_ray(MELT::InputSystem::Instance().MouseScreenPosition, editor_owner->engine->main_camera);
 
-            //Need to check against aabb
-            auto _minBounds = _transform.position + glm::vec3(-0.5, -0.5, -0.5);
-            auto _maxBounds = _transform.position + glm::vec3( 0.5,  0.5,  0.5);
-
-            if (MELT::RayCast::RayIntersectsAABB(_ray.origin, _ray.direction, _minBounds, _maxBounds))
+            for (auto _entity : _view)
             {
-                float _distance = glm::distance(_ray.origin, _transform.position);
-                if (_distance < _closestDistance)
+                auto& _transform = _working_scene->ecs_registry.get<MELT::Transform >(_entity);
+                auto& _tile      = _working_scene->ecs_registry.get<MELT::Tile      >(_entity);
+                auto& _node      = _working_scene->ecs_registry.get<MELT::NodeEditor>(_entity);
+
+                //Need to check against aabb
+                auto _minBounds = _transform.position + M_VEC3(-0.5, -0.5, -0.5);
+                auto _maxBounds = _transform.position + M_VEC3( 0.5,  0.5,  0.5);
+
+                if (MELT::RayCast::RayIntersectsAABB(_ray.origin, _ray.direction, _minBounds, _maxBounds))
                 {
-                    _closestDistance = _distance;
-                    editor_owner->engine->Logger.log(_node.id);
-                    break;
+                    float _distance = glm::distance(_ray.origin, _transform.position);
+                    if (_distance < _closestDistance)
+                    {
+                        _closestDistance = _distance;
+
+
+                        auto& _ctx = _working_scene->ecs_registry.ctx();
+                        if (_ctx.contains<MELT::BlockTileGrid>())
+                        {
+                            auto& _block_tile = _ctx.get<MELT::BlockTileGrid>();
+
+                            MELT::SceneNode& _node = _working_scene->create_node("Entity");
+
+                            M_VEC3 _position = _transform.position;
+                            _position.y += 1.0f;
+                            _block_tile.grid.build_default(_node, _position, M_VEC3_I(_tile.idx, _tile.idy + 1, _tile.idz));
+                            _block_tile.grid.add_node_at  (_node, _tile.idx, _tile.idy + 1, _tile.idz);
+                        }
+
+
+
+
+
+                        editor_owner->engine->Logger.log(_node.id);
+                        break;
+                    }
                 }
             }
         }
+
 
         switch (edit_mode)
         {

@@ -34,15 +34,15 @@ namespace MELT
         void update();
         void quit();
 
-        std::vector<Node>& get_all_nodes(){ return m_nodes; }
-        [[nodiscard]] const std::vector<Node>& get_all_nodes() const { return m_nodes; }
+        std::vector<SceneNode>& get_all_nodes(){ return m_nodes; }
+        [[nodiscard]] const std::vector<SceneNode>& get_all_nodes() const { return m_nodes; }
 
-        Node& create_node(const std::string& _name);
-        void destroy_node(const Node& _node);
+        SceneNode& create_node(const std::string& _name);
+        void destroy_node(const SceneNode& _node);
         void destroy_node_by_id(NodeID _id);
 
         template<typename T, typename... Args>
-        Node& create_node_with_type(const std::string& _name, Args&&... _args)
+        SceneNode& create_node_with_type(const std::string& _name, Args&&... _args)
         {
             entt::entity _entity = ecs_registry.create();
             ecs_registry.emplace<T>(_entity, std::forward<Args>(_args)...);
@@ -50,7 +50,7 @@ namespace MELT
             return m_nodes.back();
         }
 
-        Node* get_node(const NodeID& _node_id)
+        SceneNode* get_node(const NodeID& _node_id)
         {
             for (auto& _node : m_nodes)
                 if (_node.id == _node_id)
@@ -58,7 +58,7 @@ namespace MELT
             return nullptr;
         }
 
-        Node* get_selected_node()
+        SceneNode* get_selected_node()
         {
             if (selected_node_id.has_value())
                 return get_node(selected_node_id.value());
@@ -68,7 +68,7 @@ namespace MELT
         void select_node_id(const NodeID& _node_id)
         {
             selected_node_id = _node_id;
-            Node* _selected_node = resolve_node_id(_node_id);
+            SceneNode* _selected_node = resolve_node_id(_node_id);
             if (_selected_node)
                 _selected_node->on_get_selected();
         }
@@ -82,7 +82,7 @@ namespace MELT
         void deselect_node_id(const NodeID& _node_id)
         {
             selected_node_id.reset();
-            Node* _selected_node = resolve_node_id(_node_id);
+            SceneNode* _selected_node = resolve_node_id(_node_id);
             if (_selected_node)
                 _selected_node->on_get_deselected();
         }
@@ -91,7 +91,7 @@ namespace MELT
         {
             if (selected_node_id.has_value())
             {
-                Node* _selected_node = resolve_node_id(selected_node_id.value());
+                SceneNode* _selected_node = resolve_node_id(selected_node_id.value());
                 if (_selected_node)
                     _selected_node->on_get_deselected();
                 selected_node_id.reset();
@@ -101,7 +101,7 @@ namespace MELT
                 _node.on_get_deselected();
         }
 
-        Node* resolve_node_id(const NodeID& _node_id)
+        SceneNode* resolve_node_id(const NodeID& _node_id)
         {
             for (auto& _node : m_nodes)
                 if (_node.id == _node_id)
@@ -121,31 +121,31 @@ namespace MELT
             return false;
         }
     private:
-        std::vector<Node> m_nodes;
+        std::vector<SceneNode> m_nodes;
 
         MovementSystem m_movement_system;
     };
 
     template<typename T, typename... Args>
-    T& Node::add_component(Args&&... _args){
+    T& SceneNode::add_component(Args&&... _args){
         return m_scene_owner->ecs_registry.emplace<T>(m_entity_handle, std::forward<Args>(_args)...);
     }
     template<typename T>
-    void Node::remove_component() {
+    void SceneNode::remove_component() {
         m_scene_owner->ecs_registry.remove<T>(m_entity_handle);
     }
     template<typename T>
-    T& Node::get_component(){
+    T& SceneNode::get_component(){
         return m_scene_owner->ecs_registry.get<T>(m_entity_handle);
     }
 
     template<typename T>
-    T* Node::try_get_component() {
+    T* SceneNode::try_get_component() {
         return m_scene_owner->ecs_registry.try_get<T>(m_entity_handle);
     }
 
     template<typename T>
-    bool Node::has_component() const {
+    bool SceneNode::has_component() const {
         return m_scene_owner->ecs_registry.all_of<T>(m_entity_handle);
     }
 }

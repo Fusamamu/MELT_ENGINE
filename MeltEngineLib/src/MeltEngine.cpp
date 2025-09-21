@@ -110,31 +110,10 @@ namespace MELT
 
     void Engine::update()
     {
-        // glEnable(GL_DEPTH_TEST);//Will remove this
-        // while(m_is_running)
-        // {
-        //     update_input ();
-        //     update_logic ();
-        //     update_render();
-        //     gEventManager.DispatchEvents();
-        //     SDL_Delay(16);
-        // }
     }
 
     void Engine::update_input()
     {
-        // Input.ClearInput();
-        // while(SDL_PollEvent(&m_event))
-        // {
-        //     Input.Update(m_event);
-        //     switch(m_event.type)
-        //     {
-        //         case SDL_QUIT:
-        //             m_is_running = false;
-        //             break;
-        //     }
-        // }
-        // Input.CheckMouseHoldStates();
     }
 
     void Engine::update_editor_logic()
@@ -190,33 +169,6 @@ namespace MELT
             main_camera.position -= main_camera.Up * 0.5f;
             main_camera.Target   -= main_camera.Up * 0.5f;
         }
-
-        // Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
-        // auto _view = _working_scene->ecs_registry.view<Transform, NodeEditor>();
-        //
-        // float _closestDistance = FLT_MAX;
-        // Ray _ray = RayCast::screen_to_world_ray(InputSystem::Instance().MouseScreenPosition, main_camera);
-        //
-        // for (auto _entity : _view)
-        // {
-        //     auto& _transform = _working_scene->ecs_registry.get<Transform >(_entity);
-        //     auto& _node      = _working_scene->ecs_registry.get<NodeEditor>(_entity);
-        //
-        //     //Need to check against aabb
-        //     auto _minBounds = _transform.position + glm::vec3(-0.5, -0.5, -0.5);
-        //     auto _maxBounds = _transform.position + glm::vec3( 0.5,  0.5,  0.5);
-        //
-        //     if (RayCast::RayIntersectsAABB(_ray.origin, _ray.direction, _minBounds, _maxBounds))
-        //     {
-        //         float _distance = glm::distance(_ray.origin, _transform.position);
-        //         if (_distance < _closestDistance)
-        //         {
-        //             _closestDistance = _distance;
-        //             Logger.log(_node.id);
-        //             break;
-        //         }
-        //     }
-        // }
     }
 
     void Engine::update_logic()
@@ -226,10 +178,6 @@ namespace MELT
 
     void Engine::update_render()
     {
-        // std::shared_ptr<RenderPipeline> _render_pipeline = manager_registry.get<RenderPipeline>();;
-        // _render_pipeline->BeginFrame();
-        // _render_pipeline->Render(0.0f);
-        // _render_pipeline->EndFrame();
     }
 
     void Engine::begin_frame()
@@ -263,19 +211,16 @@ namespace MELT
 
         Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
 
-        Node& _node = _working_scene->create_node("Entity");
-        _node.add_component<Transform>   ();
-        _node.add_component<MeshRenderer>();
-        _node.add_component<BoxCollider> ();
-        _node.add_component<NodeEditor>  ();
+        SceneNode& _node = _working_scene->create_node("Entity");
 
-        MeshRenderer& _mesh_renderer = _node.get_component<MeshRenderer>();
-        _mesh_renderer.set_mesh_data       (&_resource_manager->default_cube);
-        _mesh_renderer.set_buffer_data     ();
-        _mesh_renderer.set_material_by_uuid(AssetRegistry::instance().get_meta_by_name<GRAPHIC::Material>("new_default_material").uuid, true);
+        auto& _transform     = _node.add_component<Transform>   ();
+        auto& _mesh_renderer = _node.add_component<MeshRenderer>();
+        auto& _box_collider  = _node.add_component<BoxCollider> ();
+        auto& _node_editor   = _node.add_component<NodeEditor>  ();
 
-        NodeEditor& _node_editor = _node.get_component<NodeEditor>();
         _node_editor.id = _node.id;
+        _mesh_renderer.load_mesh_handle    (AssetRegistry::instance().get_handle_by_name<Mesh>             ("default_cube"        ));
+        _mesh_renderer.load_material_handle(AssetRegistry::instance().get_handle_by_name<GRAPHIC::Material>("new_default_material"));
 
         Logger.log("Create cube node");
     }
@@ -286,7 +231,7 @@ namespace MELT
 
         Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
 
-        Node& _node = _working_scene->create_node("Entity");
+        SceneNode& _node = _working_scene->create_node("Entity");
         _node.add_component<Transform>();
         _node.add_component<MeshRenderer>();
         _node.add_component<BoxCollider>();
@@ -309,7 +254,7 @@ namespace MELT
 
         Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
 
-        Node& _node = _working_scene->create_node("Camera");
+        SceneNode& _node = _working_scene->create_node("Camera");
         _node.add_component<Transform>();
         _node.add_component<Camera>();
         _node.add_component<Gizmos>(Gizmos::Type::CAMERA);
@@ -327,7 +272,7 @@ namespace MELT
 
         Scene* _working_scene = manager_registry.get<SceneManager>()->working_scene;
 
-        Node& _node = _working_scene->create_node("Light");
+        SceneNode& _node = _working_scene->create_node("Light");
         _node.add_component<Transform>();
         _node.add_component<Light>();
         _node.add_component<Gizmos>(Gizmos::Type::LIGHT);
